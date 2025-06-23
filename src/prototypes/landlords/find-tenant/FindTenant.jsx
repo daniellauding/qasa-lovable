@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card, { CreateTenantProfileCard, TenantCard, LandlordCTACard } from '../../../components/ui/Card';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
 // Base tenant data (dynamic descriptions based on language)
@@ -233,9 +233,9 @@ const FindTenant = ({ isFluid = false }) => {
           <Typography variant="title-lg" className="mb-2">
             {t('findTenant.title')}
           </Typography>
-          <Typography variant="body-lg" className="text-gray-70">
+          {/* <Typography variant="body-lg" className="text-gray-70">
             {t('findTenant.subtitle')}
-          </Typography>
+          </Typography> */}
         </div>
 
         {/* Landlord CTA Card - Own Row */}
@@ -256,7 +256,7 @@ const FindTenant = ({ isFluid = false }) => {
 
         {/* Tenant Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-          {currentItems.map((item) => (
+          {currentItems.map(item => (
             <div key={item.id} className="h-full">
               {item.component}
             </div>
@@ -266,23 +266,22 @@ const FindTenant = ({ isFluid = false }) => {
         {/* Pagination */}
         <div className="flex items-center justify-center space-x-4">
           <Button
-            variant="secondary"
-            size="md"
+            iconOnly
+            variant="transparent"
+            size="xs"
+            icon={<ArrowLeftIcon className="h-5 w-5" />}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
-          >
-            <ChevronLeftIcon className="h-5 w-5 mr-2" />
-            {t('common.previous')}
-          </Button>
+          />
 
           <div className="flex items-center space-x-2">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
               <button
                 key={page}
                 onClick={() => setCurrentPage(page)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                className={`h-8 w-8 text-sm font-medium rounded-full transition-colors ${
                   page === currentPage
-                    ? 'bg-ui-pink text-white'
+                    ? 'bg-ui-pink text-black'
                     : 'text-gray-70 hover:text-gray-90 hover:bg-gray-20'
                 }`}
               >
@@ -292,14 +291,13 @@ const FindTenant = ({ isFluid = false }) => {
           </div>
 
           <Button
-            variant="secondary"
-            size="md"
+            iconOnly
+            variant="transparent"
+            size="xs"
+            icon={<ArrowRightIcon className="h-5 w-5" />}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
-          >
-            {t('common.next')}
-            <ChevronRightIcon className="h-5 w-5 ml-2" />
-          </Button>
+          />
         </div>
       </main>
     </div>

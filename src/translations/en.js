@@ -69,7 +69,7 @@ export const en = {
 
   // Find Tenant Page
   findTenant: {
-    title: 'Find your ideal tenant',
+    title: 'Find your tenant',
     subtitle: 'Browse verified tenant profiles and connect with quality renters',
     tenantCount: '{count} tenants in Sweden',
     landlordCTA: {

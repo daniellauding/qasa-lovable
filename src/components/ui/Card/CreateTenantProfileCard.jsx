@@ -22,18 +22,18 @@ const CreateTenantProfileCard = ({
   return (
     <Card 
       variant="create-profile" 
-      className={`bg-ui-pink-dark text-white p-8 text-center ${className}`}
+      className={`bg-ui-pink-dark text-white p-8 text-center border-0 ${className}`}
       {...props}
     >
       <div className="mb-6">
         <TenantCatIcon />
       </div>
       
-      <Typography variant="title-xs" className="mb-4 text-white">
+      <Typography variant="title-md" className="mb-4 text-black text-left">
         {title}
       </Typography>
       
-      <Typography variant="body-md" className="mb-6 text-white">
+      <Typography variant="body-md" className="mb-6 text-black text-left">
         {description}
       </Typography>
       
@@ -41,7 +41,7 @@ const CreateTenantProfileCard = ({
         variant="secondary"
         size="md"
         onClick={onButtonClick}
-        className="bg-brown text-white hover:bg-brown-light"
+        className="bg-brown text-white hover:bg-brown-light mt-auto w-fit"
       >
         {buttonText}
       </Button>

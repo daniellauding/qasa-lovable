@@ -1,5 +1,5 @@
 import Button from '../../components/ui/Button';
-import { ChevronRightIcon, ChevronLeftIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon, ChevronLeftIcon, PlusIcon, XMarkIcon, HeartIcon, ShareIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
 
 export default {
   title: 'UI/Button',
@@ -27,6 +27,9 @@ export default {
       control: 'boolean',
     },
     fullWidth: {
+      control: 'boolean',
+    },
+    iconOnly: {
       control: 'boolean',
     },
   },
@@ -88,6 +91,43 @@ export const WithIcons = {
         <Button icon={<PlusIcon className="w-4 h-4" />} iconPosition="left" variant="secondary">
           Add Item
         </Button>
+      </div>
+    </div>
+  ),
+};
+
+export const IconOnly = {
+  render: () => (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-sm font-medium mb-3">Icon-Only Variants</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" />
+          <Button iconOnly icon={<XMarkIcon className="w-5 h-5" />} variant="secondary" />
+          <Button iconOnly icon={<HeartIcon className="w-5 h-5" />} variant="tertiary" />
+          <Button iconOnly icon={<ShareIcon className="w-5 h-5" />} variant="transparent" />
+        </div>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">Icon-Only Sizes (All Rounded Full)</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly icon={<EllipsisHorizontalIcon className="w-3 h-3" />} size="xs" variant="primary" />
+          <Button iconOnly icon={<EllipsisHorizontalIcon className="w-4 h-4" />} size="sm" variant="primary" />
+          <Button iconOnly icon={<EllipsisHorizontalIcon className="w-5 h-5" />} size="md" variant="primary" />
+          <Button iconOnly icon={<EllipsisHorizontalIcon className="w-6 h-6" />} size="lg" variant="primary" />
+          <Button iconOnly icon={<EllipsisHorizontalIcon className="w-7 h-7" />} size="xl" variant="primary" />
+        </div>
+        <div className="text-xs text-gray-60 mt-2">
+          XS: 32×32px • SM: 40×40px • MD: 48×48px • LG: 56×56px • XL: 64×64px
+        </div>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">Icon-Only States</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" />
+          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" disabled />
+          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" loading />
+        </div>
       </div>
     </div>
   ),

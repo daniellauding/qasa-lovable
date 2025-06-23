@@ -12,28 +12,24 @@ const LandlordCTACard = ({
   ...props 
 }) => {
   return (
-    <Card 
-      className={`bg-gray-10 border border-gray-30 hover:border-gray-40 transition-colors cursor-pointer group ${className}`}
+    <Card
+      className={`bg-gray-10 rounded-[16px] p-[16px] border border-gray-30 hover:border-gray-40 transition-colors cursor-pointer group w-fit ${className}`}
       onClick={onClick}
       {...props}
     >
-      <div className="flex items-center justify-between p-6">
+      <div className="flex items-center justify-between p-0">
         <div className="flex-1">
-          <Typography 
-            variant="title-xs" 
-            className="text-gray-90 mb-1"
-          >
+          <Typography variant="title-2xs" className="text-gray-90">
             {title}
           </Typography>
-          <Typography 
-            variant="body-md" 
-            className="text-gray-70"
-          >
+          <Typography variant="body-md" className="text-gray-70">
             {description}
           </Typography>
         </div>
-        <div className="ml-4 flex-shrink-0">
-          <ArrowRightIcon className="h-6 w-6 text-gray-60 group-hover:text-gray-90 transition-colors" />
+        <div
+          className="ml-4 flex-shrink-0 rounded-full h-12 w-12 align-center justify-center flex items-center bg-bg-brand-tertiary text-text-on-brand-tertiary hover:bg-bg-brand-tertiary-hover focus:bg-bg-brand-tertiary-focus focus:scale-95 disabled:bg-loading disabled:text-white"
+        >
+          <ArrowRightIcon className="h-5 w-5 text-black group-hover:text-gray-90 transition-colors" />
         </div>
       </div>
     </Card>

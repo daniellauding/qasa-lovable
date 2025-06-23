@@ -8,6 +8,15 @@ export const sizeClasses = {
   xl: 'h-16 px-8 text-xl rounded-full', // 64px height, 32px padding
 };
 
+// Icon-only button sizes (square aspect ratio)
+export const iconOnlySizeClasses = {
+  xs: 'h-8 w-8 p-0 text-sm rounded-full', // 32px square
+  sm: 'h-10 w-10 p-0 text-sm rounded-full', // 40px square
+  md: 'h-12 w-12 p-0 text-base rounded-full', // 48px square
+  lg: 'h-14 w-14 p-0 text-lg rounded-full', // 56px square
+  xl: 'h-16 w-16 p-0 text-xl rounded-full', // 64px square
+};
+
 export const variantClasses = {
   primary: [
     'bg-bg-brand-primary text-text-on-brand-primary',
@@ -27,6 +36,12 @@ export const variantClasses = {
     'focus:bg-bg-brand-tertiary-focus focus:scale-95',
     'disabled:bg-loading disabled:text-white'
   ].join(' '),
+  transparent: [
+    'bg-transparent',
+    'hover:bg-bg-brand-tertiary-hover',
+    'focus:bg-bg-brand-tertiary-focus focus:scale-95',
+    'disabled:bg-transparent disabled:text-black'
+  ].join(' ')
 };
 
 export const baseClasses = [
@@ -38,12 +53,12 @@ export const baseClasses = [
   'active:scale-95'
 ].join(' ');
 
-export const getButtonClasses = (size, variant, fullWidth, className) => {
+export const getButtonClasses = (size, variant, fullWidth, iconOnly, className) => {
   return [
     baseClasses,
-    sizeClasses[size],
+    iconOnly ? iconOnlySizeClasses[size] : sizeClasses[size],
     variantClasses[variant],
-    fullWidth ? 'w-full' : '',
+    fullWidth && !iconOnly ? 'w-full' : '',
     className,
   ].filter(Boolean).join(' ');
 }; 

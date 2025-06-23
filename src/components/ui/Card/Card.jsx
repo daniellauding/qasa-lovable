@@ -14,8 +14,7 @@ const Card = ({
   ...props
 }) => {
   const baseClasses = [
-    'bg-white',
-    'rounded-lg',
+    'rounded-3xl',
     'transition-all duration-200',
     'border border-gray-30',
     'hover:shadow-sm',
@@ -25,12 +24,12 @@ const Card = ({
   ].join(' ');
 
   const variantClasses = {
-    default: 'p-6',
-    tenant: 'p-6',
-    'create-profile': 'p-8',
-    property: 'overflow-hidden',
-    landlord: 'p-4',
-    compact: 'p-4',
+    default: 'p-6 bg-white',
+    tenant: 'p-6', // Background handled by TenantCard
+    'create-profile': 'p-8', // Background handled by CreateTenantProfileCard
+    property: 'overflow-hidden bg-white',
+    landlord: 'p-4 bg-white',
+    compact: 'p-4 bg-white',
   };
 
   const classes = [

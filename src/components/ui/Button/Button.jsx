@@ -9,6 +9,7 @@ const Button = ({
   size = 'md',
   icon,
   iconPosition = 'left',
+  iconOnly = false,
   fullWidth = false,
   loading = false,
   disabled = false,
@@ -16,7 +17,7 @@ const Button = ({
   ...props
 }) => {
   const isDisabled = disabled || loading;
-  const classes = getButtonClasses(size, variant, fullWidth, className);
+  const classes = getButtonClasses(size, variant, fullWidth, iconOnly, className);
 
   return (
     <button 
@@ -27,20 +28,22 @@ const Button = ({
       <ButtonContent
         icon={icon}
         iconPosition={iconPosition}
+        iconOnly={iconOnly}
         loading={loading}
       >
-        {children}
+        {iconOnly ? null : children}
       </ButtonContent>
     </button>
   );
 };
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary']),
+  children: PropTypes.node,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'transparent']),
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   icon: PropTypes.node,
   iconPosition: PropTypes.oneOf(['left', 'right']),
+  iconOnly: PropTypes.bool,
   fullWidth: PropTypes.bool,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,

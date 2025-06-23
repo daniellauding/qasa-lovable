@@ -216,14 +216,14 @@ const HeaderLoggedIn = ({
                       setIsLanguageModalOpen(true);
                       setSelectedLanguage(currentLanguage);
                     }}
-                    className="w-full flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="w-full flex items-center px-4 py-2 text-md text-black hover:bg-gray-100"
                   >
                     <span>{item.label}</span>
                   </button>
                 ) : (
                   <a
                     href={item.href}
-                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    className="flex items-center px-4 py-2 text-md text-black hover:bg-gray-100"
                   >
                     <span>{item.label}</span>
                   </a>
@@ -233,12 +233,12 @@ const HeaderLoggedIn = ({
                 )}
               </React.Fragment>
             ))}
-            <div className="mt-2 border-t border-gray-200 pt-2 px-4">
+            {/* <div className="mt-2 border-t border-gray-200 pt-2 px-4">
               <a href="/premium" className="block py-2 px-3 bg-gray-50 rounded-lg">
                 <p className="text-sm font-medium">{t('headerMenu.premiumTitle')}</p>
                 <p className="font-semibold">{t('headerMenu.premiumBrand')}</p>
               </a>
-            </div>
+            </div> */}
           </div>
         )}
 
