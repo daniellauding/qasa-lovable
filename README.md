@@ -1,73 +1,80 @@
-# Welcome to your Lovable project
+# Qasa Experiments
 
-## Project info
+This repository contains various experiments and prototypes for Qasa's rental platform features.
 
-**URL**: https://lovable.dev/projects/20f61ed3-ba3b-4b5c-aa81-ea1b6eadea3f
+## 🚀 Quick Start
 
-## How can I edit this code?
+```bash
+# Install dependencies
+npm install
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/20f61ed3-ba3b-4b5c-aa81-ea1b6eadea3f) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
+
+# Start Storybook
+npm run storybook
 ```
 
-**Edit a file directly in GitHub**
+## 📦 Creating New Experiments
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To create a new experiment:
 
-**Use GitHub Codespaces**
+```bash
+npm run new-experiment
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This will:
+1. Create the experiment directory structure
+2. Set up the component files
+3. Create Storybook stories
+4. Add it to the main App.jsx
 
-## What technologies are used for this project?
+## 📁 Project Structure
 
-This project is built with:
+```
+src/
+├── components/        # Shared components
+├── prototypes/       # Experiments and prototypes
+│   ├── tenants/     # Tenant-focused experiments
+│   └── landlords/   # Landlord-focused experiments
+└── stories/         # Storybook stories
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## 🧪 Development
 
-## How can I deploy this project?
+- Each experiment is isolated in its own directory under `src/prototypes`
+- Components specific to an experiment should be in the experiment's `components` directory
+- Shared components go in `src/components`
+- Every component should have a corresponding story in `src/stories`
 
-Simply open [Lovable](https://lovable.dev/projects/20f61ed3-ba3b-4b5c-aa81-ea1b6eadea3f) and click on Share -> Publish.
+## 📚 Storybook
 
-## Can I connect a custom domain to my Lovable project?
+We use Storybook for:
+- Component development and testing
+- Visual documentation
+- Experiment previews
 
-Yes, you can!
+Access it by running:
+```bash
+npm run storybook
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔄 Git Workflow
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Create a new branch for your experiment:
+   ```bash
+   git checkout -b experiment/feature-name
+   ```
+
+2. Commit your changes:
+   ```bash
+   git add .
+   git commit -m "feat: add new experiment feature"
+   ```
+
+3. Push your changes:
+   ```bash
+   git push origin experiment/feature-name
+   ```
+
+4. Create a Pull Request when ready for review 
