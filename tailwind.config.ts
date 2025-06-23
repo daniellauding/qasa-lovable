@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'body': ['DiatypeRounded', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				'mono': ['DiatypeRoundedMono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+				'sans': ['DiatypeRounded', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
