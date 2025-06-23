@@ -108,6 +108,26 @@ function App() {
         <Routes>
           <Route path="/" element={
             <div className="min-h-screen flex flex-col">
+              <Header 
+                variant="logged-in" 
+                user={{
+                  name: 'Daniel Mattias',
+                  avatar: 'https://img.qasa.se/unsafe/fit-in/252x252/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/300180786a1905883faa0ffd0b5612fd8a0cb04e2e97b5646e40d10f8ed2e45a.jpg'
+                }}
+                messageCount={3}
+                notificationCount={1}
+                isFluid={true}
+              />
+              <main className="flex-grow">
+                <FindTenant isFluid={true} />
+              </main>
+              <Footer isFluid={true} />
+              <DevExperimentsButton />
+            </div>
+          } />
+          
+          <Route path="/experiments" element={
+            <div className="min-h-screen flex flex-col">
               <Header />
               <main className="flex-grow">
                 <PrototypeGrid />
@@ -116,6 +136,7 @@ function App() {
               <DevExperimentsButton />
             </div>
           } />
+          
           <Route path="/landlords/find-tenant" element={
             <div className="min-h-screen flex flex-col">
               <Header 
@@ -157,4 +178,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
