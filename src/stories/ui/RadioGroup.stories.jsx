@@ -16,40 +16,58 @@ const houseOptions = [
 ];
 
 export const Default = {
-  args: {
-    label: 'Property type',
-    options: houseOptions,
+  render: () => {
+    const [value, setValue] = React.useState('house');
+    
+    return (
+      <RadioGroup
+        label="Property type"
+        options={houseOptions}
+        value={value}
+        onValueChange={setValue}
+      />
+    );
   },
 };
 
 export const CardVariant = {
-  render: () => (
-    <div className="w-[400px]">
-      <RadioGroup
-        label="Property type"
-        options={houseOptions}
-        variant="card"
-        defaultValue="house"
-      />
-    </div>
-  ),
+  render: () => {
+    const [value, setValue] = React.useState('house');
+    
+    return (
+      <div className="w-[400px]">
+        <RadioGroup
+          label="Property type"
+          options={houseOptions}
+          variant="card"
+          value={value}
+          onValueChange={setValue}
+        />
+      </div>
+    );
+  },
 };
 
 export const WithDescriptions = {
-  render: () => (
-    <div className="w-[400px]">
-      <RadioGroup
-        label="Property type"
-        options={[
-          { value: 'house', label: 'House', description: 'Single-family home' },
-          { value: 'apartment', label: 'Apartment', description: 'Multi-unit residential building' },
-          { value: 'terrace', label: 'Terrace House', description: 'Row of identical houses' },
-        ]}
-        variant="card"
-        defaultValue="house"
-      />
-    </div>
-  ),
+  render: () => {
+    const [value, setValue] = React.useState('house');
+    
+    return (
+      <div className="w-[400px]">
+        <RadioGroup
+          label="Property type"
+          options={[
+            { value: 'house', label: 'House', description: 'Single-family home' },
+            { value: 'apartment', label: 'Apartment', description: 'Multi-unit residential building' },
+            { value: 'terrace', label: 'Terrace House', description: 'Row of identical houses' },
+          ]}
+          variant="card"
+          value={value}
+          onValueChange={setValue}
+        />
+      </div>
+    );
+  },
 };
 
 export const WithoutDescriptions = {
@@ -104,10 +122,11 @@ export const DesignSpecs = {
         <RadioGroup
           label="Updated Radio Design"
           options={[
-            { value: 'option1', label: 'Unselected Option', description: '16px × 16px with 6px border radius' },
+            { value: 'option1', label: 'Unselected Option', description: 'Click to see state change' },
             { value: 'option2', label: 'Selected Option', description: 'Shows thick brown border when active' },
           ]}
-          defaultValue="option2"
+          value="option2"
+          onValueChange={() => {}}
         />
       </div>
     </div>

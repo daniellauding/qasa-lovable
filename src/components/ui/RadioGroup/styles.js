@@ -3,20 +3,21 @@
 export const getRadioStyles = (variant) => {
   const baseStyles = `
     relative
-    rounded-md
+    rounded-full
     h-4
     w-4
     border-2
-    border-gray-40
+    border-[#d6d6ce]
     bg-white
     hover:bg-gray-10
     focus:outline-none
     focus:ring-2
-    focus:ring-brown/20
+    focus:ring-black/10
     disabled:cursor-not-allowed
     disabled:opacity-50
-    data-[state=checked]:border-brown
-    data-[state=checked]:border-8
+    transition-colors
+    data-[state=checked]:border-[#322721]
+    data-[state=checked]:border-4
   `;
 
   const variantStyles = {
@@ -38,9 +39,10 @@ export const getItemStyles = (variant) => {
       p-4
       border-2
       rounded-lg
-      data-[state=checked]:border-brown
-      data-[state=unchecked]:border-gray-30
+      data-[state=checked]:border-[#322721]
+      data-[state=unchecked]:border-[#d6d6ce]
       hover:bg-gray-10
+      transition-colors
     `,
   };
 

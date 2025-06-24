@@ -9,8 +9,12 @@ const RadioGroup = forwardRef(({
   options,
   variant = 'default',
   className = '',
+  onChange, // For backward compatibility
+  onValueChange, // Radix UI prop
   ...props
 }, ref) => {
+  // Use onValueChange if provided, otherwise use onChange
+  const handleChange = onValueChange || onChange;
   return (
     <div className={className}>
       {label && (
@@ -21,6 +25,7 @@ const RadioGroup = forwardRef(({
       
       <RadioGroupPrimitive.Root
         ref={ref}
+        onValueChange={handleChange}
         className="space-y-3"
         {...props}
       >
@@ -47,6 +52,8 @@ RadioGroup.propTypes = {
   })).isRequired,
   variant: PropTypes.oneOf(['default', 'card']),
   className: PropTypes.string,
+  onChange: PropTypes.func, // For backward compatibility
+  onValueChange: PropTypes.func, // Radix UI prop
 };
 
 export default RadioGroup; 

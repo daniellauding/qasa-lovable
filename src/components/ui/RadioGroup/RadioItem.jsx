@@ -23,9 +23,11 @@ const RadioItem = ({ option, variant }) => {
         </div>
       )}
       
-      <RadioGroupPrimitive.Indicator
-        className={getRadioStyles(variant)}
-      />
+      <div className={getRadioStyles(variant)}>
+        <RadioGroupPrimitive.Indicator className="flex items-center justify-center w-full h-full">
+          <div className="w-2 h-2 bg-[#322721] rounded-full" />
+        </RadioGroupPrimitive.Indicator>
+      </div>
 
       {variant === 'default' && (
         <div className="flex flex-col">

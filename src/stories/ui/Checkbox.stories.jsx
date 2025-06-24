@@ -54,35 +54,72 @@ export const Disabled = {
 };
 
 export const States = {
+  render: () => {
+    const [checked1, setChecked1] = React.useState(false);
+    const [checked2, setChecked2] = React.useState(true);
+    const [checked3, setChecked3] = React.useState(false);
+    
+    return (
+      <div className="space-y-4">
+        <Checkbox
+          id="interactive-unchecked"
+          label="Interactive Unchecked"
+          helperText="Click to check - white background with gray border"
+          checked={checked1}
+          onCheckedChange={setChecked1}
+        />
+        <Checkbox
+          id="interactive-checked"
+          label="Interactive Checked"
+          helperText="Click to uncheck - gray background with brown check icon"
+          checked={checked2}
+          onCheckedChange={setChecked2}
+        />
+        <Checkbox
+          id="interactive-error"
+          label="Interactive with Error"
+          helperText="This field has an error but is still functional"
+          error
+          checked={checked3}
+          onCheckedChange={setChecked3}
+        />
+        <Checkbox
+          id="disabled"
+          label="Disabled Unchecked"
+          disabled
+        />
+        <Checkbox
+          id="disabled-checked"
+          label="Disabled Checked"
+          disabled
+          checked
+        />
+      </div>
+    );
+  },
+};
+
+export const Sizes = {
   render: () => (
     <div className="space-y-4">
       <Checkbox
-        id="unchecked"
-        label="Unchecked"
-        helperText="White background with gray border"
+        id="small"
+        label="Small Checkbox"
+        helperText="16px × 16px size"
+        size="sm"
       />
       <Checkbox
-        id="checked"
-        label="Checked"
-        helperText="Gray background with brown check icon"
+        id="medium"
+        label="Medium Checkbox"
+        helperText="20px × 20px size (default)"
+        size="md"
         checked
       />
       <Checkbox
-        id="disabled"
-        label="Disabled"
-        disabled
-      />
-      <Checkbox
-        id="disabled-checked"
-        label="Disabled & Checked"
-        disabled
-        checked
-      />
-      <Checkbox
-        id="error"
-        label="Error"
-        error
-        helperText="This field has an error"
+        id="large"
+        label="Large Checkbox"
+        helperText="24px × 24px size"
+        size="lg"
       />
     </div>
   ),
@@ -95,12 +132,13 @@ export const DesignSpecs = {
         <h3 className="text-sm font-medium mb-3">Design Specifications</h3>
         <div className="bg-gray-10 p-4 rounded-lg">
           <ul className="text-sm space-y-1">
-            <li>• Checkbox size: 12px × 12px</li>
-            <li>• Border: 2px solid #d6d6ce (gray-40)</li>
+            <li>• Small: 16px × 16px, Medium: 20px × 20px, Large: 24px × 24px</li>
+            <li>• Border: 2px solid #d6d6ce</li>
             <li>• Border radius: rounded-md (6px)</li>
             <li>• Default background: white</li>
-            <li>• Active background: #d6d6ce (gray-40)</li>
-            <li>• Check icon: 8px × 8px brown (#322721)</li>
+            <li>• Active background: #d6d6ce</li>
+            <li>• Check icon: solid brown (#322721)</li>
+            <li>• Smooth transition animations</li>
           </ul>
         </div>
       </div>
