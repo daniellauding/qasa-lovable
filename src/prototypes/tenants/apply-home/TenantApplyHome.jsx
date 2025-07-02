@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import ContactModal from '../../../components/ContactModal';
 import Button from '../../../components/ui/Button';
 import Typography from '../../../components/ui/Typography';
 import Box from '../../../components/ui/Box';
 import Icon from '../../../components/ui/Icon';
+
+// Fix for default markers in react-leaflet
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
 
 function TenantApplyHome() {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -240,6 +251,41 @@ function TenantApplyHome() {
                 </Typography>
                 <Button variant="tertiary">Läs mer</Button>
               </Box>
+            </div>
+          </div>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-16">
+          <Typography variant="h2" className="mb-6">
+            Plats
+          </Typography>
+          <div className="w-full h-96 rounded-lg overflow-hidden">
+            <MapContainer
+              center={[55.9233, 13.2133]} // Billingevägen, Röstånga approximate location
+              zoom={15}
+              className="w-full h-full"
+              zoomControl={true}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              
+              {/* Property location marker */}
+              <Marker position={[55.9233, 13.2133]} />
+            </MapContainer>
+          </div>
+          <div className="mt-4 text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <Icon name="MapPinIcon" size="sm" />
+              <span>Billingevägen, Röstånga</span>
+            </div>
+            <div className="mt-2">
+              <span>• 2 min till busshållplats</span>
+            </div>
+            <div>
+              <span>• 15 min till centrum</span>
             </div>
           </div>
         </div>

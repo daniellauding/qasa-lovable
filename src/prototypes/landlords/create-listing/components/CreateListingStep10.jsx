@@ -28,7 +28,7 @@ const CreateListingStep10 = ({ onNext, onPrev }) => {
             {/* Footer */}
             <div className="flex items-center justify-between">
               <Button
-                variant="transparent"
+                variant="tertiary"
                 size="md"
                 onClick={onPrev}
                 iconOnly

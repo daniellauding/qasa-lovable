@@ -44,6 +44,21 @@
 }
 
 @layer base {
+  :root {
+    /* Default Qasa theme colors */
+    --color-primary: #E91E63;
+    --color-secondary: #9C27B0;
+    --color-tertiary: #6B7280;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-background: #FFFFFF;
+    --color-surface: #F9FAFB;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6B7280;
+    --color-text-tertiary: #9CA3AF;
+  }
+
   body {
     @apply font-body font-normal;
   }
@@ -61,6 +76,23 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-qasa-pink text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors;
+    background-color: var(--color-primary);
+    @apply text-white py-2 px-4 rounded-lg transition-colors;
+  }
+  
+  .btn-primary:hover {
+    filter: brightness(0.9);
+  }
+  
+  .theme-primary {
+    color: var(--color-primary);
+  }
+  
+  .theme-bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .theme-border-primary {
+    border-color: var(--color-primary);
   }
 } 

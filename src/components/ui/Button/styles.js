@@ -19,9 +19,9 @@ export const iconOnlySizeClasses = {
 
 export const variantClasses = {
   primary: [
-    'bg-bg-brand-primary text-text-on-brand-primary',
-    'hover:bg-bg-brand-primary-hover',
-    'focus:bg-bg-brand-primary-focus focus:scale-95',
+    'theme-bg-primary text-white',
+    'hover:brightness-90',
+    'focus:brightness-90 focus:scale-95',
     'disabled:bg-loading disabled:text-white'
   ].join(' '),
   secondary: [
@@ -35,6 +35,18 @@ export const variantClasses = {
     'hover:bg-bg-brand-tertiary-hover',
     'focus:bg-bg-brand-tertiary-focus focus:scale-95',
     'disabled:bg-loading disabled:text-white'
+  ].join(' '),
+  outline: [
+    'bg-transparent theme-border-primary border-2 theme-primary',
+    'hover:theme-bg-primary hover:text-white',
+    'focus:theme-bg-primary focus:text-white focus:scale-95',
+    'disabled:bg-transparent disabled:text-gray-400 disabled:border-gray-300'
+  ].join(' '),
+  ghost: [
+    'bg-transparent theme-primary',
+    'hover:bg-gray-100',
+    'focus:bg-gray-100 focus:scale-95',
+    'disabled:bg-transparent disabled:text-gray-400'
   ].join(' '),
   transparent: [
     'bg-transparent',

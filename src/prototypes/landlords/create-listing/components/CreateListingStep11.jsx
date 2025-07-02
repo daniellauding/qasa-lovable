@@ -142,7 +142,7 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
 
         <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
           <Button
-            variant="transparent"
+            variant="tertiary"
             size="md"
             onClick={onPrev}
             iconOnly

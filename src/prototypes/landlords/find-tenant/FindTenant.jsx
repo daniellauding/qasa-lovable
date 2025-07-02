@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import Card, { CreateTenantProfileCard, TenantCard, LandlordCTACard } from '../../../components/ui/Card';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -162,6 +163,7 @@ const baseTenants = [
 
 const FindTenant = ({ isFluid = false }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
   
@@ -203,7 +205,7 @@ const FindTenant = ({ isFluid = false }) => {
           user={tenant}
           verified={index % 3 === 0} // Some verified
           matchPercentage={Math.floor(Math.random() * 40) + 60} // Random match 60-100%
-          onCardClick={() => alert(t('findTenant.tenantProfile.viewProfile', { name: tenant.name }))}
+          onCardClick={() => navigate('/tenants/profile?view=public')}
         />
       )
     });

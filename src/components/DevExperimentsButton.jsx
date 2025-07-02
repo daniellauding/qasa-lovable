@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BeakerIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import ThemeSwitcher from './ui/ThemeSwitcher';
 
 // Import all experiments from App.jsx
 const experiments = [
@@ -43,6 +44,41 @@ const experiments = [
     name: 'Experiments Dashboard',
     path: '/experiments',
     description: 'Overview of all available experiments and prototypes'
+  },
+  {
+    name: 'Login Flow',
+    path: '/auth/login',
+    description: 'User authentication and login flow with forgot password functionality'
+  },
+  {
+    name: 'Register Flow',
+    path: '/auth/register',
+    description: 'User registration flow with email verification and profile completion'
+  },
+  {
+    name: 'Homes Search & Map',
+    path: '/homes',
+    description: 'Property search interface with listings and interactive map'
+  },
+  {
+    name: 'Messages Inbox',
+    path: '/messages',
+    description: 'Inbox interface for managing property conversations with landlords'
+  },
+  {
+    name: 'Tenant Profile (Edit)',
+    path: '/tenants/profile',
+    description: 'Complete tenant profile with edit modals'
+  },
+  {
+    name: 'Tenant Profile (Public)',
+    path: '/tenants/profile?view=public',
+    description: 'Public view of tenant profile for landlords'
+  },
+  {
+    name: 'Landlord Profile',
+    path: '/landlords/profile',
+    description: 'Landlord profile page with personal information and published listings'
   }
 ];
 
@@ -50,7 +86,7 @@ function DevExperimentsButton() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-[9999]">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-[#6E3FF3] p-3 rounded-full shadow-lg hover:bg-[#5B35CC] transition-colors"
@@ -71,7 +107,7 @@ function DevExperimentsButton() {
                 <XMarkIcon className="h-5 w-5" />
               </button>
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 max-h-80 overflow-y-auto">
               {experiments.map((experiment) => (
                 <Link
                   key={experiment.path}
@@ -84,7 +120,8 @@ function DevExperimentsButton() {
                 </Link>
               ))}
             </div>
-            <div className="mt-4 pt-3 border-t border-gray-100">
+            <div className="mt-4 pt-3 border-t border-gray-100 space-y-3">
+              <ThemeSwitcher />
               <a
                 href="/storybook"
                 target="_blank"

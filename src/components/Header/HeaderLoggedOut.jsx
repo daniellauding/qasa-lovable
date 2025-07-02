@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from '../../utils/translations/LanguageContext';
+import { useAuth } from '../../contexts/AuthContext';
 
 const HeaderLoggedOut = ({ onLogin, onSignup }) => {
   const { t } = useTranslation();
+  const { login } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleLogin = () => {
+    login();
+    if (onLogin) onLogin();
+  };
+
+  const handleSignup = () => {
+    login(); // For demo, signup also logs in
+    if (onSignup) onSignup();
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -28,7 +40,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
               <ul className="flex gap-1">
                 <li>
                   <a
-                    href="/landlords/find-tenant"
+                    href="/homes"
                     className="type-label-md group relative flex h-10 items-center rounded-full px-4 py-2"
                   >
                     <span
@@ -81,13 +93,13 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
           {/* Right side - Login/Signup buttons */}
           <div className="flex items-center gap-3">
             <button
-              onClick={onLogin}
+              onClick={handleLogin}
               className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50"
             >
               {t('header.login')}
             </button>
             <button
-              onClick={onSignup}
+              onClick={handleSignup}
               className="bg-ui-pink text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-ui-pink-dark transition-colors"
             >
               {t('header.signup')}
@@ -124,7 +136,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
           <div className="lg:hidden border-t border-gray-200 pt-4 pb-4">
             <nav className="space-y-2">
               <a
-                href="/landlords/find-tenant"
+                href="/homes"
                 className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
               >
                 {t('header.homes')}
@@ -144,13 +156,13 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
             </nav>
             <div className="mt-4 pt-4 border-t border-gray-200 space-y-2">
               <button
-                onClick={onLogin}
+                onClick={handleLogin}
                 className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
               >
                 {t('header.login')}
               </button>
               <button
-                onClick={onSignup}
+                onClick={handleSignup}
                 className="w-full bg-ui-pink text-white text-base font-medium px-3 py-2 rounded-md hover:bg-ui-pink-dark transition-colors"
               >
                 {t('header.signup')}

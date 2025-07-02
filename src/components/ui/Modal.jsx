@@ -16,12 +16,12 @@ const Modal = ({
     <Dialog.Root open={isOpen} onOpenChange={onClose}>
       <Dialog.Portal>
         <Dialog.Overlay 
-          className="fixed inset-0 bg-black/50 cursor-pointer z-[60]" 
+          className="fixed inset-0 bg-black/50 cursor-pointer z-[9998]" 
           onClick={onClose} 
         />
         <Dialog.Content 
           className={`
-            fixed z-[70] bg-white p-6 
+            fixed z-[9999] bg-white p-6 
             md:top-[50%] md:left-[50%] md:translate-x-[-50%] md:translate-y-[-50%] md:w-full md:max-w-[500px] md:rounded-xl
             bottom-0 left-0 right-0 rounded-t-xl translate-y-0 sm:max-h-[95vh] overflow-y-auto
             ${className}

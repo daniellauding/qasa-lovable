@@ -2,18 +2,50 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { BeakerIcon } from '@heroicons/react/24/outline';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
+import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
 import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
 import FindTenant from './prototypes/landlords/find-tenant/FindTenant';
 import CreateListingFlow from './prototypes/landlords/create-listing/CreateListingFlow';
 import Dashboard from './prototypes/landlords/dashboard/Dashboard';
 import EditRent from './prototypes/landlords/edit-rent/EditRent';
 import EditListingOverview from './prototypes/landlords/edit-listing/EditListingOverview';
+import LandlordProfilePage from './prototypes/landlords/profile/LandlordProfilePage';
+import LoginFlow from './prototypes/auth/login/LoginFlow';
+import RegisterFlow from './prototypes/auth/register/RegisterFlow';
+import HomesPage from './prototypes/homes/HomesPage';
+import MessagesPage from './prototypes/messages/MessagesPage';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Header from './components/Header';
+import DynamicHeader from './components/DynamicHeader';
 import Footer from './components/Footer';
 import { LanguageProvider } from './utils/translations/LanguageContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
+
+// Import MessagesPage for the prototypes array
+import MessagesPageImport from './prototypes/messages/MessagesPage';
 
 const prototypes = [
+  {
+    id: 'tenant-profile',
+    category: 'tenants',
+    name: 'Tenant Profile',
+    description: 'Complete tenant profile with edit modals for all sections',
+    thumbnail: '/thumbnails/tenant-profile.png',
+    path: '/tenants/profile',
+    component: TenantProfilePage,
+    tags: ['profile', 'edit', 'modals'],
+  },
+  {
+    id: 'tenant-profile-public',
+    category: 'tenants',
+    name: 'Tenant Profile (Public)',
+    description: 'Public view of tenant profile for landlords without edit functionality',
+    thumbnail: '/thumbnails/tenant-profile-public.png',
+    path: '/tenants/profile?view=public',
+    component: TenantProfilePage,
+    tags: ['profile', 'public', 'view'],
+  },
   {
     id: 'tenant-apply-home',
     category: 'tenants',
@@ -83,6 +115,46 @@ const prototypes = [
     component: EditListingOverview,
     tags: ['editing', 'overview'],
   },
+  {
+    id: 'landlord-profile',
+    category: 'landlords',
+    name: 'Landlord Profile',
+    description: 'Landlord profile page showing personal information, occupation, and published listings.',
+    thumbnail: '/thumbnails/landlord-profile.png',
+    path: '/landlords/profile',
+    component: LandlordProfilePage,
+    tags: ['profile', 'listings', 'landlord'],
+  },
+  {
+    id: 'login',
+    category: 'auth',
+    name: 'Login Flow',
+    description: 'User authentication and login flow with forgot password functionality.',
+    thumbnail: '/thumbnails/login.png',
+    path: '/auth/login',
+    component: LoginFlow,
+    tags: ['authentication', 'login'],
+  },
+  {
+    id: 'register',
+    category: 'auth',
+    name: 'Register Flow',
+    description: 'User registration flow with email verification and profile completion.',
+    thumbnail: '/thumbnails/register.png',
+    path: '/auth/register',
+    component: RegisterFlow,
+    tags: ['authentication', 'signup'],
+  },
+  {
+    id: 'messages',
+    category: 'communication',
+    name: 'Messages Inbox',
+    description: 'Inbox interface for managing property conversations with landlords and tenants.',
+    thumbnail: '/thumbnails/messages.png',
+    path: '/messages',
+    component: MessagesPageImport,
+    tags: ['messaging', 'conversations'],
+  },
 ];
 
 function PrototypeGrid() {
@@ -145,25 +217,20 @@ function PrototypeGrid() {
   );
 }
 
+
+
 function App() {
   return (
-    <LanguageProvider>
-      <Router basename="/">
-        <Routes>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <Router basename="/">
+          <Routes>
           <Route path="/" element={<Navigate to="/landlords/create-listing/step/14" replace />} />
           
           <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">
-              <Header 
-                variant="logged-in" 
-                user={{
-                  name: 'Daniel Mattias',
-                  avatar: 'https://img.qasa.se/unsafe/fit-in/252x252/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/300180786a1905883faa0ffd0b5612fd8a0cb04e2e97b5646e40d10f8ed2e45a.jpg'
-                }}
-                messageCount={3}
-                notificationCount={1}
-                isFluid={true}
-              />
+              <DynamicHeader isFluid={true} />
               <main className="flex-grow">
                 <PrototypeGrid />
               </main>
@@ -174,16 +241,7 @@ function App() {
           
           <Route path="/landlords/find-tenant" element={
             <div className="min-h-screen flex flex-col">
-              <Header 
-                variant="logged-in" 
-                user={{
-                  name: 'Daniel Mattias',
-                  avatar: 'https://img.qasa.se/unsafe/fit-in/252x252/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/300180786a1905883faa0ffd0b5612fd8a0cb04e2e97b5646e40d10f8ed2e45a.jpg'
-                }}
-                messageCount={3}
-                notificationCount={1}
-                isFluid={true}
-              />
+              <DynamicHeader isFluid={true} />
               <main className="flex-grow">
                 <FindTenant isFluid={true} />
               </main>
@@ -197,13 +255,16 @@ function App() {
           <Route path="/landlords/dashboard" element={<Dashboard />} />
           <Route path="/landlords/edit-rent" element={<EditRent />} />
           <Route path="/landlords/edit-listing" element={<EditListingOverview />} />
+          <Route path="/landlords/profile" element={<LandlordProfilePage />} />
+          
+          <Route path="/auth/login" element={<LoginFlow />} />
+          <Route path="/auth/login/step/:step" element={<LoginFlow />} />
+          <Route path="/auth/register" element={<RegisterFlow />} />
+          <Route path="/auth/register/step/:step" element={<RegisterFlow />} />
           
           <Route path="/tenants/apply-home" element={
             <div className="min-h-screen flex flex-col">
-              <Header 
-                variant="logged-out" 
-                isFluid={true}
-              />
+              <DynamicHeader isFluid={true} />
               <main className="flex-grow">
                 <TenantApplyHome isFluid={true} />
               </main>
@@ -212,7 +273,14 @@ function App() {
             </div>
           } />
           
-          {prototypes.filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home').map((prototype) => (
+          <Route path="/tenants/profile" element={<TenantProfilePage />} />
+          <Route path="/tenants/bet-increase-quality" element={<BetIncreaseQuality />} />
+          
+          <Route path="/homes" element={<HomesPage />} />
+          
+          <Route path="/messages" element={<MessagesPage />} />
+          
+          {prototypes.filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home' && p.id !== 'login' && p.id !== 'register').map((prototype) => (
             <Route
               key={prototype.id}
               path={prototype.path}
@@ -229,8 +297,10 @@ function App() {
             />
           ))}
         </Routes>
-      </Router>
+        </Router>
+      </AuthProvider>
     </LanguageProvider>
+    </ThemeProvider>
   );
 }
 

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../../utils/translations/LanguageContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { languages } from '../../translations';
 import Modal from '../ui/Modal';
 import RadioGroup from '../ui/RadioGroup';
@@ -17,11 +19,22 @@ const HeaderLoggedIn = ({
   isFluid = false
 }) => {
   const { t, currentLanguage, changeLanguage } = useTranslation();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isLanguageModalOpen, setIsLanguageModalOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    setIsUserMenuOpen(false);
+  };
+
+  const handleMessagesClick = () => {
+    navigate('/messages');
+  };
 
   // Handle scroll to add shadow
   useEffect(() => {
@@ -41,7 +54,7 @@ const HeaderLoggedIn = ({
     { label: t('headerMenu.howItWorks'), href: "/sv/how-it-works" },
     { label: t('headerMenu.help'), href: "/sv/help" },
     { label: t('headerMenu.language'), href: "#", isLanguageButton: true },
-    { label: t('headerMenu.logout'), href: "/sv/logout" },
+    { label: t('headerMenu.logout'), href: "#", isLogoutButton: true },
   ];
 
   const languageOptions = languages.map(language => ({
@@ -86,7 +99,7 @@ const HeaderLoggedIn = ({
               <ul className="flex gap-1">
                 <li>
                   <a
-                    href="/tenants/apply-home"
+                    href="/homes"
                     className="type-label-md group relative flex h-10 items-center rounded-full px-4 py-2"
                   >
                     <span
@@ -147,8 +160,8 @@ const HeaderLoggedIn = ({
               </a>
 
               {/* Messages */}
-              <a
-                href="/sv/messages"
+              <button
+                onClick={handleMessagesClick}
                 aria-label={t('header.messages')}
                 className="relative p-2 rounded-full hover:bg-gray-100"
               >
@@ -176,7 +189,7 @@ const HeaderLoggedIn = ({
                     <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                   </svg>
                 </div>
-              </a>
+              </button>
 
               {/* Profile */}
               <a href="/sv/profile" aria-label={t('header.profile')} className="relative p-2">
@@ -223,6 +236,13 @@ const HeaderLoggedIn = ({
                       setIsLanguageModalOpen(true);
                       setSelectedLanguage(currentLanguage);
                     }}
+                    className="w-full flex items-center px-4 py-2 text-md text-black hover:bg-gray-100"
+                  >
+                    <span>{item.label}</span>
+                  </button>
+                ) : item.isLogoutButton ? (
+                  <button
+                    onClick={handleLogout}
                     className="w-full flex items-center px-4 py-2 text-md text-black hover:bg-gray-100"
                   >
                     <span>{item.label}</span>
