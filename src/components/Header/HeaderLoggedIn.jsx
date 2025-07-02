@@ -70,7 +70,7 @@ const HeaderLoggedIn = ({
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div>
-              <a aria-label="Sök bostad" href="/sv" className="flex">
+              <a aria-label="Sök bostad" href="/" className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="#342620"
@@ -86,7 +86,7 @@ const HeaderLoggedIn = ({
               <ul className="flex gap-1">
                 <li>
                   <a
-                    href="/sv/find-home"
+                    href="/tenants/apply-home"
                     className="type-label-md group relative flex h-10 items-center rounded-full px-4 py-2"
                   >
                     <span
@@ -102,7 +102,7 @@ const HeaderLoggedIn = ({
                 </li>
                 <li>
                   <a
-                    href="/sv/find-tenant"
+                    href="/landlords/find-tenant"
                     className="type-label-md group relative flex h-10 items-center rounded-full px-4 py-2"
                   >
                     <span
@@ -139,6 +139,13 @@ const HeaderLoggedIn = ({
           {/* Right side icons */}
           <div className="flex items-center">
             <div className="flex items-center">
+              {/* Rent Out Button */}
+              <a href="/landlords/create-listing/step/1">
+                <Button variant="tertiary" size="sm" className="mr-2">
+                  {t('header.rentOut')}
+                </Button>
+              </a>
+
               {/* Messages */}
               <a
                 href="/sv/messages"
@@ -148,11 +155,11 @@ const HeaderLoggedIn = ({
                 <div className="relative">
                   {messageCount > 0 && (
                     <div className="absolute -top-1 -right-1">
-                                             <div className="h-[18px] min-w-[18px] rounded-full bg-ui-pink flex items-center justify-center px-1">
-                          <Typography variant="body-sm" className="text-black leading-none">
-                            {messageCount}
-                          </Typography>
-                        </div>
+                      <div className="h-[18px] min-w-[18px] rounded-full bg-ui-pink flex items-center justify-center px-1">
+                        <Typography variant="body-sm" className="text-black leading-none">
+                          {messageCount}
+                        </Typography>
+                      </div>
                     </div>
                   )}
                   <svg

@@ -55,7 +55,7 @@
   
   /* Only apply background for non-Storybook environments */
   body:not(.sb-show-main) {
-    @apply bg-gray-50;
+    @apply bg-white;
   }
 }
 

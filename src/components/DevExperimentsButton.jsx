@@ -18,6 +18,31 @@ const experiments = [
     name: 'Find Tenant',
     path: '/landlords/find-tenant',
     description: 'Landlord prototype for finding and connecting with tenants'
+  },
+  {
+    name: 'Create Listing',
+    path: '/landlords/create-listing',
+    description: 'Step-by-step flow for creating property listings'
+  },
+  {
+    name: 'Media Management for Landlords',
+    path: '/landlords/create-listing/step/14',
+    description: 'Advanced image upload and management features'
+  },
+  {
+    name: 'Edit Listing Overview',
+    path: '/landlords/edit-listing',
+    description: 'Overview page for editing property listings with step navigation'
+  },
+  {
+    name: 'Landlord Dashboard',
+    path: '/landlords/dashboard',
+    description: 'Dashboard overview for landlords to manage property listings and rental information'
+  },
+  {
+    name: 'Experiments Dashboard',
+    path: '/experiments',
+    description: 'Overview of all available experiments and prototypes'
   }
 ];
 

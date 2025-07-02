@@ -16,6 +16,7 @@ export const sv = {
     homes: 'Bostäder',
     tenants: 'Hyresgäster', 
     howItWorks: 'Så fungerar det',
+    rentOut: 'Hyr ut',
     login: 'Logga in',
     signup: 'Registrera dig',
     messages: 'Meddelanden',

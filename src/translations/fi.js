@@ -16,6 +16,7 @@ export const fi = {
     homes: 'Kodit',
     tenants: 'Vuokralaiset', 
     howItWorks: 'Miten se toimii',
+    rentOut: 'Vuokraa',
     login: 'Kirjaudu sisään',
     signup: 'Rekisteröidy',
     messages: 'Viestit',

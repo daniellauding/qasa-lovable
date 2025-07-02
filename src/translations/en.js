@@ -16,6 +16,7 @@ export const en = {
     homes: 'Homes',
     tenants: 'Tenants', 
     howItWorks: 'How it works',
+    rentOut: 'Rent out',
     login: 'Log in',
     signup: 'Sign up',
     messages: 'Messages',

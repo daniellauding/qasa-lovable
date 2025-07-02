@@ -1,9 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import { BeakerIcon } from '@heroicons/react/24/outline';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
 import FindTenant from './prototypes/landlords/find-tenant/FindTenant';
+import CreateListingFlow from './prototypes/landlords/create-listing/CreateListingFlow';
+import Dashboard from './prototypes/landlords/dashboard/Dashboard';
+import EditRent from './prototypes/landlords/edit-rent/EditRent';
+import EditListingOverview from './prototypes/landlords/edit-listing/EditListingOverview';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -39,11 +43,51 @@ const prototypes = [
     component: FindTenant,
     tags: ['multilingual', 'matching'],
   },
+  {
+    id: 'create-listing',
+    category: 'landlords',
+    name: 'Create Listing',
+    description: 'Step-by-step flow for landlords to create property listings with address details.',
+    thumbnail: '/thumbnails/create-listing.png',
+    path: '/landlords/create-listing',
+    component: CreateListingFlow,
+    tags: ['stepper', 'forms'],
+  },
+  {
+    id: 'media-management',
+    category: 'landlords',
+    name: 'Media Management for Landlords',
+    description: 'Advanced image upload, management, and reordering features for property listings.',
+    thumbnail: '/thumbnails/media-management.png',
+    path: '/landlords/create-listing/step/14',
+    component: CreateListingFlow,
+    tags: ['media', 'upload', 'management'],
+  },
+  {
+    id: 'dashboard',
+    category: 'landlords',
+    name: 'Landlord Dashboard',
+    description: 'Dashboard overview for landlords to manage their property listings and rental information.',
+    thumbnail: '/thumbnails/dashboard.png',
+    path: '/landlords/dashboard',
+    component: Dashboard,
+    tags: ['dashboard', 'management'],
+  },
+  {
+    id: 'edit-listing',
+    category: 'landlords',
+    name: 'Edit Listing Overview',
+    description: 'Overview page for editing property listings with step navigation and quick access to all sections.',
+    thumbnail: '/thumbnails/edit-listing.png',
+    path: '/landlords/edit-listing',
+    component: EditListingOverview,
+    tags: ['editing', 'overview'],
+  },
 ];
 
 function PrototypeGrid() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Qasa Experiments</h1>
@@ -106,7 +150,9 @@ function App() {
     <LanguageProvider>
       <Router basename="/">
         <Routes>
-          <Route path="/" element={
+          <Route path="/" element={<Navigate to="/landlords/create-listing/step/14" replace />} />
+          
+          <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">
               <Header 
                 variant="logged-in" 
@@ -119,20 +165,9 @@ function App() {
                 isFluid={true}
               />
               <main className="flex-grow">
-                <FindTenant isFluid={true} />
-              </main>
-              <Footer isFluid={true} />
-              <DevExperimentsButton />
-            </div>
-          } />
-          
-          <Route path="/experiments" element={
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow">
                 <PrototypeGrid />
               </main>
-              <Footer />
+              <Footer isFluid={true} />
               <DevExperimentsButton />
             </div>
           } />
@@ -156,7 +191,28 @@ function App() {
               <DevExperimentsButton />
             </div>
           } />
-          {prototypes.filter(p => p.id !== 'find-tenant').map((prototype) => (
+          
+          <Route path="/landlords/create-listing" element={<CreateListingFlow />} />
+          <Route path="/landlords/create-listing/step/:step" element={<CreateListingFlow />} />
+          <Route path="/landlords/dashboard" element={<Dashboard />} />
+          <Route path="/landlords/edit-rent" element={<EditRent />} />
+          <Route path="/landlords/edit-listing" element={<EditListingOverview />} />
+          
+          <Route path="/tenants/apply-home" element={
+            <div className="min-h-screen flex flex-col">
+              <Header 
+                variant="logged-out" 
+                isFluid={true}
+              />
+              <main className="flex-grow">
+                <TenantApplyHome isFluid={true} />
+              </main>
+              <Footer isFluid={true} />
+              <DevExperimentsButton />
+            </div>
+          } />
+          
+          {prototypes.filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home').map((prototype) => (
             <Route
               key={prototype.id}
               path={prototype.path}
