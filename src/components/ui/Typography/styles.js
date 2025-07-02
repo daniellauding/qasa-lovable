@@ -43,6 +43,7 @@ export const colorClasses = {
   secondary: 'text-gray-600',
   primary: 'text-[#FF4B75]',
   white: 'text-white',
+  theme: '', // No default color class - allows theme classes to take precedence
 };
 
 // Typography weight classes
@@ -70,7 +71,7 @@ export const typographyVariants = [
 ];
 
 // Available typography colors
-export const typographyColors = ['default', 'secondary', 'primary', 'white'];
+export const typographyColors = ['default', 'secondary', 'primary', 'white', 'theme'];
 
 // Available typography weights
 export const typographyWeights = ['normal', 'medium', 'semibold', 'bold']; 

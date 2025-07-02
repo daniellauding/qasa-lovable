@@ -10,6 +10,7 @@ import Dashboard from './prototypes/landlords/dashboard/Dashboard';
 import EditRent from './prototypes/landlords/edit-rent/EditRent';
 import EditListingOverview from './prototypes/landlords/edit-listing/EditListingOverview';
 import LandlordProfilePage from './prototypes/landlords/profile/LandlordProfilePage';
+import WelcomeToPremiumEmail from './prototypes/mail-templates/WelcomeToPremiumEmail';
 import LoginFlow from './prototypes/auth/login/LoginFlow';
 import RegisterFlow from './prototypes/auth/register/RegisterFlow';
 import HomesPage from './prototypes/homes/HomesPage';
@@ -124,6 +125,16 @@ const prototypes = [
     path: '/landlords/profile',
     component: LandlordProfilePage,
     tags: ['profile', 'listings', 'landlord'],
+  },
+  {
+    id: 'mail-template-welcome-premium',
+    category: 'mail-templates',
+    name: 'Mail Template: Welcome to Premium',
+    description: 'Email template preview for Premium welcome messages with theme support for both Qasa and Blocket',
+    thumbnail: '/thumbnails/mail-template-premium.png',
+    path: '/mail-templates/welcome-to-premium',
+    component: WelcomeToPremiumEmail,
+    tags: ['email', 'template', 'premium', 'theme'],
   },
   {
     id: 'login',
@@ -279,6 +290,8 @@ function App() {
           <Route path="/homes" element={<HomesPage />} />
           
           <Route path="/messages" element={<MessagesPage />} />
+          
+          <Route path="/mail-templates/welcome-to-premium" element={<WelcomeToPremiumEmail />} />
           
           {prototypes.filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home' && p.id !== 'login' && p.id !== 'register').map((prototype) => (
             <Route

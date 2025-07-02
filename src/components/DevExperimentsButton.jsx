@@ -79,6 +79,11 @@ const experiments = [
     name: 'Landlord Profile',
     path: '/landlords/profile',
     description: 'Landlord profile page with personal information and published listings'
+  },
+  {
+    name: 'Mail Template: Welcome to Premium',
+    path: '/mail-templates/welcome-to-premium',
+    description: 'Email template preview for Premium welcome messages with theme support'
   }
 ];
 

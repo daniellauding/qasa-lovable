@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
@@ -136,6 +136,12 @@ const sortOptions = [
   { value: 'published_ascending', label: 'Äldst' },
   { value: 'monthly_cost_ascending', label: 'Pris – Lägst' },
   { value: 'monthly_cost_descending', label: 'Pris – Högst' },
+  { value: 'square_meters_descending', label: 'Storlek – Störst' },
+  { value: 'square_meters_ascending', label: 'Storlek – Minst' },
+  { value: 'move_in_ascending', label: 'Inflytt – Tidigast' },
+  { value: 'move_in_descending', label: 'Inflytt – Senast' },
+  { value: 'move_out_ascending', label: 'Utflytt – Tidigast' },
+  { value: 'move_out_descending', label: 'Utflytt – Senast' },
 ];
 
 const HomesPage = () => {
@@ -146,6 +152,22 @@ const HomesPage = () => {
   const [sortBy, setSortBy] = useState('published_descending');
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [properties] = useState(mockProperties);
+  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
+  const sortDropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sortDropdownRef.current && !sortDropdownRef.current.contains(event.target)) {
+        setSortDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleLikeToggle = (propertyId) => {
     setLikedProperties(prev => ({
@@ -245,17 +267,39 @@ const HomesPage = () => {
             <Typography variant="body-md" className="text-gray-600">
               {properties.length} bostäder
             </Typography>
-            <div className="relative">
+            <div className="relative" ref={sortDropdownRef}>
               <button
                 type="button"
                 className="bg-transparent text-gray-900 font-medium text-sm hover:text-gray-700 transition-colors flex items-center gap-1 w-fit"
-                onClick={() => {/* Add dropdown functionality here if needed */}}
+                onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
               >
                 <span>{sortOptions.find(opt => opt.value === sortBy)?.label || 'Nyast'}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-5 h-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`w-5 h-5 transition-transform ${sortDropdownOpen ? 'rotate-180' : ''}`}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
+              
+              {/* Dropdown Menu */}
+              {sortDropdownOpen && (
+                <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  <div className="py-1">
+                    {sortOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                          sortBy === option.value ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-700'
+                        }`}
+                        onClick={() => {
+                          setSortBy(option.value);
+                          setSortDropdownOpen(false);
+                        }}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
