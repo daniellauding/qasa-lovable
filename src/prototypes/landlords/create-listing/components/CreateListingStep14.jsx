@@ -99,13 +99,12 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                     </Typography>
                   </div>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="gap-4 flex align-center items-center justify-center">
                     <PhotoIcon className="mx-auto h-12 w-12 text-gray-400" />
-                    <div>
-                      <Typography variant="title-sm" className="text-gray-900">
+                    <div className="mt-0">
+                      <Typography variant="title-xxs" className="text-gray-900">
                         Ladda upp bilder
                       </Typography>
-                      <span className="text-blue-600 hover:text-blue-700">Klicka för att ladda upp</span>
                     </div>
                   </div>
                 )}
@@ -202,7 +201,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
             )}
 
             {/* Guidelines */}
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gray-10 rounded-lg p-4">
               <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
                 Riktlinjer för bilder
               </Typography>
