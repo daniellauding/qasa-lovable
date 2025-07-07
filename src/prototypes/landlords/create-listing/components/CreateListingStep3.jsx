@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -197,12 +198,12 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             {/* Info box */}
-            <div className="bg-gray-50 rounded-lg p-4 mt-6">
-              <ul className="space-y-2 text-sm text-gray-600">
+            <HintBox className="mt-6">
+              <ul className="space-y-2">
                 <li>• Din fullständiga adress kommer inte att synas i annonsen.</li>
                 <li>• Du kommer inte kunna ändra adress när du har publicerat annonsen.</li>
               </ul>
-            </div>
+            </HintBox>
           </div>
         </div>
 
@@ -210,7 +211,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
           <Button
             variant="tertiary"
-            size="md"
+            size="lg"
             onClick={onPrev}
             iconOnly
             icon={<ArrowLeftIcon className="h-5 w-5" />}
@@ -219,7 +220,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={handleNext}
             disabled={isNextDisabled}
           >

@@ -115,13 +115,13 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               onClick={prevImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full"
             >
-              <Icon name="ChevronLeftIcon" size="md" />
+              <Icon name="ChevronLeftIcon" size="lg" />
             </button>
             <button 
               onClick={nextImage}
               className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full"
             >
-              <Icon name="ChevronRightIcon" size="md" />
+              <Icon name="ChevronRightIcon" size="lg" />
             </button>
 
             {/* Navigation arrows in corners */}

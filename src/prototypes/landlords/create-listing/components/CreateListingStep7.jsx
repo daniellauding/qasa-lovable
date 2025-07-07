@@ -4,6 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import Select from '../../../../components/ui/Select';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 const CreateListingStep7 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -58,11 +59,9 @@ const CreateListingStep7 = ({ onNext, onPrev, formData, updateFormData }) => {
             />
 
             {propertyType === 'other' && (
-              <div className="bg-gray-50 rounded-lg p-4">
-                <Typography variant="body-sm" className="text-gray-600">
-                  Välj ''Övrigt'' om ingen av alternativen ovan matchar din typ av bostad
-                </Typography>
-              </div>
+              <HintBox>
+                Välj ''Övrigt'' om ingen av alternativen ovan matchar din typ av bostad
+              </HintBox>
             )}
 
             <div>
@@ -74,27 +73,24 @@ const CreateListingStep7 = ({ onNext, onPrev, formData, updateFormData }) => {
                 onValueChange={handleOwnershipChange}
                 options={ownershipOptions}
               />
-              <div className="mt-2 bg-gray-50 rounded-lg p-4">
-                <Typography variant="body-sm" className="text-gray-600">
-                  Informationen kommer inte att visas i annonsen, men finns här så att vi kan hjälpa dig skriva ett korrekt hyresavtal när du är redo.
-                </Typography>
-              </div>
+              <HintBox className="mt-2">
+                Informationen kommer inte att visas i annonsen, men finns här så att vi kan hjälpa dig skriva ett korrekt hyresavtal när du är redo.
+              </HintBox>
             </div>
           </div>
         </div>
 
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="md"
+          <button
             onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
-          />
+          >
+            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+          </button>
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa

@@ -1,5 +1,5 @@
 import Button from '../../components/ui/Button';
-import { ChevronRightIcon, ChevronLeftIcon, PlusIcon, XMarkIcon, HeartIcon, ShareIcon, EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
+import { ChevronRightIcon, ChevronLeftIcon, PlusIcon, XMarkIcon, HeartIcon, ShareIcon, EllipsisHorizontalIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 export default {
   title: 'UI/Button',
@@ -10,7 +10,7 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
+      options: ['primary', 'secondary', 'tertiary', 'outline', 'ghost', 'transparent', 'bordered'],
     },
     size: {
       control: 'select',
@@ -50,11 +50,18 @@ export const Variants = {
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="tertiary">Tertiary</Button>
+        <Button variant="outline">Outline</Button>
+      </div>
+      <div className="space-x-4">
+        <Button variant="ghost">Ghost</Button>
+        <Button variant="transparent">Transparent</Button>
+        <Button variant="bordered">Bordered</Button>
       </div>
       <div className="space-x-4">
         <Button variant="primary" disabled>Primary Disabled</Button>
         <Button variant="secondary" disabled>Secondary Disabled</Button>
         <Button variant="tertiary" disabled>Tertiary Disabled</Button>
+        <Button variant="bordered" disabled>Bordered Disabled</Button>
       </div>
     </div>
   ),
@@ -106,6 +113,14 @@ export const IconOnly = {
           <Button iconOnly icon={<XMarkIcon className="w-5 h-5" />} variant="secondary" />
           <Button iconOnly icon={<HeartIcon className="w-5 h-5" />} variant="tertiary" />
           <Button iconOnly icon={<ShareIcon className="w-5 h-5" />} variant="transparent" />
+          <Button iconOnly icon={<ChevronLeftIcon className="w-5 h-5" />} variant="bordered" />
+        </div>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">Bordered Back Arrow (Navigation)</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly icon={<ChevronLeftIcon className="w-5 h-5" />} variant="bordered" size="md" aria-label="Go back" />
+          <span className="text-sm text-gray-600">Perfect for navigation back buttons</span>
         </div>
       </div>
       <div>
@@ -229,4 +244,86 @@ export const RealWorldExamples = {
       </div>
     </div>
   ),
-}; 
+};
+
+export const NavigationExamples = {
+  render: () => (
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-sm font-medium mb-3">Navigation Back Buttons (Bordered Variant)</h3>
+        <div className="space-x-4 flex items-center">
+          <Button 
+            iconOnly
+            variant="bordered" 
+            size="md"
+            icon={<ChevronLeftIcon className="w-5 h-5" />} 
+            aria-label="Go back"
+          />
+          <Button 
+            variant="primary" 
+            size="md"
+          >
+            Nästa
+          </Button>
+        </div>
+        <p className="text-sm text-gray-600 mt-2">Perfect for multi-step flows like create-listing</p>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">Different Sizes</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly variant="bordered" size="sm" icon={<ChevronLeftIcon className="w-4 h-4" />} aria-label="Back" />
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Back" />
+          <Button iconOnly variant="bordered" size="lg" icon={<ChevronLeftIcon className="w-6 h-6" />} aria-label="Back" />
+        </div>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">States</h3>
+        <div className="space-x-4 flex items-center">
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Normal" />
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Disabled" disabled />
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+export const QasaThemeVariants = () => (
+  <div className="space-y-6">
+    <div className="space-y-3">
+      <h3 className="font-medium text-gray-900">Qasa Theme Button Variants</h3>
+      <div className="flex flex-wrap gap-3">
+        <Button variant="primary" size="md">Primary (theme-bg-primary, #352924 text)</Button>
+        <Button variant="secondary" size="md">Secondary (#322721 bg, white text)</Button>
+        <Button variant="tertiary" size="md">Tertiary (#f0f0eb bg, #372d27 text)</Button>
+        <Button variant="outline" size="md">Outline (#f0f0eb bg, #372d27 border)</Button>
+      </div>
+    </div>
+    
+    <div className="space-y-3">
+      <h3 className="font-medium text-gray-900">Icon Only - Qasa Theme</h3>
+      <div className="flex gap-3">
+        <Button 
+          variant="tertiary" 
+          size="md" 
+          iconOnly 
+          icon={<ArrowLeftIcon className="h-5 w-5" />} 
+          aria-label="Back" 
+        />
+        <Button 
+          variant="secondary" 
+          size="md" 
+          iconOnly 
+          icon={<PlusIcon className="h-5 w-5" />} 
+          aria-label="Add" 
+        />
+        <Button 
+          variant="outline" 
+          size="md" 
+          iconOnly 
+          icon={<HeartIcon className="h-5 w-5" />} 
+          aria-label="Favorite" 
+        />
+      </div>
+    </div>
+  </div>
+); 

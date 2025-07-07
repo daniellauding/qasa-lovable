@@ -4,6 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
 import TextArea from '../../../../components/ui/TextArea';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -56,7 +57,7 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
               <Button
                 type="submit"
                 variant="primary"
-                size="md"
+                size="lg"
                 disabled
               >
                 Spara
@@ -81,7 +82,7 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
               <Button
                 type="submit"
                 variant="primary"
-                size="md"
+                size="lg"
                 disabled
               >
                 Spara
@@ -89,22 +90,22 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
             </form>
 
             {/* Info Box */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
+            <HintBox>
+              <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
                 Bra att veta
               </Typography>
-              <Typography variant="body-sm" className="text-gray-600">
+              <Typography variant="body-sm" className="text-[#362b25]">
                 Telefonnummer delas 8 timmar innan den bokade visningen. Du kan alltid avboka 
                 visningar under tiden din annons är publicerad.
               </Typography>
-            </div>
+            </HintBox>
           </div>
         </div>
 
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
           <Button
             variant="tertiary"
-            size="md"
+            size="lg"
             onClick={onPrev}
             iconOnly
             icon={<ArrowLeftIcon className="h-5 w-5" />}
@@ -113,7 +114,7 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Granska

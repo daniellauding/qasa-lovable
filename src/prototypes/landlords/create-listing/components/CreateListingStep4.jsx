@@ -5,6 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -68,28 +69,25 @@ const CreateListingStep4 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             {/* Info box */}
-            <div className="mt-4 bg-gray-50 rounded-lg p-4">
-              <Typography variant="body-sm" className="text-gray-600">
-                Dra markören till rätt position för att visa var din bostad ligger. Du kan zooma och panorera kartan för att hitta rätt plats.
-              </Typography>
-            </div>
+            <HintBox className="mt-4">
+              Dra markören till rätt position för att visa var din bostad ligger. Du kan zooma och panorera kartan för att hitta rätt plats.
+            </HintBox>
           </div>
         </div>
 
         {/* Footer */}
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="md"
+          <button
             onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
-          />
+          >
+            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+          </button>
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa

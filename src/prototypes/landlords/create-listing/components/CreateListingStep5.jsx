@@ -118,7 +118,7 @@ const CreateListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
           <Button
             variant="tertiary"
-            size="md"
+            size="lg"
             onClick={onPrev}
             iconOnly
             icon={<ArrowLeftIcon className="h-5 w-5" />}
@@ -127,7 +127,7 @@ const CreateListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa

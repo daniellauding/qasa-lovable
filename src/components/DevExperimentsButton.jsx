@@ -16,6 +16,11 @@ const experiments = [
     description: 'Experiment to increase application quality through gamification'
   },
   {
+    name: 'Create Tenant Listing',
+    path: '/tenants/create-tenant-listing',
+    description: 'Step-by-step flow for tenants to create profile listings to attract landlords'
+  },
+  {
     name: 'Find Tenant',
     path: '/landlords/find-tenant',
     description: 'Landlord prototype for finding and connecting with tenants'

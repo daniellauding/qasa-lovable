@@ -10,6 +10,7 @@ import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
+import DevExperimentsButton from '../../../components/DevExperimentsButton';
 
 export default function LandlordProfilePage() {
   const [searchParams] = useSearchParams();
@@ -181,6 +182,8 @@ export default function LandlordProfilePage() {
           </div>
         </div>
       </div>
+      
+      <DevExperimentsButton />
     </div>
   );
 } 

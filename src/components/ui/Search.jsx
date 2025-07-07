@@ -36,7 +36,7 @@ const Search = forwardRef(({
           rounded-full
           border
           border-gray-30
-          bg-gray-10
+          bg-white
           focus:outline-none
           focus:ring-0
           focus:border-gray-50

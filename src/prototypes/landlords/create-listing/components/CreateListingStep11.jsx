@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Checkbox from '../../../../components/ui/Checkbox';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -121,7 +122,7 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
             ))}
 
             {/* Insurance info */}
-            <div className="bg-gray-50 rounded-lg p-6 flex items-start gap-4">
+            <HintBox className="flex items-start gap-4">
               <div className="w-12 h-12 flex-shrink-0">
                 <svg viewBox="0 0 48 48" className="w-full h-full">
                   <circle cx="24" cy="24" r="20" fill="#E5F3FF" stroke="#3B82F6" strokeWidth="2"/>
@@ -129,29 +130,28 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
                 </svg>
               </div>
               <div className="space-y-2">
-                <Typography variant="title-sm" className="text-gray-900">
+                <Typography variant="title-sm" className="text-[#362b25]">
                   Försäkrad genom Qasa
                 </Typography>
-                <Typography variant="body-sm" className="text-gray-600">
+                <Typography variant="body-sm" className="text-[#362b25]">
                   Vi står för skador på din fastighet under hela hyresperioden.
                 </Typography>
               </div>
-            </div>
+            </HintBox>
           </div>
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="md"
+          <button
             onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
-          />
+          >
+            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+          </button>
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa

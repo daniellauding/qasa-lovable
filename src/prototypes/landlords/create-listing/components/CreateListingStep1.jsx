@@ -52,7 +52,7 @@ const CreateListingStep1 = ({ onNext }) => {
             <div className="pt-4">
               <Button
                 variant="primary"
-                size="md"
+                size="lg"
                 onClick={onNext}
                 className="w-full sm:w-auto"
               >

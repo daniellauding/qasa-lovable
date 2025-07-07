@@ -5,6 +5,7 @@ import Typography from '../../../../components/ui/Typography';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import DatePicker from '../../../../components/ui/DatePicker';
 import Select from '../../../../components/ui/Select';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon, CalendarIcon, TrashIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useNavigate, useLocation } from 'react-router-dom';
 
@@ -101,7 +102,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
             <div>
               <Button
                 variant="outline"
-                size="md"
+                size="lg"
                 onClick={handleAddViewing}
                 icon={<CalendarIcon className="h-4 w-4" />}
                 className="w-full justify-center"
@@ -146,30 +147,29 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
             )}
 
             {/* Info Box */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
+            <HintBox>
+              <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
                 Bra att veta
               </Typography>
-              <Typography variant="body-sm" className="text-gray-600">
+              <Typography variant="body-sm" className="text-[#362b25]">
                 Du kan alltid lägga till och ta bort visningar under tiden din annons är publicerad. Endast ID-verifierade hyresgäster kan boka visningar.
               </Typography>
-            </div>
+            </HintBox>
           </div>
         </div>
 
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="md"
+          <button
             onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
-          />
+          >
+            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+          </button>
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa
@@ -255,7 +255,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
                   <Button
                     type="button"
                     variant="outline"
-                    size="md"
+                    size="lg"
                     onClick={handleCloseModal}
                     className="flex-1"
                   >
@@ -264,7 +264,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
                   <Button
                     type="submit"
                     variant="primary"
-                    size="md"
+                    size="lg"
                     className="flex-1"
                   >
                     Skapa

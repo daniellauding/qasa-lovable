@@ -1,6 +1,7 @@
 import React from 'react';
 import ApplicationForm from './components/ApplicationForm';
 import QualityIndicator from './components/QualityIndicator';
+import DevExperimentsButton from '../../../components/DevExperimentsButton';
 
 function BetIncreaseQuality() {
   const [quality, setQuality] = React.useState(0);
@@ -37,6 +38,8 @@ function BetIncreaseQuality() {
           </div>
         </div>
       </main>
+      
+      <DevExperimentsButton />
     </div>
   );
 }

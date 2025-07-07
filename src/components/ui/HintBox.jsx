@@ -11,13 +11,13 @@ const HintBox = ({
   onButtonClick = () => {},
 }) => {
   return (
-    <div className={`bg-gray-50 rounded-lg p-4 ${className}`}>
+    <div className={`bg-[#f9f9f6] rounded-xl p-4 ${className}`}>
       {title && (
-        <Typography variant="body-sm" className="text-gray-900 font-medium mb-2">
+        <Typography variant="body-sm" className="text-[#362b25] font-normal mb-2">
           {title}
         </Typography>
       )}
-      <div className="text-gray-600">
+      <div className="text-[#362b25] text-sm font-normal">
         {children}
       </div>
       {showButton && (

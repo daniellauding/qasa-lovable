@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import TextArea from '../../../../components/ui/TextArea';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -46,33 +47,32 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                 </Typography>
               </div>
               
-              <div className="bg-gray-50 rounded-lg p-4 mt-4">
-                <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
+              <HintBox className="mt-4">
+                <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
                   Saker hyresgäster ofta undrar över:
                 </Typography>
-                <ul className="text-sm text-gray-600 space-y-1">
+                <ul className="space-y-1">
                   <li>• Planlösning</li>
                   <li>• Vad som ingår i hyran</li>
                   <li>• Kommunikation</li>
                   <li>• Varför du hyr ut din bostad</li>
                 </ul>
-              </div>
+              </HintBox>
             </div>
           </div>
         </div>
 
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="md"
+          <button
             onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
-          />
+          >
+            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+          </button>
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={onNext}
           >
             Nästa

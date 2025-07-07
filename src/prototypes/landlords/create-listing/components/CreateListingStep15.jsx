@@ -34,18 +34,17 @@ const CreateListingStep15 = ({ onNext, onPrev }) => {
 
             {/* Footer */}
             <div className="flex items-center justify-between pt-6">
-              <Button
-                variant="tertiary"
-                size="md"
+              <button
                 onClick={onPrev}
-                iconOnly
-                icon={<ArrowLeftIcon className="h-5 w-5" />}
+                className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
                 aria-label="Tillbaka"
-              />
+              >
+                <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+              </button>
               
               <Button
                 variant="primary"
-                size="md"
+                size="lg"
                 onClick={onNext}
               >
                 Nästa

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
+import Search from '../../../../components/ui/Search';
+import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -56,31 +58,12 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
 
           {/* Address Search Input */}
           <div className="space-y-4">
-            <div className="relative">
-              <Input
-                placeholder="Sök adress..."
-                value={address}
-                onChange={handleAddressChange}
-                className="w-full pl-10"
-              />
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  className="text-gray-400"
-                >
-                  <path d="m21 21-4.34-4.34"></path>
-                  <circle cx="11" cy="11" r="8"></circle>
-                </svg>
-              </div>
-            </div>
+            <Search
+              placeholder="Sök adress..."
+              value={address}
+              onChange={handleAddressChange}
+              size="lg"
+            />
 
             {/* Address Details Form - Show when user starts typing */}
             {showAddressFields && (
@@ -187,12 +170,12 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
             )}
 
             {/* Info box */}
-            <div className="bg-gray-50 rounded-lg p-4">
-              <ul className="space-y-2 text-sm text-gray-600">
+            <HintBox>
+              <ul className="space-y-2">
                 <li>• Din fullständiga adress kommer inte att synas i annonsen.</li>
                 <li>• Du kommer inte kunna ändra adress när du har publicerat annonsen.</li>
               </ul>
-            </div>
+            </HintBox>
           </div>
         </div>
 
@@ -200,7 +183,7 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
           <Button
             variant="tertiary"
-            size="md"
+            size="lg"
             onClick={onPrev}
             iconOnly
             icon={<ArrowLeftIcon className="h-5 w-5" />}
@@ -209,7 +192,7 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
           
           <Button
             variant="primary"
-            size="md"
+            size="lg"
             onClick={handleNext}
           >
             Nästa

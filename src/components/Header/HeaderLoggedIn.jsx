@@ -174,9 +174,9 @@ const HeaderLoggedIn = ({
                     <div className="absolute -top-1 -right-1">
                       <div className="h-[18px] min-w-[18px] rounded-full theme-badge-bg flex items-center justify-center px-1">
                         <Typography variant="body-sm" color="theme" className="theme-badge-text leading-none">
-                          {messageCount}
-                        </Typography>
-                      </div>
+                            {messageCount}
+                          </Typography>
+                        </div>
                     </div>
                   )}
                   <svg

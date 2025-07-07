@@ -29,6 +29,7 @@ import Select from '../../../components/ui/Select';
 import RadioGroup from '../../../components/ui/RadioGroup';
 import Checkbox from '../../../components/ui/Checkbox';
 import Modal from '../../../components/ui/Modal';
+import DevExperimentsButton from '../../../components/DevExperimentsButton';
 
 export default function TenantProfilePage() {
   const [searchParams] = useSearchParams();
@@ -775,6 +776,8 @@ export default function TenantProfilePage() {
       {renderRequirementsModal()}
       {renderEmploymentModal()}
       {renderHousingSituationModal()}
+      
+      <DevExperimentsButton />
     </div>
   );
 } 

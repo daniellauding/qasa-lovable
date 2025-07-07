@@ -4,6 +4,7 @@ import { BeakerIcon } from '@heroicons/react/24/outline';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
 import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
+import CreateTenantListingFlow from './prototypes/tenants/create-tenant-listing/CreateTenantListingFlow';
 import FindTenant from './prototypes/landlords/find-tenant/FindTenant';
 import CreateListingFlow from './prototypes/landlords/create-listing/CreateListingFlow';
 import Dashboard from './prototypes/landlords/dashboard/Dashboard';
@@ -22,6 +23,8 @@ import Footer from './components/Footer';
 import { LanguageProvider } from './utils/translations/LanguageContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import VariantSelector from './components/ui/VariantSelector';
+import { hasVariants, getVariantFromURL } from './utils/variants';
 
 // Import MessagesPage for the prototypes array
 import MessagesPageImport from './prototypes/messages/MessagesPage';
@@ -65,6 +68,16 @@ const prototypes = [
     path: '/tenants/bet-increase-quality',
     component: BetIncreaseQuality,
     tags: ['experiment', 'gamification'],
+  },
+  {
+    id: 'create-tenant-listing',
+    category: 'tenants',
+    name: 'Create Tenant Listing',
+    description: 'Step-by-step flow for tenants to create profile listings to attract landlords with location search and benefits',
+    thumbnail: '/thumbnails/create-tenant-listing.png',
+    path: '/tenants/create-tenant-listing',
+    component: CreateTenantListingFlow,
+    tags: ['stepper', 'forms', 'profile'],
   },
   {
     id: 'find-tenant',
@@ -215,9 +228,23 @@ function PrototypeGrid() {
                   <h2 className="text-xl font-semibold text-gray-900 mb-2">
                     {prototype.name}
                   </h2>
-                  <p className="text-sm text-gray-600 line-clamp-2">
+                  <p className="text-sm text-gray-600 line-clamp-2 mb-4">
                     {prototype.description}
                   </p>
+                  
+                  {/* Variant Selector - only show if variants exist */}
+                  {hasVariants(prototype.id) && (
+                    <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                      <div className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wide">
+                        Design Variants
+                      </div>
+                      <VariantSelector
+                        prototypeId={prototype.id}
+                        basePath={prototype.path}
+                        currentVariant={getVariantFromURL(prototype.id)}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </Link>
@@ -228,15 +255,13 @@ function PrototypeGrid() {
   );
 }
 
-
-
 function App() {
   return (
     <ThemeProvider>
-      <LanguageProvider>
+    <LanguageProvider>
         <AuthProvider>
-          <Router basename="/">
-          <Routes>
+      <Router basename="/">
+        <Routes>
           <Route path="/" element={<Navigate to="/landlords/create-listing/step/14" replace />} />
           
           <Route path="/experiments" element={
@@ -286,6 +311,8 @@ function App() {
           
           <Route path="/tenants/profile" element={<TenantProfilePage />} />
           <Route path="/tenants/bet-increase-quality" element={<BetIncreaseQuality />} />
+          <Route path="/tenants/create-tenant-listing" element={<CreateTenantListingFlow />} />
+          <Route path="/tenants/create-tenant-listing/step/:step" element={<CreateTenantListingFlow />} />
           
           <Route path="/homes" element={<HomesPage />} />
           
@@ -310,7 +337,7 @@ function App() {
             />
           ))}
         </Routes>
-        </Router>
+      </Router>
       </AuthProvider>
     </LanguageProvider>
     </ThemeProvider>
