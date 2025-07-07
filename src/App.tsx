@@ -20,11 +20,13 @@ import DevExperimentsButton from './components/DevExperimentsButton';
 import Header from './components/Header';
 import DynamicHeader from './components/DynamicHeader';
 import Footer from './components/Footer';
+import VariantCard from './components/ui/VariantCard';
+import VariantSelector from './components/ui/VariantSelector';
+import VariantWrapper from './components/VariantWrapper';
 import { LanguageProvider } from './utils/translations/LanguageContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
-import VariantSelector from './components/ui/VariantSelector';
-import { hasVariants, getVariantFromURL } from './utils/variants';
+import { variantRegistry, getAllPrototypesWithVariants, getVariant, parseVariantFromUrl } from './utils/variants';
 
 // Import MessagesPage for the prototypes array
 import MessagesPageImport from './prototypes/messages/MessagesPage';
@@ -182,73 +184,105 @@ const prototypes = [
 ];
 
 function PrototypeGrid() {
+  // Get prototypes from variant registry and legacy prototypes
+  const variantPrototypes = getAllPrototypesWithVariants().map(prototype => ({
+    ...prototype,
+    path: prototype.variants[0].id === 'default' ? 
+      prototypes.find(p => p.id === prototype.id)?.path || `/${prototype.id}` :
+      prototypes.find(p => p.id === prototype.id)?.path || `/${prototype.id}`
+  }));
+
+  // Legacy prototypes that don't have variants yet
+  const legacyPrototypes = prototypes.filter(p => 
+    !variantRegistry[p.id]
+  );
+
   return (
     <div className="min-h-screen bg-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Qasa Experiments</h1>
           <p className="text-lg text-gray-600">Explore and test new features for the Qasa platform</p>
+          <div className="mt-4 text-sm text-gray-500">
+            Create and compare different versions of prototypes. Use variants to test different approaches.
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {prototypes.map((prototype) => (
-            <Link
-              key={prototype.id}
-              to={prototype.path}
-              className="block group transform hover:-translate-y-1 transition-all duration-200"
-            >
-              <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden">
-                <div className="aspect-w-16 aspect-h-9 bg-gray-100">
-                  {prototype.thumbnail ? (
-                    <img
-                      src={prototype.thumbnail}
-                      alt={prototype.name}
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-                      <BeakerIcon className="w-16 h-16 text-indigo-300" />
-                    </div>
-                  )}
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-2">
-                    <div className="text-sm font-medium px-3 py-1 rounded-full bg-indigo-50 text-indigo-700">
-                      {prototype.category}
-                    </div>
-                    {prototype.tags?.map(tag => (
-                      <span 
-                        key={tag} 
-                        className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                    {prototype.name}
-                  </h2>
-                  <p className="text-sm text-gray-600 line-clamp-2 mb-4">
-                    {prototype.description}
-                  </p>
-                  
-                  {/* Variant Selector - only show if variants exist */}
-                  {hasVariants(prototype.id) && (
-                    <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-                      <div className="text-xs text-gray-500 mb-2 font-medium uppercase tracking-wide">
-                        Design Variants
-                      </div>
-                      <VariantSelector
-                        prototypeId={prototype.id}
-                        basePath={prototype.path}
-                        currentVariant={getVariantFromURL(prototype.id)}
-                      />
-                    </div>
-                  )}
-                </div>
+        <div className="space-y-12">
+          {/* Prototypes with variants */}
+          {variantPrototypes.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                Prototypes with Variants 
+                <span className="ml-2 text-sm font-normal text-gray-500">
+                  ({variantPrototypes.length})
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {variantPrototypes.map((prototype) => (
+                  <VariantCard key={prototype.id} prototype={prototype} />
+                ))}
               </div>
-            </Link>
-          ))}
+            </div>
+          )}
+
+          {/* Legacy prototypes */}
+          {legacyPrototypes.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+                Other Prototypes
+                <span className="ml-2 text-sm font-normal text-gray-500">
+                  ({legacyPrototypes.length})
+                </span>
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {legacyPrototypes.map((prototype) => (
+                  <Link
+                    key={prototype.id}
+                    to={prototype.path}
+                    className="block group transform hover:-translate-y-1 transition-all duration-200"
+                  >
+                    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden">
+                      <div className="aspect-w-16 aspect-h-9 bg-gray-100">
+                        {prototype.thumbnail ? (
+                          <img
+                            src={prototype.thumbnail}
+                            alt={prototype.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
+                            <BeakerIcon className="w-16 h-16 text-indigo-300" />
+                          </div>
+                        )}
+                      </div>
+                      <div className="p-6">
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className="text-sm font-medium px-3 py-1 rounded-full bg-indigo-50 text-indigo-700">
+                            {prototype.category}
+                          </div>
+                          {prototype.tags?.map(tag => (
+                            <span 
+                              key={tag} 
+                              className="text-xs font-medium px-2 py-1 rounded-full bg-gray-100 text-gray-600"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                          {prototype.name}
+                        </h2>
+                        <p className="text-sm text-gray-600 line-clamp-2">
+                          {prototype.description}
+                        </p>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -262,7 +296,7 @@ function App() {
         <AuthProvider>
       <Router basename="/">
         <Routes>
-          <Route path="/" element={<Navigate to="/landlords/create-listing/step/14" replace />} />
+          <Route path="/" element={<Navigate to="/auth/register/step/3" replace />} />
           
           <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">
@@ -279,15 +313,28 @@ function App() {
             <div className="min-h-screen flex flex-col">
               <DynamicHeader isFluid={true} />
               <main className="flex-grow">
-                <FindTenant isFluid={true} />
+                <VariantWrapper 
+                  prototypeId="find-tenant" 
+                  defaultComponent={() => <FindTenant isFluid={true} />}
+                />
               </main>
               <Footer isFluid={true} />
               <DevExperimentsButton />
             </div>
           } />
           
-          <Route path="/landlords/create-listing" element={<CreateListingFlow />} />
-          <Route path="/landlords/create-listing/step/:step" element={<CreateListingFlow />} />
+          <Route path="/landlords/create-listing" element={
+            <VariantWrapper 
+              prototypeId="create-listing" 
+              defaultComponent={CreateListingFlow}
+            />
+          } />
+          <Route path="/landlords/create-listing/step/:step" element={
+            <VariantWrapper 
+              prototypeId="create-listing" 
+              defaultComponent={CreateListingFlow}
+            />
+          } />
           <Route path="/landlords/dashboard" element={<Dashboard />} />
           <Route path="/landlords/edit-rent" element={<EditRent />} />
           <Route path="/landlords/edit-listing" element={<EditListingOverview />} />
@@ -311,8 +358,18 @@ function App() {
           
           <Route path="/tenants/profile" element={<TenantProfilePage />} />
           <Route path="/tenants/bet-increase-quality" element={<BetIncreaseQuality />} />
-          <Route path="/tenants/create-tenant-listing" element={<CreateTenantListingFlow />} />
-          <Route path="/tenants/create-tenant-listing/step/:step" element={<CreateTenantListingFlow />} />
+          <Route path="/tenants/create-tenant-listing" element={
+            <VariantWrapper 
+              prototypeId="create-tenant-listing" 
+              defaultComponent={CreateTenantListingFlow}
+            />
+          } />
+          <Route path="/tenants/create-tenant-listing/step/:step" element={
+            <VariantWrapper 
+              prototypeId="create-tenant-listing" 
+              defaultComponent={CreateTenantListingFlow}
+            />
+          } />
           
           <Route path="/homes" element={<HomesPage />} />
           

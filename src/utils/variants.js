@@ -1,137 +1,89 @@
-// Central variant system for prototypes
-// Allows creating multiple versions of prototypes for design experimentation
+// Variant Registry - Central management of all prototype variants
+// This allows teams to create, manage and share different versions of prototypes
 
-export const variants = {
+export const variantRegistry = {
   'create-tenant-listing': {
-    main: {
-      id: 'main',
-      name: 'Original',
-      description: 'Complete 17-step tenant listing flow with employment management',
-      component: null, // Will use default component
-      isDefault: true,
-    },
-    simplify: {
-      id: 'simplify',
-      name: 'Simplified',
-      description: 'Streamlined 8-step flow focusing on essentials only',
-      component: null, // Would load simplified version
-      experimental: true,
-    },
-    gamified: {
-      id: 'gamified',
-      name: 'Gamified',
-      description: 'Version with progress rewards and quality scoring',
-      component: null,
-      experimental: true,
-    }
+    name: 'Create Tenant Listing',
+    description: 'Step-by-step flow for tenants to create profile listings',
+    variants: [
+      {
+        id: 'default',
+        name: 'Default',
+        description: 'Standard 17-step flow with comprehensive forms',
+        component: () => import('../prototypes/tenants/create-tenant-listing/CreateTenantListingFlow'),
+        tags: ['complete', 'thorough']
+      },
+      {
+        id: 'simplify',
+        name: 'Simplified',
+        description: 'Streamlined version with fewer steps and simplified forms',
+        component: () => import('../prototypes/tenants/create-tenant-listing/variants/CreateTenantListingSimplify'),
+        tags: ['quick', 'minimal'],
+        status: 'draft'
+      }
+    ]
+  },
+  'create-listing': {
+    name: 'Create Listing',
+    description: 'Step-by-step flow for landlords to create property listings',
+    variants: [
+      {
+        id: 'default',
+        name: 'Default',
+        description: 'Standard property listing creation flow',
+        component: () => import('../prototypes/landlords/create-listing/CreateListingFlow'),
+        tags: ['complete']
+      }
+    ]
   },
   'find-tenant': {
-    main: {
-      id: 'main',
-      name: 'Original',
-      description: 'Current tenant discovery interface',
-      component: null,
-      isDefault: true,
-    },
-    cards: {
-      id: 'cards',
-      name: 'Card Layout',
-      description: 'Tinder-style swipe interface for tenant selection',
-      component: null,
-      experimental: true,
-    }
-  },
-  'landlord-dashboard': {
-    main: {
-      id: 'main',
-      name: 'Original',
-      description: 'Current dashboard layout',
-      component: null,
-      isDefault: true,
-    },
-    modern: {
-      id: 'modern',
-      name: 'Modern',
-      description: 'Redesigned with better analytics and insights',
-      component: null,
-      experimental: true,
-    }
-  },
-  'tenant-profile': {
-    main: {
-      id: 'main',
-      name: 'Original',
-      description: 'Current modal-based editing system',
-      component: null,
-      isDefault: true,
-    },
-    inline: {
-      id: 'inline',
-      name: 'Inline Edit',
-      description: 'Direct inline editing without modals',
-      component: null,
-      experimental: true,
-    }
+    name: 'Find Tenant',
+    description: 'Browse verified tenant profiles and connect with quality renters',
+    variants: [
+      {
+        id: 'default',
+        name: 'Default',
+        description: 'Standard tenant discovery interface',
+        component: () => import('../prototypes/landlords/find-tenant/FindTenant'),
+        tags: ['matching']
+      }
+    ]
   }
 };
 
-// Get variant info for a prototype
-export const getVariant = (prototypeId, variantId = 'main') => {
-  const prototypeVariants = variants[prototypeId];
-  if (!prototypeVariants) return null;
-  
-  return prototypeVariants[variantId] || prototypeVariants.main;
+// Helper functions for working with variants
+export const getPrototypeVariants = (prototypeId) => {
+  return variantRegistry[prototypeId]?.variants || [];
 };
 
-// Get all variants for a prototype
-export const getVariants = (prototypeId) => {
-  const prototypeVariants = variants[prototypeId];
-  if (!prototypeVariants) return [];
+export const getVariant = (prototypeId, variantId = 'default') => {
+  const prototype = variantRegistry[prototypeId];
+  if (!prototype) return null;
   
-  return Object.values(prototypeVariants);
+  return prototype.variants.find(v => v.id === variantId) || prototype.variants[0];
 };
 
-// Get variant from URL params
-export const getVariantFromURL = (prototypeId) => {
-  if (typeof window === 'undefined') return 'main';
-  
+export const getAllPrototypesWithVariants = () => {
+  return Object.keys(variantRegistry).map(id => ({
+    id,
+    ...variantRegistry[id],
+    hasMultipleVariants: variantRegistry[id].variants.length > 1
+  }));
+};
+
+export const getVariantUrl = (basePath, variantId) => {
+  if (variantId === 'default') return basePath;
+  return `${basePath}?variant=${variantId}`;
+};
+
+export const parseVariantFromUrl = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const variantParam = urlParams.get('variant');
-  
-  if (variantParam && variants[prototypeId]?.[variantParam]) {
-    return variantParam;
-  }
-  
-  return 'main';
+  return urlParams.get('variant') || 'default';
 };
 
-// Generate URL with variant parameter
-export const getVariantURL = (basePath, variantId) => {
-  if (variantId === 'main') {
-    return basePath; // No parameter for main variant
-  }
-  
-  const url = new URL(basePath, window.location.origin);
-  url.searchParams.set('variant', variantId);
-  return url.pathname + url.search;
-};
-
-// Copy variant URL to clipboard
-export const copyVariantURL = async (basePath, variantId) => {
-  const url = getVariantURL(basePath, variantId);
-  const fullURL = `${window.location.origin}${url}`;
-  
-  try {
-    await navigator.clipboard.writeText(fullURL);
-    return true;
-  } catch (err) {
-    console.warn('Failed to copy to clipboard:', err);
-    return false;
-  }
-};
-
-// Check if prototype has variants
-export const hasVariants = (prototypeId) => {
-  const prototypeVariants = variants[prototypeId];
-  return prototypeVariants && Object.keys(prototypeVariants).length > 1;
+// Status indicators for variants
+export const variantStatusConfig = {
+  active: { label: 'Active', color: 'green' },
+  draft: { label: 'Draft', color: 'yellow' },
+  archived: { label: 'Archived', color: 'gray' }
 }; 

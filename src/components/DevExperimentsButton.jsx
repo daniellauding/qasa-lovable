@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { BeakerIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ui/ThemeSwitcher';
+import { parseVariantFromUrl } from '../utils/variants';
 
 // Import all experiments from App.jsx
 const experiments = [
@@ -94,22 +95,34 @@ const experiments = [
 
 function DevExperimentsButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const currentVariant = parseVariantFromUrl();
 
   return (
     <div className="fixed bottom-4 right-4 z-[9999]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#6E3FF3] p-3 rounded-full shadow-lg hover:bg-[#5B35CC] transition-colors"
+        className="bg-[#6E3FF3] p-3 rounded-full shadow-lg hover:bg-[#5B35CC] transition-colors relative"
         aria-label="Toggle experiments menu"
       >
         <BeakerIcon className="h-6 w-6 text-white" />
+        {currentVariant !== 'default' && (
+          <span className="absolute -top-1 -right-1 h-3 w-3 bg-yellow-400 rounded-full"></span>
+        )}
       </button>
 
       {isOpen && (
         <div className="absolute bottom-full right-0 mb-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100">
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Experiments</h3>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900">Experiments</h3>
+                {currentVariant !== 'default' && (
+                  <div className="text-xs text-yellow-600 bg-yellow-50 px-2 py-1 rounded mt-1">
+                    Variant: {currentVariant}
+                  </div>
+                )}
+              </div>
               <button 
                 onClick={() => setIsOpen(false)}
                 className="text-gray-400 hover:text-gray-500"
@@ -140,6 +153,13 @@ function DevExperimentsButton() {
               >
                 Open Storybook →
               </a>
+              <Link
+                to="/experiments"
+                className="block text-sm text-[#6E3FF3] hover:text-[#5B35CC] font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                View All Variants →
+              </Link>
             </div>
           </div>
         </div>

@@ -1,12 +1,28 @@
+import React from 'react';
+import { ThemeProvider } from '../src/contexts/ThemeContext';
 import '../src/index.css';
 
-/** @type { import('@storybook/react-vite').Preview } */
+// Theme decorator to wrap stories with theme context
+const withTheme = (Story, context) => {
+  const theme = context.globals.theme || 'qasa';
+  
+  return (
+    <ThemeProvider>
+      <div data-theme={theme}>
+        <Story />
+      </div>
+    </ThemeProvider>
+  );
+};
+
+/** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
     backgrounds: {
@@ -18,7 +34,11 @@ const preview = {
         },
         {
           name: 'dark',
-          value: '#333333',
+          value: '#1a1a1a',
+        },
+        {
+          name: 'gray',
+          value: '#f5f5f5',
         },
       ],
     },
@@ -29,6 +49,23 @@ const preview = {
       test: "todo"
     }
   },
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'qasa',
+      toolbar: {
+        title: 'Theme',
+        icon: 'paintbrush',
+        items: [
+          { value: 'qasa', title: 'Qasa Theme', icon: 'heart' },
+          { value: 'blocket', title: 'Blocket Theme', icon: 'home' },
+        ],
+        showName: true,
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [withTheme],
 };
 
 export default preview;
