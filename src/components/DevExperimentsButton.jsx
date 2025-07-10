@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { BeakerIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { BeakerIcon, XMarkIcon, ChevronDownIcon, LinkIcon } from '@heroicons/react/24/outline';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ui/ThemeSwitcher';
-import { parseVariantFromUrl } from '../utils/variants';
+import { parseVariantFromUrl, getPrototypeVariants, getVariantUrl, variantStatusConfig, variantRegistry } from '../utils/variants';
 
 // Import all experiments from App.jsx
 const experiments = [
@@ -95,8 +95,53 @@ const experiments = [
 
 function DevExperimentsButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVariantDropdownOpen, setIsVariantDropdownOpen] = useState(false);
   const location = useLocation();
   const currentVariant = parseVariantFromUrl();
+
+  // Detect current prototype from URL
+  const getCurrentPrototype = () => {
+    const path = location.pathname;
+    
+    // Map URL patterns to prototype IDs
+    if (path.startsWith('/auth/register')) return 'register';
+    if (path.startsWith('/auth/login')) return 'login';
+    if (path.startsWith('/tenants/create-tenant-listing')) return 'create-tenant-listing';
+    if (path.startsWith('/landlords/find-tenant')) return 'find-tenant';
+    if (path.startsWith('/landlords/create-listing')) return 'create-listing';
+    
+    return null;
+  };
+
+  const currentPrototypeId = getCurrentPrototype();
+  const currentPrototype = currentPrototypeId ? variantRegistry[currentPrototypeId] : null;
+  const currentVariants = currentPrototype ? getPrototypeVariants(currentPrototypeId) : [];
+  const hasVariants = currentVariants.length > 1;
+
+  const copyVariantLink = (variant, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Get base path for current prototype
+    let basePath = '';
+    if (currentPrototypeId === 'register') basePath = '/auth/register';
+    else if (currentPrototypeId === 'create-tenant-listing') basePath = '/tenants/create-tenant-listing';
+    else if (currentPrototypeId === 'find-tenant') basePath = '/landlords/find-tenant';
+    else if (currentPrototypeId === 'create-listing') basePath = '/landlords/create-listing';
+    
+    const url = window.location.origin + getVariantUrl(basePath, variant.id);
+    navigator.clipboard.writeText(url);
+    
+    // Show feedback
+    const button = e.target.closest('button');
+    if (button) {
+      const originalTitle = button.title;
+      button.title = 'Copied!';
+      setTimeout(() => {
+        button.title = originalTitle;
+      }, 1000);
+    }
+  };
 
   return (
     <div className="fixed bottom-4 right-4 z-[9999]">
@@ -130,6 +175,73 @@ function DevExperimentsButton() {
                 <XMarkIcon className="h-5 w-5" />
               </button>
             </div>
+
+            {/* Current prototype variants */}
+            {hasVariants && (
+              <div className="mb-4 pb-4 border-b border-gray-100">
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="text-sm font-medium text-gray-700">
+                    {currentPrototype.name} Variants
+                  </h4>
+                  <button
+                    onClick={() => setIsVariantDropdownOpen(!isVariantDropdownOpen)}
+                    className="text-xs text-gray-500 hover:text-gray-700 flex items-center"
+                  >
+                    <ChevronDownIcon className={`w-3 h-3 ml-1 transition-transform ${isVariantDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                {isVariantDropdownOpen && (
+                  <div className="space-y-1 max-h-40 overflow-y-auto">
+                    {currentVariants.map((variant) => (
+                      <div
+                        key={variant.id}
+                        className={`p-2 rounded hover:bg-gray-50 cursor-pointer flex items-center justify-between ${
+                          currentVariant === variant.id ? 'bg-blue-50 border border-blue-200' : ''
+                        }`}
+                      >
+                        <Link
+                          to={getVariantUrl(
+                            currentPrototypeId === 'register' ? '/auth/register' :
+                            currentPrototypeId === 'create-tenant-listing' ? '/tenants/create-tenant-listing' :
+                            currentPrototypeId === 'find-tenant' ? '/landlords/find-tenant' :
+                            currentPrototypeId === 'create-listing' ? '/landlords/create-listing' : '',
+                            variant.id
+                          )}
+                          className="flex-1 min-w-0"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <div className="flex items-center">
+                            <span className="text-xs font-medium text-gray-900">
+                              {variant.name}
+                            </span>
+                            {variant.status && variant.status !== 'active' && (
+                              <span className={`ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-medium ${
+                                variant.status === 'draft' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800'
+                              }`}>
+                                {variantStatusConfig[variant.status]?.label}
+                              </span>
+                            )}
+                            {currentVariant === variant.id && (
+                              <span className="ml-2 text-xs text-blue-600">•</span>
+                            )}
+                          </div>
+                          <p className="text-xs text-gray-500 mt-1 line-clamp-2">{variant.description}</p>
+                        </Link>
+                        <button
+                          onClick={(e) => copyVariantLink(variant, e)}
+                          className="ml-2 p-1 text-gray-400 hover:text-gray-600 flex-shrink-0"
+                          title="Copy link"
+                        >
+                          <LinkIcon className="w-3 h-3" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
             <div className="space-y-2 max-h-80 overflow-y-auto">
               {experiments.map((experiment) => (
                 <Link

@@ -2,6 +2,43 @@
 // This allows teams to create, manage and share different versions of prototypes
 
 export const variantRegistry = {
+  'register': {
+    name: 'Register Flow',
+    description: 'User registration and onboarding flow with profile completion experiments',
+    variants: [
+      {
+        id: 'default',
+        name: 'Default',
+        description: 'Standard 3-step registration: account creation, email verification, basic profile',
+        component: () => import('../prototypes/auth/register/RegisterFlow'),
+        tags: ['standard', 'baseline']
+      },
+      {
+        id: 'enhanced-profile',
+        name: 'Enhanced Profile Completion',
+        description: 'Extended step 2 with optional profile fields and real-time preview',
+        component: () => import('../prototypes/auth/register/variants/RegisterFlowEnhanced'),
+        tags: ['profile', 'completion', 'preview'],
+        status: 'draft'
+      },
+      {
+        id: 'gamified',
+        name: 'Gamified Completion',
+        description: 'Profile completion with progress gamification and incentives',
+        component: () => import('../prototypes/auth/register/variants/RegisterFlowGamified'),
+        tags: ['gamification', 'engagement'],
+        status: 'draft'
+      },
+      {
+        id: 'step-by-step',
+        name: 'Step-by-Step Profile',
+        description: 'Additional micro-steps for each profile field with focused completion',
+        component: () => import('../prototypes/auth/register/variants/RegisterFlowStepByStep'),
+        tags: ['micro-steps', 'focused'],
+        status: 'draft'
+      }
+    ]
+  },
   'create-tenant-listing': {
     name: 'Create Tenant Listing',
     description: 'Step-by-step flow for tenants to create profile listings',

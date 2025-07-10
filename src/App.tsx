@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
 import { BeakerIcon } from '@heroicons/react/24/outline';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
@@ -185,12 +185,16 @@ const prototypes = [
 
 function PrototypeGrid() {
   // Get prototypes from variant registry and legacy prototypes
-  const variantPrototypes = getAllPrototypesWithVariants().map(prototype => ({
-    ...prototype,
-    path: prototype.variants[0].id === 'default' ? 
-      prototypes.find(p => p.id === prototype.id)?.path || `/${prototype.id}` :
-      prototypes.find(p => p.id === prototype.id)?.path || `/${prototype.id}`
-  }));
+  const variantPrototypes = getAllPrototypesWithVariants().map(prototype => {
+    const legacyPrototype = prototypes.find(p => p.id === prototype.id);
+    return {
+      ...prototype,
+      path: legacyPrototype?.path || `/${prototype.id}`,
+      category: legacyPrototype?.category || 'experiments',
+      thumbnail: legacyPrototype?.thumbnail,
+      tags: legacyPrototype?.tags || []
+    };
+  });
 
   // Legacy prototypes that don't have variants yet
   const legacyPrototypes = prototypes.filter(p => 
@@ -211,14 +215,14 @@ function PrototypeGrid() {
         <div className="space-y-12">
           {/* Prototypes with variants */}
           {variantPrototypes.length > 0 && (
-            <div>
+            <div className="pb-32">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                 Prototypes with Variants 
                 <span className="ml-2 text-sm font-normal text-gray-500">
                   ({variantPrototypes.length})
                 </span>
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-visible">
                 {variantPrototypes.map((prototype) => (
                   <VariantCard key={prototype.id} prototype={prototype} />
                 ))}
@@ -289,6 +293,12 @@ function PrototypeGrid() {
   );
 }
 
+// Redirect component that preserves query params
+const RegisterRedirect = () => {
+  const location = useLocation();
+  return <Navigate to={`/auth/register/step/1${location.search}`} replace />;
+};
+
 function App() {
   return (
     <ThemeProvider>
@@ -342,8 +352,15 @@ function App() {
           
           <Route path="/auth/login" element={<LoginFlow />} />
           <Route path="/auth/login/step/:step" element={<LoginFlow />} />
-          <Route path="/auth/register" element={<RegisterFlow />} />
-          <Route path="/auth/register/step/:step" element={<RegisterFlow />} />
+          
+          {/* Register - redirect base URL to step 1 with preserved query params */}
+          <Route path="/auth/register" element={<RegisterRedirect />} />
+          <Route path="/auth/register/step/:step" element={
+            <VariantWrapper 
+              prototypeId="register" 
+              defaultComponent={RegisterFlow}
+            />
+          } />
           
           <Route path="/tenants/apply-home" element={
             <div className="min-h-screen flex flex-col">

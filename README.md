@@ -16,32 +16,114 @@ This project includes a powerful variant system that allows teams to create, man
 
 ### Creating Variants
 
-1. **Add to variant registry** (`src/utils/variants.js`):
+#### Step 1: Add to Variant Registry
+
+Add your prototype to `src/utils/variants.js`:
+
 ```js
-'create-tenant-listing': {
-  name: 'Create Tenant Listing',
+'your-prototype-id': {
+  name: 'Your Prototype Name',
+  description: 'Brief description of what this prototype does',
   variants: [
     {
       id: 'default',
       name: 'Default',
-      description: 'Standard 17-step flow',
-      component: () => import('../prototypes/tenants/create-tenant-listing/CreateTenantListingFlow'),
+      description: 'Standard implementation',
+      component: () => import('../prototypes/path/to/YourPrototype'),
+      tags: ['baseline']
     },
     {
-      id: 'simplify',
-      name: 'Simplified',
-      description: 'Streamlined 5-step version',
-      component: () => import('../prototypes/tenants/create-tenant-listing/variants/CreateTenantListingSimplify'),
-      status: 'draft'
+      id: 'enhanced',
+      name: 'Enhanced Version',
+      description: 'Improved user experience with additional features',
+      component: () => import('../prototypes/path/to/variants/YourPrototypeEnhanced'),
+      tags: ['improved', 'features'],
+      status: 'draft'  // draft, active, or archived
     }
   ]
 }
 ```
 
-2. **Create variant component** in `variants/` folder
-3. **URLs automatically work**:
-   - Default: `/tenants/create-tenant-listing`
-   - Variant: `/tenants/create-tenant-listing?variant=simplify`
+#### Step 2: Create Variant Components
+
+Create a `variants/` folder in your prototype directory:
+
+```
+src/prototypes/your-prototype/
+├── YourPrototype.jsx           # Default variant
+├── variants/
+│   ├── YourPrototypeEnhanced.jsx
+│   ├── YourPrototypeGamified.jsx
+│   └── components/             # Variant-specific components
+│       ├── EnhancedStep1.jsx
+│       └── GamifiedStep2.jsx
+```
+
+#### Step 3: Update App.tsx Routes
+
+Add VariantWrapper to your routes:
+
+```js
+<Route path="/your-prototype" element={
+  <VariantWrapper 
+    prototypeId="your-prototype-id" 
+    defaultComponent={YourPrototype}
+  />
+} />
+<Route path="/your-prototype/step/:step" element={
+  <VariantWrapper 
+    prototypeId="your-prototype-id" 
+    defaultComponent={YourPrototype}
+  />
+} />
+```
+
+#### Step 4: URLs Work Automatically
+
+- Default: `/your-prototype`
+- Variant: `/your-prototype?variant=enhanced`
+- With parameters: `/your-prototype/step/2?variant=enhanced`
+
+### Profile Completion Experiments
+
+We've implemented three different approaches to profile completion in the auth register flow:
+
+#### 1. Enhanced Profile Completion (`enhanced-profile`)
+- **URL**: `/auth/register/step/2?variant=enhanced-profile`
+- **Approach**: Combines email verification with optional profile fields
+- **Features**:
+  - Real-time profile preview sidebar
+  - Progress percentage calculation
+  - Immediate feedback on field completion
+  - Mobile-responsive layout
+
+#### 2. Gamified Completion (`gamified`)
+- **URL**: `/auth/register/step/2?variant=gamified`
+- **Approach**: Uses gamification elements to encourage completion
+- **Features**:
+  - Points system (+50 to +200 points per field)
+  - Achievement unlocking with visual notifications
+  - Level progression system
+  - Progress challenges and motivational messaging
+
+#### 3. Step-by-Step Profile (`step-by-step`)
+- **URL**: `/auth/register/step/3?variant=step-by-step`
+- **Approach**: Breaks profile completion into focused micro-steps
+- **Features**:
+  - One field per step for maximum focus
+  - Clear benefit explanations for each field
+  - Skip options for non-critical fields
+  - Progress tracking with completion count
+
+### Best Practices for Variants
+
+1. **Start Simple**: Begin with one clear hypothesis to test
+2. **Document Purpose**: Clearly state what you're testing and why
+3. **Use Descriptive IDs**: `simplified`, `enhanced`, `gamified` are better than `v1`, `v2`
+4. **Track Status**: Mark variants as `draft` while developing, `active` when ready to test
+5. **Mobile First**: Ensure all variants work well on mobile devices
+6. **Test Thoroughly**: Each variant should be fully functional
+7. **Clean Up**: Archive or remove variants that aren't providing value
 
 ### Example Variants
 - **create-tenant-listing-simplify**: 5-step simplified flow vs 17-step complete flow
