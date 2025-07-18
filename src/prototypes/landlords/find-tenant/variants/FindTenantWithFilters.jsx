@@ -321,6 +321,9 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
     ? "w-full px-4 sm:px-6 lg:px-8 py-8"
     : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8";
 
+  // Add helper to check if advanced filters are active
+  const isAdvancedFilterActive = hasAdvancedFilters();
+
   return (
     <div className="min-h-screen bg-white">
       <main className={containerClasses}>
@@ -621,21 +624,23 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
               {/* Advanced Filters */}
               <div className="relative">
                 <Button
-                  variant="tertiary"
+                  variant={isAdvancedFilterActive ? "primary" : "tertiary"}
                   size="lg"
                   iconOnly
-                  icon={<AdjustmentsHorizontalIcon className="w-4 h-4" />}
+                  icon={<AdjustmentsHorizontalIcon className={isAdvancedFilterActive ? "w-4 h-4 text-white" : "w-4 h-4 text-[#372d27]"} />}
                   onClick={() => toggleDropdown('advanced')}
+                  className={isAdvancedFilterActive ? "bg-gray-90 text-white" : ""}
                 />
-                {hasAdvancedFilters() && (
+                {isAdvancedFilterActive && (
                   <button
                     onClick={e => {
                       e.stopPropagation();
                       resetAdvancedFilters();
                     }}
-                    className="absolute -top-1 -right-1 w-4 h-4 bg-gray-90 text-white rounded-full flex items-center justify-center text-xs hover:bg-gray-80 transition-colors"
+                    className="absolute -top-1 -right-1 w-6 h-6 bg-gray-90 text-white rounded-full flex items-center justify-center text-xs hover:bg-gray-80 transition-colors border-2 border-white shadow"
+                    aria-label="Reset filters"
                   >
-                    <XMarkIcon className="w-2 h-2" />
+                    <XMarkIcon className="w-3 h-3" />
                   </button>
                 )}
 
@@ -643,7 +648,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                 {activeDropdown === 'advanced' && (
                   <div className="absolute top-full right-0 mt-2 z-50 w-96 max-h-96 overflow-y-auto">
                     <div className="bg-white rounded-xl shadow-xl border border-gray-20 p-6">
-                      <Typography variant="title-sm" className="mb-6">
+                      <Typography variant="title-sm" className="mb-6 font-title text-2xl font-bold text-gray-900">
                         Filters
                       </Typography>
 
@@ -757,6 +762,8 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                         <Button
                           onClick={() => setActiveDropdown(null)}
                           className="bg-gray-90 text-white hover:bg-gray-80 px-8 rounded-full"
+                          variant="primary"
+                          size="lg"
                         >
                           Show 15511 tenants
                         </Button>
