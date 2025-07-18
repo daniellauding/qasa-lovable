@@ -127,8 +127,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [selectedPropertyIds, setSelectedPropertyIds] = useState([1]); // Changed to array for multiple selection
   
-  // Modal states - only for advanced filters and save search
-  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  // Modal states - only for save search
   const [showSaveSearchModal, setShowSaveSearchModal] = useState(false);
   
   const itemsPerPage = 6;
@@ -332,23 +331,21 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
           </Typography>
         </div>
 
-
-
         {/* Filter Buttons - All in one row */}
         <div className="relative mb-6" ref={dropdownRef}>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center gap-3 flex-wrap mx-auto">
               {/* Property Selector - Compact */}
               <div className="relative">
                 <button
                   onClick={() => toggleDropdown('property')}
-                  className="flex items-center gap-2 bg-gray-10 rounded-xl p-2 w-fit hover:bg-gray-20 transition-colors"
+                  className="flex items-center gap-2 bg-white rounded-xl h-12 px-2 w-fit hover:bg-gray-20 transition-colors border border-gray-30"
                 >
                   {hasSelectedProperty ? (
-                    <img 
-                      src={selectedProperty.image} 
+                    <img
+                      src={selectedProperty.image}
                       alt={selectedProperty.title}
-                      className="w-12 h-12 rounded-lg object-cover"
+                      className="w-8 h-8 rounded-lg object-cover"
                     />
                   ) : (
                     <div className="w-12 h-12 rounded-lg bg-gray-20 flex items-center justify-center">
@@ -367,7 +364,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
               <div className="relative">
                 <button
                   onClick={() => toggleDropdown('location-date')}
-                  className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2 hover:bg-gray-20 transition-colors border border-gray-30"
+                  className="flex items-center gap-2 bg-white rounded-full px-6 py-3 hover:bg-gray-20 transition-colors border border-gray-30"
                 >
                   <MapPinIcon className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.location}</Typography>
@@ -380,16 +377,14 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                   )}
                 </button>
               </div>
-              
+
               {/* Price + Rooms + Tenants Combined Filter */}
               <div className="relative">
                 <button
                   onClick={() => toggleDropdown('filters')}
-                  className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2 hover:bg-gray-20 transition-colors border border-gray-30"
+                  className="flex items-center gap-2 bg-white rounded-full px-6 py-3 hover:bg-gray-20 transition-colors border border-gray-30"
                 >
-                  <Typography variant="body-sm">
-                    {filters.price.toLocaleString()} SEK
-                  </Typography>
+                  <Typography variant="body-sm">{filters.price.toLocaleString()} SEK</Typography>
                   <HomeIcon className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.rooms} room</Typography>
                   <UsersIcon className="w-4 h-4 text-gray-60" />
@@ -405,59 +400,55 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
               {/* Advanced Filters */}
               <div className="relative">
                 <Button
-                  variant="secondary"
-                  size="sm"
-                  onClick={() => setShowAdvancedFilters(true)}
-                  className="flex items-center gap-2"
-                >
-                  <AdjustmentsHorizontalIcon className="w-4 h-4" />
-                  <Typography variant="body-sm">
-                    Rules: Pets, Smoking, 1+
-                  </Typography>
-                  {hasAdvancedFilters() && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        resetAdvancedFilters();
-                      }}
-                      className="ml-1 p-0.5 hover:bg-gray-30 rounded-full transition-colors"
-                    >
-                      <XMarkIcon className="w-3 h-3" />
-                    </button>
-                  )}
-                </Button>
+                  variant="tertiary"
+                  size="lg"
+                  iconOnly
+                  icon={<AdjustmentsHorizontalIcon className="w-4 h-4" />}
+                  onClick={() => toggleDropdown('advanced')}
+                />
+                {hasAdvancedFilters() && (
+                  <button
+                    onClick={e => {
+                      e.stopPropagation();
+                      resetAdvancedFilters();
+                    }}
+                    className="absolute -top-1 -right-1 w-4 h-4 bg-gray-90 text-white rounded-full flex items-center justify-center text-xs hover:bg-gray-80 transition-colors"
+                  >
+                    <XMarkIcon className="w-2 h-2" />
+                  </button>
+                )}
               </div>
-              
+
               {/* Save Button */}
               <Button
-                variant="transparent"
-                size="sm"
+                variant="tertiary"
+                size="lg"
+                iconOnly
+                icon={<BookmarkIcon className="w-4 h-4" />}
                 onClick={() => setShowSaveSearchModal(true)}
-                className="flex items-center gap-2"
-              >
-                <BookmarkIcon className="w-4 h-4" />
-                <Typography variant="body-sm">Save</Typography>
-              </Button>
+              />
             </div>
           </div>
 
           {/* Inline Dropdowns */}
           {activeDropdown && (
-            <div className="absolute top-full left-0 right-0 mt-2 z-50">
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-50 w-96 max-h-96 overflow-y-auto">
               <div className="bg-white rounded-xl shadow-xl border border-gray-20 p-6">
                 {/* Property Selection Dropdown */}
                 {activeDropdown === 'property' && (
                   <div>
-                    <Typography variant="title-sm" className="mb-4">Select Properties</Typography>
+                    <Typography variant="title-sm" className="mb-4">
+                      Select Properties
+                    </Typography>
                     <div className="space-y-4 mb-6">
-                      {propertyListings.map((property) => (
+                      {propertyListings.map(property => (
                         <button
                           key={property.id}
                           onClick={() => togglePropertySelection(property.id)}
                           className="flex items-center gap-4 p-4 border border-gray-20 rounded-xl bg-white hover:bg-gray-10 transition-colors w-full"
                         >
-                          <img 
-                            src={property.image} 
+                          <img
+                            src={property.image}
                             alt={property.title}
                             className="w-20 h-20 rounded-lg object-cover"
                           />
@@ -472,14 +463,24 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                               {property.price}
                             </Typography>
                           </div>
-                          <div className={`w-6 h-6 rounded border-2 flex items-center justify-center ${
-                            selectedPropertyIds.includes(property.id)
-                              ? 'bg-black border-black' 
-                              : 'border-gray-30'
-                          }`}>
+                          <div
+                            className={`w-6 h-6 rounded border-2 flex items-center justify-center ${
+                              selectedPropertyIds.includes(property.id)
+                                ? 'bg-black border-black'
+                                : 'border-gray-30'
+                            }`}
+                          >
                             {selectedPropertyIds.includes(property.id) && (
-                              <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              <svg
+                                className="w-3 h-3 text-white"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                  clipRule="evenodd"
+                                />
                               </svg>
                             )}
                           </div>
@@ -502,30 +503,32 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                 {activeDropdown === 'location-date' && (
                   <div>
                     <div className="flex items-center gap-2 mb-6">
-                      <button className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2">
+                      <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
                         <MapPinIcon className="w-4 h-4 text-gray-60" />
                         <Typography variant="body-sm">Lund</Typography>
                         <XMarkIcon className="w-4 h-4 text-gray-60" />
                       </button>
-                      <button className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2">
+                      <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
                         <CalendarIcon className="w-4 h-4 text-gray-60" />
                         <Typography variant="body-sm">August, 2025</Typography>
                         <XMarkIcon className="w-4 h-4 text-gray-60" />
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="space-y-8">
                       <div>
-                        <Typography variant="title-sm" className="mb-4">Location</Typography>
+                        <Typography variant="title-sm" className="mb-4">
+                          Location
+                        </Typography>
                         <div className="flex gap-2">
-                          <div className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2">
+                          <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
                             <Typography variant="body-sm">Lund</Typography>
                             <XMarkIcon className="w-4 h-4 text-gray-40" />
                           </div>
-                          <Input 
+                          <Input
                             placeholder="Enter a city or area"
                             value={locationInput}
-                            onChange={(e) => setLocationInput(e.target.value)}
+                            onChange={e => setLocationInput(e.target.value)}
                             className="flex-1"
                           />
                           <button className="p-2 text-gray-40">
@@ -535,14 +538,20 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                       </div>
 
                       <div>
-                        <Typography variant="title-sm" className="mb-4">Date</Typography>
+                        <Typography variant="title-sm" className="mb-4">
+                          Date
+                        </Typography>
                         <div className="space-y-4">
                           <div>
-                            <Typography variant="body-sm" className="mb-2 text-gray-70">Move in</Typography>
+                            <Typography variant="body-sm" className="mb-2 text-gray-70">
+                              Move in
+                            </Typography>
                             <Input placeholder="Add dates" className="w-full" />
                           </div>
                           <div>
-                            <Typography variant="body-sm" className="mb-2 text-gray-70">Move out</Typography>
+                            <Typography variant="body-sm" className="mb-2 text-gray-70">
+                              Move out
+                            </Typography>
                             <Input placeholder="Add dates" className="w-full" />
                           </div>
                         </div>
@@ -555,8 +564,10 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                 {activeDropdown === 'filters' && (
                   <div>
                     <div className="flex items-center gap-2 mb-6">
-                      <button className="flex items-center gap-2 bg-gray-10 rounded-full px-4 py-2">
-                        <Typography variant="body-sm">Rent: 15,000 SEK - Rooms: 1 room - Tenants: 1</Typography>
+                      <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
+                        <Typography variant="body-sm">
+                          Rent: 15,000 SEK - Rooms: 1 room - Tenants: 1
+                        </Typography>
                         <XMarkIcon className="w-4 h-4 text-gray-60" />
                       </button>
                     </div>
@@ -564,14 +575,23 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                     <div className="space-y-8">
                       {/* Rent Section */}
                       <div>
-                        <Typography variant="title-sm" className="mb-4">Rent</Typography>
-                        <Typography variant="body-sm" className="mb-3 text-gray-70">Monthly cost</Typography>
+                        <Typography variant="title-sm" className="mb-4">
+                          Rent
+                        </Typography>
+                        <Typography variant="body-sm" className="mb-3 text-gray-70">
+                          Monthly cost
+                        </Typography>
                         <RangeSlider
                           min={0}
                           max={30000}
                           value={[filters.rent.min, filters.rent.max]}
-                          onChange={(value) => setFilters(prev => ({ ...prev, rent: { min: value[0], max: value[1] } }))}
-                          formatValue={(value) => `SEK ${value.toLocaleString()}`}
+                          onChange={value =>
+                            setFilters(prev => ({
+                              ...prev,
+                              rent: { min: value[0], max: value[1] }
+                            }))
+                          }
+                          formatValue={value => `SEK ${value.toLocaleString()}`}
                         />
                         <div className="flex justify-between mt-2">
                           <Typography variant="body-sm">SEK 0</Typography>
@@ -581,16 +601,15 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
 
                       {/* Size Section */}
                       <div>
-                        <Typography variant="title-sm" className="mb-4">Size</Typography>
-                        
+                        <Typography variant="title-sm" className="mb-4">
+                          Size
+                        </Typography>
+
                         <div className="mb-6">
-                          <Typography variant="body-sm" className="mb-3 text-gray-70">Rooms</Typography>
-                          <RangeSlider
-                            min={1}
-                            max={10}
-                            value={[1, 10]}
-                            onChange={() => {}}
-                          />
+                          <Typography variant="body-sm" className="mb-3 text-gray-70">
+                            Rooms
+                          </Typography>
+                          <RangeSlider min={1} max={10} value={[1, 10]} onChange={() => {}} />
                           <div className="flex justify-between mt-2">
                             <Typography variant="body-sm">1</Typography>
                             <Typography variant="body-sm">10+</Typography>
@@ -598,13 +617,15 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                         </div>
 
                         <div>
-                          <Typography variant="body-sm" className="mb-3 text-gray-70">Size</Typography>
+                          <Typography variant="body-sm" className="mb-3 text-gray-70">
+                            Size
+                          </Typography>
                           <RangeSlider
                             min={5}
                             max={200}
                             value={[5, 200]}
                             onChange={() => {}}
-                            formatValue={(value) => `${value} m²`}
+                            formatValue={value => `${value} m²`}
                           />
                           <div className="flex justify-between mt-2">
                             <Typography variant="body-sm">5 m²</Typography>
@@ -615,18 +636,139 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
 
                       {/* Tenants Section */}
                       <div>
-                        <Typography variant="title-sm" className="mb-4">Tenants</Typography>
-                        <RangeSlider
-                          min={1}
-                          max={10}
-                          value={[1, 10]}
-                          onChange={() => {}}
-                        />
+                        <Typography variant="title-sm" className="mb-4">
+                          Tenants
+                        </Typography>
+                        <RangeSlider min={1} max={10} value={[1, 10]} onChange={() => {}} />
                         <div className="flex justify-between mt-2">
                           <Typography variant="body-sm">1</Typography>
                           <Typography variant="body-sm">10+</Typography>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Advanced Filters Dropdown */}
+                {activeDropdown === 'advanced' && (
+                  <div>
+                    <Typography variant="title-sm" className="mb-6">
+                      Filters
+                    </Typography>
+
+                    <div className="space-y-8">
+                      {/* Occupation Section */}
+                      <div>
+                        <Typography variant="title-sm" className="mb-4">
+                          Occupation
+                        </Typography>
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Student</Typography>
+                            <Checkbox
+                              checked={filters.occupation.includes('student')}
+                              onChange={checked => updateOccupation('student', checked)}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Worker</Typography>
+                            <Checkbox
+                              checked={filters.occupation.includes('worker')}
+                              onChange={checked => updateOccupation('worker', checked)}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Retired</Typography>
+                            <Checkbox
+                              checked={filters.occupation.includes('retired')}
+                              onChange={checked => updateOccupation('retired', checked)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Household Section */}
+                      <div>
+                        <Typography variant="title-sm" className="mb-4">
+                          Household
+                        </Typography>
+                        <div className="space-y-4">
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Single</Typography>
+                            <Checkbox
+                              checked={filters.household.includes('single')}
+                              onChange={checked => updateHousehold('single', checked)}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Couple</Typography>
+                            <Checkbox
+                              checked={filters.household.includes('couple')}
+                              onChange={checked => updateHousehold('couple', checked)}
+                            />
+                          </div>
+                          <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
+                            <Typography variant="body-md">Family</Typography>
+                            <Checkbox
+                              checked={filters.household.includes('family')}
+                              onChange={checked => updateHousehold('family', checked)}
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Rules Section */}
+                      <div>
+                        <Typography variant="title-sm" className="mb-4">
+                          Rules
+                        </Typography>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              checked={filters.rules.petsAllowed}
+                              onChange={checked => updateRules('petsAllowed', checked)}
+                            />
+                            <Typography variant="body-md">Pets allowed</Typography>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              checked={filters.rules.smokingAllowed}
+                              onChange={checked => updateRules('smokingAllowed', checked)}
+                            />
+                            <Typography variant="body-md">Smoking allowed</Typography>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              checked={filters.rules.furnished}
+                              onChange={checked => updateRules('furnished', checked)}
+                            />
+                            <Typography variant="body-md">Furnished</Typography>
+                          </div>
+                          <div className="flex items-center gap-3">
+                            <Checkbox
+                              checked={filters.rules.verifiedUsers}
+                              onChange={checked => updateRules('verifiedUsers', checked)}
+                            />
+                            <Typography variant="body-md">Verified users</Typography>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-6 border-t border-gray-20 mt-8">
+                      <button
+                        onClick={clearAllFilters}
+                        className="text-gray-60 hover:text-gray-90 font-medium transition-colors"
+                      >
+                        Clear all
+                      </button>
+                      <Button
+                        onClick={() => setActiveDropdown(null)}
+                        className="bg-gray-90 text-white hover:bg-gray-80 px-8 rounded-full"
+                      >
+                        Show 15511 tenants
+                      </Button>
                     </div>
                   </div>
                 )}
@@ -689,139 +831,6 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
         </div>
       </main>
 
-      {/* Advanced Filters Modal - ONLY modal */}
-      <Modal
-        isOpen={showAdvancedFilters}
-        onClose={() => setShowAdvancedFilters(false)}
-        title=""
-        showCloseButton={false}
-        className="max-w-lg"
-      >
-        <div>
-          {/* Header */}
-          <div className="flex items-center justify-between pb-6 border-b border-gray-20 -m-6 px-6 mb-6">
-            <Typography variant="title-md" className="font-medium">
-              Filters
-            </Typography>
-            <button
-              onClick={() => setShowAdvancedFilters(false)}
-              className="p-2 hover:bg-gray-10 rounded-full transition-colors"
-            >
-              <XMarkIcon className="w-5 h-5 text-gray-60" />
-            </button>
-          </div>
-
-          <div className="space-y-8">
-            {/* Occupation Section */}
-            <div>
-              <Typography variant="title-sm" className="mb-4">Occupation</Typography>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Student</Typography>
-                  <Checkbox 
-                    checked={filters.occupation.includes('student')} 
-                    onChange={(checked) => updateOccupation('student', checked)}
-                  />
-                </div>
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Worker</Typography>
-                  <Checkbox 
-                    checked={filters.occupation.includes('worker')} 
-                    onChange={(checked) => updateOccupation('worker', checked)}
-                  />
-                </div>
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Retired</Typography>
-                  <Checkbox 
-                    checked={filters.occupation.includes('retired')} 
-                    onChange={(checked) => updateOccupation('retired', checked)}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Household Section */}
-            <div>
-              <Typography variant="title-sm" className="mb-4">Household</Typography>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Single</Typography>
-                  <Checkbox 
-                    checked={filters.household.includes('single')} 
-                    onChange={(checked) => updateHousehold('single', checked)}
-                  />
-                </div>
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Couple</Typography>
-                  <Checkbox 
-                    checked={filters.household.includes('couple')} 
-                    onChange={(checked) => updateHousehold('couple', checked)}
-                  />
-                </div>
-                <div className="flex items-center justify-between p-4 border border-gray-20 rounded-xl">
-                  <Typography variant="body-md">Family</Typography>
-                  <Checkbox 
-                    checked={filters.household.includes('family')} 
-                    onChange={(checked) => updateHousehold('family', checked)}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Rules Section */}
-            <div>
-              <Typography variant="title-sm" className="mb-4">Rules</Typography>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="flex items-center gap-3">
-                  <Checkbox 
-                    checked={filters.rules.petsAllowed} 
-                    onChange={(checked) => updateRules('petsAllowed', checked)}
-                  />
-                  <Typography variant="body-md">Pets allowed</Typography>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Checkbox 
-                    checked={filters.rules.smokingAllowed} 
-                    onChange={(checked) => updateRules('smokingAllowed', checked)}
-                  />
-                  <Typography variant="body-md">Smoking allowed</Typography>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Checkbox 
-                    checked={filters.rules.furnished} 
-                    onChange={(checked) => updateRules('furnished', checked)}
-                  />
-                  <Typography variant="body-md">Furnished</Typography>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Checkbox 
-                    checked={filters.rules.verifiedUsers} 
-                    onChange={(checked) => updateRules('verifiedUsers', checked)}
-                  />
-                  <Typography variant="body-md">Verified users</Typography>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="flex items-center justify-between pt-6 border-t border-gray-20 -m-6 px-6 mt-8">
-            <button
-              onClick={clearAllFilters}
-              className="text-gray-60 hover:text-gray-90 font-medium transition-colors"
-            >
-              Clear all
-            </button>
-            <Button
-              onClick={() => setShowAdvancedFilters(false)}
-              className="bg-gray-90 text-white hover:bg-gray-80 px-8 rounded-full"
-            >
-              Show 15511 tenants
-            </Button>
-          </div>
-        </div>
-      </Modal>
-
       {/* Save Search Modal */}
       <Modal
         isOpen={showSaveSearchModal}
@@ -834,11 +843,11 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
           <Typography variant="body-md" className="mb-4 text-gray-70">
             Anywhere / 2 filters
           </Typography>
-          
+
           <div className="mb-6">
-            <Checkbox 
+            <Checkbox
               checked={saveSearch.emailNotifications}
-              onChange={(checked) => setSaveSearch({ ...saveSearch, emailNotifications: checked })}
+              onChange={checked => setSaveSearch({ ...saveSearch, emailNotifications: checked })}
               label="Get notified by email about new tenants"
             />
           </div>
