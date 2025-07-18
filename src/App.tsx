@@ -196,6 +196,15 @@ function PrototypeGrid() {
     };
   });
 
+  // Debug logging for find-tenant
+  const findTenantPrototype = variantPrototypes.find(p => p.id === 'find-tenant');
+  if (findTenantPrototype) {
+    console.log('🔍 Find Tenant Debug Data:');
+    console.log('- hasMultipleVariants:', findTenantPrototype.hasMultipleVariants);
+    console.log('- variants count:', findTenantPrototype.variants?.length);
+    console.log('- variants:', findTenantPrototype.variants?.map(v => ({ id: v.id, name: v.name })));
+  }
+
   // Legacy prototypes that don't have variants yet
   const legacyPrototypes = prototypes.filter(p => 
     !variantRegistry[p.id]
@@ -306,7 +315,7 @@ function App() {
         <AuthProvider>
       <Router basename="/">
         <Routes>
-          <Route path="/" element={<Navigate to="/auth/register/step/3" replace />} />
+          <Route path="/" element={<Navigate to="/experiments" replace />} />
           
           <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">
@@ -388,7 +397,12 @@ function App() {
             />
           } />
           
-          <Route path="/homes" element={<HomesPage />} />
+          <Route path="/homes" element={
+            <VariantWrapper 
+              prototypeId="homes" 
+              defaultComponent={HomesPage}
+            />
+          } />
           
           <Route path="/messages" element={<MessagesPage />} />
           

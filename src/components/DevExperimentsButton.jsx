@@ -67,6 +67,11 @@ const experiments = [
     description: 'Property search interface with listings and interactive map'
   },
   {
+    name: 'Discover (Homes + Tenants)',
+    path: '/homes?variant=discover',
+    description: 'Combined homes and tenants discovery with toggle interface and unified map view'
+  },
+  {
     name: 'Messages Inbox',
     path: '/messages',
     description: 'Inbox interface for managing property conversations with landlords'
@@ -109,6 +114,7 @@ function DevExperimentsButton() {
     if (path.startsWith('/tenants/create-tenant-listing')) return 'create-tenant-listing';
     if (path.startsWith('/landlords/find-tenant')) return 'find-tenant';
     if (path.startsWith('/landlords/create-listing')) return 'create-listing';
+    if (path.startsWith('/homes')) return 'homes';
     
     return null;
   };
@@ -128,6 +134,7 @@ function DevExperimentsButton() {
     else if (currentPrototypeId === 'create-tenant-listing') basePath = '/tenants/create-tenant-listing';
     else if (currentPrototypeId === 'find-tenant') basePath = '/landlords/find-tenant';
     else if (currentPrototypeId === 'create-listing') basePath = '/landlords/create-listing';
+    else if (currentPrototypeId === 'homes') basePath = '/homes';
     
     const url = window.location.origin + getVariantUrl(basePath, variant.id);
     navigator.clipboard.writeText(url);
@@ -205,7 +212,8 @@ function DevExperimentsButton() {
                             currentPrototypeId === 'register' ? '/auth/register' :
                             currentPrototypeId === 'create-tenant-listing' ? '/tenants/create-tenant-listing' :
                             currentPrototypeId === 'find-tenant' ? '/landlords/find-tenant' :
-                            currentPrototypeId === 'create-listing' ? '/landlords/create-listing' : '',
+                            currentPrototypeId === 'create-listing' ? '/landlords/create-listing' :
+                            currentPrototypeId === 'homes' ? '/homes' : '',
                             variant.id
                           )}
                           className="flex-1 min-w-0"

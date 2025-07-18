@@ -1,92 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BeakerIcon, ChevronDownIcon, LinkIcon } from '@heroicons/react/24/outline';
+import { BeakerIcon, LinkIcon } from '@heroicons/react/24/outline';
 import { getVariantUrl, variantStatusConfig } from '../../utils/variants';
 
 const VariantCard = ({ prototype }) => {
   const [selectedVariant, setSelectedVariant] = useState(prototype.variants[0]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0, width: 0 });
-  const dropdownRef = useRef(null);
-  const buttonRef = useRef(null);
 
-  // Calculate dropdown position
-  const updateDropdownPosition = () => {
-    if (buttonRef.current) {
-      const rect = buttonRef.current.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-      
-      // Close dropdown if button is too far off-screen
-      if (rect.bottom < -100 || rect.top > window.innerHeight + 100) {
-        setIsDropdownOpen(false);
-        return;
-      }
-      
-      let top = rect.bottom + scrollTop + 4;
-      let left = rect.left + scrollLeft;
-      
-      // Adjust if dropdown would go off right edge of screen
-      const dropdownWidth = rect.width;
-      if (left + dropdownWidth > window.innerWidth) {
-        left = window.innerWidth - dropdownWidth - 10;
-      }
-      
-      // Adjust if dropdown would go off left edge of screen
-      if (left < 10) {
-        left = 10;
-      }
-      
-      setDropdownPosition({
-        top,
-        left,
-        width: rect.width
-      });
-    }
-  };
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
-          buttonRef.current && !buttonRef.current.contains(event.target)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    const handleScrollOrResize = () => {
-      if (isDropdownOpen) {
-        updateDropdownPosition();
-      }
-    };
-
-    if (isDropdownOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      window.addEventListener('scroll', handleScrollOrResize, true); // Use capture to catch all scroll events
-      window.addEventListener('resize', handleScrollOrResize);
-      
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-        window.removeEventListener('scroll', handleScrollOrResize, true);
-        window.removeEventListener('resize', handleScrollOrResize);
-      };
-    }
-  }, [isDropdownOpen]);
-
-  const handleVariantChange = (variant) => {
+  const handleVariantChange = (e) => {
+    const variantId = e.target.value;
+    const variant = prototype.variants.find(v => v.id === variantId);
     setSelectedVariant(variant);
-    setIsDropdownOpen(false);
-  };
-
-  const toggleDropdown = () => {
-    if (!isDropdownOpen) {
-      // Use requestAnimationFrame to ensure DOM is updated
-      requestAnimationFrame(() => {
-        updateDropdownPosition();
-      });
-    }
-    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const copyVariantLink = (variant, e) => {
@@ -94,56 +17,16 @@ const VariantCard = ({ prototype }) => {
     e.stopPropagation();
     const url = window.location.origin + getVariantUrl(prototype.path, variant.id);
     navigator.clipboard.writeText(url);
-  };
-
-  // Portal dropdown component
-  const DropdownPortal = () => {
-    if (!isDropdownOpen) return null;
     
-    return createPortal(
-      <div 
-        ref={dropdownRef}
-        className="fixed bg-white border border-gray-200 rounded-md shadow-xl overflow-y-auto max-h-80"
-        style={{
-          top: dropdownPosition.top,
-          left: dropdownPosition.left,
-          width: dropdownPosition.width,
-          zIndex: 99999
-        }}
-      >
-        {prototype.variants.map((variant) => (
-          <div
-            key={variant.id}
-            className="px-3 py-2 hover:bg-gray-50 cursor-pointer flex items-center justify-between"
-            onClick={() => handleVariantChange(variant)}
-          >
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center">
-                <span className="text-sm font-medium text-gray-900">
-                  {variant.name}
-                </span>
-                {variant.status && variant.status !== 'active' && (
-                  <span className={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                    variant.status === 'draft' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800'
-                  }`}>
-                    {variantStatusConfig[variant.status]?.label}
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-gray-500 mt-1">{variant.description}</p>
-            </div>
-            <button
-              onClick={(e) => copyVariantLink(variant, e)}
-              className="ml-2 p-1 text-gray-400 hover:text-gray-600"
-              title="Copy link"
-            >
-              <LinkIcon className="w-3 h-3" />
-            </button>
-          </div>
-        ))}
-      </div>,
-      document.body
-    );
+    // Show feedback
+    const button = e.target.closest('button');
+    if (button) {
+      const originalTitle = button.title;
+      button.title = 'Copied!';
+      setTimeout(() => {
+        button.title = originalTitle;
+      }, 1000);
+    }
   };
 
   return (
@@ -192,28 +75,29 @@ const VariantCard = ({ prototype }) => {
           {/* Variant selector */}
           {prototype.hasMultipleVariants ? (
             <div className="space-y-3">
+              {/* Simple HTML Select */}
               <div className="relative">
-                <button
-                  ref={buttonRef}
-                  onClick={toggleDropdown}
-                  className="w-full flex items-center justify-between px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50"
+                <select
+                  value={selectedVariant.id}
+                  onChange={handleVariantChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none"
                 >
-                  <div className="flex items-center">
-                    <BeakerIcon className="w-4 h-4 mr-2" />
-                    <span>{selectedVariant.name}</span>
-                    {selectedVariant.status && selectedVariant.status !== 'active' && (
-                      <span className={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
-                        selectedVariant.status === 'draft' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800'
-                      }`}>
-                        {variantStatusConfig[selectedVariant.status]?.label}
-                      </span>
-                    )}
+                  {prototype.variants.map((variant) => (
+                    <option key={variant.id} value={variant.id}>
+                      {variant.name}
+                      {variant.status && variant.status !== 'active' ? ` (${variantStatusConfig[variant.status]?.label})` : ''}
+                    </option>
+                  ))}
+                </select>
+                {/* Custom arrow */}
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                  <BeakerIcon className="w-4 h-4 text-gray-400" />
+                </div>
                   </div>
-                  <ChevronDownIcon className="w-4 h-4" />
-                </button>
 
-                {/* Portal dropdown */}
-                <DropdownPortal />
+              {/* Selected variant info */}
+              <div className="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+                {selectedVariant.description}
               </div>
 
               {/* Selected variant tags */}
@@ -230,13 +114,22 @@ const VariantCard = ({ prototype }) => {
                 </div>
               )}
 
-              {/* Open variant button */}
+              {/* Action buttons */}
+              <div className="flex gap-2">
               <Link
                 to={getVariantUrl(prototype.path, selectedVariant.id)}
-                className="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
+                  className="flex-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors"
               >
                 Open {selectedVariant.name}
               </Link>
+                <button
+                  onClick={(e) => copyVariantLink(selectedVariant, e)}
+                  className="px-3 py-2 border border-gray-300 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors"
+                  title="Copy link"
+                >
+                  <LinkIcon className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           ) : (
             /* Single variant - simple link */

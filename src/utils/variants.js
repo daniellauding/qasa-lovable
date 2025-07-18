@@ -36,6 +36,14 @@ export const variantRegistry = {
         component: () => import('../prototypes/auth/register/variants/RegisterFlowStepByStep'),
         tags: ['micro-steps', 'focused'],
         status: 'draft'
+      },
+      {
+        id: 'real-time-preview',
+        name: 'Real-Time Preview',
+        description: 'Live tenant card preview that updates as user fills out profile information',
+        component: () => import('../prototypes/auth/register/variants/RegisterFlowRealTimePreview'),
+        tags: ['real-time', 'preview', 'live-update'],
+        status: 'draft'
       }
     ]
   },
@@ -83,6 +91,35 @@ export const variantRegistry = {
         description: 'Standard tenant discovery interface',
         component: () => import('../prototypes/landlords/find-tenant/FindTenant'),
         tags: ['matching']
+      },
+      {
+        id: 'with-filters',
+        name: 'With Advanced Filters',
+        description: 'Enhanced tenant discovery with comprehensive filtering, search modals, and save functionality',
+        component: () => import('../prototypes/landlords/find-tenant/variants/FindTenantWithFilters'),
+        tags: ['filtering', 'search', 'advanced', 'modal'],
+        status: 'draft'
+      }
+    ]
+  },
+  'homes': {
+    name: 'Homes',
+    description: 'Property search and discovery with map integration',
+    variants: [
+      {
+        id: 'default',
+        name: 'Default',
+        description: 'Standard property search with listings and map',
+        component: () => import('../prototypes/homes/HomesPage'),
+        tags: ['search', 'map']
+      },
+      {
+        id: 'discover',
+        name: 'Discover',
+        description: 'Combined homes and tenants discovery with toggle interface and unified map view',
+        component: () => import('../prototypes/homes/variants/HomesPageDiscover'),
+        tags: ['toggle', 'homes', 'tenants', 'unified', 'map'],
+        status: 'draft'
       }
     ]
   }
