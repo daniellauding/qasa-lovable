@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Card from './Card';
 import Typography from '../Typography';
 import Avatar from '../Avatar';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircle } from 'lucide-react';
 
 const LandlordCard = ({
   landlord,
@@ -27,7 +27,7 @@ const LandlordCard = ({
               {landlord.name}
             </Typography>
             {verified && (
-              <CheckCircleIcon className="w-4 h-4 text-text-subtle" />
+              <CheckCircle className="w-4 h-4 text-text-subtle" />
             )}
           </div>
           <Typography variant="body-sm" color="secondary">

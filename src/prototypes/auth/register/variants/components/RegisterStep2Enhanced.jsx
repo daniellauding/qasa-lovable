@@ -7,7 +7,7 @@ import TextArea from '../../../../../components/ui/TextArea';
 import Select from '../../../../../components/ui/Select';
 import RadioGroup from '../../../../../components/ui/RadioGroup';
 import HintBox from '../../../../../components/ui/HintBox';
-import { CameraIcon, UserIcon, XMarkIcon, CheckCircleIcon, IdentificationIcon, StarIcon, CalendarIcon, UsersIcon, HeartIcon } from '@heroicons/react/24/outline';
+import { Camera, User, X, CheckCircle, Star, Users, Heart } from 'lucide-react';
 
 const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => {
   // Email verification state
@@ -137,7 +137,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-6">
                   {isEmailVerified ? (
-                    <CheckCircleIcon className="w-6 h-6 text-green-500" />
+                    <CheckCircle className="w-6 h-6 text-green-500" />
                   ) : (
                     <div className="w-6 h-6 border-2 border-gray-300 rounded-full" />
                   )}
@@ -214,7 +214,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
               {isEmailVerified && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <StarIcon className="w-6 h-6 text-yellow-500" />
+                    <Star className="w-6 h-6 text-yellow-500" />
                     <Typography variant="h2" className="text-gray-900">
                       Förbättra din profil
                     </Typography>
@@ -234,7 +234,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                     {/* Profile Picture */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3">
-                        <CameraIcon className="w-4 h-4 inline mr-2" />
+                        <Camera className="w-4 h-4 inline mr-2" />
                         Profilbild
                       </label>
                       <div className="flex items-center gap-4">
@@ -247,7 +247,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                                 className="w-full h-full object-cover"
                               />
                             ) : (
-                              <UserIcon className="w-8 h-8 text-gray-400" />
+                              <User className="w-8 h-8 text-gray-400" />
                             )}
                           </div>
                           
@@ -257,7 +257,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                               onClick={handleRemoveImage}
                               className="absolute -top-1 -right-1 bg-gray-900 text-white rounded-full p-1"
                             >
-                              <XMarkIcon className="w-3 h-3" />
+                              <X className="w-3 h-3" />
                             </button>
                           )}
                         </div>
@@ -309,7 +309,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                     {/* Household Size */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        <UsersIcon className="w-4 h-4 inline mr-2" />
+                        <Users className="w-4 h-4 inline mr-2" />
                         Hur många är ni i hushållet?
                       </label>
                       <Select
@@ -322,7 +322,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                     {/* Pets */}
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-3">
-                        <HeartIcon className="w-4 h-4 inline mr-2" />
+                        <Heart className="w-4 h-4 inline mr-2" />
                         Har du husdjur?
                       </label>
                       <RadioGroup
@@ -365,7 +365,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                           
                           {formData.isIdVerified ? (
                             <div className="flex items-center gap-2 text-green-600">
-                              <CheckCircleIcon className="w-5 h-5" />
+                              <CheckCircle className="w-5 h-5" />
                               <span className="text-sm font-medium">Verifierad</span>
                             </div>
                           ) : (
@@ -441,7 +441,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <UserIcon className="w-6 h-6 text-gray-400" />
+                        <User className="w-6 h-6 text-gray-400" />
                       )}
                     </div>
                     
@@ -451,7 +451,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                           {formData.firstName || 'Ditt namn'}
                         </Typography>
                         {formData.isIdVerified && (
-                          <CheckCircleIcon className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                          <CheckCircle className="w-4 h-4 text-blue-500 flex-shrink-0" />
                         )}
                       </div>
                       
@@ -467,7 +467,7 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                   <div className="space-y-2 text-sm">
                     {householdSize && (
                       <div className="flex items-center gap-2 text-gray-600">
-                        <UsersIcon className="w-4 h-4" />
+                        <Users className="w-4 h-4" />
                         <span>{householdSize} {householdSize === '1' ? 'person' : 'personer'}</span>
                       </div>
                     )}
@@ -481,14 +481,14 @@ const RegisterStep2Enhanced = ({ onNext, onPrev, formData, updateFormData }) => 
                     
                     {hasPets === 'yes' && petType && (
                       <div className="flex items-center gap-2 text-gray-600">
-                        <HeartIcon className="w-4 h-4" />
+                        <Heart className="w-4 h-4" />
                         <span>{petType}</span>
                       </div>
                     )}
                     
                     {hasPets === 'no' && (
                       <div className="flex items-center gap-2 text-gray-600">
-                        <HeartIcon className="w-4 h-4" />
+                        <Heart className="w-4 h-4" />
                         <span>Inga husdjur</span>
                       </div>
                     )}

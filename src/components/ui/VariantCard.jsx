@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BeakerIcon, LinkIcon } from '@heroicons/react/24/outline';
+import { Link as LinkIcon, FlaskConical } from 'lucide-react';
 import { getVariantUrl, variantStatusConfig } from '../../utils/variants';
 
 const VariantCard = ({ prototype }) => {
@@ -42,7 +42,7 @@ const VariantCard = ({ prototype }) => {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-              <BeakerIcon className="w-16 h-16 text-indigo-300" />
+              <FlaskConical className="w-16 h-16 text-indigo-300" />
             </div>
           )}
         </div>
@@ -91,7 +91,7 @@ const VariantCard = ({ prototype }) => {
                 </select>
                 {/* Custom arrow */}
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <BeakerIcon className="w-4 h-4 text-gray-400" />
+                  <FlaskConical className="w-4 h-4 text-gray-400" />
                 </div>
                   </div>
 

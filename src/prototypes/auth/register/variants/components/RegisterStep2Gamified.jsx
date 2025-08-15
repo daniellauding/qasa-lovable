@@ -6,20 +6,7 @@ import Input from '../../../../../components/ui/Input';
 import Select from '../../../../../components/ui/Select';
 import RadioGroup from '../../../../../components/ui/RadioGroup';
 import HintBox from '../../../../../components/ui/HintBox';
-import { 
-  CameraIcon, 
-  UserIcon, 
-  XMarkIcon, 
-  CheckCircleIcon, 
-  IdentificationIcon, 
-  StarIcon, 
-  CalendarIcon, 
-  UsersIcon, 
-  HeartIcon,
-  TrophyIcon,
-  LightBulbIcon,
-  FireIcon
-} from '@heroicons/react/24/outline';
+import { Camera, User, X, CheckCircle, Star, Users, Heart } from 'lucide-react';
 
 const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => {
   // Email verification state
@@ -291,7 +278,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
               <div className="mb-8">
                 <div className="flex items-center gap-3 mb-6">
                   {isEmailVerified ? (
-                    <CheckCircleIcon className="w-6 h-6 text-green-500" />
+                    <CheckCircle className="w-6 h-6 text-green-500" />
                   ) : (
                     <div className="w-6 h-6 border-2 border-gray-300 rounded-full animate-pulse" />
                   )}
@@ -348,7 +335,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
               {isEmailVerified && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <StarIcon className="w-6 h-6 text-yellow-500" />
+                    <Star className="w-6 h-6 text-yellow-500" />
                     <Typography variant="h2" className="text-gray-900">
                       Byggd din superprofil
                     </Typography>
@@ -367,7 +354,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                     <div className="border-2 border-dashed border-purple-200 rounded-lg p-4 hover:border-purple-400 transition-colors">
                       <div className="flex items-center justify-between mb-3">
                         <label className="block text-sm font-medium text-gray-700">
-                          <CameraIcon className="w-4 h-4 inline mr-2" />
+                          <Camera className="w-4 h-4 inline mr-2" />
                           Profilbild
                         </label>
                         {!profileImage && (
@@ -387,7 +374,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                                 className="w-full h-full object-cover"
                               />
                             ) : (
-                              <UserIcon className="w-8 h-8 text-gray-400" />
+                              <User className="w-8 h-8 text-gray-400" />
                             )}
                           </div>
                           
@@ -397,7 +384,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                               onClick={handleRemoveImage}
                               className="absolute -top-1 -right-1 bg-gray-900 text-white rounded-full p-1"
                             >
-                              <XMarkIcon className="w-3 h-3" />
+                              <X className="w-3 h-3" />
                             </button>
                           )}
                         </div>
@@ -475,7 +462,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                       <div className="border-2 border-dashed border-purple-200 rounded-lg p-4 hover:border-purple-400 transition-colors">
                         <div className="flex items-center justify-between mb-2">
                           <label className="block text-sm font-medium text-gray-700">
-                            <UsersIcon className="w-4 h-4 inline mr-2" />
+                            <Users className="w-4 h-4 inline mr-2" />
                             Hushållsstorlek
                           </label>
                           {!householdSize && (
@@ -496,7 +483,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                     <div className="border-2 border-dashed border-purple-200 rounded-lg p-4 hover:border-purple-400 transition-colors">
                       <div className="flex items-center justify-between mb-3">
                         <label className="block text-sm font-medium text-gray-700">
-                          <HeartIcon className="w-4 h-4 inline mr-2" />
+                          <Heart className="w-4 h-4 inline mr-2" />
                           Har du husdjur?
                         </label>
                         {!hasPets && (
@@ -547,7 +534,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                         
                         {formData.isIdVerified ? (
                           <div className="flex items-center gap-2 text-green-600">
-                            <CheckCircleIcon className="w-5 h-5" />
+                            <CheckCircle className="w-5 h-5" />
                             <span className="text-sm font-medium">Verifierad</span>
                           </div>
                         ) : (

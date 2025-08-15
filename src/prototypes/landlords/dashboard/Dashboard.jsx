@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeftIcon, EllipsisVerticalIcon, PencilIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, Edit } from 'lucide-react';
 import Button from '../../../components/ui/Button';
 import Typography from '../../../components/ui/Typography';
 import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
@@ -47,7 +47,7 @@ const Dashboard = () => {
               className="p-2 rounded-full hover:bg-gray-100"
               aria-label="Tillbaka"
             >
-              <ArrowLeftIcon className="h-6 w-6 text-gray-500" />
+              <ArrowLeft className="h-6 w-6 text-gray-500" />
             </button>
           </div>
         </div>
@@ -67,7 +67,7 @@ const Dashboard = () => {
               <Typography variant="h1" className="mb-2">Åsdammsvägen</Typography>
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <span>Snarast möjligt</span>
-                <ArrowLeftIcon className="h-4 w-4 rotate-180" />
+                <ArrowLeft className="h-4 w-4 rotate-180" />
                 <span>Tillsvidare</span>
               </div>
             </div>
@@ -149,7 +149,7 @@ const Dashboard = () => {
           <div className="bg-white border border-gray-200 rounded-lg p-6 cursor-pointer hover:shadow-md transition-shadow" onClick={handleEditListing}>
             <div className="flex items-center justify-between mb-4">
               <Typography variant="body-sm" className="text-gray-600">Redigera annons</Typography>
-              <PencilIcon className="h-4 w-4 text-gray-500" />
+              <Edit className="h-4 w-4 text-gray-500" />
             </div>
             <Typography variant="h3" className="mb-1">Översikt</Typography>
             <Typography variant="body-sm" className="text-gray-500">Hoppa till olika delar</Typography>
@@ -168,7 +168,7 @@ const Dashboard = () => {
               className="p-2 rounded-full hover:bg-gray-100"
               aria-label="Redigera hyra"
             >
-              <PencilIcon className="h-5 w-5 text-gray-500" />
+              <Edit className="h-5 w-5 text-gray-500" />
             </button>
           </div>
         </div>
@@ -223,7 +223,7 @@ const Dashboard = () => {
                   onClick={handleClosePublishModal}
                   className="text-gray-400 hover:text-gray-600"
                 >
-                  <ArrowLeftIcon className="h-6 w-6" />
+                  <ArrowLeft className="h-6 w-6" />
                 </button>
               </div>
               
@@ -244,7 +244,7 @@ const Dashboard = () => {
                     </Typography>
                   </div>
                   <button className="text-red-500 hover:text-red-700">
-                    <PencilIcon className="h-4 w-4" />
+                    <Edit className="h-4 w-4" />
                   </button>
                 </div>
               </div>

@@ -1,23 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  AdjustmentsHorizontalIcon,
-  EllipsisVerticalIcon,
-  HeartIcon,
-  UsersIcon,
-  HomeIcon,
-  CurrencyDollarIcon,
-  BuildingOffice2Icon,
-  CalendarIcon,
-  IdentificationIcon,
-  CheckCircleIcon,
-  XCircleIcon,
-  ArrowRightIcon,
-  ExclamationTriangleIcon,
-  PaperAirplaneIcon,
-  CameraIcon
-} from '@heroicons/react/24/outline';
-import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
+import { Heart, Users, Home, CheckCircle, XCircle, ArrowRight, AlertTriangle, Camera, Settings, MoreVertical, IdCard, DollarSign, Building, Calendar, Send } from 'lucide-react';
 import DynamicHeader from '../../components/DynamicHeader';
 import Typography from '../../components/ui/Typography';
 import Button from '../../components/ui/Button';
@@ -243,7 +226,7 @@ export default function MessagesPage() {
           </div>
           <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
             <div className="flex items-start gap-3">
-              <ExclamationTriangleIcon className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+              <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
               <div className="flex-1">
                 <Typography variant="subtitle2" className="font-semibold text-gray-900 mb-1">
                   {message.warning.title}
@@ -340,7 +323,7 @@ export default function MessagesPage() {
                   onClick={() => setShowFilterDropdown(!showFilterDropdown)}
                   className="p-2 text-gray-600 hover:text-gray-900"
                 >
-                  <AdjustmentsHorizontalIcon className="w-6 h-6" />
+                  <Settings className="w-6 h-6" />
                 </button>
                 
                 {showFilterDropdown && (
@@ -413,9 +396,9 @@ export default function MessagesPage() {
                       className="absolute -top-1 -right-1 p-1"
                     >
                       {favoriteConversations.has(conversation.id) ? (
-                        <HeartIconSolid className="w-4 h-4 text-red-500" />
+                        <Heart className="w-4 h-4 text-red-500 fill-current" />
                       ) : (
-                        <HeartIcon className="w-4 h-4 text-gray-400" />
+                        <Heart className="w-4 h-4 text-gray-400" />
                       )}
                     </button>
                   </div>
@@ -476,7 +459,7 @@ export default function MessagesPage() {
                       onClick={() => setShowConversationDropdown(!showConversationDropdown)}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <EllipsisVerticalIcon className="w-6 h-6" />
+                      <MoreVertical className="w-6 h-6" />
                     </button>
                     
                     {showConversationDropdown && (
@@ -569,11 +552,11 @@ export default function MessagesPage() {
                           </Typography>
                           <div className="flex gap-4 mb-4">
                             <div className="flex items-center gap-2">
-                              <IdentificationIcon className="w-4 h-4 text-gray-600" />
+                              <IdCard className="w-4 h-4 text-gray-600" />
                               <Typography variant="small" className="font-semibold">ID Verified</Typography>
                             </div>
                             <div className="flex items-center gap-2">
-                              <HomeIcon className="w-4 h-4 text-gray-600" />
+                              <Home className="w-4 h-4 text-gray-600" />
                               <Typography variant="small" className="font-semibold">Reference</Typography>
                             </div>
                           </div>
@@ -585,11 +568,11 @@ export default function MessagesPage() {
                         {Object.entries(selectedConv.user.criteria).map(([key, criterion]) => (
                           <div key={key} className="flex items-center gap-3">
                             <div className="w-5 h-5 flex-shrink-0">
-                              {key === 'people' && <UsersIcon className="w-5 h-5 text-gray-600" />}
-                              {key === 'space' && <HomeIcon className="w-5 h-5 text-gray-600" />}
-                              {key === 'budget' && <CurrencyDollarIcon className="w-5 h-5 text-gray-600" />}
-                              {key === 'furnished' && <BuildingOffice2Icon className="w-5 h-5 text-gray-600" />}
-                              {key === 'dates' && <CalendarIcon className="w-5 h-5 text-gray-600" />}
+                              {key === 'people' && <Users className="w-5 h-5 text-gray-600" />}
+                              {key === 'space' && <Home className="w-5 h-5 text-gray-600" />}
+                              {key === 'budget' && <DollarSign className="w-5 h-5 text-gray-600" />}
+                              {key === 'furnished' && <Building className="w-5 h-5 text-gray-600" />}
+                              {key === 'dates' && <Calendar className="w-5 h-5 text-gray-600" />}
                             </div>
                             <div className="flex-1">
                               <Typography variant="body" className="text-gray-800">
@@ -597,9 +580,9 @@ export default function MessagesPage() {
                               </Typography>
                               <div className="flex items-center gap-2 mt-1">
                                 {criterion.matches ? (
-                                  <CheckCircleIcon className="w-4 h-4 text-green-600" />
+                                  <CheckCircle className="w-4 h-4 text-green-600" />
                                 ) : (
-                                  <XCircleIcon className="w-4 h-4 text-red-600" />
+                                  <XCircle className="w-4 h-4 text-red-600" />
                                 )}
                                 <Typography variant="small" className="text-gray-600">
                                   {criterion.matches ? 'Match' : (criterion.note || 'No match')}
@@ -658,7 +641,7 @@ export default function MessagesPage() {
                       }`}
                       disabled={!messageText.trim() || selectedConv.isClosed}
                     >
-                      <PaperAirplaneIcon className="w-5 h-5" />
+                      <Send className="w-5 h-5" />
                     </button>
                     <button 
                       className={`p-3 ${
@@ -668,7 +651,7 @@ export default function MessagesPage() {
                       }`}
                       disabled={selectedConv.isClosed}
                     >
-                      <CameraIcon className="w-6 h-6" />
+                      <Camera className="w-6 h-6" />
                     </button>
                   </div>
                 </div>

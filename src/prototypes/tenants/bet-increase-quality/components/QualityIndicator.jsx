@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircleIcon } from '@heroicons/react/24/outline';
+import { CheckCircle } from 'lucide-react';
 
 function QualityIndicator({ score }) {
   const getQualityLevel = () => {
@@ -26,7 +26,7 @@ function QualityIndicator({ score }) {
 
       <div className="space-y-4">
         <div className="flex items-start space-x-3">
-          <CheckCircleIcon className={`h-6 w-6 ${score >= 20 ? 'text-green-500' : 'text-gray-300'}`} />
+          <CheckCircle className={`h-6 w-6 ${score >= 20 ? 'text-green-500' : 'text-gray-300'}`} />
           <div>
             <p className="font-medium">Employment Details</p>
             <p className="text-sm text-gray-500">Detailed work history improves your chances</p>
@@ -34,7 +34,7 @@ function QualityIndicator({ score }) {
         </div>
 
         <div className="flex items-start space-x-3">
-          <CheckCircleIcon className={`h-6 w-6 ${score >= 50 ? 'text-green-500' : 'text-gray-300'}`} />
+          <CheckCircle className={`h-6 w-6 ${score >= 50 ? 'text-green-500' : 'text-gray-300'}`} />
           <div>
             <p className="font-medium">References</p>
             <p className="text-sm text-gray-500">Previous landlord or employer references</p>
@@ -42,7 +42,7 @@ function QualityIndicator({ score }) {
         </div>
 
         <div className="flex items-start space-x-3">
-          <CheckCircleIcon className={`h-6 w-6 ${score >= 75 ? 'text-green-500' : 'text-gray-300'}`} />
+          <CheckCircle className={`h-6 w-6 ${score >= 75 ? 'text-green-500' : 'text-gray-300'}`} />
           <div>
             <p className="font-medium">About You</p>
             <p className="text-sm text-gray-500">Personal introduction and lifestyle</p>
@@ -50,7 +50,7 @@ function QualityIndicator({ score }) {
         </div>
 
         <div className="flex items-start space-x-3">
-          <CheckCircleIcon className={`h-6 w-6 ${score >= 100 ? 'text-green-500' : 'text-gray-300'}`} />
+          <CheckCircle className={`h-6 w-6 ${score >= 100 ? 'text-green-500' : 'text-gray-300'}`} />
           <div>
             <p className="font-medium">Documents</p>
             <p className="text-sm text-gray-500">ID, payslips, or bank statements</p>

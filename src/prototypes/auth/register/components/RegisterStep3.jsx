@@ -4,7 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
 import HintBox from '../../../../components/ui/HintBox';
-import { CameraIcon, UserIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Camera, User, X } from 'lucide-react';
 
 const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [firstName, setFirstName] = useState(formData.firstName || '');
@@ -71,13 +71,13 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <UserIcon className="w-12 h-12 text-gray-400" />
+                  <User className="w-12 h-12 text-gray-400" />
                 )}
               </div>
               
               <label className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 cursor-pointer">
                 <div className="bg-gray-900 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1">
-                  <CameraIcon className="w-4 h-4" />
+                  <Camera className="w-4 h-4" />
                   {profileImage ? 'Ändra bild' : 'Lägg till bild'}
                 </div>
                 <input
@@ -95,7 +95,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                   className="absolute -top-1 -right-1 bg-gray-900 text-white rounded-full p-1"
                   aria-label="Ta bort profilbild"
                 >
-                  <XMarkIcon className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </button>
               )}
             </div>

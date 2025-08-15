@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ChevronDownIcon, CheckIcon } from '@heroicons/react/24/outline';
+import { ChevronDown, Check } from 'lucide-react';
 
 const Select = ({
   label,
@@ -127,7 +127,7 @@ const Select = ({
           </span>
           
           <span className={`absolute right-3 top-1/2 transform -translate-y-1/2 transition-transform ${isOpen ? 'rotate-180' : ''}`}>
-            <ChevronDownIcon className={`w-5 h-5 ${disabled ? 'text-gray-40' : 'text-gray-60'}`} />
+            <ChevronDown className={`w-5 h-5 ${disabled ? 'text-gray-40' : 'text-gray-60'}`} />
           </span>
         </button>
       </div>
@@ -159,7 +159,7 @@ const Select = ({
             >
               <span>{option.label}</span>
               {selectedOption?.value === option.value && (
-                <CheckIcon className="w-4 h-4 text-gray-90" />
+                <Check className="w-4 h-4 text-gray-90" />
               )}
             </button>
           ))}

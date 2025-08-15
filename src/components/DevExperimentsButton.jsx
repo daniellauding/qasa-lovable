@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BeakerIcon, XMarkIcon, ChevronDownIcon, LinkIcon } from '@heroicons/react/24/outline';
+import { FlaskConical, X, ChevronDown, Link as LinkIcon } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ui/ThemeSwitcher';
 import { parseVariantFromUrl, getPrototypeVariants, getVariantUrl, variantStatusConfig, variantRegistry } from '../utils/variants';
@@ -157,7 +157,7 @@ function DevExperimentsButton() {
         className="bg-[#6E3FF3] p-3 rounded-full shadow-lg hover:bg-[#5B35CC] transition-colors relative"
         aria-label="Toggle experiments menu"
       >
-        <BeakerIcon className="h-6 w-6 text-white" />
+        <FlaskConical className="h-6 w-6 text-white" />
         {currentVariant !== 'default' && (
           <span className="absolute -top-1 -right-1 h-3 w-3 bg-yellow-400 rounded-full"></span>
         )}
@@ -179,7 +179,7 @@ function DevExperimentsButton() {
                 onClick={() => setIsOpen(false)}
                 className="text-gray-400 hover:text-gray-500"
               >
-                <XMarkIcon className="h-5 w-5" />
+                <X className="h-5 w-5" />
               </button>
             </div>
 
@@ -194,7 +194,7 @@ function DevExperimentsButton() {
                     onClick={() => setIsVariantDropdownOpen(!isVariantDropdownOpen)}
                     className="text-xs text-gray-500 hover:text-gray-700 flex items-center"
                   >
-                    <ChevronDownIcon className={`w-3 h-3 ml-1 transition-transform ${isVariantDropdownOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-3 h-3 ml-1 transition-transform ${isVariantDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
 

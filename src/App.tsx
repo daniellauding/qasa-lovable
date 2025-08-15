@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
-import { BeakerIcon } from '@heroicons/react/24/outline';
+import { FlaskConical } from 'lucide-react';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
 import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
@@ -265,7 +265,7 @@ function PrototypeGrid() {
                           />
                         ) : (
                           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-                            <BeakerIcon className="w-16 h-16 text-indigo-300" />
+                            <FlaskConical className="w-16 h-16 text-indigo-300" />
                           </div>
                         )}
                       </div>

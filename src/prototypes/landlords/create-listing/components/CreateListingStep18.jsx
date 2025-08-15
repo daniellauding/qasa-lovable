@@ -6,7 +6,7 @@ import RadioGroup from '../../../../components/ui/RadioGroup';
 import DatePicker from '../../../../components/ui/DatePicker';
 import Select from '../../../../components/ui/Select';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeftIcon, CalendarIcon, TrashIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, Trash2, X } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -128,7 +128,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
                         size="sm"
                         onClick={() => handleDeleteViewing(viewing.id)}
                         iconOnly
-                        icon={<TrashIcon className="h-4 w-4" />}
+                        icon={<Trash2 className="h-4 w-4" />}
                         aria-label="Ta bort"
                       />
                     </div>
@@ -164,7 +164,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
             className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
           >
-            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+            <ArrowLeft className="h-5 w-5 text-gray-600" />
           </button>
           
           <Button
@@ -191,7 +191,7 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
                   size="sm"
                   onClick={handleCloseModal}
                   iconOnly
-                  icon={<XMarkIcon className="h-5 w-5" />}
+                  icon={<X className="h-5 w-5" />}
                   aria-label="Stäng"
                 />
               </div>

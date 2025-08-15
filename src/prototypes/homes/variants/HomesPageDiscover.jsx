@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { HomeIcon, UserIcon } from '@heroicons/react/24/outline';
+import { Home, User } from 'lucide-react';
 import Search from '../../../components/ui/Search';
 import FilterButton from '../../../components/ui/FilterButton';
 import FilterModal from '../../../components/ui/FilterModal';
@@ -327,7 +327,7 @@ const HomesPageDiscover = () => {
                 variant={viewMode === 'homes' ? 'secondary' : 'tertiary'}
                 size="md"
                 icon={
-                  <HomeIcon className={`w-4 h-4 ${viewMode === 'homes' ? 'text-white' : ''}`} />
+                  <Home className={`w-4 h-4 ${viewMode === 'homes' ? 'text-white' : ''}`} />
                 }
                 iconOnly
                 onClick={() => setViewMode('homes')}
@@ -337,7 +337,7 @@ const HomesPageDiscover = () => {
                 variant={viewMode === 'tenants' ? 'secondary' : 'tertiary'}
                 size="md"
                 icon={
-                  <UserIcon className={`w-4 h-4 ${viewMode === 'tenants' ? 'text-white' : ''}`} />
+                  <User className={`w-4 h-4 ${viewMode === 'tenants' ? 'text-white' : ''}`} />
                 }
                 iconOnly
                 onClick={() => setViewMode('tenants')}

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import TextArea from '../../../../components/ui/TextArea';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -55,7 +55,7 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
             size="lg"
             onClick={onPrev}
             iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             aria-label={t('common.back', 'Tillbaka')}
           />
           

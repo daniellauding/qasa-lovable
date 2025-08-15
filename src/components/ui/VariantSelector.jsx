@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDownIcon, BeakerIcon, LinkIcon } from '@heroicons/react/24/outline';
+import { ChevronDown, FlaskConical, Link } from 'lucide-react';
 import { getPrototypeVariants, getVariantUrl, variantStatusConfig } from '../../utils/variants';
 
 const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, className = '' }) => {
@@ -31,7 +31,7 @@ const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, cl
         onClick={() => setIsOpen(!isOpen)}
         className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-md"
       >
-        <BeakerIcon className="w-4 h-4 mr-2" />
+        <FlaskConical className="w-4 h-4 mr-2" />
         {current.name}
         {current.status && current.status !== 'active' && (
           <span className={`ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
@@ -40,7 +40,7 @@ const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, cl
             {variantStatusConfig[current.status]?.label}
           </span>
         )}
-        <ChevronDownIcon className="w-4 h-4 ml-2" />
+        <ChevronDown className="w-4 h-4 ml-2" />
       </button>
 
       {isOpen && (
@@ -92,7 +92,7 @@ const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, cl
                     className="ml-2 p-1 text-gray-400 hover:text-gray-600"
                     title="Copy link to this variant"
                   >
-                    <LinkIcon className="w-4 h-4" />
+                    <Link className="w-4 h-4" />
                   </button>
                 </div>
               </div>

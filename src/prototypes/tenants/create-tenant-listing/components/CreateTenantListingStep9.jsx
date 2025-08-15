@@ -4,8 +4,8 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
-import { CameraIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -66,7 +66,7 @@ const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) 
                   className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white rounded-full px-3 py-1 text-xs flex items-center gap-1 hover:bg-gray-800 transition-colors"
                   aria-label={t('tenant.listing.step9.changeImage', 'Ändra bild')}
                 >
-                  <CameraIcon className="w-4 h-4" />
+                  <Camera className="w-4 h-4" />
                   {t('tenant.listing.step9.changeImage', 'Ändra bild')}
                 </button>
               </div>
@@ -124,7 +124,7 @@ const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) 
             size="lg"
             onClick={onPrev}
             iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             aria-label={t('common.back', 'Tillbaka')}
           />
           

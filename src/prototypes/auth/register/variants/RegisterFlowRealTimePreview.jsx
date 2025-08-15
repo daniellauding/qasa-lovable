@@ -8,7 +8,7 @@ import RadioGroup from '../../../../components/ui/RadioGroup';
 import DatePicker from '../../../../components/ui/DatePicker';
 import Select from '../../../../components/ui/Select';
 import TenantCard from '../../../../components/ui/Card/TenantCard';
-import { CameraIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { Camera, ArrowLeft } from 'lucide-react';
 
 const RegisterFlowRealTimePreview = () => {
   const navigate = useNavigate();
@@ -125,14 +125,14 @@ const RegisterFlowRealTimePreview = () => {
             />
           ) : (
             <div className="w-24 h-24 rounded-full bg-gray-100 border-4 border-gray-200 flex items-center justify-center">
-              <CameraIcon className="w-8 h-8 text-gray-400" />
+              <Camera className="w-8 h-8 text-gray-400" />
             </div>
           )}
           <button
             onClick={() => fileInputRef.current?.click()}
             className="absolute -bottom-2 -right-2 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors"
           >
-            <CameraIcon className="w-4 h-4" />
+            <Camera className="w-4 h-4" />
           </button>
         </div>
         <button
@@ -326,7 +326,7 @@ const RegisterFlowRealTimePreview = () => {
                 size="lg"
                 onClick={prevStep}
                 iconOnly
-                icon={<ArrowLeftIcon className="h-5 w-5" />}
+                icon={<ArrowLeft className="h-5 w-5" />}
                 aria-label="Previous"
               />
 

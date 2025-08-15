@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown, { DropdownItem } from '../../components/ui/Dropdown';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { ChevronDown } from 'lucide-react';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 export default {
@@ -25,7 +25,7 @@ export const Default = {
       trigger={
         <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
           Menu
-          <ChevronDownIcon className="w-5 h-5" />
+          <ChevronDown className="w-5 h-5" />
         </button>
       }
     >
@@ -47,7 +47,7 @@ export const WithSeparators = {
       trigger={
         <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
           Menu with Separators
-          <ChevronDownIcon className="w-5 h-5" />
+          <ChevronDown className="w-5 h-5" />
         </button>
       }
     >
@@ -72,7 +72,7 @@ export const Alignment = {
         trigger={
           <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
             Align Start
-            <ChevronDownIcon className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         }
         align="start"
@@ -88,7 +88,7 @@ export const Alignment = {
         trigger={
           <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
             Align Center
-            <ChevronDownIcon className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         }
         align="center"
@@ -104,7 +104,7 @@ export const Alignment = {
         trigger={
           <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
             Align End
-            <ChevronDownIcon className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5" />
           </button>
         }
         align="end"

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Modal from '../../../../components/ui/Modal';
-import { ArrowRightIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ArrowRight, X } from 'lucide-react';
 import { Globe } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -111,7 +111,7 @@ const CreateTenantListingStep1 = ({ onNext, formData, updateFormData }) => {
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-start gap-4">
               <div className="flex-shrink-0 w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center mt-1">
-                <ArrowRightIcon className="w-4 h-4 text-gray-600" strokeWidth={3} />
+                <ArrowRight className="w-4 h-4 text-gray-600" strokeWidth={3} />
               </div>
               <div>
                 <Typography variant="h3" className="text-gray-900 mb-1">

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { X } from 'lucide-react';
 
 const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
   return (
@@ -23,7 +23,7 @@ const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
               aria-label="Stäng"
               className="p-2 rounded-full hover:bg-gray-100 transition-colors"
             >
-              <XMarkIcon className="h-6 w-6 text-gray-500" />
+              <X className="h-6 w-6 text-gray-500" />
             </button>
           )}
         </div>

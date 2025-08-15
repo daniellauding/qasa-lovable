@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowRight } from 'lucide-react';
 import Typography from '../Typography';
 import Card from './Card';
 
@@ -29,7 +29,7 @@ const LandlordCTACard = ({
         <div
           className="ml-4 flex-shrink-0 rounded-full h-12 w-12 align-center justify-center flex items-center bg-bg-brand-tertiary text-text-on-brand-tertiary hover:bg-bg-brand-tertiary-hover focus:bg-bg-brand-tertiary-focus focus:scale-95 disabled:bg-loading disabled:text-white"
         >
-          <ArrowRightIcon className="h-5 w-5 text-black group-hover:text-gray-90 transition-colors" />
+          <ArrowRight className="h-5 w-5 text-black group-hover:text-gray-90 transition-colors" />
         </div>
       </div>
     </Card>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 
 const CreateListingStep10 = ({ onNext, onPrev }) => {
   return (
@@ -32,7 +32,7 @@ const CreateListingStep10 = ({ onNext, onPrev }) => {
                 className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
                 aria-label="Tillbaka"
               >
-                <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+                <ArrowLeft className="h-5 w-5 text-gray-600" />
               </button>
               <Button
                 variant="primary"

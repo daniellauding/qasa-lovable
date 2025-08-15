@@ -4,7 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -214,7 +214,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
             size="lg"
             onClick={onPrev}
             iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             aria-label="Tillbaka"
           />
           

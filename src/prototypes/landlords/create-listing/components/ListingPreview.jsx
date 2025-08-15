@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ChevronDownIcon, ArrowLeftIcon, ShareIcon, PencilIcon } from '@heroicons/react/24/outline';
+import { ChevronDown, ArrowLeft, Share, Edit } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
@@ -126,10 +126,10 @@ function ListingPreview({ formData, onEdit, onPublish }) {
 
             {/* Navigation arrows in corners */}
             <button className="absolute left-4 top-4 bg-white/80 p-2 rounded-full">
-              <ArrowLeftIcon className="h-5 w-5" />
+              <ArrowLeft className="h-5 w-5" />
             </button>
             <button className="absolute right-4 top-4 bg-white/80 p-2 rounded-full">
-              <ShareIcon className="h-5 w-5" />
+              <Share className="h-5 w-5" />
             </button>
 
             {/* Show all images button */}
@@ -140,7 +140,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
 
             {/* Edit images button */}
             <button onClick={handleEditImages} className="absolute bottom-4 right-4 bg-white/90 p-2 rounded-full">
-              <PencilIcon className="h-5 w-5" />
+              <Edit className="h-5 w-5" />
             </button>
           </div>
 
@@ -154,10 +154,10 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               />
               {/* Navigation arrows in corners */}
               <button className="absolute left-4 top-4 bg-white/80 p-2 rounded-full">
-                <ArrowLeftIcon className="h-5 w-5" />
+                <ArrowLeft className="h-5 w-5" />
               </button>
               <button className="absolute right-4 top-4 bg-white/80 p-2 rounded-full">
-                <ShareIcon className="h-5 w-5" />
+                <Share className="h-5 w-5" />
               </button>
 
               {/* Show all images button */}
@@ -168,7 +168,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
 
               {/* Edit images button */}
               <button onClick={handleEditImages} className="absolute bottom-4 right-4 bg-white/90 p-2 rounded-full">
-                <PencilIcon className="h-5 w-5" />
+                <Edit className="h-5 w-5" />
               </button>
             </div>
             {propertyImages.slice(1).map((img, idx) => (
@@ -191,7 +191,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                 {address}
               </Typography>
               <button onClick={handleEditListing} className="p-2 rounded-full hover:bg-gray-100">
-                <PencilIcon className="h-5 w-5" />
+                <Edit className="h-5 w-5" />
               </button>
             </div>
             
@@ -340,7 +340,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                     <Typography variant="h3" className="mt-1">{parseInt(rent) + 49} kr</Typography>
                   </div>
                   <button onClick={handleEditRent} className="p-2 rounded-full hover:bg-gray-100">
-                    <PencilIcon className="h-5 w-5" />
+                    <Edit className="h-5 w-5" />
                   </button>
                 </div>
                 <div className="flex gap-2 mb-4">

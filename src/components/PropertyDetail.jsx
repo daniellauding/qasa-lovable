@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { X } from 'lucide-react';
 import ImageGallery from './ImageGallery';
 import PropertyInfo from './PropertyInfo';
 import ContactForm from './ContactForm';
@@ -63,7 +63,7 @@ const PropertyDetail = () => {
                 onClick={() => setIsContactModalOpen(false)}
                 className="text-gray-400 hover:text-gray-500"
               >
-                <XMarkIcon className="h-6 w-6" />
+                <X className="h-6 w-6" />
               </button>
             </div>
             <ContactForm propertyData={propertyData} />

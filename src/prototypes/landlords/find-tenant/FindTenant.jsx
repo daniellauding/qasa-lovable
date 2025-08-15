@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Card, { CreateTenantProfileCard, TenantCard, LandlordCTACard } from '../../../components/ui/Card';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
 // Base tenant data (dynamic descriptions based on language)
@@ -271,7 +271,7 @@ const FindTenant = ({ isFluid = false }) => {
             iconOnly
             variant="transparent"
             size="xs"
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
           />
@@ -296,7 +296,7 @@ const FindTenant = ({ isFluid = false }) => {
             iconOnly
             variant="transparent"
             size="xs"
-            icon={<ArrowRightIcon className="h-5 w-5" />}
+            icon={<ArrowRight className="h-5 w-5" />}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           />

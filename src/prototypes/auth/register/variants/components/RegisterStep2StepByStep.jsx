@@ -6,18 +6,7 @@ import Input from '../../../../../components/ui/Input';
 import Select from '../../../../../components/ui/Select';
 import RadioGroup from '../../../../../components/ui/RadioGroup';
 import HintBox from '../../../../../components/ui/HintBox';
-import { 
-  CameraIcon, 
-  UserIcon, 
-  XMarkIcon, 
-  CheckCircleIcon, 
-  IdentificationIcon, 
-  CalendarIcon, 
-  UsersIcon, 
-  HeartIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon
-} from '@heroicons/react/24/outline';
+import { Camera, User, X, CheckCircle, Users, Heart, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) => {
   const [currentProfileStep, setCurrentProfileStep] = useState(formData.currentProfileStep || 1);
@@ -215,7 +204,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <UserIcon className="w-16 h-16 text-gray-400" />
+                    <User className="w-16 h-16 text-gray-400" />
                   )}
                 </div>
                 
@@ -225,7 +214,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
                     onClick={handleRemoveImage}
                     className="absolute -top-2 -right-2 bg-gray-900 text-white rounded-full p-2"
                   >
-                    <XMarkIcon className="w-4 h-4" />
+                    <X className="w-4 h-4" />
                   </button>
                 )}
               </div>
@@ -233,7 +222,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
             
             <label className="cursor-pointer">
               <div className="bg-blue-100 hover:bg-blue-200 px-6 py-3 rounded-lg text-blue-700 font-medium transition-colors inline-block">
-                <CameraIcon className="w-5 h-5 inline mr-2" />
+                <Camera className="w-5 h-5 inline mr-2" />
                 {profileImage ? 'Ändra profilbild' : 'Lägg till profilbild'}
               </div>
               <input
@@ -391,7 +380,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
             
             {formData.isIdVerified ? (
               <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-                <CheckCircleIcon className="w-8 h-8 text-green-500 mx-auto mb-2" />
+                <CheckCircle className="w-8 h-8 text-green-500 mx-auto mb-2" />
                 <Typography variant="body-md" className="text-green-800 font-medium">
                   ✓ Din identitet är verifierad!
                 </Typography>
@@ -471,7 +460,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
               size="md"
               onClick={handleStepPrev}
               iconOnly
-              icon={<ArrowLeftIcon className="h-5 w-5" />}
+              icon={<ArrowLeft className="h-5 w-5" />}
               aria-label="Föregående steg"
             />
             
@@ -498,7 +487,7 @@ const RegisterStep2StepByStep = ({ onNext, onPrev, formData, updateFormData }) =
               size="md"
               onClick={handleStepNext}
               disabled={currentStepConfig.required && !isCurrentStepValid()}
-              icon={<ArrowRightIcon className="h-5 w-5" />}
+              icon={<ArrowRight className="h-5 w-5" />}
               iconPosition="right"
             >
               {currentProfileStep === totalProfileSteps ? 'Slutför' : 'Nästa'}

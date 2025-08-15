@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 
 const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [email, setEmail] = useState(formData.email || '');
@@ -52,7 +52,7 @@ const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
               size="md"
               onClick={onPrev}
               iconOnly
-              icon={<ArrowLeftIcon className="h-5 w-5" />}
+              icon={<ArrowLeft className="h-5 w-5" />}
               aria-label="Tillbaka"
             />
             <Button

@@ -4,7 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import DatePicker from '../../../../components/ui/DatePicker';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -133,7 +133,7 @@ const CreateTenantListingStep5 = ({ onNext, onPrev, formData, updateFormData }) 
             size="lg"
             onClick={onPrev}
             iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             aria-label={t('common.back', 'Tillbaka')}
           />
           

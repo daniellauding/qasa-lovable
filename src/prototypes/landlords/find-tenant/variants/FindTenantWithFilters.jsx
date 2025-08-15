@@ -8,7 +8,7 @@ import Modal from '../../../../components/ui/Modal';
 import RangeSlider from '../../../../components/ui/RangeSlider';
 import Input from '../../../../components/ui/Input';
 import Checkbox from '../../../../components/ui/Checkbox';
-import { ArrowLeftIcon, ArrowRightIcon, XMarkIcon, AdjustmentsHorizontalIcon, MapPinIcon, CalendarIcon, HomeIcon, UsersIcon, BookmarkIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, ArrowRight, X, MapPin, Home, Users, ChevronDown, ChevronUp } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 // Property listings for preview
@@ -352,13 +352,13 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                     />
                   ) : (
                     <div className="w-8 h-8 rounded-lg bg-gray-20 flex items-center justify-center">
-                      <HomeIcon className="w-6 h-6 text-gray-40" />
+                      <Home className="w-6 h-6 text-gray-40" />
                     </div>
                   )}
                   {activeDropdown === 'property' ? (
-                    <ChevronUpIcon className="w-4 h-4 text-gray-40" />
+                    <ChevronUp className="w-4 h-4 text-gray-40" />
                   ) : (
-                    <ChevronDownIcon className="w-4 h-4 text-gray-40" />
+                    <ChevronDown className="w-4 h-4 text-gray-40" />
                   )}
                 </button>
 
@@ -436,14 +436,14 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                   onClick={() => toggleDropdown('location-date')}
                   className="flex items-center gap-2 bg-white rounded-full px-6 py-3 hover:bg-gray-20 transition-colors border border-gray-30"
                 >
-                  <MapPinIcon className="w-4 h-4 text-gray-60" />
+                  <MapPin className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.location}</Typography>
                   <CalendarIcon className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.dateFrom}</Typography>
                   {activeDropdown === 'location-date' ? (
-                    <ChevronUpIcon className="w-4 h-4 text-gray-60" />
+                    <ChevronUp className="w-4 h-4 text-gray-60" />
                   ) : (
-                    <ChevronDownIcon className="w-4 h-4 text-gray-60" />
+                    <ChevronDown className="w-4 h-4 text-gray-60" />
                   )}
                 </button>
 
@@ -453,14 +453,14 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                     <div className="bg-white rounded-xl shadow-xl border border-gray-20 p-6">
                       <div className="flex items-center gap-2 mb-6">
                         <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
-                          <MapPinIcon className="w-4 h-4 text-gray-60" />
+                          <MapPin className="w-4 h-4 text-gray-60" />
                           <Typography variant="body-sm">Lund</Typography>
-                          <XMarkIcon className="w-4 h-4 text-gray-60" />
+                          <X className="w-4 h-4 text-gray-60" />
                         </button>
                         <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
                           <CalendarIcon className="w-4 h-4 text-gray-60" />
                           <Typography variant="body-sm">August, 2025</Typography>
-                          <XMarkIcon className="w-4 h-4 text-gray-60" />
+                          <X className="w-4 h-4 text-gray-60" />
                         </button>
                       </div>
 
@@ -472,7 +472,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                           <div className="flex gap-2">
                             <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
                               <Typography variant="body-sm">Lund</Typography>
-                              <XMarkIcon className="w-4 h-4 text-gray-40" />
+                              <X className="w-4 h-4 text-gray-40" />
                             </div>
                             <Input
                               placeholder="Enter a city or area"
@@ -481,7 +481,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                               className="flex-1"
                             />
                             <button className="p-2 text-gray-40">
-                              <XMarkIcon className="w-4 h-4" />
+                              <X className="w-4 h-4" />
                             </button>
                           </div>
                         </div>
@@ -518,14 +518,14 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                   className="flex items-center gap-2 bg-white rounded-full px-6 py-3 hover:bg-gray-20 transition-colors border border-gray-30"
                 >
                   <Typography variant="body-sm">{filters.price.toLocaleString()} SEK</Typography>
-                  <HomeIcon className="w-4 h-4 text-gray-60" />
+                  <Home className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.rooms} room</Typography>
-                  <UsersIcon className="w-4 h-4 text-gray-60" />
+                  <Users className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.tenants}</Typography>
                   {activeDropdown === 'filters' ? (
-                    <ChevronUpIcon className="w-4 h-4 text-gray-60" />
+                    <ChevronUp className="w-4 h-4 text-gray-60" />
                   ) : (
-                    <ChevronDownIcon className="w-4 h-4 text-gray-60" />
+                    <ChevronDown className="w-4 h-4 text-gray-60" />
                   )}
                 </button>
 
@@ -538,7 +538,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                           <Typography variant="body-sm">
                             Rent: 15,000 SEK - Rooms: 1 room - Tenants: 1
                           </Typography>
-                          <XMarkIcon className="w-4 h-4 text-gray-60" />
+                          <X className="w-4 h-4 text-gray-60" />
                         </button>
                       </div>
 
@@ -640,7 +640,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                     className="absolute -top-1 -right-1 w-6 h-6 bg-gray-90 text-white rounded-full flex items-center justify-center text-xs hover:bg-gray-80 transition-colors border-2 border-white shadow"
                     aria-label="Reset filters"
                   >
-                    <XMarkIcon className="w-3 h-3" />
+                    <X className="w-3 h-3" />
                   </button>
                 )}
 
@@ -807,7 +807,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
             iconOnly
             variant="transparent"
             size="xs"
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
           />
@@ -832,7 +832,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
             iconOnly
             variant="transparent"
             size="xs"
-            icon={<ArrowRightIcon className="h-5 w-5" />}
+            icon={<ArrowRight className="h-5 w-5" />}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           />

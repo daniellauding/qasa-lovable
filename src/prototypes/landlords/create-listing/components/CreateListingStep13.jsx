@@ -4,7 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import TextArea from '../../../../components/ui/TextArea';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 
 const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [description, setDescription] = useState(formData.description || '');
@@ -68,7 +68,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
             className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
           >
-            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+            <ArrowLeft className="h-5 w-5 text-gray-600" />
           </button>
           <Button
             variant="primary"

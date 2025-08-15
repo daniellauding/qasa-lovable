@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Search from '../../../../components/ui/Search';
-import { ArrowLeftIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, X } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 // Fix for default markers in react-leaflet
@@ -125,7 +125,7 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
                         onClick={() => handleLocationRemove(location)}
                         className="text-gray-500 hover:text-gray-700"
                       >
-                        <XMarkIcon className="w-3 h-3" />
+                        <X className="w-3 h-3" />
                       </button>
                     </div>
                   ))}
@@ -151,7 +151,7 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
                   className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 text-gray-400 hover:text-gray-600 rounded-full hover:bg-gray-100"
                   aria-label={t('common.clear', 'Rensa')}
                 >
-                  <XMarkIcon className="w-4 h-4" />
+                  <X className="w-4 h-4" />
                 </button>
               )}
             </div>
@@ -225,7 +225,7 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
             size="lg"
             onClick={onPrev}
             iconOnly
-            icon={<ArrowLeftIcon className="h-5 w-5" />}
+            icon={<ArrowLeft className="h-5 w-5" />}
             aria-label={t('common.back', 'Tillbaka')}
           />
           

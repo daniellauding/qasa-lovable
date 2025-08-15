@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import * as SwitchPrimitive from '@radix-ui/react-switch';
-import { CheckIcon } from '@heroicons/react/24/solid';
+import { Check } from 'lucide-react';
 import Typography from './Typography';
 
 const Switch = forwardRef(({
@@ -51,7 +51,7 @@ const Switch = forwardRef(({
             translate-y-1
           `}
         >
-          <CheckIcon 
+          <Check 
             className={`
               h-3
               w-3

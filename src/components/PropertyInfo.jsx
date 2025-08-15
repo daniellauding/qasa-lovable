@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  HomeIcon,
-  MapPinIcon,
-  UserGroupIcon,
-  Squares2X2Icon,
-  BuildingOfficeIcon,
-  CheckCircleIcon
-} from '@heroicons/react/24/outline';
+import { Home, MapPin, Building, CheckCircle } from 'lucide-react';
 
 const PropertyInfo = ({ data }) => {
   const amenities = [
@@ -49,19 +42,19 @@ const PropertyInfo = ({ data }) => {
           <h2 className="text-lg font-semibold mb-4">Bekvämligheter</h2>
           <div className="grid grid-cols-2 gap-4">
             <div className="flex items-center space-x-2">
-              <CheckCircleIcon className="h-5 w-5 text-green-500" />
+              <CheckCircle className="h-5 w-5 text-green-500" />
               <span>Möblerad</span>
             </div>
             <div className="flex items-center space-x-2">
-              <CheckCircleIcon className="h-5 w-5 text-green-500" />
+              <CheckCircle className="h-5 w-5 text-green-500" />
               <span>Parkering</span>
             </div>
             <div className="flex items-center space-x-2">
-              <CheckCircleIcon className="h-5 w-5 text-green-500" />
+              <CheckCircle className="h-5 w-5 text-green-500" />
               <span>Balkong</span>
             </div>
             <div className="flex items-center space-x-2">
-              <CheckCircleIcon className="h-5 w-5 text-green-500" />
+              <CheckCircle className="h-5 w-5 text-green-500" />
               <span>Egen ingång</span>
             </div>
           </div>
@@ -71,7 +64,7 @@ const PropertyInfo = ({ data }) => {
         <div>
           <h2 className="text-lg font-semibold mb-4">Plats</h2>
           <div className="flex items-start space-x-2">
-            <MapPinIcon className="h-5 w-5 text-gray-500 mt-1" />
+            <MapPin className="h-5 w-5 text-gray-500 mt-1" />
             <div>
               <p className="font-medium">Hässelby</p>
               <p className="text-sm text-gray-500">2 min till buss</p>

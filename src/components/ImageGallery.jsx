@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ImageGallery = ({ images }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,7 +70,7 @@ const ImageGallery = ({ images }) => {
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 text-white hover:text-gray-300"
             >
-              <XMarkIcon className="h-6 w-6" />
+              <X className="h-6 w-6" />
             </button>
             
             <div className="relative">
@@ -84,14 +84,14 @@ const ImageGallery = ({ images }) => {
                 onClick={handlePrevious}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300"
               >
-                <ChevronLeftIcon className="h-8 w-8" />
+                <ChevronLeft className="h-8 w-8" />
               </button>
               
               <button
                 onClick={handleNext}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300"
               >
-                <ChevronRightIcon className="h-8 w-8" />
+                <ChevronRight className="h-8 w-8" />
               </button>
             </div>
             

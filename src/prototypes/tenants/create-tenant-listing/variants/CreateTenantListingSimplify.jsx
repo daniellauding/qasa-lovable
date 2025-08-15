@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowRightIcon, ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { ArrowRight, ArrowLeft, CheckCircle } from 'lucide-react';
 import DynamicHeader from '../../../../components/DynamicHeader';
 import Footer from '../../../../components/Footer';
 import DevExperimentsButton from '../../../../components/DevExperimentsButton';
@@ -185,7 +185,7 @@ const CreateTenantListingSimplify = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-4" />
+              <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
               <Typography variant="h1" className="mb-4">Grattis!</Typography>
               <Typography variant="body1" className="text-gray-600">
                 Din förenkladе profil är nu klar. Du kan alltid redigera den senare.

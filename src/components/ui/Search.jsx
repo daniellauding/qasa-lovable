@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Search as SearchIcon } from 'lucide-react';
 
 const Search = forwardRef(({
   placeholder = 'Search cities or districts',
@@ -23,7 +23,7 @@ const Search = forwardRef(({
   return (
     <div className="relative w-full">
       <div className="absolute inset-y-0 left-0 flex items-center pl-4">
-        <MagnifyingGlassIcon className={`${iconSizeClasses[size]} text-gray-60`} />
+        <SearchIcon className={`${iconSizeClasses[size]} text-gray-60`} />
       </div>
       <input
         ref={ref}

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { CheckIcon } from '@heroicons/react/24/solid';
+import { Check } from 'lucide-react';
 import Typography from '../Typography';
 import { getCheckboxItemStyles, getCheckboxStyles } from './styles';
 
@@ -27,7 +27,7 @@ const CheckboxItem = ({ option, checked, onCheckedChange, variant }) => {
         className={getCheckboxStyles(variant)}
       >
         <CheckboxPrimitive.Indicator className="flex items-center justify-center w-full h-full">
-          <CheckIcon className="h-3 w-3 text-[#322721] flex-shrink-0" />
+          <Check className="h-3 w-3 text-[#322721] flex-shrink-0" />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 

@@ -1,5 +1,5 @@
 import Button from '../../components/ui/Button';
-import { ChevronRightIcon, ChevronLeftIcon, PlusIcon, XMarkIcon, HeartIcon, ShareIcon, EllipsisHorizontalIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ChevronRight, ChevronLeft, Plus, X, Heart, Share, ArrowLeft } from 'lucide-react';
 
 export default {
   title: 'UI/Button',
@@ -89,13 +89,13 @@ export const WithIcons = {
   render: () => (
     <div className="space-y-4">
       <div className="space-x-4">
-        <Button icon={<ChevronLeftIcon className="w-4 h-4" />} iconPosition="left">
+        <Button icon={<ChevronLeft className="w-4 h-4" />} iconPosition="left">
           Previous
         </Button>
-        <Button icon={<ChevronRightIcon className="w-4 h-4" />} iconPosition="right">
+        <Button icon={<ChevronRight className="w-4 h-4" />} iconPosition="right">
           Next
         </Button>
-        <Button icon={<PlusIcon className="w-4 h-4" />} iconPosition="left" variant="secondary">
+        <Button icon={<Plus className="w-4 h-4" />} iconPosition="left" variant="secondary">
           Add Item
         </Button>
       </div>
@@ -109,17 +109,17 @@ export const IconOnly = {
       <div>
         <h3 className="text-sm font-medium mb-3">Icon-Only Variants</h3>
         <div className="space-x-4 flex items-center">
-          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" />
-          <Button iconOnly icon={<XMarkIcon className="w-5 h-5" />} variant="secondary" />
-          <Button iconOnly icon={<HeartIcon className="w-5 h-5" />} variant="tertiary" />
-          <Button iconOnly icon={<ShareIcon className="w-5 h-5" />} variant="transparent" />
-          <Button iconOnly icon={<ChevronLeftIcon className="w-5 h-5" />} variant="bordered" />
+          <Button iconOnly icon={<Plus className="w-5 h-5" />} variant="primary" />
+          <Button iconOnly icon={<X className="w-5 h-5" />} variant="secondary" />
+          <Button iconOnly icon={<Heart className="w-5 h-5" />} variant="tertiary" />
+          <Button iconOnly icon={<Share className="w-5 h-5" />} variant="transparent" />
+          <Button iconOnly icon={<ChevronLeft className="w-5 h-5" />} variant="bordered" />
         </div>
       </div>
       <div>
         <h3 className="text-sm font-medium mb-3">Bordered Back Arrow (Navigation)</h3>
         <div className="space-x-4 flex items-center">
-          <Button iconOnly icon={<ChevronLeftIcon className="w-5 h-5" />} variant="bordered" size="md" aria-label="Go back" />
+          <Button iconOnly icon={<ChevronLeft className="w-5 h-5" />} variant="bordered" size="md" aria-label="Go back" />
           <span className="text-sm text-gray-600">Perfect for navigation back buttons</span>
         </div>
       </div>
@@ -139,9 +139,9 @@ export const IconOnly = {
       <div>
         <h3 className="text-sm font-medium mb-3">Icon-Only States</h3>
         <div className="space-x-4 flex items-center">
-          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" />
-          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" disabled />
-          <Button iconOnly icon={<PlusIcon className="w-5 h-5" />} variant="primary" loading />
+          <Button iconOnly icon={<Plus className="w-5 h-5" />} variant="primary" />
+          <Button iconOnly icon={<Plus className="w-5 h-5" />} variant="primary" disabled />
+          <Button iconOnly icon={<Plus className="w-5 h-5" />} variant="primary" loading />
         </div>
       </div>
     </div>
@@ -216,7 +216,7 @@ export const RealWorldExamples = {
           <Button 
             variant="secondary" 
             size="sm"
-            icon={<ChevronLeftIcon className="w-4 h-4" />} 
+            icon={<ChevronLeft className="w-4 h-4" />} 
             iconPosition="left"
           >
             Back
@@ -224,7 +224,7 @@ export const RealWorldExamples = {
           <Button 
             variant="primary" 
             size="sm"
-            icon={<ChevronRightIcon className="w-4 h-4" />} 
+            icon={<ChevronRight className="w-4 h-4" />} 
             iconPosition="right"
           >
             Continue
@@ -236,7 +236,7 @@ export const RealWorldExamples = {
         <Button 
           variant="primary" 
           size="lg"
-          icon={<PlusIcon className="w-5 h-5" />} 
+          icon={<Plus className="w-5 h-5" />} 
           iconPosition="left"
         >
           Create New Property
@@ -256,7 +256,7 @@ export const NavigationExamples = {
             iconOnly
             variant="bordered" 
             size="md"
-            icon={<ChevronLeftIcon className="w-5 h-5" />} 
+            icon={<ChevronLeft className="w-5 h-5" />} 
             aria-label="Go back"
           />
           <Button 
@@ -271,16 +271,16 @@ export const NavigationExamples = {
       <div>
         <h3 className="text-sm font-medium mb-3">Different Sizes</h3>
         <div className="space-x-4 flex items-center">
-          <Button iconOnly variant="bordered" size="sm" icon={<ChevronLeftIcon className="w-4 h-4" />} aria-label="Back" />
-          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Back" />
-          <Button iconOnly variant="bordered" size="lg" icon={<ChevronLeftIcon className="w-6 h-6" />} aria-label="Back" />
+          <Button iconOnly variant="bordered" size="sm" icon={<ChevronLeft className="w-4 h-4" />} aria-label="Back" />
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeft className="w-5 h-5" />} aria-label="Back" />
+          <Button iconOnly variant="bordered" size="lg" icon={<ChevronLeft className="w-6 h-6" />} aria-label="Back" />
         </div>
       </div>
       <div>
         <h3 className="text-sm font-medium mb-3">States</h3>
         <div className="space-x-4 flex items-center">
-          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Normal" />
-          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeftIcon className="w-5 h-5" />} aria-label="Disabled" disabled />
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeft className="w-5 h-5" />} aria-label="Normal" />
+          <Button iconOnly variant="bordered" size="md" icon={<ChevronLeft className="w-5 h-5" />} aria-label="Disabled" disabled />
         </div>
       </div>
     </div>
@@ -306,21 +306,21 @@ export const QasaThemeVariants = () => (
           variant="tertiary" 
           size="md" 
           iconOnly 
-          icon={<ArrowLeftIcon className="h-5 w-5" />} 
+          icon={<ArrowLeft className="h-5 w-5" />} 
           aria-label="Back" 
         />
         <Button 
           variant="secondary" 
           size="md" 
           iconOnly 
-          icon={<PlusIcon className="h-5 w-5" />} 
+          icon={<Plus className="h-5 w-5" />} 
           aria-label="Add" 
         />
         <Button 
           variant="outline" 
           size="md" 
           iconOnly 
-          icon={<HeartIcon className="h-5 w-5" />} 
+          icon={<Heart className="h-5 w-5" />} 
           aria-label="Favorite" 
         />
       </div>

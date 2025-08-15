@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import Typography from '../Typography';
-import { HeartIcon, CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
-import { HeartIcon as HeartSolidIcon } from '@heroicons/react/24/solid';
+import { Heart, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 
 const PropertyCard = ({
   property,
@@ -50,13 +49,13 @@ const PropertyCard = ({
               onClick={goToPrevious}
               className="absolute left-3 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all opacity-0 group-hover:opacity-100"
             >
-              <ChevronLeftIcon className="w-4 h-4 text-text-default" />
+              <ChevronLeft className="w-4 h-4 text-text-default" />
             </button>
             <button
               onClick={goToNext}
               className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all opacity-0 group-hover:opacity-100"
             >
-              <ChevronRightIcon className="w-4 h-4 text-text-default" />
+              <ChevronRight className="w-4 h-4 text-text-default" />
             </button>
           </>
         )}
@@ -70,11 +69,7 @@ const PropertyCard = ({
             }}
             className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
           >
-            {liked ? (
-              <HeartSolidIcon className="w-5 h-5 text-ui-pink" />
-            ) : (
-              <HeartIcon className="w-5 h-5 text-text-subtle" />
-            )}
+            <Heart className={`w-5 h-5 ${liked ? 'text-ui-pink fill-current' : 'text-text-subtle'}`} />
           </button>
         )}
 
@@ -111,7 +106,7 @@ const PropertyCard = ({
 
         {property.dateRange && (
           <div className="flex items-center gap-2">
-            <CalendarIcon className="w-4 h-4 text-text-subtle" />
+            <Calendar className="w-4 h-4 text-text-subtle" />
             <Typography variant="body-sm" color="secondary">
               {property.dateRange}
             </Typography>

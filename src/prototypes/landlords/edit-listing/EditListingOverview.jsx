@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import Button from '../../../components/ui/Button';
 import Typography from '../../../components/ui/Typography';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
@@ -77,7 +77,7 @@ const EditListingOverview = () => {
             className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
             aria-label="Tillbaka"
           >
-            <ArrowLeftIcon className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5" />
           </button>
           
           <Typography variant="h1" className="mb-2">
@@ -105,7 +105,7 @@ const EditListingOverview = () => {
                       {step.description}
                     </Typography>
                   </div>
-                  <ArrowRightIcon className="h-5 w-5 text-gray-400 group-hover:text-blue-600 ml-4 flex-shrink-0" />
+                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 ml-4 flex-shrink-0" />
                 </div>
               </button>
               {index < steps.length - 1 && (

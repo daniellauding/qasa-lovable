@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const DatePicker = ({
   label,
@@ -141,7 +141,7 @@ const DatePicker = ({
               onClick={() => navigateMonth(-1)}
               className="p-1 hover:bg-gray-10 rounded transition-colors"
             >
-              <ChevronLeftIcon className="w-5 h-5 text-gray-60" />
+              <ChevronLeft className="w-5 h-5 text-gray-60" />
             </button>
             
             <h3 className="text-base font-semibold text-gray-90">
@@ -153,7 +153,7 @@ const DatePicker = ({
               onClick={() => navigateMonth(1)}
               className="p-1 hover:bg-gray-10 rounded transition-colors"
             >
-              <ChevronRightIcon className="w-5 h-5 text-gray-60" />
+              <ChevronRight className="w-5 h-5 text-gray-60" />
             </button>
           </div>
 

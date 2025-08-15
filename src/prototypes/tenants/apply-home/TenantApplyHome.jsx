@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { ChevronDown, X } from 'lucide-react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -187,7 +187,7 @@ function TenantApplyHome() {
                     onClick={() => setActiveAccordion(activeAccordion === idx ? null : idx)}
                   >
                     <span className="font-medium">{section.title}</span>
-                    <ChevronDownIcon 
+                    <ChevronDown 
                       className={`w-5 h-5 transform transition-transform ${
                         activeAccordion === idx ? 'rotate-180' : ''
                       }`}

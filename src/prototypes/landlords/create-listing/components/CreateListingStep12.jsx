@@ -4,7 +4,7 @@ import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import Select from '../../../../components/ui/Select';
 import Input from '../../../../components/ui/Input';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft } from 'lucide-react';
 
 const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [condition, setCondition] = useState(formData.condition || '');
@@ -142,7 +142,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
             className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
           >
-            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+            <ArrowLeft className="h-5 w-5 text-gray-600" />
           </button>
           <Button
             variant="primary"

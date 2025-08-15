@@ -1,25 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import {
-  PencilIcon,
-  IdentificationIcon,
-  MapPinIcon,
-  HomeIcon,
-  UsersIcon,
-  CalendarIcon,
-  CurrencyDollarIcon,
-  CheckIcon,
-  StarIcon,
-  CameraIcon,
-  XMarkIcon,
-  TrashIcon,
-  PlusIcon,
-  ExclamationTriangleIcon,
-  ArrowRightIcon,
-  HeartIcon,
-  ArrowLeftIcon
-} from '@heroicons/react/24/outline';
-import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
+import { Edit, MapPin, Home, Users, Check, Star, Camera, X, Trash2, Plus, AlertTriangle, ArrowRight, Heart, ArrowLeft } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -99,11 +80,11 @@ export default function TenantProfilePage() {
               className="w-24 h-24 rounded-full object-cover"
             />
             <button className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-100 rounded-full p-2 border border-gray-300">
-              <CameraIcon className="w-4 h-4" />
+              <Camera className="w-4 h-4" />
             </button>
           </div>
           <Button variant="outline" size="small" className="mt-2">
-            <CameraIcon className="w-4 h-4 mr-2" />
+            <Camera className="w-4 h-4 mr-2" />
             Ändra bild
           </Button>
         </div>
@@ -222,7 +203,7 @@ export default function TenantProfilePage() {
             <span className="bg-gray-100 px-2 py-1 rounded text-sm">
               Lund
               <button className="ml-1">
-                <XMarkIcon className="w-3 h-3" />
+                <X className="w-3 h-3" />
               </button>
             </span>
             <Input
@@ -404,23 +385,23 @@ export default function TenantProfilePage() {
               </Typography>
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <span>Mars 2021</span>
-                <ArrowRightIcon className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4" />
                 <span>Pågående</span>
               </div>
             </div>
             <div className="flex gap-2">
               <button className="p-2 text-gray-600 hover:text-gray-900">
-                <TrashIcon className="w-4 h-4" />
+                <Trash2 className="w-4 h-4" />
               </button>
               <button className="p-2 text-gray-600 hover:text-gray-900">
-                <PencilIcon className="w-4 h-4" />
+                <Edit className="w-4 h-4" />
               </button>
             </div>
           </div>
         </div>
 
         <Button variant="outline" onClick={() => {}}>
-          <PlusIcon className="w-4 h-4 mr-2" />
+          <Plus className="w-4 h-4 mr-2" />
           Lägg till sysselsättning
         </Button>
 
@@ -463,7 +444,7 @@ export default function TenantProfilePage() {
 
         <div className="flex justify-between">
           <Button variant="outline" onClick={closeModal}>
-            <ArrowLeftIcon className="w-4 h-4 mr-2" />
+            <ArrowLeft className="w-4 h-4 mr-2" />
             Tillbaka
           </Button>
           <Button variant="primary" onClick={closeModal}>
@@ -491,7 +472,7 @@ export default function TenantProfilePage() {
                     className="w-24 h-24 rounded-full object-cover border-4 border-pink-200"
                   />
                   <div className="absolute -bottom-1 -right-1 bg-pink-500 rounded-full p-1">
-                    <StarIconSolid className="w-4 h-4 text-white" />
+                    <StarSolid className="w-4 h-4 text-white" />
                   </div>
                 </div>
                 <div className="flex-1">
@@ -509,7 +490,7 @@ export default function TenantProfilePage() {
                         onClick={() => openModal('overview')}
                         className="p-2 text-gray-600 hover:text-gray-900"
                       >
-                        <PencilIcon className="w-5 h-5" />
+                        <Edit className="w-5 h-5" />
                       </button>
                     )}
                   </div>
@@ -539,13 +520,13 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('introduction')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <HeartIcon className="w-5 h-5 text-gray-600" />
+                  <Heart className="w-5 h-5 text-gray-600" />
                   <Typography variant="body" className="text-gray-700">
                     {profile.bioPets}
                   </Typography>
@@ -563,26 +544,26 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('lookingFor')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <MapPinIcon className="w-5 h-5 text-gray-600" />
+                    <MapPin className="w-5 h-5 text-gray-600" />
                     <Typography variant="body" className="text-gray-700">
                       {profile.searchCriteria.location}
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3">
-                    <HomeIcon className="w-5 h-5 text-gray-600" />
+                    <Home className="w-5 h-5 text-gray-600" />
                     <Typography variant="body" className="text-gray-700">
                       {profile.searchCriteria.rooms} rum, {profile.searchCriteria.size} m²
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3">
-                    <UsersIcon className="w-5 h-5 text-gray-600" />
+                    <Users className="w-5 h-5 text-gray-600" />
                     <Typography variant="body" className="text-gray-700">
                       Boende för {profile.searchCriteria.people} personer
                     </Typography>
@@ -607,7 +588,7 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('preferences')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>
@@ -615,7 +596,7 @@ export default function TenantProfilePage() {
                 <div className="space-y-2">
                   {profile.preferences.map((pref) => (
                     <div key={pref} className="flex items-center gap-3">
-                      <CheckIcon className="w-5 h-5 text-gray-600" />
+                      <Check className="w-5 h-5 text-gray-600" />
                       <Typography variant="body" className="text-gray-700">
                         {pref === 'tumbleDryer' ? 'Torktumlare' : pref}
                       </Typography>
@@ -635,7 +616,7 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('requirements')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>
@@ -643,7 +624,7 @@ export default function TenantProfilePage() {
                 <div className="space-y-2">
                   {profile.requirements.map((req) => (
                     <div key={req} className="flex items-center gap-3">
-                      <CheckIcon className="w-5 h-5 text-gray-600" />
+                      <Check className="w-5 h-5 text-gray-600" />
                       <Typography variant="body" className="text-gray-700">
                         {req === 'petsAllowed' ? 'Husdjur tillåtet' : req}
                       </Typography>
@@ -663,7 +644,7 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('employment')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>
@@ -680,7 +661,7 @@ export default function TenantProfilePage() {
                   </Typography>
                   <div className="flex items-center gap-2 text-sm text-gray-600">
                     <span>Mars 2021</span>
-                    <ArrowRightIcon className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" />
                     <span>Pågående</span>
                   </div>
                 </div>
@@ -697,7 +678,7 @@ export default function TenantProfilePage() {
                       onClick={() => openModal('housingSituation')}
                       className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <PencilIcon className="w-5 h-5" />
+                      <Edit className="w-5 h-5" />
                     </button>
                   )}
                 </div>

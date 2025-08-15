@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import LoadingDots from '../../../../components/ui/LoadingDots';
-import { ArrowLeftIcon, PhotoIcon, ChevronUpIcon, ChevronDownIcon, TrashIcon } from '@heroicons/react/24/outline';
+import { ArrowLeft, Image, ChevronUp, ChevronDown, Trash2 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -100,7 +100,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                   </div>
                 ) : (
                   <div className="gap-4 flex align-center items-center justify-center">
-                    <PhotoIcon className="mx-auto h-12 w-12 text-gray-400" />
+                    <Image className="mx-auto h-12 w-12 text-gray-400" />
                     <div className="mt-0">
                       <Typography variant="title-xxs" className="text-gray-900">
                         Ladda upp bilder
@@ -132,7 +132,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                           size="sm"
                           onClick={() => removeImage(0)}
                           iconOnly
-                          icon={<TrashIcon className="h-4 w-4" />}
+                          icon={<Trash2 className="h-4 w-4" />}
                         />
                         <div className="flex flex-col gap-1">
                           <Button
@@ -141,7 +141,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                             onClick={() => moveImage(0, 'up')}
                             disabled={true}
                             iconOnly
-                            icon={<ChevronUpIcon className="h-4 w-4" />}
+                            icon={<ChevronUp className="h-4 w-4" />}
                           />
                           <Button
                             variant="ghost"
@@ -149,7 +149,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                             onClick={() => moveImage(0, 'down')}
                             disabled={images.length <= 1}
                             iconOnly
-                            icon={<ChevronDownIcon className="h-4 w-4" />}
+                            icon={<ChevronDown className="h-4 w-4" />}
                           />
                         </div>
                       </div>
@@ -172,7 +172,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                             size="sm"
                             onClick={() => removeImage(index + 1)}
                             iconOnly
-                            icon={<TrashIcon className="h-4 w-4" />}
+                            icon={<Trash2 className="h-4 w-4" />}
                           />
                           <div className="flex flex-col gap-1">
                             <Button
@@ -181,7 +181,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                               onClick={() => moveImage(index + 1, 'up')}
                               disabled={false}
                               iconOnly
-                              icon={<ChevronUpIcon className="h-4 w-4" />}
+                              icon={<ChevronUp className="h-4 w-4" />}
                             />
                             <Button
                               variant="ghost"
@@ -189,7 +189,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
                               onClick={() => moveImage(index + 1, 'down')}
                               disabled={index === images.length - 2}
                               iconOnly
-                              icon={<ChevronDownIcon className="h-4 w-4" />}
+                              icon={<ChevronDown className="h-4 w-4" />}
                             />
                           </div>
                         </div>
@@ -248,7 +248,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
             className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
             aria-label="Tillbaka"
           >
-            <ArrowLeftIcon className="h-5 w-5 text-gray-600" />
+            <ArrowLeft className="h-5 w-5 text-gray-600" />
           </button>
           
           <Button

@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as ToastPrimitive from '@radix-ui/react-toast';
-import {
-  CheckCircleIcon,
-  ExclamationCircleIcon,
-  InformationCircleIcon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { CheckCircle, Info, X } from 'lucide-react';
 
 const Toast = ({
   title,
@@ -19,7 +14,7 @@ const Toast = ({
   const variantStyles = {
     success: {
       container: 'border-green-500 bg-green-50',
-      icon: <CheckCircleIcon className="h-5 w-5 text-green-500" />,
+      icon: <CheckCircle className="h-5 w-5 text-green-500" />,
     },
     error: {
       container: 'border-red-500 bg-red-50',
@@ -27,7 +22,7 @@ const Toast = ({
     },
     info: {
       container: 'border-blue-500 bg-blue-50',
-      icon: <InformationCircleIcon className="h-5 w-5 text-blue-500" />,
+      icon: <Info className="h-5 w-5 text-blue-500" />,
     },
   };
 
@@ -70,7 +65,7 @@ const Toast = ({
       <ToastPrimitive.Close
         className="absolute right-2 top-2 rounded p-1 text-gray-400 hover:text-gray-600"
       >
-        <XMarkIcon className="h-4 w-4" />
+        <X className="h-4 w-4" />
       </ToastPrimitive.Close>
     </ToastPrimitive.Root>
   );

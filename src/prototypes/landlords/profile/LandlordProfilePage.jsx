@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import {
-  IdentificationIcon,
-  ExclamationTriangleIcon,
-  HeartIcon,
-  ArrowRightIcon
-} from '@heroicons/react/24/outline';
-import { HeartIcon as HeartIconSolid } from '@heroicons/react/24/solid';
+import { AlertTriangle, Heart, ArrowRight } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -135,9 +130,9 @@ export default function LandlordProfilePage() {
                       className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
                     >
                       {favoriteListings.has(listing.id) ? (
-                        <HeartIconSolid className="w-5 h-5 text-red-500" />
+                        <HeartSolid className="w-5 h-5 text-red-500" />
                       ) : (
-                        <HeartIcon className="w-5 h-5 text-gray-600" />
+                        <Heart className="w-5 h-5 text-gray-600" />
                       )}
                     </button>
                   </div>
@@ -158,7 +153,7 @@ export default function LandlordProfilePage() {
                     
                     <div className="flex items-center gap-2 text-sm text-gray-600 mb-4">
                       <span>{listing.availableFrom}</span>
-                      <ArrowRightIcon className="w-4 h-4" />
+                      <ArrowRight className="w-4 h-4" />
                       <span>{listing.availableTo}</span>
                     </div>
                     
@@ -176,7 +171,7 @@ export default function LandlordProfilePage() {
           {/* Report Profile */}
           <div className="flex justify-center">
             <Button variant="outline" className="text-red-600 border-red-200 hover:bg-red-50">
-              <ExclamationTriangleIcon className="w-4 h-4 mr-2" />
+              <AlertTriangle className="w-4 h-4 mr-2" />
               Report profile
             </Button>
           </div>

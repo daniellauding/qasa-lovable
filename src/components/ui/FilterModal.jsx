@@ -8,7 +8,7 @@ import Dropdown from './Dropdown';
 import RangeSlider from './RangeSlider';
 import DatePicker from './DatePicker';
 import Select from './Select';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import { X } from 'lucide-react';
 
 const FilterModal = ({ isOpen, onClose, onApplyFilters }) => {
   const [filters, setFilters] = useState({
@@ -110,7 +110,7 @@ const FilterModal = ({ isOpen, onClose, onApplyFilters }) => {
             onClick={onClose}
             className="p-2 hover:bg-gray-10 rounded-full transition-colors"
           >
-            <XMarkIcon className="w-5 h-5 text-gray-60" />
+            <X className="w-5 h-5 text-gray-60" />
           </button>
         </div>
 
