@@ -1,344 +1,274 @@
-# 📘 Qasa Prototyping Tool - Handover Guide
+# 🏡 Qasa Prototyping with Lovable - Simple Guide
 
-## 🎯 What is This?
-A professional prototyping tool that helps Qasa team members create on-brand, consistent designs quickly without coding knowledge.
-
----
-
-## 👥 Who Uses This & How
-
-### 🎨 Designers
-**Your superpowers:**
-- Create pixel-perfect Qasa designs in minutes
-- Test different layouts without developer help  
-- Ensure brand consistency automatically
-- Preview in both Qasa and Blocket themes
-
-**How to use:**
-1. Open Storybook (your design playground)
-2. Pick components from QDS library
-3. Combine them into layouts
-4. Export for development team
-
-**What you DON'T need to worry about:**
-- Writing code
-- Swedish translations (automatic)
-- Colors and fonts (handled by system)
-- Responsive design (built-in)
+## What is this?
+A tool where you can create Qasa designs by describing what you want - no coding needed!
 
 ---
 
-### 📊 Product Managers
-**Your superpowers:**
-- Test new features before building
-- Create mockups for stakeholder meetings
-- Validate ideas with real Swedish content
-- Compare different user flows quickly
+## 🚀 Getting Started (2 minutes)
 
-**How to use:**
-1. Choose a template (Landing page, Search, Profile, etc.)
-2. Fill in your content
-3. Preview instantly
-4. Share link with team
+### Step 1: Open Lovable
+🔗 **[Click here to start prototyping](https://lovable.dev/qasa-prototypes)**
 
-**What you DON'T need to worry about:**
-- Design consistency
-- Technical implementation
-- Swedish rental terminology
-- Mobile responsiveness
+### Step 2: Choose Your Starting Point
+- **📋 Remix a Template** - Start with existing Qasa designs
+- **🆕 Start Blank** - Create from scratch
+- **🖼️ Upload Image** - Show what you want to build
+
+### Step 3: Describe What You Want
+Just write in plain language! Examples:
+- "Create a property listing page with 3 apartments in Stockholm"
+- "Make a tenant profile for Anna, 28, looking for 2 rooms"
+- "Design a landing page for Qasa Premium"
 
 ---
 
-### 💻 Developers
-**Your superpowers:**
-- Use pre-validated QDS components
-- Copy production-ready code
-- No design guesswork
-- Consistent patterns across team
+## 💬 Magic Prompts That Work
 
-**How to use:**
-1. Receive design from PM/Designer
-2. Copy component code from prototype
-3. Implement business logic
-4. Deploy with confidence
-
-**What you DON'T need to worry about:**
-- Design decisions
-- Component structure
-- Accessibility (built-in)
-- Theme compatibility
-
----
-
-### 🌍 Content/Marketing Team
-**Your superpowers:**
-- Preview copy in real context
-- Test different messaging
-- Ensure Swedish tone consistency
-- Create landing pages quickly
-
-**How to use:**
-1. Write your content
-2. Pick a page template
-3. See it live instantly
-4. Iterate based on preview
-
----
-
-## 🚀 Quick Start Guides
-
-### Creating a Landing Page (5 minutes)
-1. **Choose Template** → "Qasa Landing Page"
-2. **Edit Content** → Replace placeholder text
-3. **Pick Images** → Select from Qasa library
-4. **Preview** → Check desktop/mobile
-5. **Share** → Send link to team
-
-### Building a Property Listing
-1. **Select** → "Property Detail Template"
-2. **Add Details** → Rooms, size, location, price
-3. **Upload Photos** → Or use stock Swedish apartments
-4. **Features** → Check relevant amenities
-5. **Generate** → Ready to review!
-
-### Testing a New Feature
-1. **Start** → "Blank Canvas"
-2. **Drag Components** → From QDS library
-3. **Connect Flow** → Link pages together
-4. **Add Content** → Real Swedish examples
-5. **Test** → Click through like a user
-
----
-
-## 📚 What's Available
-
-### 🧩 QDS Components (Your Building Blocks)
-
-**Basic Elements**
-- Buttons (7 styles, 5 sizes)
-- Text (17 typography styles)
-- Forms (inputs, dropdowns, checkboxes)
-- Cards (property, tenant, feature)
-
-**Complex Patterns**
-- Search bars with filters
-- Property galleries
-- Application forms
-- Profile cards
-- Navigation menus
-
-**Page Templates**
-- Homepage
-- Search results
-- Property details
-- Tenant profile
-- Application flow
-- Messages
-- Dashboard
-
-### 🎨 Themes
-- **Qasa** (Pink - our main brand)
-- **Blocket** (Red - partnership theme)
-
-### 🌐 Languages
-- Swedish (primary)
-- English
-- Finnish
-- Norwegian
-
----
-
-## 📖 Common Scenarios
-
-### "I want to test a new homepage design"
-1. Go to Templates → Homepage
-2. Modify hero text and images
-3. Rearrange feature sections
-4. Preview on different devices
-5. Share with team for feedback
-
-### "I need to show how the new filter works"
-1. Open Search Template
-2. Add your new filter type
-3. Show before/after results
-4. Create clickable prototype
-5. Present in meeting
-
-### "I want to try different button texts"
-1. Create your page
-2. Type different CTA options
-3. A/B test visually
-4. Get team consensus
-5. Document decision
-
----
-
-## 🚨 Important Rules
-
-### ✅ Always DO
-- Use QDS components (never freestyle)
-- Write in Swedish for Swedish market
-- Test on mobile view
-- Check both themes work
-- Use real, relevant content
-
-### ❌ Never DO
-- Create custom components
-- Use English in Swedish UI
-- Ignore mobile users
-- Skip accessibility
-- Use competitor branding
-
----
-
-## 💡 Pro Tips
-
-### For Faster Work
-- Use keyboard shortcuts in Storybook
-- Duplicate existing templates
-- Save your favorite combinations
-- Keep content library handy
-
-### For Better Results
-- Use real Swedish addresses
-- Include actual rent prices
-- Add authentic Swedish names
-- Use local area descriptions
-
-### For Team Collaboration
-- Share Storybook links, not screenshots
-- Comment directly in prototypes
-- Version your experiments
-- Document decisions in Notion
-
----
-
-## 🔧 Troubleshooting
-
-### "My design looks different in production"
-→ You might be using non-QDS components. Check the component library.
-
-### "The Swedish text seems wrong"
-→ Use the ChatGPT Qasa Translate tool for accurate translations.
-
-### "I can't find the component I need"
-→ Check Storybook first. If truly missing, request from design team.
-
-### "The prototype is slow"
-→ You might have too many high-res images. Use optimized versions.
-
----
-
-## 📞 Getting Help
-
-### Slack Channels
-- **#qds-help** - Component questions
-- **#design-system** - Design decisions
-- **#prototyping** - General prototype help
-
-### Documentation
-- **Storybook** - Interactive component docs
-- **QDS Guide** - Component rules
-- **Language Guide** - Swedish copy help
-
-### Key People
-- **Design System Lead** - [Name]
-- **QDS Technical Lead** - [Name]
-- **Content/Copy Lead** - [Name]
-
----
-
-## 🎓 Training Resources
-
-### Videos (Watch in Order)
-1. "QDS Basics" (10 min) - Understanding the system
-2. "Creating Your First Prototype" (15 min)
-3. "Working with Swedish Content" (8 min)
-4. "Advanced Patterns" (20 min)
-
-### Interactive Tutorials
-- Storybook Tour
-- Component Playground
-- Theme Switcher Demo
-- Language Toggle Practice
-
----
-
-## 🚀 Your First Task
-
-**Try this now:**
-1. Open Storybook: `npm run storybook`
-2. Go to "Templates" section
-3. Pick "Simple Property Card"
-4. Change the address to your neighborhood
-5. Adjust the rent to market price
-6. Switch between Qasa/Blocket themes
-7. Congratulations! You've created your first prototype 🎉
-
----
-
-## 📅 Maintenance & Updates
-
-### Weekly
-- New components added to QDS
-- Check #qds-updates channel
-
-### Monthly
-- Training sessions
-- Best practices review
-- New templates released
-
-### Quarterly
-- Major QDS updates
-- Process improvements
-- Team feedback sessions
-
----
-
-## ✨ Vision & Goals
-
-**Where we're going:**
-- 100% design consistency
-- 10x faster prototyping
-- Zero design-dev handoff issues
-- Perfect Swedish market fit
-
-**How you help:**
-- Use the system consistently
-- Report missing components
-- Share your creations
-- Provide feedback
-
----
-
-## 📝 Quick Reference Card
-
-### Essential Commands
+### 🏠 Property Listings
 ```
-View Components: npm run storybook
-View Live Site: npm run dev
+"Create a property card for a 2-room apartment in Vasastan, 
+65 sqm, 15,000 kr/month, with balcony and dishwasher. 
+Make it look like Qasa's style with pink accents."
 ```
 
-### Component Naming
-- Button → For actions
-- Typography → For all text
-- Card → For content containers
-- Modal → For overlays
+### 👤 Tenant Profiles
+```
+"Make a tenant profile for Emma, 32, software developer at Spotify, 
+looking for 1-2 rooms in Stockholm, max 12,000 kr. 
+She has a cat and prefers quiet neighborhoods."
+```
 
-### Swedish Terms
-- Hyresgäst = Tenant
-- Hyresvärd = Landlord
-- Bostad = Property
-- Ansökan = Application
+### 📱 Landing Pages
+```
+"Design a Qasa landing page that shows:
+- Hero section with 'Find your next home'
+- 3 benefits of using Qasa
+- Featured properties section
+- Trust indicators (verified landlords)
+Use Swedish text and Qasa's pink color"
+```
 
-### Theme Colors
-- Qasa Primary: Pink (#f19ec1)
-- Blocket Primary: Red (#e3372a)
+### 🔍 Search Pages
+```
+"Create a property search page with:
+- Search bar for Stockholm areas
+- Filter button showing '3 active filters'
+- Grid of 6 property cards
+- Map view on the right side"
+```
 
 ---
 
-## 🎉 Welcome to Better Prototyping!
+## 🎨 Qasa Style Guide (Copy This!)
 
-You now have everything needed to create professional Qasa prototypes. Start small, experiment freely, and remember - the system handles the technical details so you can focus on great user experiences.
+### Colors to Use
+- **Qasa Pink**: #f19ec1 (main brand color)
+- **Dark Brown**: #322721 (text and accents)
+- **Light Gray**: #f9fafb (backgrounds)
 
-**Your first prototype awaits! 🚀**
+### Swedish Phrases to Use
+- "Hitta ditt nästa hem" - Find your next home
+- "Ansök nu" - Apply now
+- "Verifierad hyresvärd" - Verified landlord
+- "Trygg bostadssökning" - Safe housing search
+- "Schyssta villkor" - Fair conditions
+- "rum och kök" - rooms and kitchen
+- "kr/mån" - SEK/month
+
+### Tone of Voice
+- Friendly neighbor, not corporate
+- Use "du" (you) not formal Swedish
+- Encouraging and supportive
+- Clear and simple
+
+---
+
+## 📚 Templates You Can Remix
+
+### 1. **Property Listing** 
+"Show me the property listing template"
+- Complete apartment details
+- Photo gallery
+- Landlord info
+- Apply button
+
+### 2. **Tenant Search**
+"Show me how landlords find tenants"
+- Grid of tenant cards
+- Filter options
+- Premium badges
+
+### 3. **Registration Flow**
+"Show me the sign-up process"
+- Step-by-step forms
+- Progress indicator
+- Swedish labels
+
+### 4. **Dashboard**
+"Show me a tenant dashboard"
+- Active applications
+- Saved properties
+- Profile completion
+
+---
+
+## 🛠️ Components Available (Just Ask!)
+
+When prompting, you can ask for these specific Qasa components:
+
+### Buttons
+- "Add a pink primary button that says 'Ansök nu'"
+- "Add a secondary button for 'Tillbaka' (back)"
+
+### Cards
+- "Show a property card with image, price, and location"
+- "Create a tenant card with profile info"
+
+### Forms
+- "Add an input field for email"
+- "Create a dropdown for number of rooms"
+- "Add checkboxes for apartment features"
+
+### Headers
+- "Add Qasa header with logo and login button"
+- "Show logged-in header with user avatar"
+
+---
+
+## 🖼️ Using Image References
+
+You can upload screenshots and say:
+- "Make it look like this but with Qasa colors"
+- "Use this layout but in Swedish"
+- "Copy this design but for apartments instead"
+
+---
+
+## ✨ Pro Tips
+
+### Make It Feel Swedish
+- Use Swedish city names: Stockholm, Göteborg, Malmö
+- Include Swedish areas: Östermalm, Vasastan, Södermalm
+- Add "kr" after prices (15,000 kr)
+- Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
+
+### Make It Feel Like Qasa
+- Always use pink (#f19ec1) for main actions
+- Include "verified" badges on landlords
+- Add trust messages about safety
+- Use friendly, encouraging language
+
+### Common Mistakes to Avoid
+- ❌ Don't use English if targeting Swedish users
+- ❌ Don't use blue (that's Blocket's color)
+- ❌ Don't make it too formal or corporate
+- ❌ Don't forget mobile view
+
+---
+
+## 📝 Example Conversation with Lovable
+
+**You**: "Create a page where tenants can browse available apartments in Stockholm"
+
+**Lovable**: *Creates initial design*
+
+**You**: "Add a filter button and search bar at the top. Use Swedish text."
+
+**Lovable**: *Updates with Swedish UI*
+
+**You**: "Show 6 apartment cards in a grid. Each should have an image, price, location, and size."
+
+**Lovable**: *Adds property cards*
+
+**You**: "Make the apply button pink and add 'Ansök nu' text"
+
+**Lovable**: *Perfects the design*
+
+---
+
+## 🔄 Workflow Examples
+
+### Creating a Landing Page
+1. Start: "Create a Qasa landing page"
+2. Refine: "Add hero section with apartment search"
+3. Enhance: "Include testimonials from tenants"
+4. Localize: "Make all text Swedish"
+5. Brand: "Use Qasa pink for buttons"
+
+### Designing a Form
+1. Start: "Create a tenant application form"
+2. Structure: "Add sections for personal info, employment, and preferences"
+3. Localize: "Use Swedish labels"
+4. Style: "Make it look like Qasa's style"
+5. Validate: "Add error messages in Swedish"
+
+---
+
+## 🆘 When You're Stuck
+
+### Not Looking Like Qasa?
+Say: "Make it more like Qasa's brand with pink buttons and friendly Swedish text"
+
+### Too Generic?
+Say: "Add Qasa-specific elements like verified badges and trust indicators"
+
+### Wrong Language?
+Say: "Change all text to Swedish, use 'du' form"
+
+### Missing Components?
+Say: "Add [component name] like the one on Qasa.se"
+
+---
+
+## 📚 Learning Resources
+
+### See Real Examples
+- Visit [Qasa.se](https://qasa.se) for inspiration
+- Check existing prototypes in Lovable
+- Look at the component library
+
+### Swedish Housing Terms
+- **Hyra** - Rent
+- **Lägenhet** - Apartment  
+- **Rum** - Rooms
+- **Inflyttning** - Move-in date
+- **Hyresvärd** - Landlord
+- **Hyresgäst** - Tenant
+
+---
+
+## 🎯 Quick Start Challenges
+
+### Challenge 1: Property Card
+"Create a property card for a 3-room apartment in Gamla Stan, 85 sqm, 18,500 kr/month"
+
+### Challenge 2: Search Filter
+"Design a filter modal with options for price range, number of rooms, and area"
+
+### Challenge 3: Application Success
+"Create a success page after someone applies for an apartment, with next steps"
+
+---
+
+## 💡 Remember
+
+- **You don't need to code** - Just describe what you want
+- **Use Swedish examples** - It makes it feel authentic
+- **Include Qasa's pink** - It's our signature color
+- **Keep it friendly** - We're helping people find homes
+- **Test on mobile** - Most users are on phones
+
+---
+
+## 🚀 Start Now!
+
+1. Open Lovable
+2. Type: "Create a Qasa property listing page"
+3. Watch the magic happen!
+
+**Need help?** Just ask Lovable to explain what components are available or show you examples.
+
+---
+
+*Happy prototyping! Remember - if it doesn't feel like Qasa, just tell Lovable to make it more "Qasa-style" with pink colors and Swedish text.* 🏡💗
