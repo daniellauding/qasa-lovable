@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Typography from './Typography';
 
 const variantClasses = {
-  standard: 'p-6 md:p-8 rounded-2xl bg-white border border-gray-200',
-  compact: 'p-4 rounded-xl bg-white border border-gray-200',
+  standard: 'p-6 md:p-8 rounded-2xl bg-[var(--color-button-tertiary-bg)]',
+  compact: 'p-4 rounded-xl bg-[var(--color-button-tertiary-bg)]',
 };
 
 const FeatureCard = ({ illustrationSrc, title, description, variant = 'standard', className = '' }) => {

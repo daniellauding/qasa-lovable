@@ -4,13 +4,13 @@ import Typography from './Typography';
 
 const StatsStrip = ({ items, className = '' }) => {
   return (
-    <section className={`w-full bg-[var(--color-brown,#2f221c)] text-white rounded-2xl my-8 ${className}`}>
+    <section className={`w-full bg-[var(--color-brown,#2f221c)] text-white rounded-2xl ${className}`}>
       <div className="mx-2 md:mx-4">
-        <div className="px-6 md:px-10 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+        <div className="px-6 md:px-10 py-24 grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
           {items.map((it, idx) => (
-            <div key={idx}>
-              <Typography variant="title-sm" className="mb-1 text-[var(--color-accent,#ff84b6)]">{it.value}</Typography>
-              <Typography variant="body-sm" color="secondary" className="text-white/85">{it.hint}</Typography>
+            <div className="flex gap-4 flex-col items-center" key={idx}>
+              <Typography variant="title-lg" className="mb-1 text-[var(--color-accent,#ff84b6)]">{it.value}</Typography>
+              <Typography variant="body-md" color="secondary" className="text-[var(--color-accent,#ff84b6)]">{it.hint}</Typography>
             </div>
           ))}
         </div>

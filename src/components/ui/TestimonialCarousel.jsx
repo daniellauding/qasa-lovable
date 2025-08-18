@@ -15,7 +15,7 @@ const TestimonialCarousel = ({ items, interval = 5000, className = '' }) => {
 
   return (
     <section className={`rounded-2xl bg-[#FFF7C7] relative overflow-hidden ${className}`}>
-      <div className="px-4 md:px-8 py-16 md:py-24 text-center min-h-[280px] flex items-center justify-center">
+      <div className="px-4 md:px-8 py-16 md:py-24 text-center min-h-[500px] flex items-center justify-center">
         {items.map((item, i) => (
           <blockquote
             key={i}

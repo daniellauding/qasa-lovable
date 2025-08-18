@@ -30,7 +30,7 @@ export default function Landing() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white gap-6">
       <DynamicHeader isFluid={true} />
 
       {/* Hero */}
@@ -42,11 +42,13 @@ export default function Landing() {
           ctaSecondary={t('landing.hero.ctaSecondary')}
           imageSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fwoman-smiling-at-table.c8c03d83.png&w=1920&q=75"
           className="lg:min-h-[672px] bg-[var(--color-brown,#2f221c)]"
+          suggestions={['Lund','Lunds kommun','Lunde, Gudmundrå distrikt','Lund, Hammars','Lundsbrunn','Lunds by','Lunden, Göteborgs Stad']}
+          onLocationSelect={(loc) => { console.log('[Landing] hero select', loc); }}
         />
       </div>
 
       {/* Cities Carousel */}
-      <div className="px-0 md:px-0 py-4">
+      <div className="px-0 md:px-0 py-0">
         <Carousel continuous autoPlay direction="rtl" speed={0.8} className="">
           <CityCard city="Stockholm" homesCount={t('landing.cities.count',{count:1522})} imageSrc="https://qasa.se/_next/static/media/stockholm.65206cdd.png" onClick={() => navigate('/homes')} />
           <CityCard city="Göteborg" homesCount={t('landing.cities.count',{count:1126})} imageSrc="https://qasa.se/_next/static/media/gothenburg.aa62cda1.png" onClick={() => navigate('/homes')} />
@@ -59,34 +61,28 @@ export default function Landing() {
       {/* Features */}
       <section className="px-2 md:px-4 py-12">
         <Typography variant="display-sm" className="text-center mb-10">{t('landing.featuresTitle')}</Typography>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="flex gap-4 justify-center">
           <FeatureCard
             illustrationSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhand.1e433989.png&w=256&q=75"
             title={t('landing.features.noDeposit.title')}
             description={t('landing.features.noDeposit.desc')}
+            className="max-w-96"
           />
           <FeatureCard
             illustrationSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flamp.cc993942.png&w=256&q=75"
             title={t('landing.features.payLater.title')}
             description={t('landing.features.payLater.desc')}
+            className="max-w-96"
           />
           <FeatureCard
             illustrationSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fpen.9f05b931.png&w=256&q=75"
             title={t('landing.features.protection.title')}
             description={t('landing.features.protection.desc')}
+            className="max-w-96"
           />
         </div>
       </section>
 
-      {/* Stats */}
-      <StatsStrip
-        items={[
-          { value: t('landing.stats.applicants'), hint: t('landing.stats.applicantsHint') },
-          { value: t('landing.stats.homes'), hint: t('landing.stats.homesHint') },
-          { value: t('landing.stats.rating'), hint: t('landing.stats.ratingHint') },
-        ]}
-        className="mx-2 md:mx-4"
-      />
 
       {/* Rich promo cards */}
       <div className="px-2 md:px-4 grid md:grid-cols-2 gap-4">
@@ -106,8 +102,19 @@ export default function Landing() {
         />
       </div>
 
+      {/* Stats */}
+      <StatsStrip
+        items={[
+          { value: t('landing.stats.applicants'), hint: t('landing.stats.applicantsHint') },
+          { value: t('landing.stats.homes'), hint: t('landing.stats.homesHint') },
+          { value: t('landing.stats.rating'), hint: t('landing.stats.ratingHint') },
+        ]}
+        className="mx-2 md:mx-4"
+      />
+      
+
       {/* Testimonials */}
-      <div className="px-2 md:px-4 py-10">
+      <div className="px-2 md:px-4 py-0">
         <TestimonialCarousel
           items={[
             { quote: t('landing.testimonials.items.0.quote'), author: t('landing.testimonials.items.0.author') },
@@ -117,7 +124,7 @@ export default function Landing() {
       </div>
 
       {/* Wide HusFrid block duplicated */}
-      <div className="px-2 md:px-4 pb-10">
+      <div className="px-0 md:px-4">
         <RichPromoCard
           imageSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flanding_page_pop_content.593a122e.jpg&w=1920&q=75"
           label={t('landing.husfrid.label')}

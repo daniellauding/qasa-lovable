@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Typography from './Typography';
 import Button from './Button';
 import LocationSearch from './LocationSearch';
+import { Search as SearchIcon } from 'lucide-react';
 
 const HeroSection = ({
   title,
@@ -13,13 +14,14 @@ const HeroSection = ({
   imageSrc,
   className = '',
   showSearch = true,
+  suggestions = [],
 }) => {
   return (
-    <section className={`rounded-2xl bg-[#342620] text-white overflow-hidden ${className}`}>
+    <section className={`rounded-2xl bg-[var(--color-brown,#2f221c)] text-white ${className}`}>
       <div className="p-0 lg:p-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center min-h-[60vh]">
-          <div className="px-2 py-6 md:px-8">
-            <Typography variant="display-sm" color="white" className="mb-4">
+          <div className="px-2 py-6 md:px-8 text-center">
+            <Typography variant="title-8xl" color="white" className="mb-4 leading-none uppercase">
               {title}
             </Typography>
             {subtitle && (
@@ -29,15 +31,16 @@ const HeroSection = ({
             )}
             <div className="flex gap-3 flex-col sm:flex-row">
               {showSearch ? (
-                <div className="flex items-center gap-3 w-full max-w-xl">
-                  <LocationSearch onSelect={onLocationSelect} iconColorClass="text-white" />
-                  <Button variant="primary" size="md" iconOnly aria-label="Search" className="text-white">
-                    {/* magnifier icon using SVG to avoid extra deps */}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="m21 21-4.34-4.34"></path>
-                      <circle cx="11" cy="11" r="8"></circle>
-                    </svg>
-                  </Button>
+                <div className="flex items-center gap-3 w-full max-w-lg mx-auto">
+                  <LocationSearch suggestions={suggestions} onSelect={onLocationSelect} />
+                  <Button
+                    variant="primary"
+                    size="xl"
+                    className="w-20 h-16"
+                    iconOnly
+                    aria-label="Search"
+                    icon={<SearchIcon className="w-5 h-5 text-[var(--color-brown,#2f221c)]" />}
+                  />
                 </div>
               ) : (
                 <>
