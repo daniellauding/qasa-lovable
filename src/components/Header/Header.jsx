@@ -7,17 +7,20 @@ import HeaderCreationFlow from './HeaderCreationFlow.jsx';
 const Header = ({ variant = 'logged-out', ...props }) => {
   const variants = {
     'logged-out': HeaderLoggedOut,
-    'logged-in': HeaderLoggedIn,
+    'logged-in': HeaderLoggedIn, // backward compat → landlord
+    'landlord': HeaderLoggedIn,
+    'tenant': HeaderLoggedIn,
     'creation-flow': HeaderCreationFlow,
   };
 
-  const HeaderComponent = variants[variant];
+  const HeaderComponent = variants[variant] || HeaderLoggedOut;
+  const role = variant === 'tenant' ? 'tenant' : 'landlord';
 
-  return <HeaderComponent {...props} />;
+  return <HeaderComponent role={role} {...props} />;
 };
 
 Header.propTypes = {
-  variant: PropTypes.oneOf(['logged-out', 'logged-in', 'creation-flow']),
+  variant: PropTypes.oneOf(['logged-out', 'logged-in', 'landlord', 'tenant', 'creation-flow']),
 };
 
 export default Header; 

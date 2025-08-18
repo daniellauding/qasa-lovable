@@ -18,7 +18,8 @@ const HeaderLoggedIn = ({
   },
   messageCount = 9,
   notificationCount = 0,
-  isFluid = false
+  isFluid = false,
+  role = 'landlord'
 }) => {
   const { t, currentLanguage, changeLanguage } = useTranslation();
   const { logout } = useAuth();
@@ -157,12 +158,14 @@ const HeaderLoggedIn = ({
           {/* Right side icons */}
           <div className="flex items-center">
             <div className="flex items-center gap-2">
-              {/* Rent Out Button */}
-              <a href="/landlords/create-listing/step/1">
-                <Button variant="tertiary" size="lg" className="mr-2">
-                  {t('header.rentOut')}
-                </Button>
-              </a>
+              {/* Rent Out Button (landlord only) */}
+              {role === 'landlord' && (
+                <a href="/landlords/create-listing/step/1">
+                  <Button variant="tertiary" size="lg" className="mr-2">
+                    {t('header.rentOut')}
+                  </Button>
+                </a>
+              )}
 
               {/* Messages */}
               <button

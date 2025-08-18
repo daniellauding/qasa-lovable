@@ -8,11 +8,12 @@ import '../src/index.css';
 // Combined decorator to wrap stories with all necessary contexts
 const withProviders = (Story, context) => {
   const theme = context.globals.theme || 'qasa';
+  const language = context.globals.language || 'en';
   
   return (
     <MemoryRouter>
       <ThemeProvider>
-        <LanguageProvider>
+        <LanguageProvider initialLanguage={language}>
           <AuthProvider>
             <div data-theme={theme}>
               <Story />
@@ -68,6 +69,21 @@ const preview = {
         items: [
           { value: 'qasa', title: 'Qasa Theme', icon: 'heart' },
           { value: 'blocket', title: 'Blocket Theme', icon: 'home' },
+        ],
+        showName: true,
+        dynamicTitle: true,
+      },
+    },
+    language: {
+      description: 'UI language',
+      defaultValue: 'en',
+      toolbar: {
+        title: 'Lang',
+        icon: 'globe',
+        items: [
+          { value: 'en', title: 'English' },
+          { value: 'sv', title: 'Swedish' },
+          { value: 'fi', title: 'Finnish' },
         ],
         showName: true,
         dynamicTitle: true,

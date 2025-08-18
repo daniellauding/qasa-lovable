@@ -1,10 +1,23 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { translations, defaultLanguage } from '../../translations';
 
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children, initialLanguage = defaultLanguage }) => {
   const [currentLanguage, setCurrentLanguage] = useState(initialLanguage);
+
+  // Sync with prop changes (needed for Storybook toolbar globals)
+  useEffect(() => {
+    // Only react when the prop changes (e.g., Storybook toolbar),
+    // do not override user-initiated changeLanguage updates.
+    if (initialLanguage) {
+      setCurrentLanguage(initialLanguage);
+      if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+        // eslint-disable-next-line no-console
+        console.log('[LanguageProvider] Switched language to:', initialLanguage);
+      }
+    }
+  }, [initialLanguage]);
 
   const t = useCallback((key, replacements = {}) => {
     const keys = key.split('.');

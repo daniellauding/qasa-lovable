@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { X } from 'lucide-react';
+import { X, Globe } from 'lucide-react';
 import Button from '../ui/Button';
+import { useTranslation } from '../../utils/translations/LanguageContext';
 
 const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
+  const { t } = useTranslation();
   return (
     <header className="bg-white sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,18 +19,28 @@ const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
             </a>
           </div>
 
-          {/* Dismiss button */}
-          {showDismiss && (
-            <Button 
-              onClick={onDismiss}
-              aria-label="Stäng"
-              variant="transparent"
-              size="sm"
+          {/* Actions */}
+          <div className="flex items-center gap-2">
+            <Button
+              aria-label="Language"
+              variant="tertiary"
+              size="md"
               iconOnly
               className="hover:bg-gray-100"
-              icon={<X className="h-6 w-6 text-gray-500" />}
+              icon={<Globe className="h-5 w-5 text-gray-700" />}
             />
-          )}
+            {showDismiss && (
+              <Button 
+                onClick={onDismiss}
+                aria-label={t('header.close')}
+                variant="tertiary"
+                size="md"
+                className="hover:bg-gray-100"
+              >
+                {t('header.close')}
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </header>
