@@ -3,7 +3,7 @@ import CreateTenantListingStep6 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 6 - Requirements',
+  title: 'Prototypes/Tenants/Create Tenant Listing/06 Requirements',
   component: CreateTenantListingStep6,
   decorators: [
     (Story) => (
@@ -39,4 +39,4 @@ export const WithRequirements = {
     onPrev: () => console.log('Previous clicked'),
     updateFormData: (data) => console.log('Form data updated:', data),
   },
-}; 
+};

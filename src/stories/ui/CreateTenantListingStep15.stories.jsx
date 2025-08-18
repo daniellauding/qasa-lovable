@@ -3,7 +3,7 @@ import CreateTenantListingStep15 from '../../prototypes/tenants/create-tenant-li
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing Flow/Step 15 - Introduction',
+  title: 'Prototypes/Tenants/Create Tenant Listing/15 Introduction',
   component: CreateTenantListingStep15,
   parameters: {
     layout: 'fullscreen',

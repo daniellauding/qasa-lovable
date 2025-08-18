@@ -3,7 +3,7 @@ import { LanguageProvider } from '../../utils/translations/LanguageContext';
 import { ThemeProvider } from '../../contexts/ThemeContext';
 
 export default {
-  title: 'Prototypes/Tenants/CreateTenantListingSteps/Step1',
+  title: 'Prototypes/Tenants/Create Tenant Listing/01 Getting Started',
   component: CreateTenantListingStep1,
   decorators: [
     (Story) => (

@@ -3,7 +3,7 @@ import CreateTenantListingStep8 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 8 - Max Rent',
+  title: 'Prototypes/Tenants/Create Tenant Listing/08 Max Rent',
   component: CreateTenantListingStep8,
   decorators: [
     (Story) => (

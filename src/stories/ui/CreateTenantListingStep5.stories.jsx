@@ -3,7 +3,7 @@ import CreateTenantListingStep5 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 5 - When to Rent',
+  title: 'Prototypes/Tenants/Create Tenant Listing/05 When to Rent',
   component: CreateTenantListingStep5,
   decorators: [
     (Story) => (

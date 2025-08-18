@@ -1,6 +1,6 @@
 import DevExperimentsButton from '../components/DevExperimentsButton';
 export default {
-  title: 'Components/DevExperimentsButton',
+  title: 'System/Developer Tools/DevExperimentsButton',
   component: DevExperimentsButton,
   decorators: [
     (Story) => (

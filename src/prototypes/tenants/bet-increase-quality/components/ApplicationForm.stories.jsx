@@ -1,7 +1,7 @@
 import ApplicationForm from './ApplicationForm';
 
 export default {
-  title: 'Tenants/Bet Increase Quality/ApplicationForm',
+  title: 'Prototypes/Tenants/BET Increase Quality/ApplicationForm',
   component: ApplicationForm,
   parameters: {
     layout: 'padded',

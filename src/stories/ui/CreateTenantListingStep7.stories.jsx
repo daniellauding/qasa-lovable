@@ -3,7 +3,7 @@ import CreateTenantListingStep7 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 7 - Preferences',
+  title: 'Prototypes/Tenants/Create Tenant Listing/07 Preferences',
   component: CreateTenantListingStep7,
   decorators: [
     (Story) => (

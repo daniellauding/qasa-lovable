@@ -1,7 +1,7 @@
 import QualityIndicator from './QualityIndicator';
 
 export default {
-  title: 'Tenants/Bet Increase Quality/QualityIndicator',
+  title: 'Prototypes/Tenants/BET Increase Quality/QualityIndicator',
   component: QualityIndicator,
   parameters: {
     layout: 'centered',

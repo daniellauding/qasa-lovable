@@ -1,7 +1,7 @@
 import ContactModal from '../components/ContactModal';
 
 export default {
-  title: 'Components/ContactModal',
+  title: 'Prototypes/Communication/ContactModal',
   component: ContactModal,
   decorators: [
     (Story) => (

@@ -3,7 +3,7 @@ import CreateTenantListingStep4 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 4 - Home Size',
+  title: 'Prototypes/Tenants/Create Tenant Listing/04 Home Size',
   component: CreateTenantListingStep4,
   decorators: [
     (Story) => (

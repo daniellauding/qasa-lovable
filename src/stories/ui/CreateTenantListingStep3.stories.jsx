@@ -3,7 +3,7 @@ import CreateTenantListingStep3 from '../../prototypes/tenants/create-tenant-lis
 import { LanguageProvider } from '../../utils/translations/LanguageContext';
 
 export default {
-  title: 'Tenant Listing/Step 3 - What to Rent',
+  title: 'Prototypes/Tenants/Create Tenant Listing/03 What to Rent',
   component: CreateTenantListingStep3,
   decorators: [
     (Story) => (

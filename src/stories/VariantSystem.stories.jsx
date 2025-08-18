@@ -4,7 +4,7 @@ import VariantCard from '../components/ui/VariantCard';
 import { getAllPrototypesWithVariants } from '../utils/variants';
 
 export default {
-  title: 'Experiments/Variant System',
+  title: 'System/Developer Tools/Variant System',
   component: VariantSelector,
   parameters: {
     layout: 'padded',

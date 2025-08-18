@@ -4,7 +4,7 @@ import { AuthProvider } from '../contexts/AuthContext';
 import { ThemeProvider } from '../contexts/ThemeContext';
 
 export default {
-  title: 'Prototypes/Tenants/CreateTenantListingFlow',
+  title: 'Prototypes/Tenants/Create Tenant Listing/00 Complete Flow',
   component: CreateTenantListingFlow,
   decorators: [
     (Story) => (

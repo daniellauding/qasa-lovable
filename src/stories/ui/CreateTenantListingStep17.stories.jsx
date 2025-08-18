@@ -2,7 +2,7 @@ import React from 'react';
 import CreateTenantListingStep17 from '../../prototypes/tenants/create-tenant-listing/components/CreateTenantListingStep17';
 
 export default {
-  title: 'Prototypes/Tenants/CreateTenantListingStep17',
+  title: 'Prototypes/Tenants/Create Tenant Listing/17 Final Step',
   component: CreateTenantListingStep17,
   parameters: {
     layout: 'fullscreen',
