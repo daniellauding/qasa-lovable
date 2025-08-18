@@ -17,7 +17,7 @@
 ### ✅ ALWAYS DO:
 ```jsx
 // USE QDS components
-<Button variant="primary" size="md">Click</Button>
+<Button variant="primary" size="lg">Click</Button>
 <Typography variant="title-lg">Title</Typography>
 <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Text</Typography>
 ```
@@ -32,9 +32,9 @@ import Button from '@/components/ui/Button';
 
 // Variants: primary, secondary, tertiary, outline, ghost, transparent, bordered
 // Sizes: xs, sm, md, lg, xl
-<Button variant="primary" size="md">Primary Action</Button>
-<Button variant="secondary" size="md">Secondary Action</Button>
-<Button variant="tertiary" size="md" iconOnly icon={<ArrowLeft />} />
+<Button variant="primary" size="lg">Primary Action</Button>
+<Button variant="secondary" size="lg">Secondary Action</Button>
+<Button variant="tertiary" size="lg" iconOnly icon={<ArrowLeft />} />
 ```
 
 **When to use:**
