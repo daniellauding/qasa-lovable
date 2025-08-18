@@ -112,6 +112,31 @@ export const sv = {
     6: 'Yrkesverksam inom tech, ren och pålitlig',
   },
 
+  // Landing Page
+  landing: {
+    hero: {
+      title: 'Ett bättre sätt att hyra',
+      subtitle: 'Hitta ett hem som känns rätt. Enkelt, tryggt och schysst.',
+      ctaPrimary: 'Sök bostäder',
+      ctaSecondary: 'Så fungerar det'
+    },
+    features: {
+      noDeposit: { title: 'Ingen deposition', desc: 'Behåll dina pengar — vi tar hand om depositionen.' },
+      payLater: { title: 'Flytta in först, betala sen', desc: 'Flexibilitet när livet händer.' },
+      protection: { title: 'Skydd och expertstöd', desc: 'Trygga avtal och personlig support.' }
+    },
+    stats: {
+      applicants: '5+ miljoner', applicantsHint: 'ansökningar varje år',
+      homes: '600 000+', homesHint: 'publicerade hem sedan starten',
+      rating: '4,4 av 5', ratingHint: 'på Trustpilot'
+    },
+    cta: {
+      title: 'Redo att komma igång?',
+      subtitle: 'Skapa ett gratis konto och börja din resa idag.',
+      button: 'Skapa profil'
+    }
+  },
+
   // Add these to the tenant section
   tenant: {
     listing: {

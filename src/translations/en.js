@@ -112,6 +112,60 @@ export const en = {
     6: 'Working professional in tech, clean and reliable',
   },
 
+  // Landing Page
+  landing: {
+    hero: {
+      title: 'A better way to rent',
+      subtitle: 'Find a home that feels right. Simple, safe, and fair.',
+      ctaPrimary: 'Search homes',
+      ctaSecondary: 'How it works'
+    },
+    cities: {
+      count: '{count} homes',
+    },
+    featuresTitle: 'Rent with Qasa and feel at ease',
+    features: {
+      noDeposit: { title: 'No deposit', desc: 'Keep your money — we handle the deposit.' },
+      payLater: { title: 'Move in first, pay later', desc: 'Flexibility when life happens.' },
+      protection: { title: 'Protection & expertise', desc: 'Trusted contracts and personal support.' }
+    },
+    stats: {
+      applicants: '5+ million', applicantsHint: 'applications each year',
+      homes: '600 000+', homesHint: 'published homes since start',
+      rating: '4.4 out of 5', ratingHint: 'on Trustpilot'
+    },
+    premium: {
+      label: 'For home seekers',
+      title: 'Find your next home twice as easily with Qasa Premium',
+      button: 'Learn more',
+    },
+    husfrid: {
+      label: 'Rent better',
+      title: 'Through HusFrid we help women and children exposed to violence find a new home.',
+      button: 'Read more',
+    },
+    testimonials: {
+      items: {
+        0: { quote: 'Comparatively one of best platforms for rented housing. Very easy and transparent process after you got a match.', author: 'Marina' },
+        1: { quote: 'I tried a couple of ways to find an apartment and Qasa is the best.', author: 'Jan' },
+      },
+    },
+    faq: {
+      title: 'Common questions',
+      links: {
+        0: 'How it works for landlords',
+        1: 'How it works for tenants',
+        2: 'What happens if the tenant does not pay?',
+        3: 'What can I rent out for?',
+      },
+    },
+    cta: {
+      title: 'Ready to get started?',
+      subtitle: 'Create a free account and start your journey today.',
+      button: 'Create profile'
+    }
+  },
+
   // Tenant Listing Creation
   tenant: {
     listing: {

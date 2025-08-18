@@ -39,6 +39,7 @@ import MessagesPage from './prototypes/messages/MessagesPage';
 import BlankTemplate from './prototypes/templates/BlankTemplate';
 import TemplateBuilder from './prototypes/templates/TemplateBuilder';
 import DevExperimentsButton from './components/DevExperimentsButton';
+import Landing from './prototypes/landing/Landing';
 import Header from './components/Header';
 import DynamicHeader from './components/DynamicHeader';
 import Footer from './components/Footer';
@@ -493,7 +494,8 @@ function App() {
         <AuthProvider>
       <Router basename="/">
         <Routes>
-          <Route path="/" element={<Navigate to="/experiments" replace />} />
+          <Route path="/" element={<Navigate to="/landing" replace />} />
+          <Route path="/landing" element={<Landing />} />
           
           <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">
@@ -590,22 +592,26 @@ function App() {
           
           <Route path="/mail-templates/welcome-to-premium" element={<WelcomeToPremiumEmail />} />
           
-          {prototypes.filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home' && p.id !== 'login' && p.id !== 'register').map((prototype) => (
-            <Route
-              key={prototype.id}
-              path={prototype.path}
-              element={
-                <div className="min-h-screen flex flex-col">
-                  <Header />
-                  <main className="flex-grow">
-                    <prototype.component />
-                  </main>
-                  <Footer />
-                  <DevExperimentsButton />
-                </div>
-              }
-            />
-          ))}
+          {prototypes
+            .filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home' && p.id !== 'login' && p.id !== 'register')
+            .map((prototype) => {
+              const El = prototype.component;
+              return (
+                <Route
+                  path={prototype.path}
+                  element={
+                    <div className="min-h-screen flex flex-col">
+                      <Header />
+                      <main className="flex-grow">
+                        <El />
+                      </main>
+                      <Footer />
+                      <DevExperimentsButton />
+                    </div>
+                  }
+                />
+              );
+            })}
         </Routes>
       </Router>
       </AuthProvider>

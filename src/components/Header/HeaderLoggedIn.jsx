@@ -34,6 +34,7 @@ const HeaderLoggedIn = ({
   const handleLogout = () => {
     logout();
     setIsUserMenuOpen(false);
+    navigate('/landing');
   };
 
   const handleMessagesClick = () => {
@@ -87,7 +88,7 @@ const HeaderLoggedIn = ({
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div>
-              <a aria-label="Sök bostad" href="/" className="flex">
+              <a aria-label="Sök bostad" href="/landing" className="flex">
                 {theme?.logo || (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

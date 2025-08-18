@@ -84,6 +84,7 @@ const preview = {
           { value: 'en', title: 'English' },
           { value: 'sv', title: 'Swedish' },
           { value: 'fi', title: 'Finnish' },
+          { value: 'no', title: 'Norwegian' },
         ],
         showName: true,
         dynamicTitle: true,

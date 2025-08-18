@@ -273,6 +273,12 @@ function DevExperimentsButton() {
               >
                 Open Storybook →
               </a>
+              <a
+                href="/experiments"
+                className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
+              >
+                Full Experiments Dashboard →
+              </a>
               <Link
                 to="/experiments"
                 className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"

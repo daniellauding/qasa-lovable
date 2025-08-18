@@ -112,6 +112,31 @@ export const fi = {
     6: 'Teknologia-alan ammattilainen, siisti ja luotettava',
   },
 
+  // Landing Page
+  landing: {
+    hero: {
+      title: 'Parempi tapa vuokrata',
+      subtitle: 'Löydä koti, joka tuntuu oikealta. Helppoa, turvallista ja reilua.',
+      ctaPrimary: 'Hae asuntoja',
+      ctaSecondary: 'Näin se toimii'
+    },
+    features: {
+      noDeposit: { title: 'Ei vakuutta', desc: 'Pidä rahasi — me hoidamme vakuuden.' },
+      payLater: { title: 'Muutto ensin, maksu myöhemmin', desc: 'Joustoa, kun elämä yllättää.' },
+      protection: { title: 'Suoja ja asiantuntemus', desc: 'Turvalliset sopimukset ja henkilökohtainen tuki.' }
+    },
+    stats: {
+      applicants: '5+ miljoonaa', applicantsHint: 'hakemusta vuosittain',
+      homes: '600 000+', homesHint: 'julkaistua kotia alusta lähtien',
+      rating: '4,4 / 5', ratingHint: 'Trustpilotissa'
+    },
+    cta: {
+      title: 'Valmis aloittamaan?',
+      subtitle: 'Luo maksuton tili ja aloita matkasi jo tänään.',
+      button: 'Luo profiili'
+    }
+  },
+
   // Add these to the tenant section
   tenant: {
     listing: {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from '../../utils/translations/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../../contexts/ThemeContext';
 import Button from '../ui/Button';
 import Typography from '../ui/Typography';
@@ -9,16 +10,17 @@ import Typography from '../ui/Typography';
 const HeaderLoggedOut = ({ onLogin, onSignup }) => {
   const { t } = useTranslation();
   const { login } = useAuth();
+  const navigate = useNavigate();
   const { theme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogin = () => {
-    login();
+    navigate('/auth/login');
     if (onLogin) onLogin();
   };
 
-  const handleSignup = () => {
-    login(); // For demo, signup also logs in
+  const handleRentOut = () => {
+    navigate('/landlords/create-listing/step/1');
     if (onSignup) onSignup();
   };
 
@@ -28,7 +30,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div>
-              <a aria-label="Sök bostad" href="/" className="flex">
+              <a aria-label="Sök bostad" href="/landing" className="flex">
                 {theme?.logo || (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,10 +111,10 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
             <Button
               variant="tertiary"
               size="lg"
-              onClick={handleSignup}
+              onClick={handleRentOut}
               className="rounded-full"
             >
-              {t('header.signup')}
+              {t('header.rentOut')}
             </Button>
 
             {/* Mobile menu button */}
@@ -180,10 +182,10 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
               <Button
                 variant="primary"
                 size="md"
-                onClick={handleSignup}
+                onClick={handleRentOut}
                 className="w-full rounded-md"
               >
-                {t('header.signup')}
+                {t('header.rentOut')}
               </Button>
             </div>
           </div>
