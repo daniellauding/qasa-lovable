@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+
 import FindTenantWithFilters from '../prototypes/landlords/find-tenant/variants/FindTenantWithFilters';
 import { LanguageProvider } from '../utils/translations/LanguageContext';
 
@@ -8,11 +8,9 @@ export default {
   component: FindTenantWithFilters,
   decorators: [
     (Story) => (
-      <BrowserRouter>
-        <LanguageProvider>
-          <Story />
-        </LanguageProvider>
-      </BrowserRouter>
+      <LanguageProvider>
+        <Story />
+      </LanguageProvider>
     ),
   ],
   parameters: {

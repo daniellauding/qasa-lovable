@@ -1,5 +1,4 @@
 import CreateTenantListingFlow from '../prototypes/tenants/create-tenant-listing/CreateTenantListingFlow';
-import { BrowserRouter } from 'react-router-dom';
 import { LanguageProvider } from '../utils/translations/LanguageContext';
 import { AuthProvider } from '../contexts/AuthContext';
 import { ThemeProvider } from '../contexts/ThemeContext';
@@ -12,11 +11,9 @@ export default {
       <ThemeProvider>
         <LanguageProvider>
           <AuthProvider>
-            <BrowserRouter>
-              <div style={{ minHeight: '100vh' }}>
+            <div style={{ minHeight: '100vh' }}>
                 <Story />
               </div>
-            </BrowserRouter>
           </AuthProvider>
         </LanguageProvider>
       </ThemeProvider>

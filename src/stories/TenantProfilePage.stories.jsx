@@ -2,7 +2,6 @@ import React from 'react';
 import TenantProfilePage from '../prototypes/tenants/profile/TenantProfilePage';
 import { AuthProvider } from '../contexts/AuthContext';
 import { ThemeProvider } from '../contexts/ThemeContext';
-import { MemoryRouter } from 'react-router-dom';
 import { ThemeSwitcher } from '../components/ui/ThemeSwitcher';
 
 export default {
@@ -15,14 +14,12 @@ export default {
     (Story) => (
       <ThemeProvider>
         <AuthProvider>
-          <MemoryRouter>
-            <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative' }}>
               <div style={{ position: 'fixed', top: '16px', right: '16px', zIndex: 1000, background: 'white', padding: '8px', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                 <ThemeSwitcher />
               </div>
               <Story />
             </div>
-          </MemoryRouter>
         </AuthProvider>
       </ThemeProvider>
     ),

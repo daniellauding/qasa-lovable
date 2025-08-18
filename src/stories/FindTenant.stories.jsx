@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import FindTenant from '../prototypes/landlords/find-tenant/FindTenant';
 import { LanguageProvider } from '../utils/translations/LanguageContext';
 
@@ -12,25 +11,19 @@ export default {
 };
 
 export const Default = () => (
-  <BrowserRouter>
-    <LanguageProvider>
+  <LanguageProvider>
       <FindTenant />
     </LanguageProvider>
-  </BrowserRouter>
 );
 
 export const SwedishVersion = () => (
-  <BrowserRouter>
-    <LanguageProvider initialLanguage="sv">
+  <LanguageProvider initialLanguage="sv">
       <FindTenant />
     </LanguageProvider>
-  </BrowserRouter>
 );
 
 export const FinnishVersion = () => (
-  <BrowserRouter>
-    <LanguageProvider initialLanguage="fi">
+  <LanguageProvider initialLanguage="fi">
       <FindTenant />
     </LanguageProvider>
-  </BrowserRouter>
 ); 

@@ -1,4 +1,3 @@
-import { BrowserRouter } from 'react-router-dom';
 import ContactModal from '../components/ContactModal';
 
 export default {
@@ -6,9 +5,7 @@ export default {
   component: ContactModal,
   decorators: [
     (Story) => (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
+      <Story />
     ),
   ],
   parameters: {

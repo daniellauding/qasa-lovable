@@ -1,17 +1,26 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from '../src/contexts/ThemeContext';
+import { LanguageProvider } from '../src/utils/translations/LanguageContext';
+import { AuthProvider } from '../src/contexts/AuthContext';
 import '../src/index.css';
 
-// Theme decorator to wrap stories with theme context
-const withTheme = (Story, context) => {
+// Combined decorator to wrap stories with all necessary contexts
+const withProviders = (Story, context) => {
   const theme = context.globals.theme || 'qasa';
   
   return (
-    <ThemeProvider>
-      <div data-theme={theme}>
-        <Story />
-      </div>
-    </ThemeProvider>
+    <MemoryRouter>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AuthProvider>
+            <div data-theme={theme}>
+              <Story />
+            </div>
+          </AuthProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </MemoryRouter>
   );
 };
 
@@ -65,7 +74,7 @@ const preview = {
       },
     },
   },
-  decorators: [withTheme],
+  decorators: [withProviders],
 };
 
 export default preview;

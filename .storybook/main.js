@@ -7,6 +7,7 @@ const config = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-onboarding",
+    "@storybook/addon-docs",
   ],
   "framework": {
     "name": "@storybook/react-vite",
