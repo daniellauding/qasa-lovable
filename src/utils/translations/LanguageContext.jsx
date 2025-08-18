@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
 import { translations, defaultLanguage } from '../../translations';
 
 const LanguageContext = createContext();
@@ -33,24 +33,31 @@ const writeLanguageToStorage = (lang) => {
 };
 
 export const LanguageProvider = ({ children, initialLanguage = defaultLanguage }) => {
+  // Resolve persisted sources once on mount
+  const initialFromUrl = readLanguageFromUrl();
+  const initialFromStorage = readLanguageFromStorage();
+  const persistedInitial = initialFromUrl || initialFromStorage || null;
+  const initializedFromPersistedRef = useRef(Boolean(persistedInitial));
+
   const [currentLanguage, setCurrentLanguage] = useState(() => {
-    const fromUrl = readLanguageFromUrl();
-    const fromStorage = readLanguageFromStorage();
-    return fromUrl || fromStorage || initialLanguage || defaultLanguage;
+    return persistedInitial || initialLanguage || defaultLanguage;
   });
 
-  // React when the prop changes (e.g., Storybook toolbar)
+  // React to prop changes (e.g., Storybook toolbar) but do not override
+  // persisted languages when the prop is just the default.
   useEffect(() => {
-    if (initialLanguage) {
-      setCurrentLanguage(initialLanguage);
-      writeLanguageToStorage(initialLanguage);
-      writeLanguageToUrl(initialLanguage);
-      if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
-        // eslint-disable-next-line no-console
-        console.log('[LanguageProvider] Switched language to:', initialLanguage);
-      }
+    if (!initialLanguage) return;
+    if (initializedFromPersistedRef.current && initialLanguage === defaultLanguage) return;
+    if (initialLanguage === currentLanguage) return;
+
+    setCurrentLanguage(initialLanguage);
+    writeLanguageToStorage(initialLanguage);
+    writeLanguageToUrl(initialLanguage);
+    if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
+      console.log('[LanguageProvider] Switched language to:', initialLanguage);
     }
-  }, [initialLanguage]);
+  }, [initialLanguage, currentLanguage]);
 
   const t = useCallback((key, replacements = {}) => {
     const keys = key.split('.');
