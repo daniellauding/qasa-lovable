@@ -13,7 +13,7 @@ export default {
         'display-lg', 'display-md', 'display-sm',
         'title-lg', 'title-md', 'title-sm', 'title-xs', 'title-2xs',
         'label-md', 'label-sm',
-        'body-xl', 'body-lg', 'body-md', 'body-sm',
+        'body-xl', 'body-lg', 'body-md', 'body-sm', 'body-xs',
         'mono-md', 'mono-sm', 'mono-bold',
         'h1', 'h2', 'h3', 'h4', 'body1', 'body2', 'caption'
       ],
@@ -75,6 +75,7 @@ export const BodyText = {
       <Typography variant="body-lg">Body Large (18px)</Typography>
       <Typography variant="body-md">Body Medium (16px)</Typography>
       <Typography variant="body-sm">Body Small (14px)</Typography>
+      <Typography variant="body-xs">Body Extra Small (10px)</Typography>
     </div>
   ),
 };

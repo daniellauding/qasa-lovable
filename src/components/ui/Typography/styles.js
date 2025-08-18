@@ -21,6 +21,7 @@ export const variantClasses = {
   'body-lg': 'text-lg font-normal font-body', // 18px
   'body-md': 'text-base font-normal font-body', // 16px
   'body-sm': 'text-sm font-normal font-body', // 14px
+  'body-xs': 'text-[10px] font-normal font-body', // 10px
   
   // Mono variants - using Diatype Rounded Semi-Mono
   'mono-md': 'text-base font-normal font-mono', // 16px
@@ -39,9 +40,9 @@ export const variantClasses = {
 
 // Typography color classes
 export const colorClasses = {
-  default: 'text-gray-900',
-  secondary: 'text-gray-600',
-  primary: 'text-[#FF4B75]',
+  default: 'text-[var(--color-text-primary)]',
+  secondary: 'text-[var(--color-text-secondary)]',
+  primary: 'text-[var(--color-primary)]',
   white: 'text-white',
   theme: '', // No default color class - allows theme classes to take precedence
 };
@@ -63,7 +64,7 @@ export const typographyVariants = [
   // Label variants
   'label-md', 'label-sm',
   // Body variants
-  'body-xl', 'body-lg', 'body-md', 'body-sm',
+  'body-xl', 'body-lg', 'body-md', 'body-sm', 'body-xs',
   // Mono variants
   'mono-md', 'mono-sm', 'mono-bold',
   // Legacy variants

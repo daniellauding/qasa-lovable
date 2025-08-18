@@ -627,7 +627,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                   variant={isAdvancedFilterActive ? "primary" : "tertiary"}
                   size="lg"
                   iconOnly
-                  icon={<AdjustmentsHorizontalIcon className={isAdvancedFilterActive ? "w-4 h-4 text-white" : "w-4 h-4 text-[#372d27]"} />}
+                  icon={<AdjustmentsHorizontalIcon className={isAdvancedFilterActive ? "w-4 h-4 text-white" : "w-4 h-4 text-[var(--color-text-primary,#372d27)]"} />}
                   onClick={() => toggleDropdown('advanced')}
                   className={isAdvancedFilterActive ? "bg-gray-90 text-white" : ""}
                 />

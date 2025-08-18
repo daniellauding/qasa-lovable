@@ -5,7 +5,7 @@ import { ThemeProvider } from '../contexts/ThemeContext';
 import { ThemeSwitcher } from '../components/ui/ThemeSwitcher';
 
 export default {
-  title: 'Pages/TenantProfilePage',
+  title: 'Prototypes/TenantProfilePage',
   component: TenantProfilePage,
   parameters: {
     layout: 'fullscreen',

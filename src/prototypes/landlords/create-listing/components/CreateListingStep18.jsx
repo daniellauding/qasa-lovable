@@ -148,10 +148,10 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
 
             {/* Info Box */}
             <HintBox>
-              <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
+              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)] font-medium mb-2">
                 Bra att veta
               </Typography>
-              <Typography variant="body-sm" className="text-[#362b25]">
+              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
                 Du kan alltid lägga till och ta bort visningar under tiden din annons är publicerad. Endast ID-verifierade hyresgäster kan boka visningar.
               </Typography>
             </HintBox>

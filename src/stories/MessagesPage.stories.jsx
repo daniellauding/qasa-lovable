@@ -5,7 +5,7 @@ import { ThemeProvider } from '../contexts/ThemeContext';
 import { ThemeSwitcher } from '../components/ui/ThemeSwitcher';
 
 export default {
-  title: 'Pages/MessagesPage',
+  title: 'Prototypes/MessagesPage',
   component: MessagesPage,
   parameters: {
     layout: 'fullscreen',

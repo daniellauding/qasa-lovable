@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Edit, MapPin, Home, Users, Check, Star, Camera, X, Trash2, Plus, AlertTriangle, ArrowRight, Heart, ArrowLeft } from 'lucide-react';
+import { Edit, MapPin, Home, Users, Check, Star, Camera, X, Trash2, Plus, AlertTriangle, ArrowRight, Heart, ArrowLeft, IdCard, Coins } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -472,7 +472,7 @@ export default function TenantProfilePage() {
                     className="w-24 h-24 rounded-full object-cover border-4 border-pink-200"
                   />
                   <div className="absolute -bottom-1 -right-1 bg-pink-500 rounded-full p-1">
-                    <StarSolid className="w-4 h-4 text-white" />
+                    <Star className="w-4 h-4 text-white" />
                   </div>
                 </div>
                 <div className="flex-1">
@@ -497,7 +497,7 @@ export default function TenantProfilePage() {
                   
                   {!profile.verified && (
                     <Button variant="outline" size="small" className="opacity-70">
-                      <IdentificationIcon className="w-4 h-4 mr-2" />
+                      <IdCard className="w-4 h-4 mr-2" />
                       Ej verifierad
                     </Button>
                   )}
@@ -569,7 +569,7 @@ export default function TenantProfilePage() {
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3">
-                    <CurrencyDollarIcon className="w-5 h-5 text-gray-600" />
+                    <Coins className="w-5 h-5 text-gray-600" />
                     <Typography variant="body" className="text-gray-700">
                       Max {profile.searchCriteria.maxRent} kr
                     </Typography>

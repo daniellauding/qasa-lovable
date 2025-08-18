@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useTranslation } from '../../utils/translations/LanguageContext';
 import { useAuth } from '../../contexts/AuthContext';
 import { useTheme } from '../../contexts/ThemeContext';
+import Button from '../ui/Button';
+import Typography from '../ui/Typography';
 
 const HeaderLoggedOut = ({ onLogin, onSignup }) => {
   const { t } = useTranslation();
@@ -55,7 +57,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.homes')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.homes')}</Typography>
                   </a>
                 </li>
                 <li>
@@ -71,7 +73,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.tenants')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.tenants')}</Typography>
                   </a>
                 </li>
                 <li>
@@ -87,7 +89,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.howItWorks')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.howItWorks')}</Typography>
                   </a>
                 </li>
               </ul>
@@ -96,42 +98,50 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
 
           {/* Right side - Login/Signup buttons */}
           <div className="flex items-center gap-3">
-            <button
+            <Button
+              variant="tertiary"
+              size="lg"
               onClick={handleLogin}
-              className="text-sm font-medium text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md hover:bg-gray-50"
+              className="text-gray-700 hover:text-gray-900"
             >
               {t('header.login')}
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="tertiary"
+              size="lg"
               onClick={handleSignup}
-              className="theme-bg-primary text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
+              className="rounded-full"
             >
               {t('header.signup')}
-            </button>
+            </Button>
 
             {/* Mobile menu button */}
-            <button
+            <Button
               aria-label={t('header.menu')}
               type="button"
-              className="p-2 ml-2 lg:hidden"
+              size="sm"
+              variant="transparent"
+              iconOnly
+              className="ml-2 lg:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M4 12h16" />
-                <path d="M4 18h16" />
-                <path d="M4 6h16" />
-              </svg>
-            </button>
+              icon={(
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 12h16" />
+                  <path d="M4 18h16" />
+                  <path d="M4 6h16" />
+                </svg>
+              )}
+            />
           </div>
         </div>
 
@@ -159,18 +169,22 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
               </a>
             </nav>
             <div className="mt-4 pt-4 border-t border-gray-200 space-y-2">
-              <button
+              <Button
+                variant="transparent"
+                size="md"
                 onClick={handleLogin}
-                className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="w-full justify-start text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
               >
                 {t('header.login')}
-              </button>
-              <button
+              </Button>
+              <Button
+                variant="primary"
+                size="md"
                 onClick={handleSignup}
-                className="w-full theme-bg-primary text-white text-base font-medium px-3 py-2 rounded-md transition-colors"
+                className="w-full rounded-md"
               >
                 {t('header.signup')}
-              </button>
+              </Button>
             </div>
           </div>
         )}

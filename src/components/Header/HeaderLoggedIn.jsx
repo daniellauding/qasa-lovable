@@ -9,6 +9,7 @@ import Modal from '../ui/Modal';
 import RadioGroup from '../ui/RadioGroup';
 import Button from '../ui/Button';
 import Typography from '../ui/Typography';
+import Avatar from '../ui/Avatar';
 
 const HeaderLoggedIn = ({ 
   user = {
@@ -114,7 +115,7 @@ const HeaderLoggedIn = ({
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.homes')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.homes')}</Typography>
                   </a>
                 </li>
                 <li>
@@ -130,7 +131,7 @@ const HeaderLoggedIn = ({
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.tenants')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.tenants')}</Typography>
                   </a>
                 </li>
                 <li>
@@ -146,7 +147,7 @@ const HeaderLoggedIn = ({
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.howItWorks')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.howItWorks')}</Typography>
                   </a>
                 </li>
               </ul>
@@ -155,10 +156,10 @@ const HeaderLoggedIn = ({
 
           {/* Right side icons */}
           <div className="flex items-center">
-            <div className="flex items-center">
+            <div className="flex items-center gap-2">
               {/* Rent Out Button */}
               <a href="/landlords/create-listing/step/1">
-                <Button variant="tertiary" size="sm" className="mr-2">
+                <Button variant="tertiary" size="lg" className="mr-2">
                   {t('header.rentOut')}
                 </Button>
               </a>
@@ -173,7 +174,7 @@ const HeaderLoggedIn = ({
                   {messageCount > 0 && (
                     <div className="absolute -top-1 -right-1">
                       <div className="h-[18px] min-w-[18px] rounded-full theme-badge-bg flex items-center justify-center px-1">
-                        <Typography variant="body-sm" color="theme" className="theme-badge-text leading-none">
+                        <Typography variant="body-xs" color="theme" className="theme-badge-text leading-none">
                             {messageCount}
                           </Typography>
                         </div>
@@ -196,9 +197,9 @@ const HeaderLoggedIn = ({
               </button>
 
               {/* Profile */}
-              <a href="/sv/profile" aria-label={t('header.profile')} className="relative p-2">
-                <div className="relative">
-                  <img src={user.avatar} alt={user.name} className="h-8 w-8 rounded-full" />
+              <a href="/sv/profile" aria-label={t('header.profile')} className="relative flex items-center">
+                <div className="relative flex items-center">
+                  <Avatar src={user.avatar} alt={user.name} size="lg" />
                 </div>
               </a>
             </div>

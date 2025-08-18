@@ -81,7 +81,7 @@ const RangeSlider = ({
         {/* Track */}
         <div
           ref={sliderRef}
-          className="relative h-2 bg-[#e5e5df] rounded-full cursor-pointer"
+          className="relative h-2 bg-[var(--color-gray-30,#e5e5df)] rounded-full cursor-pointer"
           {...props}
         >
           {/* Fill */}
@@ -96,14 +96,14 @@ const RangeSlider = ({
           {/* Handles */}
           {isRange && (
             <div
-              className="absolute w-4 h-4 bg-white border-2 border-[#e5e5df] rounded-full cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 top-1/2 shadow-sm hover:shadow-md transition-shadow"
+              className="absolute w-4 h-4 bg-white border-2 border-[var(--color-gray-30,#e5e5df)] rounded-full cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 top-1/2 shadow-sm hover:shadow-md transition-shadow"
               style={{ left: `${minPercentage}%` }}
               onMouseDown={handleMouseDown(0)}
             />
           )}
           
           <div
-            className="absolute w-4 h-4 bg-white border-2 border-[#e5e5df] rounded-full cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 top-1/2 shadow-sm hover:shadow-md transition-shadow"
+            className="absolute w-4 h-4 bg-white border-2 border-[var(--color-gray-30,#e5e5df)] rounded-full cursor-grab active:cursor-grabbing transform -translate-x-1/2 -translate-y-1/2 top-1/2 shadow-sm hover:shadow-md transition-shadow"
             style={{ left: `${maxPercentage}%` }}
             onMouseDown={handleMouseDown(isRange ? 1 : 0)}
           />

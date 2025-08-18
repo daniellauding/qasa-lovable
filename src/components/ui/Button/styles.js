@@ -19,21 +19,22 @@ export const iconOnlySizeClasses = {
 
 export const buttonVariants = {
   primary: [
-    'theme-bg-primary text-[#352924]',
+    'theme-bg-primary',
+    'text-[var(--color-text-on-primary)]',
     'transition-colors duration-150',
     'focus:scale-95',
     'disabled:bg-loading disabled:text-white'
   ].join(' '),
   secondary: [
-    'bg-[#322721] text-white',
-    'hover:bg-[#322721]',
-    'focus:bg-[#322721]',
+    'bg-[var(--color-button-secondary-bg)] text-white',
+    'hover:bg-[var(--color-button-secondary-bg-hover)]',
+    'focus:bg-[var(--color-button-secondary-bg-focus)]',
     'disabled:bg-gray-100 disabled:text-gray-400'
   ].join(' '),
   tertiary: [
-    'bg-[#f0f0eb] text-[#372d27] border border-transparent',
-    'hover:bg-[#f0f0eb]',
-    'focus:bg-[#f0f0eb]',
+    'bg-[var(--color-button-tertiary-bg)] text-[var(--color-button-tertiary-text)] border border-transparent',
+    'hover:bg-[var(--color-button-tertiary-bg-hover)]',
+    'focus:bg-[var(--color-button-tertiary-bg-focus)]',
     'disabled:bg-transparent disabled:text-gray-400'
   ].join(' '),
   destructive: [
@@ -47,7 +48,7 @@ export const buttonVariants = {
     'disabled:bg-loading disabled:text-white'
   ].join(' '),
   outline: [
-    'bg-transparent text-[#372d27] border border-[#e5e5e0]',
+    'bg-transparent text-[var(--color-button-outline-text)] border border-[var(--color-button-outline-border)]',
     'hover:bg-gray-50',
     'focus:bg-gray-50',
     'disabled:bg-transparent disabled:text-gray-400 disabled:border-gray-300'

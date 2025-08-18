@@ -125,15 +125,15 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
             <HintBox className="flex items-start gap-4">
               <div className="w-12 h-12 flex-shrink-0">
                 <svg viewBox="0 0 48 48" className="w-full h-full">
-                  <circle cx="24" cy="24" r="20" fill="#E5F3FF" stroke="#3B82F6" strokeWidth="2"/>
-                  <path d="M24 16v8m0 4h.01" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round"/>
+                  <circle cx="24" cy="24" r="20" fill="var(--color-info-bg,#E5F3FF)" stroke="var(--color-info,#3B82F6)" strokeWidth="2"/>
+                  <path d="M24 16v8m0 4h.01" stroke="var(--color-info,#3B82F6)" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
               <div className="space-y-2">
-                <Typography variant="title-sm" className="text-[#362b25]">
+                <Typography variant="title-sm" className="text-[var(--color-text-primary,#362b25)]">
                   Försäkrad genom Qasa
                 </Typography>
-                <Typography variant="body-sm" className="text-[#362b25]">
+                <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
                   Vi står för skador på din fastighet under hela hyresperioden.
                 </Typography>
               </div>

@@ -154,7 +154,7 @@ function DevExperimentsButton() {
     <div className="fixed bottom-4 right-4 z-[9999]">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#6E3FF3] p-3 rounded-full shadow-lg hover:bg-[#5B35CC] transition-colors relative"
+        className="bg-[var(--color-primary,#6E3FF3)] p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-hover,#5B35CC)] transition-colors relative"
         aria-label="Toggle experiments menu"
       >
         <FlaskConical className="h-6 w-6 text-white" />
@@ -269,13 +269,13 @@ function DevExperimentsButton() {
                 href="/storybook"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-sm text-[#6E3FF3] hover:text-[#5B35CC] font-medium"
+                className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
               >
                 Open Storybook →
               </a>
               <Link
                 to="/experiments"
-                className="block text-sm text-[#6E3FF3] hover:text-[#5B35CC] font-medium"
+                className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 View All Variants →

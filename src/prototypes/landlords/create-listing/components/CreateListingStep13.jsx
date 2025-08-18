@@ -48,7 +48,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
               </div>
               
               <HintBox className="mt-4">
-                <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
+                <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)] font-medium mb-2">
                   Saker hyresgäster ofta undrar över:
                 </Typography>
                 <ul className="space-y-1">

@@ -7,7 +7,7 @@ export const getRadioStyles = (variant) => {
     h-4
     w-4
     border-2
-    border-[#d6d6ce]
+    border-[var(--color-gray-40,#d6d6ce)]
     bg-white
     hover:bg-gray-10
     focus:outline-none
@@ -16,7 +16,7 @@ export const getRadioStyles = (variant) => {
     disabled:cursor-not-allowed
     disabled:opacity-50
     transition-colors
-    data-[state=checked]:border-[#322721]
+    data-[state=checked]:border-[var(--color-text-primary,#322721)]
     data-[state=checked]:border-4
   `;
 
@@ -39,8 +39,8 @@ export const getItemStyles = (variant) => {
       p-4
       border-2
       rounded-lg
-      data-[state=checked]:border-[#322721]
-      data-[state=unchecked]:border-[#d6d6ce]
+      data-[state=checked]:border-[var(--color-text-primary,#322721)]
+      data-[state=unchecked]:border-[var(--color-gray-40,#d6d6ce)]
       hover:bg-gray-10
       transition-colors
     `,

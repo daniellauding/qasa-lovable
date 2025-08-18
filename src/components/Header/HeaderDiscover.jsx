@@ -9,6 +9,7 @@ import Modal from '../ui/Modal';
 import RadioGroup from '../ui/RadioGroup';
 import Button from '../ui/Button';
 import Typography from '../ui/Typography';
+import Avatar from '../ui/Avatar';
 
 const HeaderDiscover = ({ 
   user = {
@@ -114,7 +115,7 @@ const HeaderDiscover = ({
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">Discover</span>
+                    <Typography variant="label-md" className="isolate pt-px">Discover</Typography>
                   </a>
                 </li>
                 <li>
@@ -130,7 +131,7 @@ const HeaderDiscover = ({
                       className="group-hover:bg-gray-20/40 scale-80 absolute inset-0 rounded-full transition group-hover:scale-100"
                       aria-hidden="true"
                     ></span>
-                    <span className="isolate pt-px">{t('header.howItWorks')}</span>
+                    <Typography variant="label-md" className="isolate pt-px">{t('header.howItWorks')}</Typography>
                   </a>
                 </li>
               </ul>
@@ -196,11 +197,7 @@ const HeaderDiscover = ({
                         </div>
                       </div>
                     )}
-                    <img
-                      src={user.avatar}
-                      alt={user.name}
-                      className="h-8 w-8 rounded-full"
-                    />
+                    <Avatar src={user.avatar} alt={user.name} size="lg" />
                   </div>
                 </button>
 
@@ -209,11 +206,7 @@ const HeaderDiscover = ({
                   <div className="absolute right-0 top-full mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                     <div className="p-4 border-b border-gray-100">
                       <div className="flex items-center space-x-3">
-                        <img
-                          src={user.avatar}
-                          alt={user.name}
-                          className="h-10 w-10 rounded-full"
-                        />
+                        <Avatar src={user.avatar} alt={user.name} size="lg" />
                         <div>
                           <Typography variant="body1" weight="medium">
                             {user.name}

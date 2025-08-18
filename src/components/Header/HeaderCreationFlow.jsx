@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { X } from 'lucide-react';
+import Button from '../ui/Button';
 
 const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
   return (
@@ -18,13 +19,15 @@ const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
 
           {/* Dismiss button */}
           {showDismiss && (
-            <button 
+            <Button 
               onClick={onDismiss}
               aria-label="Stäng"
-              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-            >
-              <X className="h-6 w-6 text-gray-500" />
-            </button>
+              variant="transparent"
+              size="sm"
+              iconOnly
+              className="hover:bg-gray-100"
+              icon={<X className="h-6 w-6 text-gray-500" />}
+            />
           )}
         </div>
       </div>

@@ -27,7 +27,7 @@ const CheckboxItem = ({ option, checked, onCheckedChange, variant }) => {
         className={getCheckboxStyles(variant)}
       >
         <CheckboxPrimitive.Indicator className="flex items-center justify-center w-full h-full">
-          <Check className="h-3 w-3 text-[#322721] flex-shrink-0" />
+          <Check className="h-3 w-3 text-[var(--color-text-primary)] flex-shrink-0" />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 

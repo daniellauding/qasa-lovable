@@ -24,7 +24,7 @@ L.Icon.Default.mergeOptions({
 
 // Custom price marker icon
 const createPriceIcon = (price, isSelected = false) => {
-  const color = isSelected ? '#dc2626' : '#ffffff';
+  const color = isSelected ? 'var(--color-danger,#dc2626)' : '#ffffff';
   const textColor = isSelected ? '#ffffff' : '#374151';
   
   return L.divIcon({

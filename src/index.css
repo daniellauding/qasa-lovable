@@ -60,6 +60,25 @@
     --color-text-tertiary: #9CA3AF;
     --color-badge-bg: #f19ec1;
     --color-badge-text: #000000;
+
+    /* Button & surface text tokens */
+    --color-text-on-primary: #352924;
+
+    /* Button tokens - Secondary */
+    --color-button-secondary-bg: #322721;
+    --color-button-secondary-bg-hover: #3a2f2a;
+    --color-button-secondary-bg-focus: #281e1b;
+    --color-button-secondary-text: #f0f0eb;
+
+    /* Button tokens - Tertiary */
+    --color-button-tertiary-bg: #f0f0eb;
+    --color-button-tertiary-bg-hover: #f6f6f3;
+    --color-button-tertiary-bg-focus: #e0e0d7;
+    --color-button-tertiary-text: #322721;
+
+    /* Button tokens - Outline */
+    --color-button-outline-text: #372d27;
+    --color-button-outline-border: #e5e5e0;
   }
 
   body {

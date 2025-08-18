@@ -53,7 +53,7 @@ const Checkbox = forwardRef(({
         {...props}
       >
         <CheckboxPrimitive.Indicator className="flex items-center justify-center w-full h-full">
-          <Check className={`${iconSizeClasses[size]} text-[#322721] flex-shrink-0`} />
+          <Check className={`${iconSizeClasses[size]} text-[var(--color-text-primary)] flex-shrink-0`} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       

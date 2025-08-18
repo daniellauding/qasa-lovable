@@ -91,10 +91,10 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
 
             {/* Info Box */}
             <HintBox>
-              <Typography variant="body-sm" className="text-[#362b25] font-medium mb-2">
+              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)] font-medium mb-2">
                 Bra att veta
               </Typography>
-              <Typography variant="body-sm" className="text-[#362b25]">
+              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
                 Telefonnummer delas 8 timmar innan den bokade visningen. Du kan alltid avboka 
                 visningar under tiden din annons är publicerad.
               </Typography>

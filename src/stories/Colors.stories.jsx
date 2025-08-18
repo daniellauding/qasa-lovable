@@ -41,9 +41,8 @@ export const BrandColors = {
       <ColorSection 
         title="Brand Colors"
         colors={[
-          { name: 'UI Pink', value: '#f19ec1' },
-          { name: 'UI Pink Dark', value: '#ef8ab5' },
-          { name: 'UI Pink Light', value: '#f2a7c7' },
+          { name: 'UI Pink', value: 'var(--color-primary)' },
+          { name: 'UI Pink Hover', value: 'var(--color-primary-hover)' },
           { name: 'Brown', value: '#322721', textColor: 'text-white' },
           { name: 'Brown Light', value: '#3a2f2a', textColor: 'text-white' },
           { name: 'Brown Dark', value: '#281e1b', textColor: 'text-white' },
@@ -53,7 +52,6 @@ export const BrandColors = {
           { name: 'Soft Yellow', value: '#fef8d1' },
           { name: 'Warm Yellow', value: '#f8d87c' },
           { name: 'Soft Pink', value: '#fbe9f0' },
-          { name: 'Pink', value: '#ef8ab5' },
         ]}
       />
 
@@ -93,36 +91,36 @@ export const ButtonColors = {
         <div>
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Primary Button</h3>
           <div className="grid grid-cols-3 gap-4">
-            <ColorSwatch name="Normal" value="#f19ec1" />
-            <ColorSwatch name="Hover" value="#f2a7c7" />
-            <ColorSwatch name="Focus" value="#ef8bb5" />
+            <ColorSwatch name="Normal" value="var(--color-primary)" />
+            <ColorSwatch name="Hover" value="var(--color-primary-hover)" />
+            <ColorSwatch name="Text" value="var(--color-text-on-primary)" />
           </div>
           <div className="mt-4 text-sm text-gray-600">
-            Text Color: #453231
+            Text Color: var(--color-text-on-primary)
           </div>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Secondary Button</h3>
           <div className="grid grid-cols-3 gap-4">
-            <ColorSwatch name="Normal" value="#322721" textColor="text-white" />
-            <ColorSwatch name="Hover" value="#3a2f2a" textColor="text-white" />
-            <ColorSwatch name="Focus" value="#281e1b" textColor="text-white" />
+            <ColorSwatch name="Normal" value="var(--color-button-secondary-bg)" textColor="text-white" />
+            <ColorSwatch name="Hover" value="var(--color-button-secondary-bg-hover)" textColor="text-white" />
+            <ColorSwatch name="Focus" value="var(--color-button-secondary-bg-focus)" textColor="text-white" />
           </div>
           <div className="mt-4 text-sm text-gray-600">
-            Text Color: #f0f0eb
+            Text Color: var(--color-button-secondary-text)
           </div>
         </div>
 
         <div>
           <h3 className="text-lg font-semibold mb-4 text-gray-900">Tertiary Button</h3>
           <div className="grid grid-cols-3 gap-4">
-            <ColorSwatch name="Normal" value="#f0f0eb" />
-            <ColorSwatch name="Hover" value="#f6f6f3" />
-            <ColorSwatch name="Focus" value="#e0e0d7" />
+            <ColorSwatch name="Normal" value="var(--color-button-tertiary-bg)" />
+            <ColorSwatch name="Hover" value="var(--color-button-tertiary-bg-hover)" />
+            <ColorSwatch name="Focus" value="var(--color-button-tertiary-bg-focus)" />
           </div>
           <div className="mt-4 text-sm text-gray-600">
-            Text Color: #322721
+            Text Color: var(--color-button-tertiary-text)
           </div>
         </div>
       </div>
