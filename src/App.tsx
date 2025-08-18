@@ -1,6 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate, useLocation } from 'react-router-dom';
-import { FlaskConical } from 'lucide-react';
+import { 
+  FlaskConical, 
+  Wand2, 
+  Plus, 
+  User, 
+  Users, 
+  Home, 
+  Building, 
+  MessageCircle, 
+  Mail, 
+  LogIn, 
+  UserPlus, 
+  Search, 
+  FileText, 
+  Settings, 
+  Camera,
+  BarChart3,
+  Edit,
+  Target,
+  Gamepad2
+} from 'lucide-react';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
 import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
@@ -16,6 +36,8 @@ import LoginFlow from './prototypes/auth/login/LoginFlow';
 import RegisterFlow from './prototypes/auth/register/RegisterFlow';
 import HomesPage from './prototypes/homes/HomesPage';
 import MessagesPage from './prototypes/messages/MessagesPage';
+import BlankTemplate from './prototypes/templates/BlankTemplate';
+import TemplateBuilder from './prototypes/templates/TemplateBuilder';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Header from './components/Header';
 import DynamicHeader from './components/DynamicHeader';
@@ -30,6 +52,69 @@ import { variantRegistry, getAllPrototypesWithVariants, getVariant, parseVariant
 
 // Import MessagesPage for the prototypes array
 import MessagesPageImport from './prototypes/messages/MessagesPage';
+
+// Helper function to get appropriate icon for each prototype
+const getPrototypeIcon = (prototypeId, category) => {
+  const iconMap = {
+    // Tenant prototypes
+    'tenant-profile': User,
+    'tenant-profile-public': User,
+    'tenant-apply-home': Home,
+    'bet-increase-quality': Target,
+    'create-tenant-listing': FileText,
+    
+    // Landlord prototypes
+    'find-tenant': Search,
+    'create-listing': Building,
+    'media-management': Camera,
+    'dashboard': BarChart3,
+    'edit-listing': Edit,
+    'landlord-profile': Users,
+    
+    // Auth prototypes
+    'login': LogIn,
+    'register': UserPlus,
+    
+    // Communication
+    'messages': MessageCircle,
+    
+    // Mail templates
+    'mail-template-welcome-premium': Mail,
+    
+    // Templates
+    'blank-template': Plus,
+    'template-builder': Wand2,
+  };
+  
+  return iconMap[prototypeId] || FlaskConical;
+};
+
+// Component for handling prototype thumbnails with fallback icons
+const PrototypeThumbnail = ({ prototype }) => {
+  const [imageError, setImageError] = React.useState(false);
+  const IconComponent = getPrototypeIcon(prototype.id, prototype.category);
+  
+  const handleImageError = () => {
+    setImageError(true);
+  };
+  
+  if (!prototype.thumbnail || imageError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
+        <IconComponent className="w-16 h-16 text-indigo-300" />
+      </div>
+    );
+  }
+  
+  return (
+    <img
+      src={prototype.thumbnail}
+      alt={prototype.name}
+      className="w-full h-full object-cover"
+      onError={handleImageError}
+    />
+  );
+};
 
 const prototypes = [
   {
@@ -181,6 +266,28 @@ const prototypes = [
     component: MessagesPageImport,
     tags: ['messaging', 'conversations'],
   },
+  {
+    id: 'blank-template',
+    category: 'templates',
+    name: 'Blank Template',
+    description: 'Empty template ready for AI/Lovable prototyping with QDS components and Swedish language support.',
+    thumbnail: '/thumbnails/blank-template.png',
+    path: '/templates/blank',
+    component: BlankTemplate,
+    tags: ['template', 'blank', 'ai', 'lovable'],
+    isNew: true,
+  },
+  {
+    id: 'template-builder',
+    category: 'templates',
+    name: 'Template Builder',
+    description: 'Configure and create custom templates for AI-assisted prototyping with component presets.',
+    thumbnail: '/thumbnails/template-builder.png',
+    path: '/templates/builder',
+    component: TemplateBuilder,
+    tags: ['builder', 'configuration', 'ai'],
+    isNew: true,
+  },
 ];
 
 function PrototypeGrid() {
@@ -222,6 +329,87 @@ function PrototypeGrid() {
         </div>
         
         <div className="space-y-12">
+          {/* Template System - Special Section */}
+          <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 border border-pink-200">
+            <div className="text-center mb-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-500 rounded-full mb-4">
+                <Wand2 className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+                AI Template System
+              </h2>
+              <p className="text-gray-600">
+                Start prototyping with blank templates optimized for Lovable and AI tools
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <Link
+                to="/templates/blank"
+                className="block group transform hover:-translate-y-1 transition-all duration-200"
+              >
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-pink-200">
+                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+                    <Plus className="w-16 h-16 text-pink-400" />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="text-sm font-medium px-3 py-1 rounded-full bg-pink-100 text-pink-700">
+                        Templates
+                      </div>
+                      <div className="text-xs font-medium px-2 py-1 rounded bg-green-100 text-green-700">
+                        NEW
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-gray-900 group-hover:text-pink-600 transition-colors">
+                      Blank Template
+                    </h3>
+                    <p className="text-gray-600 text-sm mt-1">
+                      Empty template ready for AI/Lovable prototyping with QDS components
+                    </p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">ai</span>
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">lovable</span>
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">blank</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                to="/templates/builder"
+                className="block group transform hover:-translate-y-1 transition-all duration-200"
+              >
+                <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-pink-200">
+                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
+                    <Wand2 className="w-16 h-16 text-purple-400" />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="text-sm font-medium px-3 py-1 rounded-full bg-purple-100 text-purple-700">
+                        Templates
+                      </div>
+                      <div className="text-xs font-medium px-2 py-1 rounded bg-green-100 text-green-700">
+                        NEW
+                      </div>
+                    </div>
+                    <h3 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
+                      Template Builder
+                    </h3>
+                    <p className="text-gray-600 text-sm mt-1">
+                      Configure and create custom templates for AI-assisted prototyping
+                    </p>
+                    <div className="flex gap-2 mt-3">
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">builder</span>
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">config</span>
+                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">ai</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+
           {/* Prototypes with variants */}
           {variantPrototypes.length > 0 && (
             <div className="pb-32">
@@ -257,17 +445,7 @@ function PrototypeGrid() {
                   >
                     <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden">
                       <div className="aspect-w-16 aspect-h-9 bg-gray-100">
-                        {prototype.thumbnail ? (
-                          <img
-                            src={prototype.thumbnail}
-                            alt={prototype.name}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-                            <FlaskConical className="w-16 h-16 text-indigo-300" />
-                          </div>
-                        )}
+                        <PrototypeThumbnail prototype={prototype} />
                       </div>
                       <div className="p-6">
                         <div className="flex items-center gap-2 mb-2">
@@ -405,6 +583,10 @@ function App() {
           } />
           
           <Route path="/messages" element={<MessagesPage />} />
+          
+          {/* Template System */}
+          <Route path="/templates/blank" element={<BlankTemplate />} />
+          <Route path="/templates/builder" element={<TemplateBuilder />} />
           
           <Route path="/mail-templates/welcome-to-premium" element={<WelcomeToPremiumEmail />} />
           

@@ -1,7 +1,91 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Link as LinkIcon, FlaskConical } from 'lucide-react';
+import { 
+  Link as LinkIcon, 
+  FlaskConical, 
+  User, 
+  Users, 
+  Home, 
+  Building, 
+  MessageCircle, 
+  Mail, 
+  LogIn, 
+  UserPlus, 
+  Search, 
+  FileText, 
+  Settings, 
+  Camera,
+  BarChart3,
+  Edit,
+  Target,
+  Gamepad2,
+  Plus,
+  Wand2
+} from 'lucide-react';
 import { getVariantUrl, variantStatusConfig } from '../../utils/variants';
+
+// Helper function to get appropriate icon for each prototype
+const getPrototypeIcon = (prototypeId, category) => {
+  const iconMap = {
+    // Tenant prototypes
+    'tenant-profile': User,
+    'tenant-profile-public': User,
+    'tenant-apply-home': Home,
+    'bet-increase-quality': Target,
+    'create-tenant-listing': FileText,
+    
+    // Landlord prototypes
+    'find-tenant': Search,
+    'create-listing': Building,
+    'media-management': Camera,
+    'dashboard': BarChart3,
+    'edit-listing': Edit,
+    'landlord-profile': Users,
+    
+    // Auth prototypes
+    'login': LogIn,
+    'register': UserPlus,
+    
+    // Communication
+    'messages': MessageCircle,
+    
+    // Mail templates
+    'mail-template-welcome-premium': Mail,
+    
+    // Templates
+    'blank-template': Plus,
+    'template-builder': Wand2,
+  };
+  
+  return iconMap[prototypeId] || FlaskConical;
+};
+
+// Component for handling prototype thumbnails with fallback icons
+const PrototypeThumbnail = ({ prototype }) => {
+  const [imageError, setImageError] = useState(false);
+  const IconComponent = getPrototypeIcon(prototype.id, prototype.category);
+  
+  const handleImageError = () => {
+    setImageError(true);
+  };
+  
+  if (!prototype.thumbnail || imageError) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
+        <IconComponent className="w-16 h-16 text-indigo-300" />
+      </div>
+    );
+  }
+  
+  return (
+    <img
+      src={prototype.thumbnail}
+      alt={prototype.name}
+      className="w-full h-full object-cover"
+      onError={handleImageError}
+    />
+  );
+};
 
 const VariantCard = ({ prototype }) => {
   const [selectedVariant, setSelectedVariant] = useState(prototype.variants[0]);
@@ -34,17 +118,7 @@ const VariantCard = ({ prototype }) => {
       <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden relative">
         {/* Thumbnail area */}
         <div className="aspect-w-16 aspect-h-9 bg-gray-100 overflow-hidden rounded-t-xl">
-          {prototype.thumbnail ? (
-            <img
-              src={prototype.thumbnail}
-              alt={prototype.name}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-50 to-purple-50">
-              <FlaskConical className="w-16 h-16 text-indigo-300" />
-            </div>
-          )}
+          <PrototypeThumbnail prototype={prototype} />
         </div>
 
         {/* Card content */}

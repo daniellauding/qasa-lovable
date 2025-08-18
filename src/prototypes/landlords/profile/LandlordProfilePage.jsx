@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { AlertTriangle, Heart, ArrowRight } from 'lucide-react';
-import { Heart } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -71,7 +70,6 @@ export default function LandlordProfilePage() {
               
               {landlord.verified && (
                 <Button variant="outline" size="small" className="mb-4">
-                  <IdentificationIcon className="w-4 h-4 mr-2" />
                   Your ID is verified
                 </Button>
               )}
@@ -129,11 +127,7 @@ export default function LandlordProfilePage() {
                       onClick={() => toggleFavorite(listing.id)}
                       className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white transition-colors"
                     >
-                      {favoriteListings.has(listing.id) ? (
-                        <HeartSolid className="w-5 h-5 text-red-500" />
-                      ) : (
-                        <Heart className="w-5 h-5 text-gray-600" />
-                      )}
+                      <Heart className={`w-5 h-5 ${favoriteListings.has(listing.id) ? 'text-red-500 fill-current' : 'text-gray-600'}`} />
                     </button>
                   </div>
 

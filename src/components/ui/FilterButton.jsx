@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AdjustmentsHorizontalIcon } from '@heroicons/react/24/outline';
+import { SlidersHorizontal } from 'lucide-react';
 
 const FilterButton = ({
   onClick,
@@ -45,7 +45,7 @@ const FilterButton = ({
       `}
       {...props}
     >
-      <AdjustmentsHorizontalIcon className={`${iconSizeClasses[size]}`} />
+      <SlidersHorizontal className={`${iconSizeClasses[size]}`} />
       {children}
     </button>
   );
