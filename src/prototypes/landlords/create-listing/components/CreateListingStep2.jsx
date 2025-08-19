@@ -12,7 +12,7 @@ import { useTranslation } from '../../../../utils/translations/LanguageContext';
 const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
   const { t } = useTranslation();
   const [address, setAddress] = useState(formData.address || '');
-  const [showAddressFields, setShowAddressFields] = useState(!!formData.address);
+  const [showAddressFields, setShowAddressFields] = useState(true);
 
   const handleAddressChange = (e) => {
     const value = e.target.value;
@@ -66,7 +66,7 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
             {showAddressFields && (
               <>
                 {/* Separator */}
-                <div className="border-t border-gray-200 my-6"></div>
+                <div className="my-6"></div>
 
                 {/* Address Details Form */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -177,7 +177,7 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
+        <div className="px-8 py-6 bg-white flex items-center justify-between">
           <Button
             variant="tertiary"
             size="lg"

@@ -110,6 +110,7 @@ const CreateListingFlow = () => {
         return (
           <CreateListingStep1 
             onNext={handleNext}
+            onPrev={handleDismiss}
           />
         );
       case 2:

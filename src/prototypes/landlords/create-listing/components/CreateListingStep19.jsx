@@ -102,7 +102,7 @@ const CreateListingStep19 = ({ onNext, onPrev, formData, updateFormData }) => {
           </div>
         </div>
 
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
+        <div className="px-8 py-6 bg-white flex items-center justify-between">
           <Button
             variant="tertiary"
             size="lg"

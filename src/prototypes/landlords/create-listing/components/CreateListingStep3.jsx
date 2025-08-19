@@ -72,7 +72,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
             />
 
             {/* Separator */}
-            <div className="border-t border-gray-200 my-6"></div>
+            <div className="my-6"></div>
 
             {/* Address Details Form */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -186,7 +186,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
         </div>
 
         {/* Footer */}
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
+        <div className="px-8 py-6 bg-white flex items-center justify-between">
           <Button
             variant="tertiary"
             size="lg"

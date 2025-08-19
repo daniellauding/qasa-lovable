@@ -238,7 +238,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-gray-200 flex items-center justify-between">
+        <div className="mt-8 pt-6 flex items-center justify-between">
           <button
             onClick={onPrev}
             className="flex items-center justify-center w-12 h-12 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
