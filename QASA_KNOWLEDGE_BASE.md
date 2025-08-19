@@ -169,3 +169,39 @@
 
 ## YOUR CONTENT DUMP AREA
 [PASTE YOUR QASA CONTENT HERE]
+
+---
+
+## UI Composition Cheatsheet (for Lovable & Editors)
+
+- Do not create ad-hoc section components (e.g., `WhatIsQasa`, `HowItWorksSection`, `TrustSafetySection`). Compose pages from approved QDS components only.
+- Use these building blocks: `Typography`, `Button`, `Card`, `StatsStrip`, `FeatureCard`, `RichPromoCard`, `FAQLinkList`, `TestimonialCarousel`, `Carousel`, `CityCard`.
+
+### Recipes
+
+- “What is Qasa?”
+  - Title: `Typography` `display-sm`
+  - Subtitle: `Typography` `title-xl`
+  - Description: `Typography` `body-md` `color="secondary"`
+  - Stats grid (x3): value `title-lg` + hint `body-sm`
+
+- “How it works”
+  - Two pills: `Button` inside rounded container — active `variant="primary"`, inactive `variant="transparent"`
+  - Four step boxes: bordered `div` with icon circle, `title-lg`, and `body-sm`
+
+- Trust & Safety grid
+  - 4 items: icon container + `title-lg` + `body-sm`
+
+### Color & Contrast
+
+- On dark surfaces (e.g., `bg-[var(--color-brown)]`) or image overlays, all text must be white via `Typography color="white"`. Subtext can use `opacity-80/85`.
+- Icons in primary buttons use `text-[var(--color-text-on-primary)]`. Icons on dark non-primary surfaces use `text-white`.
+- Never use Tailwind palette or hex for colors; always use tokens.
+
+### Title Hierarchy
+
+- Page hero: `display-lg`
+- Section header: `display-sm`
+- Card title: `title-lg`
+- Paragraph: `body-md` (secondary copy uses `color="secondary"`)
+- Small: `label-sm`

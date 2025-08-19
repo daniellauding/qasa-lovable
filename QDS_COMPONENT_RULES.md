@@ -221,6 +221,64 @@ Before committing any new component or screen:
 
 ---
 
+## 🎨 Mandatory Color, Contrast, and Icon Rules
+
+### White Text Rule
+- When a section uses a dark surface or image overlay (e.g., `bg-[var(--color-brown)]`, gradients from black), all readable text must use `Typography` with `color="white"`. Do not rely on inherited colors.
+- On brand/primary surfaces (buttons, chips) use `text-[var(--color-text-on-primary)]` for icons/text inside.
+
+### Icon Coloring
+- Lucide icons must follow context:
+  - On primary buttons: `text-[var(--color-text-on-primary)]`.
+  - On dark non-primary surfaces: `text-white`.
+  - In light info boxes: icon container `bg-[var(--color-button-tertiary-bg)]`, icon `text-[var(--color-text-primary)]`.
+
+### Tokens Only
+- Never use Tailwind palette classes or hex values for colors. Always use CSS variables (tokens). If a token seems missing, choose the best semantic token and open a task to extend tokens.
+
+### Shadows & Borders
+- Allowed shadows: `shadow-sm | shadow-md | shadow-lg` on cards/boxes only. No shadows on wide strips (hero, stats strip).
+- Borders use semantic tokens, e.g., `border-[var(--color-border)]` or the documented brand-subtle border token.
+
+---
+
+## 🔠 Typography Hierarchy (Use `Typography` only)
+
+- Page hero: `display-lg` (dark hero: `color="white"`).
+- Section headers: `display-sm`.
+- Card/box titles: `title-lg`.
+- Stats value: `title-xl` or `title-lg` + hint `body-sm`.
+- Paragraphs: `body-md`; secondary copy uses `color="secondary"`.
+- Small print: `label-sm`.
+
+Do not output raw `<h*>`/`<p>` with size classes.
+
+---
+
+## 🧱 Composition — No New Ad-hoc Sections
+
+- Do not create new components like `WhatIsQasa`, `HowItWorksSection`, `TrustSafetySection` in prototypes.
+- Compose with approved QDS components: `Typography`, `Button`, `Card`, `StatsStrip`, `FeatureCard`, `RichPromoCard`, `FAQLinkList`, `TestimonialCarousel`, `Carousel`, `CityCard`.
+- If a reusable pattern is needed, follow the formal QDS component process and add Storybook docs before use.
+
+---
+
+## 📦 Box Component Policy
+
+- `Box` is a simple neutral container. Default and only variant: `gray`.
+- Background: `bg-[var(--color-background-inset)]` (Gray 10/inset). No white variant, no built-in shadow.
+- If elevation is required, wrap content in `Card` or apply explicit `shadow-*` at usage site; do not modify `Box`.
+
+---
+
+## 🔘 Tabs Component Rules
+
+- Variants: `default` (pill) and `simple` (underline).
+  - `default`: active tab uses secondary/brown fill (token-backed), not pink.
+  - `simple`: active tab shows a 2px bottom border in `--color-brown` and text switches to primary text color; inactive tabs use secondary text color.
+- Sizes: `xs`, `sm`, `md`, `lg`, `xl` (same scale as `Button`).
+- Icon tabs: supported via `icon` prop; can be `iconOnly`.
+- Use `Button` internally for triggers; content area is caller‑provided.
 ## 🤖 AI/Lovable Tool Instructions
 
 When generating new components or screens:

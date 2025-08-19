@@ -235,6 +235,39 @@ When translating:
 4. Preserve Qasa brand voice
 5. Test with native speakers
 
+### Mandatory Language Coverage (EN/SV/FI/NO)
+
+- All generated translation blocks must include the same keys for: **English (`en`)**, **Swedish (`sv`)**, **Finnish (`fi`)**, and **Norwegian (`no`)**.
+- Reuse existing key paths when possible (e.g., `landing.hero.title`). Do not invent new top-level namespaces unless approved.
+- If adding a key, add it to all four language files in one change.
+- Example structure for a new microcopy key:
+
+```js
+// en.js
+export const en = {
+  landing: { cta: { explore: 'Explore homes' } }
+}
+
+// sv.js
+export const sv = {
+  landing: { cta: { explore: 'Utforska bostäder' } }
+}
+
+// fi.js
+export const fi = {
+  landing: { cta: { explore: 'Tutustu koteihin' } }
+}
+
+// no.js
+export const no = {
+  landing: { cta: { explore: 'Utforsk boliger' } }
+}
+```
+
+### URL and Local Storage Persistence
+
+- The language selector must sync via `?lang=xx` in the URL and persist to `localStorage` key `app_lang`. Components must read from context; stories use the Storybook toolbar.
+
 ---
 
 ## 📋 Content Templates

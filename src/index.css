@@ -45,40 +45,74 @@
 
 @layer base {
   :root {
-    /* Default Qasa theme colors */
-    --color-primary: #f19ec1;
-    --color-primary-hover: #e785b4;
-    --color-secondary: #9C27B0;
-    --color-tertiary: #6B7280;
-    --color-success: #10B981;
-    --color-warning: #F59E0B;
-    --color-danger: #EF4444;
-    --color-background: #FFFFFF;
-    --color-surface: #F9FAFB;
-    --color-text-primary: #111827;
-    --color-text-secondary: #6B7280;
-    --color-text-tertiary: #9CA3AF;
-    --color-badge-bg: #f19ec1;
-    --color-badge-text: #000000;
+    /* Core brand & neutrals (from QDS docs) */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-pink: #ff84b6;
+    --color-uiPink: #ff99c2;
+    --color-uiPink-light: #ffa3c8;
+    --color-uiPink-dark: #ff84b6;
+    --color-offWhite: #f0f0eb;
+    --color-offWhite-dark: #e0e0d6;
+    --color-offWhite-light: #f6f6f3;
+    --color-brown: #342620;
+    --color-brown-dark: #2b1d15;
+    --color-brown-light: #3f2d23;
+    --color-softPink: #ffe8f0;
+    --color-warmYellow: #ffd66c;
+    --color-softYellow: #fff8cc;
+
+    /* Gray scale */
+    --color-gray-10: #f9f9f6;
+    --color-gray-20: #f0f0eb;
+    --color-gray-30: #e5e5df;
+    --color-gray-40: #d6d6cd;
+    --color-gray-50: #a3a396;
+    --color-gray-60: #76766a;
+    --color-gray-70: #545448;
+    --color-gray-80: #424236;
+    --color-gray-90: #26261d;
+
+    /* Functional examples (subset) */
+    --color-red-60: #de1b00;
+    --color-green-60: #00a62f;
+    --color-yellow-60: #f3ab00;
+
+    /* Semantic tokens */
+    --color-primary: var(--color-uiPink);
+    --color-primary-hover: var(--color-uiPink-light);
+    --color-secondary: var(--color-brown);
+    --color-tertiary: var(--color-offWhite);
+    --color-success: var(--color-green-60);
+    --color-warning: var(--color-yellow-60);
+    --color-danger: var(--color-red-60);
+    --color-background: var(--color-white);
+    --color-background-inset: var(--color-gray-10); /* used by Box gray */
+    --color-surface: var(--color-gray-10);
+    --color-text-primary: var(--color-brown);
+    --color-text-secondary: var(--color-gray-60);
+    --color-text-tertiary: var(--color-gray-50);
+    --color-badge-bg: var(--color-uiPink);
+    --color-badge-text: var(--color-brown);
 
     /* Button & surface text tokens */
-    --color-text-on-primary: #352924;
+    --color-text-on-primary: var(--color-brown);
 
     /* Button tokens - Secondary */
-    --color-button-secondary-bg: #322721;
-    --color-button-secondary-bg-hover: #3a2f2a;
-    --color-button-secondary-bg-focus: #281e1b;
-    --color-button-secondary-text: #f0f0eb;
+    --color-button-secondary-bg: var(--color-brown);
+    --color-button-secondary-bg-hover: var(--color-brown-light);
+    --color-button-secondary-bg-focus: var(--color-brown-dark);
+    --color-button-secondary-text: var(--color-offWhite);
 
     /* Button tokens - Tertiary */
-    --color-button-tertiary-bg: #f0f0eb;
-    --color-button-tertiary-bg-hover: #f6f6f3;
-    --color-button-tertiary-bg-focus: #e0e0d7;
-    --color-button-tertiary-text: #322721;
+    --color-button-tertiary-bg: var(--color-offWhite);
+    --color-button-tertiary-bg-hover: var(--color-offWhite-light);
+    --color-button-tertiary-bg-focus: var(--color-offWhite-dark);
+    --color-button-tertiary-text: var(--color-brown);
 
     /* Button tokens - Outline */
-    --color-button-outline-text: #372d27;
-    --color-button-outline-border: #e5e5e0;
+    --color-button-outline-text: var(--color-brown);
+    --color-button-outline-border: var(--color-gray-30);
   }
 
   body {

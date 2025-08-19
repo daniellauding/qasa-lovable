@@ -4,7 +4,7 @@ import { ChevronDown, ArrowLeft, Share, Edit } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
-import Box from '../../../../components/ui/Box';
+import HintBox from '../../../../components/ui/HintBox';
 import Icon from '../../../../components/ui/Icon';
 
 function ListingPreview({ formData, onEdit, onPublish }) {
@@ -329,7 +329,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
           <div>
             {/* Sticky Box */}
             <div className="sticky top-24">
-              <Box shadow className="mb-4">
+              <HintBox className="mb-4" title={`${parseInt(rent) + 49} kr`} description={formData.moveInType === 'asap' ? 'Nu' : 'Välj datum'}>
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -337,7 +337,6 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                       <Icon name="ArrowRightIcon" size="sm" />
                       <span>{formData.moveOutType === 'indefinite' ? 'Tillsvidare' : 'Välj datum'}</span>
                     </div>
-                    <Typography variant="h3" className="mt-1">{parseInt(rent) + 49} kr</Typography>
                   </div>
                   <button onClick={handleEditRent} className="p-2 rounded-full hover:bg-gray-100">
                     <Edit className="h-5 w-5" />
@@ -352,17 +351,13 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                 <Button variant="outline" fullWidth className="mt-2">
                   Redigera visningar
                 </Button>
-              </Box>
+              </HintBox>
 
-              <Box variant="gray">
-                <Typography variant="h3" className="mb-2">
-                  Hyr bättre och tryggare med Qasa
-                </Typography>
-                <Typography variant="body2" color="secondary" className="mb-4">
-                  Detta hem har en verifierad hyresvärd, ett tryggt hyresavtal och dedikerad support 7 dagar i veckan. Alla betalningar hanteras genom oss.
-                </Typography>
-                <Button variant="tertiary">Läs mer</Button>
-              </Box>
+              <HintBox
+                title="Hyr bättre och tryggare med Qasa"
+                description="Detta hem har en verifierad hyresvärd, ett tryggt hyresavtal och dedikerad support 7 dagar i veckan. Alla betalningar hanteras genom oss."
+                actions={[{ label: 'Läs mer', variant: 'tertiary' }]}
+              />
             </div>
           </div>
         </div>

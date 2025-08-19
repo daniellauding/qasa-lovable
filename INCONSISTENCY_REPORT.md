@@ -111,13 +111,13 @@ src/components/Header/HeaderDiscover.jsx
 
 ### Medium Priority
 
-4. **Create Tailwind Abstraction Layer**
+4. **Use HintBox for neutral inline information**
    ```jsx
    // Instead of:
-   <div className="px-4 py-2 bg-gray-50 rounded-lg">
-   
+   <div className="px-4 py-2 bg-gray-50 rounded-lg">…</div>
+
    // Use:
-   <Box padding="md" variant="surface" rounded="lg">
+   <HintBox title="Why do we need your phone number?" description="Your phone number helps us quickly reach out if any issues arise during the rental." />
    ```
 
 5. **Implement Translation Keys**

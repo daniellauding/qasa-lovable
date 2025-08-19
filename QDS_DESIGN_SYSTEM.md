@@ -131,6 +131,34 @@ mono-sm     /* 12px/16px */
 
 ---
 
+## 🧪 Contrast & Accessibility Rules
+
+- White-on-dark: When a surface is dark (e.g., `--color-brown`) or uses an image with dark gradient overlays, text must be white. Implement via `Typography` using `color="white"` and optional opacity classes (`opacity-80/85`).
+- Icons on primary: use `--color-text-on-primary` for icons and text inside primary buttons and brand pills.
+- Icons on dark non-primary surfaces: use white (`text-white`).
+- Never set `--color-text-primary` on dark surfaces; contrast fails.
+- Maintain WCAG 2.1 AA contrast in both themes.
+
+## 🧱 Shadows & Borders
+
+- Allowed shadows: `shadow-sm`, `shadow-md`, `shadow-lg` on cards/compact boxes only. Avoid shadows on full-width strips (hero, stats strip).
+- Borders must use tokens like `--color-border` or brand-subtle variants. Avoid pure white fills/borders to simulate contrast; use overlays/tokens.
+
+### Box
+- Background: `--color-background-inset` (Gray 10). No built-in shadow. Use `Card` for elevation.
+
+## 🔠 Title Hierarchy (Use `Typography` variants)
+
+- Page hero: `display-lg` (compact: `display-md`). On dark hero use `color="white"`.
+- Section headers: `display-sm`.
+- Card/box titles: `title-lg`.
+- Body copy: `body-md` (secondary copy: `color="secondary"`).
+- Stat value: `title-xl` or `title-lg`; hint: `body-sm`/`label-md`.
+
+These rules are mandatory for Lovable and manual contributors.
+
+---
+
 ## 🔧 Extending QDS
 
 ### Adding New Components

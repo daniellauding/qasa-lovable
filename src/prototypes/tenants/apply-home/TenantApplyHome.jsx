@@ -6,7 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import ContactModal from '../../../components/ContactModal';
 import Button from '../../../components/ui/Button';
 import Typography from '../../../components/ui/Typography';
-import Box from '../../../components/ui/Box';
+import HintBox from '../../../components/ui/HintBox';
 import Icon from '../../../components/ui/Icon';
 
 // Fix for default markers in react-leaflet
@@ -222,7 +222,7 @@ function TenantApplyHome() {
           <div>
             {/* Sticky Box */}
             <div className="sticky top-24">
-              <Box shadow className="mb-4">
+              <HintBox className="mb-4" title="9 104 kr" description="2025-07-01 → Tillsvidare">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <div className="flex items-center gap-2 text-sm text-gray-600">
@@ -230,7 +230,6 @@ function TenantApplyHome() {
                       <Icon name="ArrowRightIcon" size="sm" />
                       <span>Tillsvidare</span>
                     </div>
-                    <Typography variant="h3" className="mt-1">9 104 kr</Typography>
                   </div>
                   <Button variant="tertiary" icon={<Icon name="InformationCircleIcon" size="sm" />} />
                 </div>
@@ -240,17 +239,13 @@ function TenantApplyHome() {
                     Kontakta
                   </Button>
                 </div>
-              </Box>
+              </HintBox>
 
-              <Box variant="gray">
-                <Typography variant="h3" className="mb-2">
-                  Hyr bättre och tryggare med Qasa
-                </Typography>
-                <Typography variant="body2" color="secondary" className="mb-4">
-                  Detta hem har en verifierad hyresvärd, ett tryggt hyresavtal och dedikerad support 7 dagar i veckan. Alla betalningar hanteras genom oss.
-                </Typography>
-                <Button variant="tertiary">Läs mer</Button>
-              </Box>
+              <HintBox
+                title="Hyr bättre och tryggare med Qasa"
+                description="Detta hem har en verifierad hyresvärd, ett tryggt hyresavtal och dedikerad support 7 dagar i veckan. Alla betalningar hanteras genom oss."
+                actions={[{ label: 'Läs mer', variant: 'tertiary' }]}
+              />
             </div>
           </div>
         </div>

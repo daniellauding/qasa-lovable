@@ -393,3 +393,84 @@ export default MyComponent;
 ```
 
 **This template follows all QDS rules and is ready to use!** 🎉
+
+---
+
+## 🎨 Color & Contrast Rules (Mandatory)
+
+- **White text on dark surfaces**: When the background is dark or image-overlaid (e.g., `bg-[var(--color-brown)]`, `from-black/60`, hero images), set text explicitly to white using `Typography` with `color="white"`.
+  - Titles and body on dark: `<Typography color="white" ...>`.
+  - Hints/captions on dark: white with reduced opacity, e.g., `className="opacity-85"`.
+- **Icons on brand/dark backgrounds**:
+  - Inside brand/primary buttons: icon color must be `text-[var(--color-text-on-primary)]`.
+  - On generic dark surfaces (non-primary): `text-white`.
+  - Icon containers on light sections: `bg-[var(--color-button-tertiary-bg)]` with icon `text-[var(--color-text-primary)]`.
+  - Icon containers on dark sections: `bg-white/10` with icon `text-white`.
+- **Never** use `text-[var(--color-text-primary)]` on dark surfaces; contrast fails.
+- Prefer tokens over hex or Tailwind palette. If a token seems missing, use the closest semantic token and open a follow-up to extend tokens—do not hardcode colors.
+
+### Examples
+
+```jsx
+// Hero text on dark image or brown background
+<Typography variant="display-sm" color="white">A better way to rent</Typography>
+<Typography variant="body-lg" color="white" className="opacity-90">Find a home that feels right...</Typography>
+
+// Primary icon button
+<Button variant="primary" iconOnly aria-label="Search">
+  <Search className="w-5 h-5 text-[var(--color-text-on-primary)]" />
+  {/* never text-white inside primary if on-primary token exists */}
+  {/* never text-[var(--color-text-primary)] on this button */}
+</Button>
+
+// Stats on dark strip
+<section className="bg-[var(--color-brown)] rounded-2xl">
+  <Typography variant="title-lg" color="white">600 000+</Typography>
+  <Typography variant="body-sm" color="white" className="opacity-80">published homes</Typography>
+</section>
+```
+
+---
+
+## 🔠 Title & Typographic Hierarchy (Mandatory)
+
+- **Page hero**: `display-lg` (or `display-md` on smaller hero). On dark hero: `color="white"`.
+- **Section headers**: `display-sm`.
+- **Card/box titles**: `title-lg`.
+- **Key stats**: `title-xl` or `title-lg` depending on emphasis; hints use `label-md` or `body-sm`.
+- **Body copy**: `body-md` (default), secondary text uses `color="secondary"`.
+- **Small print**: `label-sm`.
+
+Do not output raw `<h*>`/`<p>` with manual classes for size. Always use `Typography` with the correct variant.
+
+---
+
+## 🧱 Composition Only — No New Section Components
+
+- Do not introduce new section components such as `WhatIsQasa`, `HowItWorksSection`, or `TrustSafetySection`.
+- Build sections by composing approved QDS primitives/patterns:
+  - `Typography`, `Button`, `Card`, `Avatar`, `Carousel`, `CityCard`, `FeatureCard`, `RichPromoCard`, `StatsStrip`, `TestimonialCarousel`, `FAQLinkList`.
+- If a reusable pattern is truly needed, follow the QDS creation process (folder + story + tokens). Never invent ad-hoc components in prototypes.
+
+### Composition Recipes
+
+- **“What is Qasa?” section**
+  - `Typography` (`display-sm` title, `body-md` subtitle/description)
+  - Grid with three stats using `Typography` (`title-lg` value, `body-sm` hint)
+
+- **“How it works” pills**
+  - Two `Button` components inside a rounded container (`transparent` + `primary` for active). No custom tabs component.
+  - Four step “boxes”: use `Card`-like container (div with border + `rounded-2xl`), Lucide icon in a circle, title `title-lg`, body `body-sm`.
+
+- **Trust & Safety**
+  - 4-up grid; each cell uses an icon container, a `title-lg`, and `body-sm`.
+
+---
+
+## 🧱 Shadows & Borders
+
+- Allowed shadows: `shadow-sm`, `shadow-md`, `shadow-lg` on cards/boxes only. Avoid shadows on full-width strips.
+- Borders use tokens only: `border-[var(--color-border)]` or semantic variants (e.g., brand subtle). No pure white fills to simulate contrast; use gradient overlays and tokens.
+
+### Box Usage
+- Use `Box` as a neutral container with `variant="gray"` (default). It renders Gray 10 (inset). Do not expect shadows or a white variant. For elevation, use `Card` or apply shadow classes explicitly.

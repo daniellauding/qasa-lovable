@@ -510,3 +510,39 @@ export const TEST_SCENARIOS = [
 - Performance optimization
 - Team training sessions
 - Strategy alignment review
+
+---
+
+## 📐 Lovable Generation Rules (QDS Compliance)
+
+These rules are hard requirements for Lovable output:
+
+- **No new section components**: Do not generate `WhatIsQasa`, `HowItWorksSection`, `TrustSafetySection`, etc. Use existing QDS components and compose sections.
+- **Typography hierarchy**:
+  - Hero: `display-lg` (dark hero uses `color="white"`)
+  - Section headers: `display-sm`
+  - Card titles: `title-lg`
+  - Body: `body-md` (secondary copy: `color="secondary"`)
+  - Small/hints: `label-sm` or `body-sm`
+- **Color & contrast**:
+  - On dark surfaces or image + dark gradient → use `Typography color="white"` for all text; use opacity for subtext.
+  - Icons inside primary buttons → `text-[var(--color-text-on-primary)]`.
+  - Icons on dark non-primary surfaces → `text-white`.
+  - Never use Tailwind palette or hex; use tokens.
+- **Shadows & borders**:
+  - Allowed shadows: `shadow-sm | shadow-md | shadow-lg` for cards/boxes only.
+  - Borders must use token colors (e.g., `--color-border`). No pure-white borders for contrast.
+- **Language**: Always generate EN/SV/FI/NO keys simultaneously when emitting translation snippets.
+
+### Composition Recipes (for generation)
+
+- “What is Qasa?” section
+  - Title (`display-sm`), subtitle (`title-xl`), description (`body-md` secondary)
+  - 3 stats using value (`title-lg`) + hint (`body-sm`)
+
+- “How it works” pills + steps
+  - Two `Button`s in rounded container (primary active, transparent inactive)
+  - 4 step boxes: icon circle + `title-lg` + `body-sm`
+
+- Trust & Safety grid
+  - 4 items: icon container + `title-lg` + `body-sm`
