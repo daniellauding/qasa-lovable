@@ -10,11 +10,11 @@ const CreateListingStep1 = ({ onNext, onPrev }) => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-8 items-center">
+    <div className="bg-white flex items-center justify-center p-4 md:py-8">
+      <div className="w-full">
+        <div className="flex flex-col md:flex-row items-center md:min-h-[80vh] max-w-[1024px] gap-20 px-4 md:px-12 pt-0 md:pt-8 mx-auto">
           {/* Left: Content */}
-          <div className="order-2 lg:order-1">
+          <div>
             <div className="space-y-6">
               {/* Step indicator */}
               <div className="flex items-center">
@@ -44,7 +44,7 @@ const CreateListingStep1 = ({ onNext, onPrev }) => {
           </div>
 
           {/* Right: Image */}
-          <div className="order-1 lg:order-2">
+          <div>
             <div className="w-full ml-auto overflow-hidden rounded-[32px] h-64 md:h-[28rem]">
               <img
                 src="https://qasa.se/_next/static/media/image-chapter-1-desktop.bb9a2a9d.png"
