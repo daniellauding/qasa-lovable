@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import TextArea from '../../../../components/ui/TextArea';
 import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeft } from 'lucide-react';
@@ -20,18 +21,11 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Beskriv din bostad
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Beskriv din bostad, området och det du vill förmedla i annonstexten. Du kan enkelt ändra din beskrivning senare.
-            </Typography>
-          </div>
+          <SectionHeader title="Beskriv din bostad" description="Beskriv din bostad, området och det du vill förmedla i annonstexten. Du kan enkelt ändra din beskrivning senare." />
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Om bostaden
               </label>
               <TextArea
@@ -42,7 +36,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                 maxLength={3000}
               />
               <div className="flex justify-between items-center mt-2">
-                <Typography variant="body-sm" className="text-gray-500">
+                <Typography variant="body-sm" color="secondary">
                   {remainingChars}
                 </Typography>
               </div>

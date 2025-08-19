@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import Input from '../../../../components/ui/Input';
 import { ArrowLeft } from 'lucide-react';
@@ -51,14 +52,7 @@ const CreateListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           {/* Header */}
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vem är du?
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Vi behöver veta om du hyr ut som privatperson eller företag
-            </Typography>
-          </div>
+          <SectionHeader title="Vem är du?" description="Vi behöver veta om du hyr ut som privatperson eller företag" />
 
           {/* User Type Selection */}
           <div className="space-y-6">

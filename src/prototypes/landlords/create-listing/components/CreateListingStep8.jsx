@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Input from '../../../../components/ui/Input';
 import Select from '../../../../components/ui/Select';
 import { ArrowLeft } from 'lucide-react';
@@ -61,14 +62,12 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Hur stor är bostaden?
-            </Typography>
+            <SectionHeader title="Hur stor är bostaden?" />
           </div>
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Storlek
               </label>
               <div className="relative">
@@ -79,14 +78,14 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
                   onChange={handleSizeChange}
                   className="pr-12"
                 />
-                <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)]">
                   m²
                 </div>
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Antal rum
               </label>
               <Select
@@ -97,7 +96,7 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Antal sovrum <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Select
@@ -105,7 +104,7 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
                 onValueChange={handleBedroomsChange}
                 options={bedroomOptions}
               />
-              <Typography variant="body-sm" className="text-gray-500 mt-2">
+              <Typography variant="body-sm" color="secondary" className="mt-2">
                 Sovrum är inkluderade i totalt antal rum
               </Typography>
             </div>

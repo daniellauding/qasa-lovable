@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import { ArrowLeft } from 'lucide-react';
 
 const CreateListingStep10 = ({ onNext, onPrev }) => {
@@ -17,12 +18,7 @@ const CreateListingStep10 = ({ onNext, onPrev }) => {
             </div>
 
             <div className="space-y-6">
-              <Typography variant="title-xl" className="text-gray-900">
-                Vad får ditt hem att sticka ut?
-              </Typography>
-              <Typography variant="body-lg" className="text-gray-600">
-                Lägg till bilder och beskrivning för att få din annons att stå ut ur mängden.
-              </Typography>
+              <SectionHeader title="Vad får ditt hem att sticka ut?" description="Lägg till bilder och beskrivning för att få din annons att stå ut ur mängden." />
             </div>
 
             {/* Footer */}

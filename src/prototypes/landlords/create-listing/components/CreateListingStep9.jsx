@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import DatePicker from '../../../../components/ui/DatePicker';
 import { ArrowLeft } from 'lucide-react';
@@ -63,15 +64,11 @@ const CreateListingStep9 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              När vill du hyra ut bostaden?
-            </Typography>
-          </div>
+          <SectionHeader title="När vill du hyra ut bostaden?" />
 
           <div className="space-y-8">
             <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
+              <Typography variant="body-md" color="secondary" className="mb-4">
                 Inflytt
               </Typography>
               <div className="space-y-4">
@@ -91,7 +88,7 @@ const CreateListingStep9 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
+              <Typography variant="body-md" color="secondary" className="mb-4">
                 Utflytt
               </Typography>
               <div className="space-y-4">
@@ -111,7 +108,7 @@ const CreateListingStep9 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
+              <Typography variant="body-md" color="secondary" className="mb-4">
                 Är detta den enda bostad du hyr ut?
               </Typography>
               <RadioGroup

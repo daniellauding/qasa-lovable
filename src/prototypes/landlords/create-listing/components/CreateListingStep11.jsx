@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Checkbox from '../../../../components/ui/Checkbox';
 import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeft } from 'lucide-react';
@@ -92,19 +93,12 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="w-full max-w-4xl mx-auto p-8">
         <div className="space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vilka bekvämligheter finns i bostaden?
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Markera allt som ingår i uthyrningen.
-            </Typography>
-          </div>
+          <SectionHeader title="Vilka bekvämligheter finns i bostaden?" description="Markera allt som ingår i uthyrningen." />
 
           <div className="space-y-8">
             {amenityGroups.map((group) => (
               <div key={group.title} className="space-y-4">
-                <Typography variant="title-sm" className="text-gray-900">
+                <Typography variant="title-sm" className="text-[var(--color-text-primary)]">
                   {group.title}
                 </Typography>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

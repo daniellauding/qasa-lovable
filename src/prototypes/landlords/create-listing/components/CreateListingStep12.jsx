@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Select from '../../../../components/ui/Select';
 import Input from '../../../../components/ui/Input';
 import { ArrowLeft } from 'lucide-react';
@@ -69,18 +70,11 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Mer om bostaden och dess skick
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Sökande är ofta intresserade av renoveringar och när huset byggdes.
-            </Typography>
-          </div>
+          <SectionHeader title="Mer om bostaden och dess skick" description="Sökande är ofta intresserade av renoveringar och när huset byggdes." />
 
           <div className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Bostadens skick <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Select
@@ -91,7 +85,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Bostadens byggnadsår <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Input
@@ -102,7 +96,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Badrum - år sedan renovering <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Select
@@ -113,7 +107,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Kök - år sedan renovering <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Select
@@ -124,7 +118,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
                 Energiklass <span className="text-gray-400">(Valfritt)</span>
               </label>
               <Select

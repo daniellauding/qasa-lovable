@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import LoadingDots from '../../../../components/ui/LoadingDots';
 import { ArrowLeft, Image, ChevronUp, ChevronDown, Trash2 } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -70,12 +71,7 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="space-y-8">
           {/* Header */}
           <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Bilder på ditt hem
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Ladda upp ljusa och tydliga bilder – ju fler desto bättre. Några bra foton gör att annonsen sticker ut och sparar dig från onödiga frågor.
-            </Typography>
+            <SectionHeader title="Bilder på ditt hem" description="Ladda upp ljusa och tydliga bilder – ju fler desto bättre. Några bra foton gör att annonsen sticker ut och sparar dig från onödiga frågor." />
           </div>
 
           <div className="space-y-6">
@@ -93,16 +89,16 @@ const CreateListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
               <label htmlFor="image-upload" className="cursor-pointer w-full h-full flex items-center justify-center">
                 {isUploading ? (
                   <div className="space-y-4">
-                    <LoadingDots size="lg" className="text-gray-400" />
-                    <Typography variant="body-md" className="text-gray-600">
+                    <LoadingDots size="lg" className="text-[var(--color-text-secondary)]" />
+                    <Typography variant="body-md" color="secondary">
                       Laddar upp bilder...
                     </Typography>
                   </div>
                 ) : (
                   <div className="gap-4 flex align-center items-center justify-center">
-                    <Image className="mx-auto h-12 w-12 text-gray-400" />
+                    <Image className="mx-auto h-12 w-12 text-[var(--color-text-secondary)]" />
                     <div className="mt-0">
-                      <Typography variant="title-xxs" className="text-gray-900">
+                      <Typography variant="title-xxs" className="text-[var(--color-text-primary)]">
                         Ladda upp bilder
                       </Typography>
                     </div>

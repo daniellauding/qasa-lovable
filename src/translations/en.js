@@ -166,6 +166,13 @@ export const en = {
     }
   },
 
+  landlords: {
+    createListing: {
+      step1: { title: 'Tell us about your home.', description: 'Let’s start with the basics like size and location.' },
+      step2: { title: 'What is the address of the home?', description: 'We need your full address to show your home on a map. Only the street name is shown in the listing.' },
+    }
+  },
+
   // Tenant Listing Creation
   tenant: {
     listing: {

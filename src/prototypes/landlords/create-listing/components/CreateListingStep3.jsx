@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Input from '../../../../components/ui/Input';
 import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeft } from 'lucide-react';
@@ -57,41 +58,18 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           {/* Header */}
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vilken adress har bostaden?
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen.
-            </Typography>
-          </div>
+          <SectionHeader
+            title="Vilken adress har bostaden?"
+            description="Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen."
+          />
 
-          {/* Address Search Input - Read Only */}
+          {/* Address display (read-only) */}
           <div className="space-y-4">
-            <div className="relative">
-              <Input
-                value={localFormData.address}
-                readOnly
-                className="w-full pl-10 bg-gray-50"
-              />
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="3" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  className="text-gray-400"
-                >
-                  <path d="m21 21-4.34-4.34"></path>
-                  <circle cx="11" cy="11" r="8"></circle>
-                </svg>
-              </div>
-            </div>
+            <HintBox
+              title="Sökta adressen"
+              description={localFormData.address}
+              className="!bg-[var(--color-background-inset,#f9f9f6)]"
+            />
 
             {/* Separator */}
             <div className="border-t border-gray-200 my-6"></div>
@@ -120,7 +98,7 @@ const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                   error={!!errors.streetNumber}
                 />
                 {errors.streetNumber && (
-                  <Typography variant="body-sm" className="text-red-600 mt-1">
+                  <Typography variant="body-sm" className="text-[var(--color-danger)] mt-1">
                     {errors.streetNumber}
                   </Typography>
                 )}

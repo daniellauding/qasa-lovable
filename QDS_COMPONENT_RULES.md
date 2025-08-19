@@ -236,6 +236,12 @@ Before committing any new component or screen:
 ### Tokens Only
 - Never use Tailwind palette classes or hex values for colors. Always use CSS variables (tokens). If a token seems missing, choose the best semantic token and open a task to extend tokens.
 
+Required replacements:
+- `text-gray-900` → `text-[var(--color-text-primary)]`
+- `text-gray-700/600/500/400` → `text-[var(--color-text-secondary)]` (or `text-[var(--color-gray-60|50|40)]` where nuance is needed)
+- `text-green-600` → `text-[var(--color-success)]`
+- `text-red-600` → `text-[var(--color-danger)]`
+
 ### Shadows & Borders
 - Allowed shadows: `shadow-sm | shadow-md | shadow-lg` on cards/boxes only. No shadows on wide strips (hero, stats strip).
 - Borders use semantic tokens, e.g., `border-[var(--color-border)]` or the documented brand-subtle border token.

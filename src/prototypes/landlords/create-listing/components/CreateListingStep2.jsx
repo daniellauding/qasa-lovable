@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Input from '../../../../components/ui/Input';
 import Search from '../../../../components/ui/Search';
 import HintBox from '../../../../components/ui/HintBox';
@@ -47,14 +48,10 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           {/* Header */}
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vilken adress har bostaden?
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen.
-            </Typography>
-          </div>
+          <SectionHeader
+            title={t('landlords.createListing.step2.title')}
+            description={t('landlords.createListing.step2.description')}
+          />
 
           {/* Address Search Input */}
           <div className="space-y-4">

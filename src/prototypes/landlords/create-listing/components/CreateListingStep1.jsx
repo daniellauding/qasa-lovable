@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep1 = ({ onNext }) => {
@@ -38,15 +39,10 @@ const CreateListingStep1 = ({ onNext }) => {
               </div>
             </div>
 
-            {/* Title */}
-            <Typography variant="title-lg" className="text-gray-900">
-              Berätta lite om ditt hem.
-            </Typography>
-
-            {/* Description */}
-            <Typography variant="body-lg" className="text-gray-700">
-              Låt oss börja med att lägga grunden för din annons, såsom storlek och plats.
-            </Typography>
+            <SectionHeader
+              title={t('landlords.createListing.step1.title')}
+              description={t('landlords.createListing.step1.description')}
+            />
 
             {/* Next button */}
             <div className="pt-4">

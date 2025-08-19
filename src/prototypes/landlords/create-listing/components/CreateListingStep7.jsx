@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import Select from '../../../../components/ui/Select';
 import HintBox from '../../../../components/ui/HintBox';
@@ -43,11 +44,7 @@ const CreateListingStep7 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vilken typ av bostad är det?
-            </Typography>
-          </div>
+          <SectionHeader title="Vilken typ av bostad är det?" />
 
           <div className="space-y-8">
             <RadioGroup

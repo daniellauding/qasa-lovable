@@ -195,7 +195,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               </button>
             </div>
             
-            <div className="flex items-center gap-4 text-gray-500 mb-2">
+            <div className="flex items-center gap-4 text-[var(--color-text-secondary)] mb-2">
               <span>{formData.propertyType || 'Övrigt'}</span>
               <span>•</span>
               <span>{rooms} rum</span>
@@ -205,7 +205,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               <span>{area} m²</span>
             </div>
 
-            <div className="flex items-center gap-4 text-gray-500 mb-8">
+            <div className="flex items-center gap-4 text-[var(--color-text-secondary)] mb-8">
               <span>Möblerat</span>
             </div>
 
@@ -226,10 +226,10 @@ function ListingPreview({ formData, onEdit, onPublish }) {
 
             {/* Description */}
             <div className="mb-8">
-              <Typography variant="body1" className="text-gray-700">
+              <Typography variant="body1" color="secondary">
                 {formData.description || 'Byggnaden byggdes år 1.'}
               </Typography>
-              <Typography variant="body1" className="text-gray-700">
+              <Typography variant="body1" color="secondary">
                 Byggnaden har energiklass B.
               </Typography>
             </div>
@@ -241,7 +241,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                 {amenities.slice(0, 10).map((amenity, idx) => (
                   <div key={idx} className="flex items-center gap-2">
                     <span className="text-xl">{amenity.icon}</span>
-                    <Typography variant="body2" className="text-gray-600">{amenity.label}</Typography>
+                    <Typography variant="body2" color="secondary">{amenity.label}</Typography>
                   </div>
                 ))}
               </div>
@@ -252,19 +252,19 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               <Typography variant="h2" className="mb-4">Husregler och tillgänglighet</Typography>
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <Icon name="CheckIcon" size="sm" className="text-green-600" />
+                  <Icon name="CheckIcon" size="sm" className="text-[var(--color-success)]" />
                   <Typography variant="body2">Upp till {formData.maxOccupants || '3'} hyresgäster</Typography>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Icon name="XMarkIcon" size="sm" className="text-red-600" />
+                  <Icon name="XMarkIcon" size="sm" className="text-[var(--color-danger)]" />
                   <Typography variant="body2">{formData.pets === 'yes' ? 'Husdjur tillåtna' : 'Inga husdjur'}</Typography>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Icon name="XMarkIcon" size="sm" className="text-red-600" />
+                  <Icon name="XMarkIcon" size="sm" className="text-[var(--color-danger)]" />
                   <Typography variant="body2">{formData.wheelchairAccessible === 'yes' ? 'Tillgänglig med rullstol' : 'Ej tillgänglig med rullstol'}</Typography>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Icon name="XMarkIcon" size="sm" className="text-red-600" />
+                  <Icon name="XMarkIcon" size="sm" className="text-[var(--color-danger)]" />
                   <Typography variant="body2">{formData.smoking === 'yes' ? 'Rökning tillåten' : 'Rökfritt'}</Typography>
                 </div>
               </div>
@@ -302,7 +302,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                 <Typography variant="h3" className="mb-2">Övriga kostnader</Typography>
                 <div className="flex justify-between">
                   <Typography variant="body2">Elkostnad</Typography>
-                  <Typography variant="body2" className="text-green-600">
+                  <Typography variant="body2" className="text-[var(--color-success)]">
                     {formData.electricityCost === 'included' ? 'Detta ingår' : `${formData.electricityAmount || '0'} kr`}
                   </Typography>
                 </div>
@@ -332,7 +332,7 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               <HintBox className="mb-4" title={`${parseInt(rent) + 49} kr`} description={formData.moveInType === 'asap' ? 'Nu' : 'Välj datum'}>
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2 text-sm text-[var(--color-text-secondary)]">
                       <span>{formData.moveInType === 'asap' ? 'Nu' : '2025-07-01'}</span>
                       <Icon name="ArrowRightIcon" size="sm" />
                       <span>{formData.moveOutType === 'indefinite' ? 'Tillsvidare' : 'Välj datum'}</span>

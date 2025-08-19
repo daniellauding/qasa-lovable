@@ -5,6 +5,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import HintBox from '../../../../components/ui/HintBox';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
@@ -26,14 +27,7 @@ const CreateListingStep4 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-4xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           {/* Header */}
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Är markören på rätt ställe?
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Justera markörens position så den visar var din bostad ligger.
-            </Typography>
-          </div>
+          <SectionHeader title="Är markören på rätt ställe?" description="Justera markörens position så den visar var din bostad ligger." />
 
           {/* Map Container */}
           <div className="relative">

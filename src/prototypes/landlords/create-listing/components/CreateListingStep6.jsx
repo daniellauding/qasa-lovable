@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import { ArrowLeft } from 'lucide-react';
 
@@ -34,15 +35,11 @@ const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Vad vill du hyra ut?
-            </Typography>
-          </div>
+          <SectionHeader title="Vad vill du hyra ut?" />
 
           <div className="space-y-8">
             <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
+              <Typography variant="body-md" color="secondary" className="mb-4">
                 Hel bostad eller rum?
               </Typography>
               <RadioGroup
@@ -55,7 +52,7 @@ const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
+              <Typography variant="body-md" color="secondary" className="mb-4">
                 Hyr du ut möblerat?
               </Typography>
               <RadioGroup
