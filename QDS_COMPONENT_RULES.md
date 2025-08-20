@@ -384,6 +384,8 @@ When generating new components or pages, **always include**:
 - **Missing QDS imports**: Using raw HTML instead of QDS components
 - **Undefined array .map()**: Calling `.map()` on undefined arrays without fallbacks
 - **Missing default arrays**: Not providing `|| []` fallbacks for array props
+- **Undefined object properties**: Accessing properties on undefined objects without checks
+- **Missing object validation**: Not verifying objects exist before rendering components
 
 **Example Response Format:**
 ```

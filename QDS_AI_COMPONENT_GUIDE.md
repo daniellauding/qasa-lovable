@@ -81,6 +81,36 @@ const tenant = {
 <Carousel items={items || []} />
 ```
 
+#### ❌ **Undefined Object Property Errors**
+```jsx
+// ❌ WRONG - Accessing properties on undefined objects
+<TenantCard user={undefined} />
+<Avatar src={user.avatar} /> // user is undefined
+
+// ✅ CORRECT - Check for undefined objects before accessing properties
+{user && <TenantCard user={user} />}
+<Avatar src={user?.avatar} alt={user?.name} />
+
+// ✅ CORRECT - Provide default values
+<TenantCard user={user || defaultUser} />
+<Avatar src={user?.avatar || defaultAvatar} alt={user?.name || 'User'} />
+```
+
+#### ❌ **Nested Property Access Errors**
+```jsx
+// ❌ WRONG - Accessing nested properties without checks
+{user.profile.avatar}
+{property.images[0]}
+
+// ✅ CORRECT - Use optional chaining for nested properties
+{user?.profile?.avatar}
+{property?.images?.[0]}
+
+// ✅ CORRECT - Provide fallbacks for nested properties
+{user?.profile?.avatar || defaultAvatar}
+{property?.images?.[0] || defaultImage}
+```
+
 #### 🔍 **Component Prop Requirements**
 
 **TenantCard:**
@@ -368,11 +398,13 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
 
 **Common Error Patterns to Avoid:**
 - `Cannot read property 'map' of undefined` → Use `data?.map() || []`
-- `Cannot read property 'avatar' of undefined` → Check data structure
+- `Cannot read property 'avatar' of undefined` → Use `user?.avatar` or provide default user
 - `TenantCard was called with invalid props` → Verify all required props
 - `TestimonialCarousel expects 'items' prop` → Use correct prop name
 - `TypeError: Cannot read properties of undefined (reading 'map')` → Always provide default arrays
 - `Runtime Error: undefined.map()` → Use optional chaining and fallbacks
+- `TypeError: Cannot read properties of undefined (reading 'avatar')` → Check user object exists before rendering
+- `Cannot read property 'name' of undefined` → Use optional chaining for all object properties
 
 ### 🚫 **Code Rejection Rules**
 
@@ -448,6 +480,8 @@ className="bg-[var(--color-gray-10)]"
 - Invalid button size: 'xl' should be 'lg'
 - Undefined array .map() error: Use properties?.map() || []
 - Missing default arrays: Provide fallbacks for all array props
+- Undefined object property error: Use user?.avatar or provide default user object
+- Missing object checks: Always verify objects exist before accessing properties
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```
