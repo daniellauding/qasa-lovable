@@ -58,6 +58,29 @@ const tenant = {
 {properties?.map(property => property.safeProp) || []}
 ```
 
+#### ❌ **Undefined Array .map() Errors**
+```jsx
+// ❌ WRONG - Calling .map() on undefined array
+{properties.map(property => <PropertyCard key={property.id} property={property} />)}
+
+// ✅ CORRECT - Use optional chaining and default empty array
+{properties?.map(property => <PropertyCard key={property.id} property={property} />) || []}
+
+// ✅ CORRECT - Provide default empty array
+{(properties || []).map(property => <PropertyCard key={property.id} property={property} />)}
+```
+
+#### ❌ **Component Props Undefined Errors**
+```jsx
+// ❌ WRONG - Passing undefined props
+<Map properties={undefined} />
+<Carousel items={undefined} />
+
+// ✅ CORRECT - Provide default empty arrays
+<Map properties={properties || []} />
+<Carousel items={items || []} />
+```
+
 #### 🔍 **Component Prop Requirements**
 
 **TenantCard:**
@@ -340,12 +363,16 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
 4. **✅ Import Statements**: Import components from correct paths
 5. **✅ Component Usage**: Follow exact prop structure from PropTypes
 6. **✅ Error Handling**: Provide fallbacks for missing data
+7. **✅ Array Safety**: Always provide default empty arrays for .map() operations
+8. **✅ Component Props**: Never pass undefined arrays to components
 
 **Common Error Patterns to Avoid:**
 - `Cannot read property 'map' of undefined` → Use `data?.map() || []`
 - `Cannot read property 'avatar' of undefined` → Check data structure
 - `TenantCard was called with invalid props` → Verify all required props
 - `TestimonialCarousel expects 'items' prop` → Use correct prop name
+- `TypeError: Cannot read properties of undefined (reading 'map')` → Always provide default arrays
+- `Runtime Error: undefined.map()` → Use optional chaining and fallbacks
 
 ### 🚫 **Code Rejection Rules**
 
@@ -419,6 +446,8 @@ className="bg-[var(--color-gray-10)]"
 - Invalid color classes: 'bg-background', 'text-muted-foreground'
 - Invalid typography variants: 'title-4xl', 'body-lg'
 - Invalid button size: 'xl' should be 'lg'
+- Undefined array .map() error: Use properties?.map() || []
+- Missing default arrays: Provide fallbacks for all array props
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```

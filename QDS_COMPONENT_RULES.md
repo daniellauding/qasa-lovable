@@ -382,6 +382,8 @@ When generating new components or pages, **always include**:
 - **Invalid button variants**: `size="xl"` (should be `size="lg"`)
 - **Direct color usage**: Any Tailwind colors instead of CSS variables
 - **Missing QDS imports**: Using raw HTML instead of QDS components
+- **Undefined array .map()**: Calling `.map()` on undefined arrays without fallbacks
+- **Missing default arrays**: Not providing `|| []` fallbacks for array props
 
 **Example Response Format:**
 ```
