@@ -531,6 +531,8 @@ className="text-[var(--color-text-primary)]"
 - BLUE/GREEN THEMES: Introducing non-QDS color schemes
 - UNDEFINED COMPONENT ERROR: Using non-existent components like Card.CreateTenantProfileCard
 - WRONG COMPONENT NAMES: Using incorrect component names that don't exist
+- VARIANT PARAMETERS: Using `/landing?variant=conversion` or similar variant URLs
+- A/B TESTING URLS: Creating variant-based URLs for testing
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```
@@ -616,6 +618,12 @@ className="text-[var(--color-text-primary)]"
 <div>
   {/* Just content without navigation */}
 </div>
+
+// ❌ WRONG - Never use variant parameters
+<Route path="/landing?variant=conversion" element={<ConversionLanding />} />
+
+// ✅ CORRECT - Direct routing without variants
+<Route path="/landing" element={<Landing />} />
 ```
 
 ---

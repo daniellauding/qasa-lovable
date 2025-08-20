@@ -392,6 +392,8 @@ When generating new components or pages, **always include**:
 - **PURPLE GRADIENTS**: Using purple in gradients or backgrounds
 - **UNDEFINED COMPONENT ERROR**: Using non-existent components like `Card.CreateTenantProfileCard`
 - **WRONG COMPONENT NAMES**: Using incorrect component names that don't exist
+- **VARIANT PARAMETERS**: Using `/landing?variant=conversion` or similar variant URLs
+- **A/B TESTING URLS**: Creating variant-based URLs for testing
 
 ### 🔍 **Component Verification Checklist**
 **Before using any component, verify:**
@@ -400,6 +402,14 @@ When generating new components or pages, **always include**:
 - ✅ Component is properly exported from its module
 - ✅ Component props match the expected interface
 - ✅ No typos in component names (e.g., `CreateTenantProfileCard` vs `CreateProfileCard`)
+
+### 🔍 **Routing Verification Checklist**
+**Before creating routes, verify:**
+- ✅ Route path is direct (e.g., `/landing`, not `/landing?variant=conversion`)
+- ✅ No variant parameters in URLs
+- ✅ No A/B testing URL patterns
+- ✅ Single landing page at `/landing`
+- ✅ No variant system implementation
 
 **Example Response Format:**
 ```

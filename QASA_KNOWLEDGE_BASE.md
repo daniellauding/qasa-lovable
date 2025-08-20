@@ -167,6 +167,7 @@ When creating new landing pages or components:
 4. **Follow QDS component rules** for consistency
 5. **Use conversion best practices** (bento grids, carousels, CTAs)
 6. **Never skip header or footer** - Always include navigation components
+7. **Never use variant parameters** - Route directly to `/landing` without variants
 7. **Use white backgrounds for cards** - TenantCard and PropertyCard must be white
 8. **No gray card backgrounds** - Never use grayish backgrounds for any cards
 
@@ -404,7 +405,7 @@ Home feeling (emotional connection, finding a place to belong)
 - **Profilannons** - Profile listing
 - **Bostadsannons** - Property listing
 - **Schysst hyresavtal** - Fair rental agreement
-- **ID-verifierad** - ID-verified
+- **ID-verifieradcan** - ID-verified
 - **Förstahandskontrakt** - First-hand contract
 - **Andrahandskontrakt** - Second-hand contract
 

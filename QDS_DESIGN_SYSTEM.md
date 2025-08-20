@@ -315,6 +315,13 @@ mono-sm     /* 12px/16px */
 - **Navigation consistency**: Users must always have access to main navigation and footer links
 - **Accessibility**: Headers and footers provide essential navigation landmarks for screen readers
 
+### 🚫 **NEVER Use Variant Parameters**
+- **No variant URLs**: Never create `/landing?variant=conversion` or similar variant parameters
+- **Direct routing**: Always route directly to `/landing` without variant parameters
+- **No A/B testing URLs**: Don't create variant-based URLs for testing
+- **Single landing page**: The conversion landing page should be the default at `/landing`
+- **Skip variant system**: Don't implement or reference any variant system
+
 ### Background Color Rules
 - **Page backgrounds**: Never use dark backgrounds like `bg-gray-50` or similar dark grays
 - **Use only**: `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
