@@ -18,6 +18,93 @@
 - ❌ Missing Swedish context
 - ❌ Design rule violations
 
+### 🔧 Common AI/Lovable Errors & Solutions
+
+#### ❌ **Prop Name Errors**
+```jsx
+// ❌ WRONG - Wrong prop names
+<TenantCard tenant={tenantData} />
+<TestimonialCarousel testimonials={testimonialData} />
+
+// ✅ CORRECT - Use correct prop names
+<TenantCard user={tenantData} />
+<TestimonialCarousel items={testimonialData} />
+```
+
+#### ❌ **Data Structure Errors**
+```jsx
+// ❌ WRONG - Missing required properties
+const tenant = { name: "John" }; // Missing required props
+
+// ✅ CORRECT - Include all required properties
+const tenant = {
+  name: "John Doe",
+  avatar: "https://example.com/avatar.jpg",
+  description: "Software engineer, non-smoker",
+  people: "1",
+  rooms: "1-2 rooms",
+  maxRent: "25,000 SEK",
+  furnished: "Furnished",
+  moveDate: "Available now"
+};
+```
+
+#### ❌ **Undefined Property Errors**
+```jsx
+// ❌ WRONG - Accessing undefined properties
+{properties.map(property => property.undefinedProp)}
+
+// ✅ CORRECT - Check for existence or provide defaults
+{properties?.map(property => property.safeProp) || []}
+```
+
+#### 🔍 **Component Prop Requirements**
+
+**TenantCard:**
+```jsx
+<TenantCard 
+  user={{
+    name: PropTypes.string.isRequired,
+    avatar: PropTypes.string,
+    description: PropTypes.string.isRequired,
+    people: PropTypes.string.isRequired,
+    rooms: PropTypes.string.isRequired,
+    maxRent: PropTypes.string.isRequired,
+    furnished: PropTypes.string.isRequired,
+    moveDate: PropTypes.string.isRequired,
+  }}
+  verified={PropTypes.bool}
+  onCardClick={PropTypes.func}
+/>
+```
+
+**TestimonialCarousel:**
+```jsx
+<TestimonialCarousel 
+  items={[
+    { quote: PropTypes.string.isRequired, author: PropTypes.string.isRequired }
+  ]}
+/>
+```
+
+**PropertyCard:**
+```jsx
+<PropertyCard 
+  property={{
+    id: PropTypes.number.isRequired,
+    location: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    details: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+    dateRange: PropTypes.string
+  }}
+  onCardClick={PropTypes.func}
+/>
+```
+
 ---
 
 ## 🚨 CRITICAL RULES
@@ -239,6 +326,23 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
 // Grid: grid-cols-1 md:grid-cols-2 for responsive layout
 // Icons: w-8 h-8 with hover translate-x-1 effect
 ```
+
+### 🚨 **Critical Debugging Checklist**
+
+**Before submitting any component, verify:**
+
+1. **✅ Prop Names**: Use correct prop names (`user` not `tenant`, `items` not `testimonials`)
+2. **✅ Data Structure**: Include all required properties for each component
+3. **✅ Undefined Checks**: Use optional chaining (`?.`) and default values (`|| []`)
+4. **✅ Import Statements**: Import components from correct paths
+5. **✅ Component Usage**: Follow exact prop structure from PropTypes
+6. **✅ Error Handling**: Provide fallbacks for missing data
+
+**Common Error Patterns to Avoid:**
+- `Cannot read property 'map' of undefined` → Use `data?.map() || []`
+- `Cannot read property 'avatar' of undefined` → Check data structure
+- `TenantCard was called with invalid props` → Verify all required props
+- `TestimonialCarousel expects 'items' prop` → Use correct prop name
 
 ---
 

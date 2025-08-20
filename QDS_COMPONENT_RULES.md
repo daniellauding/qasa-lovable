@@ -380,6 +380,7 @@ When generating new components or pages, **always include**:
 🚀 Access: Navigate to /landing to view the new conversion-optimized landing page
 📋 Structure: Includes DynamicHeader, main content, and Footer components
 🎨 Cards: All TenantCard and PropertyCard components use white backgrounds
+🔧 Props: Verified correct prop names (user, items) and data structures
 ```
 
 ---
