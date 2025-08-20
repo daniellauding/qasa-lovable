@@ -146,17 +146,6 @@ const HomesPage = () => {
     navigate('/tenants/apply-home');
   };
 
-  const handlePropertyClick = (property) => {
-    setSelectedProperty(property);
-    // Scroll to property in list (for mobile)
-    if (window.innerWidth < 768) {
-      const propertyElement = document.getElementById(`property-${property.id}`);
-      if (propertyElement) {
-        propertyElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  };
-
   const handleApplyFilters = (filters) => {
     console.log('Applied filters:', filters);
     setIsFilterOpen(false);

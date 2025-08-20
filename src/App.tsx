@@ -147,9 +147,6 @@ const prototypes = [
     path: '/tenants/apply-home',
     component: TenantApplyHome,
   },
-
-    
-  },
   {
     id: 'create-tenant-listing',
     category: 'tenants',
