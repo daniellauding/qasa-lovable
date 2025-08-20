@@ -192,7 +192,7 @@ const CreateTenantListingSimplify = () => {
               </Typography>
             </div>
             
-            <div className="bg-gray-50 p-6 rounded-lg space-y-4">
+            <div className="bg-[var(--color-background-inset)] p-6 rounded-lg space-y-4">
               <Typography variant="h3">Din profil sammanfattning:</Typography>
               <div className="space-y-2 text-sm">
                 <p><strong>Namn:</strong> {formData.firstName} {formData.lastName}</p>

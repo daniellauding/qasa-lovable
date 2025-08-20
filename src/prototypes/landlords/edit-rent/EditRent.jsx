@@ -62,7 +62,7 @@ const EditRent = () => {
                 </Typography>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-4">
+              <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
                 <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
                   All hyra betalas
                 </Typography>

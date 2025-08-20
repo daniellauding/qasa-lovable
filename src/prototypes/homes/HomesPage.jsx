@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import Search from '../../components/ui/Search';
 import FilterButton from '../../components/ui/FilterButton';
 import FilterModal from '../../components/ui/FilterModal';
@@ -11,42 +8,9 @@ import Typography from '../../components/ui/Typography';
 import Select from '../../components/ui/Select';
 import DevExperimentsButton from '../../components/DevExperimentsButton';
 import HeaderLoggedIn from '../../components/Header/HeaderLoggedIn';
+import Map from '../../components/ui/Map';
 
-// Fix for default markers in react-leaflet
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-});
 
-// Custom price marker icon
-const createPriceIcon = (price, isSelected = false) => {
-  const color = isSelected ? '#dc2626' : '#ffffff';
-  const textColor = isSelected ? '#ffffff' : '#374151';
-  
-  return L.divIcon({
-    html: `
-      <div style="
-        background: ${color};
-        color: ${textColor};
-        border: 2px solid #ffffff;
-        border-radius: 8px;
-        padding: 4px 8px;
-        font-size: 12px;
-        font-weight: 600;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        white-space: nowrap;
-        transform: translate(-50%, -100%);
-      ">
-        ${price.replace('SEK ', '')}
-      </div>
-    `,
-    className: 'custom-price-marker',
-    iconSize: [40, 25],
-    iconAnchor: [20, 25],
-  });
-};
 
 // Mock property data
 const mockProperties = [
@@ -182,7 +146,7 @@ const HomesPage = () => {
     navigate('/tenants/apply-home');
   };
 
-  const handleMarkerClick = (property) => {
+  const handlePropertyClick = (property) => {
     setSelectedProperty(property);
     // Scroll to property in list (for mobile)
     if (window.innerWidth < 768) {
@@ -197,41 +161,6 @@ const HomesPage = () => {
     console.log('Applied filters:', filters);
     setIsFilterOpen(false);
   };
-
-  // Interactive Leaflet map component
-  const MapComponent = () => (
-    <MapContainer
-      center={[59.3293, 18.0686]} // Stockholm center
-      zoom={11}
-      className="w-full h-full rounded-lg"
-      zoomControl={false}
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      
-      {/* Property markers */}
-      {properties.map((property) => (
-        <Marker
-          key={property.id}
-          position={[property.lat, property.lng]}
-          icon={createPriceIcon(property.price, selectedProperty?.id === property.id)}
-          eventHandlers={{
-            click: () => handleMarkerClick(property),
-          }}
-        >
-          <Popup>
-            <div className="p-2">
-              <h3 className="font-semibold text-sm">{property.location}</h3>
-              <p className="text-xs text-gray-600">{property.type} • {property.details}</p>
-              <p className="text-sm font-medium mt-1">{property.price}</p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
-  );
 
   return (
     <div className="h-screen flex flex-col bg-white">
@@ -286,8 +215,8 @@ const HomesPage = () => {
                     {sortOptions.map((option) => (
                       <button
                         key={option.value}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
-                          sortBy === option.value ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-700'
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-background-inset)] transition-colors ${
+                          sortBy === option.value ? 'bg-[var(--color-background-inset)] text-gray-900 font-medium' : 'text-gray-700'
                         }`}
                         onClick={() => {
                           setSortBy(option.value);
@@ -325,7 +254,14 @@ const HomesPage = () => {
 
           {/* Map - Fixed */}
           <div className="w-1/2 border-l border-gray-200">
-            <MapComponent />
+            <Map
+              properties={properties}
+              center={[59.3293, 18.0686]}
+              zoom={11}
+              selectedProperty={selectedProperty}
+              onPropertyClick={handlePropertyClick}
+              showGroupedPins={true}
+            />
           </div>
         </div>
 

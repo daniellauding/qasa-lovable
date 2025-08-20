@@ -3,6 +3,11 @@
 ## What is this?
 A tool where you can create Qasa designs by describing what you want - no coding needed!
 
+**📚 For detailed documentation, see:**
+- **[Complete Usage Guide](https://github.com/daniellauding/qasa-lovable/blob/main/COMPLETE_USAGE_GUIDE.md)** - Full technical guide
+- **[Qasa Knowledge Base](https://github.com/daniellauding/qasa-lovable/blob/main/QASA_KNOWLEDGE_BASE.md)** - Product knowledge & content
+- **[QDS Design System](https://github.com/daniellauding/qasa-lovable/blob/main/QDS_DESIGN_SYSTEM.md)** - Component library
+
 ---
 
 ## 🚀 Getting Started (2 minutes)
@@ -20,6 +25,132 @@ Just write in plain language! Examples:
 - "Create a property listing page with 3 apartments in Stockholm"
 - "Make a tenant profile for Anna, 28, looking for 2 rooms"
 - "Design a landing page for Qasa Premium"
+
+---
+
+## 🎨 Lovable Interface Guide
+
+### Main Interface Elements
+
+#### 📝 **Prompt Bar** (Bottom of screen)
+- **Location**: Bottom center of the screen
+- **Purpose**: Where you type your requests and instructions
+- **Usage**: 
+  - Type natural language descriptions
+  - Ask for specific changes
+  - Request new features or components
+- **Example**: "Make the button pink and add Swedish text"
+
+#### 🔍 **Inspector Panel** (Right sidebar)
+- **Location**: Right side of the screen
+- **Purpose**: Inspect and modify individual elements
+- **Features**:
+  - **Element Properties**: Change colors, text, sizes
+  - **Layout Controls**: Adjust positioning and spacing
+  - **Style Options**: Modify fonts, borders, shadows
+  - **Component Settings**: Configure component behavior
+
+#### ⚙️ **Project Settings** (Top right)
+- **Location**: Top right corner (gear icon)
+- **Purpose**: Configure project-wide settings
+- **Options**:
+  - **Theme**: Choose color schemes and styles
+  - **Layout**: Set page dimensions and responsive behavior
+  - **Components**: Enable/disable specific component libraries
+  - **Export**: Download or share your project
+
+#### 👁️ **Preview Panel** (Center)
+- **Location**: Main center area
+- **Purpose**: See your design in real-time
+- **Features**:
+  - **Live Updates**: Changes appear instantly
+  - **Interactive Elements**: Click buttons and links
+  - **Responsive View**: See how it looks on different devices
+  - **Full Screen**: Expand for detailed viewing
+
+#### 📄 **Page Navigation** (Left sidebar)
+- **Location**: Left side of the screen
+- **Purpose**: Manage multiple pages in your project
+- **Features**:
+  - **Add Pages**: Create new pages for your prototype
+  - **Page List**: See all pages in your project
+  - **Page Settings**: Configure individual page properties
+  - **Page Order**: Reorganize page sequence
+
+#### 📱 **Device Target** (Top toolbar)
+- **Location**: Top center toolbar
+- **Purpose**: Preview your design on different devices
+- **Options**:
+  - **Desktop**: Full-width desktop view
+  - **Tablet**: Medium screen size
+  - **Mobile**: Phone-sized view
+  - **Custom**: Set specific dimensions
+
+#### 💻 **Code Inspector** (Developer tools)
+- **Location**: Bottom right (code icon)
+- **Purpose**: View and edit the generated code
+- **Features**:
+  - **HTML View**: See the structure of your design
+  - **CSS Editor**: Modify styles directly
+  - **JavaScript**: Add custom interactions
+  - **Export Code**: Copy or download the code
+
+#### 📚 **Version History** (Top menu)
+- **Location**: Top menu bar
+- **Purpose**: Track changes and revert if needed
+- **Features**:
+  - **Auto-save**: Every change is automatically saved
+  - **Version List**: See all previous versions
+  - **Compare**: View differences between versions
+  - **Restore**: Go back to any previous version
+
+---
+
+## 🛠️ How to Use Each Feature
+
+### Making Changes with the Prompt Bar
+1. **Select an element** by clicking on it in the preview
+2. **Type your request** in the prompt bar
+3. **Press Enter** to apply changes
+4. **Examples**:
+   - "Change this button to pink"
+   - "Add more spacing between these elements"
+   - "Make the text larger and bold"
+
+### Using the Inspector Panel
+1. **Click on any element** in the preview
+2. **See properties** appear in the right sidebar
+3. **Modify values** directly in the inspector
+4. **Common adjustments**:
+   - **Colors**: Click color swatches to change
+   - **Text**: Double-click to edit content
+   - **Size**: Drag handles or type dimensions
+   - **Position**: Use alignment and spacing controls
+
+### Managing Multiple Pages
+1. **Add a new page**: Click "+" in the page navigation
+2. **Rename pages**: Double-click page names
+3. **Reorder pages**: Drag and drop in the page list
+4. **Delete pages**: Right-click and select "Delete"
+
+### Testing Responsive Design
+1. **Switch device targets** using the top toolbar
+2. **Check mobile view** to ensure it works on phones
+3. **Test interactions** on different screen sizes
+4. **Adjust layouts** if needed for smaller screens
+
+### Using Version History
+1. **Access history** from the top menu
+2. **Browse versions** to see your progress
+3. **Compare changes** between versions
+4. **Restore previous version** if needed
+
+### Inspecting and Editing Code
+1. **Open code inspector** from the bottom right
+2. **View HTML structure** to understand the layout
+3. **Edit CSS** for custom styling
+4. **Add JavaScript** for interactions
+5. **Export code** for use in other projects
 
 ---
 
@@ -47,6 +178,14 @@ She has a cat and prefers quiet neighborhoods."
 - Featured properties section
 - Trust indicators (verified landlords)
 Use Swedish text and Qasa's pink color"
+```
+
+### 🗺️ Maps & Location
+```
+"Add a map showing rental properties in Stockholm
+Use grouped pins when zoomed out, individual price pins when zoomed in
+Include hover interactions to show property cards
+Click to navigate to property details"
 ```
 
 ### 🔍 Search Pages
@@ -111,6 +250,12 @@ Use Swedish text and Qasa's pink color"
 - Saved properties
 - Profile completion
 
+### 5. **Map View**
+"Show me a map with properties"
+- Interactive map with pins
+- Property cards on hover
+- Click to view details
+
 ---
 
 ## 🛠️ Components Available (Just Ask!)
@@ -134,6 +279,11 @@ When prompting, you can ask for these specific Qasa components:
 - "Add Qasa header with logo and login button"
 - "Show logged-in header with user avatar"
 
+### Maps
+- "Add an interactive map showing properties"
+- "Include grouped pins for multiple properties"
+- "Show price pins when zoomed in"
+
 ---
 
 ## 🖼️ Using Image References
@@ -142,6 +292,32 @@ You can upload screenshots and say:
 - "Make it look like this but with Qasa colors"
 - "Use this layout but in Swedish"
 - "Copy this design but for apartments instead"
+
+---
+
+## ⚠️ Troubleshooting
+
+### Common Issues & Solutions
+
+**Page appears white/blank**:
+- Do a hard refresh (Ctrl+F5 or Cmd+Shift+R)
+- Check if the page is still loading
+- Try opening in a new tab/window
+
+**Preview not updating**:
+- Sometimes Lovable opens a new preview while working
+- Refresh the preview window/tab
+- Check if changes are saved before refreshing
+
+**Component not loading**:
+- Verify the component exists in the codebase
+- Check browser console for errors
+- Restart the development server if needed
+
+**Lovable not working**:
+- Check internet connection
+- Try refreshing the page
+- Clear browser cache
 
 ---
 
@@ -203,6 +379,13 @@ You can upload screenshots and say:
 4. Style: "Make it look like Qasa's style"
 5. Validate: "Add error messages in Swedish"
 
+### Adding a Map
+1. Start: "Add a map showing properties in Stockholm"
+2. Configure: "Use grouped pins when zoomed out"
+3. Enhance: "Show price pins when zoomed in"
+4. Interact: "Add hover to show property cards"
+5. Navigate: "Click to go to property details"
+
 ---
 
 ## 🆘 When You're Stuck
@@ -218,6 +401,9 @@ Say: "Change all text to Swedish, use 'du' form"
 
 ### Missing Components?
 Say: "Add [component name] like the one on Qasa.se"
+
+### Map Issues?
+Say: "Add an interactive map with property pins and hover interactions"
 
 ---
 
@@ -236,6 +422,11 @@ Say: "Add [component name] like the one on Qasa.se"
 - **Hyresvärd** - Landlord
 - **Hyresgäst** - Tenant
 
+### Detailed Documentation
+- **[Complete Usage Guide](https://github.com/daniellauding/qasa-lovable/blob/main/COMPLETE_USAGE_GUIDE.md)** - Full technical guide
+- **[Qasa Knowledge Base](https://github.com/daniellauding/qasa-lovable/blob/main/QASA_KNOWLEDGE_BASE.md)** - Product knowledge & content
+- **[QDS Design System](https://github.com/daniellauding/qasa-lovable/blob/main/QDS_DESIGN_SYSTEM.md)** - Component library
+
 ---
 
 ## 🎯 Quick Start Challenges
@@ -249,6 +440,9 @@ Say: "Add [component name] like the one on Qasa.se"
 ### Challenge 3: Application Success
 "Create a success page after someone applies for an apartment, with next steps"
 
+### Challenge 4: Interactive Map
+"Add a map showing properties in Stockholm with grouped pins and hover interactions"
+
 ---
 
 ## 💡 Remember
@@ -258,6 +452,7 @@ Say: "Add [component name] like the one on Qasa.se"
 - **Include Qasa's pink** - It's our signature color
 - **Keep it friendly** - We're helping people find homes
 - **Test on mobile** - Most users are on phones
+- **If stuck, refresh** - Sometimes a hard refresh fixes issues
 
 ---
 

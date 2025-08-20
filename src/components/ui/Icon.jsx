@@ -10,6 +10,55 @@ const sizeClasses = {
   xl: 'w-10 h-10'
 };
 
+// Available QDS Icons - Always use these from Lucide React
+export const QDS_ICONS = [
+  'AlertCircle',
+  'AlertTriangle', 
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowUp',
+  'Bell',
+  'BellOff',
+  'Bookmark',
+  'Calendar',
+  'Camera',
+  'CheckCircle',
+  'Check',
+  'ChevronDown',
+  'ChevronLeft',
+  'ChevronRight',
+  'ChevronUp',
+  'Globe',
+  'Heart',
+  'HelpCircle',
+  'History',
+  'Home',
+  'Image',
+  'Info',
+  'List',
+  'ListFilter',
+  'LogOut',
+  'Map',
+  'MapPin',
+  'Menu',
+  'MessageCircle',
+  'Minus',
+  'MoreHorizontal',
+  'MoreVertical',
+  'Pen',
+  'Plus',
+  'Search',
+  'Settings',
+  'Share',
+  'Sliders',
+  'Star',
+  'Trash',
+  'User',
+  'XCircle',
+  'X'
+];
+
 const Icon = ({ name, size = 'md', className = '', ...props }) => {
   const IconComponent = LucideIcons[name] || LucideIcons.HelpCircle;
   
@@ -22,7 +71,7 @@ const Icon = ({ name, size = 'md', className = '', ...props }) => {
 };
 
 Icon.propTypes = {
-  name: PropTypes.string.isRequired,
+  name: PropTypes.oneOf(QDS_ICONS).isRequired,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   className: PropTypes.string,
 };

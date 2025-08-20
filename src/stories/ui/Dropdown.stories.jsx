@@ -23,7 +23,7 @@ export const Default = {
   render: () => (
     <Dropdown
       trigger={
-        <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+        <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)]">
           Menu
           <ChevronDown className="w-5 h-5" />
         </button>
@@ -45,7 +45,7 @@ export const WithSeparators = {
   render: () => (
     <Dropdown
       trigger={
-        <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+        <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)]">
           Menu with Separators
           <ChevronDown className="w-5 h-5" />
         </button>
@@ -70,7 +70,7 @@ export const Alignment = {
     <div className="flex gap-4">
       <Dropdown
         trigger={
-          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)]">
             Align Start
             <ChevronDown className="w-5 h-5" />
           </button>
@@ -86,7 +86,7 @@ export const Alignment = {
 
       <Dropdown
         trigger={
-          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)]">
             Align Center
             <ChevronDown className="w-5 h-5" />
           </button>
@@ -102,7 +102,7 @@ export const Alignment = {
 
       <Dropdown
         trigger={
-          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50">
+          <button className="flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)]">
             Align End
             <ChevronDown className="w-5 h-5" />
           </button>

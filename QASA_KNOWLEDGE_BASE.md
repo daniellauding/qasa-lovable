@@ -8,33 +8,128 @@
 ## 🏢 About Qasa
 
 ### Company Mission
-[ADD YOUR CONTENT HERE - Mission statement, vision, values]
+Qasa is a safe and secure rental service for both long-term homes for tenants who want a place to rent, and for landlords who have homes to rent out.
+The goal is to transform the sublet market experience and provide protection and peace of mind for both tenants and landlords.
 
 ### Business Model
-[ADD YOUR CONTENT HERE - How Qasa makes money, revenue streams, pricing]
+Qasa takes a % of the monthly rent per signed contract. We call this the service fee. The % and who pays it varies between countries.
+Norway: In Norway the landlord and tenant split a 4,95% service fee of the monthly rent.
+Sweden: In Sweden the tenant pay the 4,95% service fee
+Finland: In Finland the landlord pay the 4% service fee
+
 
 ---
 
-## 🎯 Core Features
-
-### For Tenants
-[ADD YOUR CONTENT HERE - Tenant features, benefits, how it works]
+## 🔄 Core Product Features
 
 ### For Landlords
-[ADD YOUR CONTENT HERE - Landlord features, benefits, how it works]
+
+Create and Publish Home Listing with in-depth details about the Home
+Create a safe lease based on market standards, crafted by legal experts
+Browse Tenants based on their requirements
+Contact ID Verified Tenants
+Save Favourite Tenants directly
+Manage your rental via Rental Dashboard using functionality such as:
+Terminate lease
+Extend lease
+Make insurance claim
+View lease amendments
+Republish lisiting
+
+### For Tenants
+
+Create an attractive Tenant profile for landlords to view with in-depth information
+Publish your Tenant profile, only visible for Landlords with a published Home Listing
+ID verification and credit checks done via safe and market standard technology
+Browse thousands of different home listings
+Browse homes with extensive filtering options
+Contact ID verified Landlords directly
+Save Favourite Homes
+Save Home searches
+Premium features to increase your chances of signing a lease
+
+
+---
+
+## 🎯 Core Feature Communication
+
+### For Both Tenants and Landlords
+
+Smart rental agreements
+Digital contracts tailored for your rental, signed with BankID.
+
+Payment handling
+Qasa invoices tenants and pays landlords on the 25th of every month.
+
+Personal support
+Available every day during the rental.
+
+### For Tenants
+Deposit management
+Qasa holds and manages the deposit. The landlord has 10 days after the contract ends to file a claim.
+
+### For Landlords
+
+Guaranteed rent, always on time
+Rent is paid to the landlord punctually each month, even if the tenant doesn’t pay. Qasa takes the risk.
+
+Rental insurance
+Covers damages that regular home insurance won’t, up to 1M SEK. No deductible.
 
 ### Premium Features
-[ADD YOUR CONTENT HERE - What's included in premium, pricing, benefits]
+
+Super apply
+Give your application an extra boost. Stay at the top of the landlord's inbox by sending a Super application.
+
+Exclusive insights
+See how the rent compares to similar homes, number of applicants, ongoing chats, and your queue position for firsthand homes.
+
+Apply earlier
+Apply before everyone else, with priority access to selected first-hand homes.
+
+Highlighted profile
+Get a premium badge on your profile, increasing your visibility in the landlord's inbox and in our tenant search.
+
+More applications
+Apply to 10 first-hand homes simultaneously, and as always – unlimited applications to all other homes.
 
 ---
 
 ## 🔄 User Journeys
 
 ### Tenant Journey
-[ADD YOUR CONTENT HERE - Step by step tenant flow]
+Sign Up
+Verify your identity with ID Verification
+Create Tenant Profile
+Publish Tenant Profile (Optional)
+Browse for homes
+Contact Landlords
+Talk to landlords in Chat
+Sign lease with landlord
+Pay rent invoices via Qasa in Rental Dashboard
+
 
 ### Landlord Journey
-[ADD YOUR CONTENT HERE - Step by step landlord flow]
+Sign Up
+Verify your identity with ID Verification
+Create and Publish Home Listing
+Browse for tenants
+Contact Tenants (Optional)
+Receive Tenant Applications
+Talk to Tenants in Chat
+Create a safe Lease
+Sign lease and send to tenant
+Manage your rental in Rental Dashboard
+
+
+---
+
+
+## 🔄 Benefits of Using Qasa
+
+Safe from fraud due to extensive security checks such as ID Verification using Bank ID and ID documents. Safe protocol for sending and receiving deposit and rent payments.
+
+Qasa is backed by Vend (formerly known as Schibsted) and has market presence in Sweden, Norway and Finland. Partnering with market leaders in the Nordics.
 
 ---
 
@@ -43,21 +138,66 @@
 ### Common Questions
 [ADD YOUR CONTENT HERE - FAQs, help articles, support documentation]
 
-### How It Works
-[ADD YOUR CONTENT HERE - Detailed explanations of Qasa processes]
+### How It Works for Tenants
+
+Create a profile and find homes
+Get seen by landlords with matching homes, and browse through thousands of available homes.
+
+Chat with landlords
+Contact our verified landlords directly in the listing and get to know each other via our chat.
+
+Sign the lease digitally
+The lease was created by our lawyers and follow all market standards to ensure your rights.
+
+Safe payments
+When signing the lease through Qasa, the deposit and all payments are handled securely by us.
+
+Keep on renting anywhere
+Wanna switch things up or move to a new area? We’ll help you find a new place with ease. No time wasted.
+
+### How It Works for Landlords
+
+Publish your listing
+Your listing is seen by thousands of tenants and shared to our partnering marketplaces to ensure maximum exposure.
+
+Quickly find the perfect tenant
+All applicants are verified, and you can either receive applications or reach out to tenants who match your criteria. You stay in control, with trusted profiles at your fingertips
+
+Sign the lease digitally
+Sign the lease as is, or customise it to your needs. Our lease was created by lawyers to be safe for both you and the tenant.
+
+Receive rent on time
+We always pay your rent on time, even if the tenant stops paying. Your rent is guaranteed up to 6 months by us so you never risk missing a payment.
+
+Manage your rental
+See your past and upcoming rent payments, report incidents and manage your rental. All in one place.
+
+Keep on renting
+If a tenant moves out, you can republish your home. With Qasa, you’ll easily find a new tenant—no hassle and no wasted time.
 
 ---
 
 ## 🎨 Brand Guidelines
 
 ### Voice & Tone
-[ADD YOUR CONTENT HERE - Brand voice, tone guidelines, communication style]
+Trusted – simple, clear, transparent.
+Giving – personal, empathetic, sometimes reassuring (like “All sorted”).
+Effortless – step-by-step, easy-to-read, focus on benefits.
+Resolute – consistent voice for both landlords & tenants, action-oriented.
+
+### Words and Lingo
+We say “rental agreement” instead of “contract”.
+We say “home” instead of “property”.
 
 ### Visual Identity
 [ADD YOUR CONTENT HERE - Colors, typography, logo usage, imagery style]
 
 ### Marketing Messages
-[ADD YOUR CONTENT HERE - Key messages, value propositions, taglines]
+Rent better
+Find your place
+Safety (rent guarantee, insurance, punctual payments)
+Ease (Qasa handles all the paperwork & payments)
+Home feeling (emotional connection, finding a place to belong)
 
 ---
 
@@ -74,13 +214,113 @@
 ## 📖 Content Examples
 
 ### Property Descriptions
-[ADD YOUR CONTENT HERE - Real examples from production]
+**RECOMMENDED**: Use these realistic Swedish property examples for prototypes
+
+```javascript
+// Example 1: Vasastan Apartment
+{
+  title: "Ljus 2:a i Vasastan",
+  description: "Perfekt läge nära Odenplan, 65m² med härlig balkong. Lägenheten har fullt utrustat kök med diskmaskin, hiss i fastigheten och nära till både shopping och kommunikationer.",
+  rent: "15,500 kr/mån",
+  size: "65m²",
+  rooms: "2 rum och kök",
+  location: "Vasastan, Stockholm",
+  features: ["Balkong", "Diskmaskin", "Hiss", "Förråd", "Tvättmaskin"],
+  moveIn: "1 september 2024"
+}
+
+// Example 2: Södermalm Studio
+{
+  title: "Charmig etta på Södermalm",
+  description: "Trivsam etta i hjärtat av Södermalm. Nära till Medborgarplatsen och alla restauranger. Perfekt för dig som vill bo centralt med närhet till kultur och nöjen.",
+  rent: "12,800 kr/mån", 
+  size: "32m²",
+  rooms: "1 rum och kök",
+  location: "Södermalm, Stockholm",
+  features: ["Uteplats", "Diskmaskin", "Nära tunnelbana"],
+  moveIn: "1 augusti 2024"
+}
+
+// Example 3: Östermalm Luxury
+{
+  title: "Exklusiv 3:a på Östermalm",
+  description: "Storslagen 3-rummare i exklusiva Östermalm. Högt i tak, stora fönster och nära till Stureplan. Lägenheten har allt du behöver för ett bekvämt liv.",
+  rent: "28,500 kr/mån",
+  size: "95m²", 
+  rooms: "3 rum och kök",
+  location: "Östermalm, Stockholm",
+  features: ["Balkong", "Diskmaskin", "Hiss", "Portkod", "Förråd", "Tvättmaskin"],
+  moveIn: "1 oktober 2024"
+}
+```
 
 ### Tenant Profiles
-[ADD YOUR CONTENT HERE - Real examples from production]
+**RECOMMENDED**: Use these authentic Swedish tenant examples
+
+```javascript
+// Example 1: Young Professional
+{
+  name: "Emma Andersson",
+  age: 28,
+  occupation: "Systemutvecklare på Spotify",
+  income: "45,000 kr/mån",
+  lookingFor: "1-2 rum i Stockholm",
+  maxRent: "12,000 kr/mån",
+  moveIn: "1 september 2024",
+  preferences: ["Tyst område", "Nära tunnelbana", "Balkong"],
+  about: "Hej! Jag heter Emma och är 28 år. Jag arbetar som systemutvecklare på Spotify och trivs med ett lugnt boende. På fritiden gillar jag att springa och laga mat. Söker ett djurvänligt boende då jag har en katt.",
+  verified: true
+}
+
+// Example 2: Student
+{
+  name: "Marcus Lindberg", 
+  age: 22,
+  occupation: "Student på KTH",
+  income: "12,000 kr/mån",
+  lookingFor: "1 rum i Stockholm",
+  maxRent: "8,500 kr/mån",
+  moveIn: "1 augusti 2024",
+  preferences: ["Nära universitet", "Billigt", "Enkelt"],
+  about: "Hej! Jag är Marcus, 22 år och studerar på KTH. Söker ett enkelt rum nära universitetet. Jag är lugn och respektfull mot grannar.",
+  verified: true
+}
+
+// Example 3: Family
+{
+  name: "Anna och Johan Karlsson",
+  age: 35,
+  occupation: "Lärare och ingenjör",
+  income: "65,000 kr/mån", 
+  lookingFor: "3+ rum i Stockholm",
+  maxRent: "20,000 kr/mån",
+  moveIn: "1 september 2024",
+  preferences: ["Barnvänligt område", "Nära skola", "Grönområde"],
+  about: "Vi är Anna och Johan, 35 år, med två barn (5 och 8 år). Vi arbetar som lärare och ingenjör. Söker ett familjevänligt boende med närhet till skola och grönområden.",
+  verified: true
+}
+```
 
 ### Success Stories
-[ADD YOUR CONTENT HERE - Case studies, testimonials]
+**RECOMMENDED**: Use these testimonials for trust building
+
+```javascript
+// Example 1: Tenant Success
+{
+  name: "Sofia Berg",
+  story: "Hittade mitt drömboende på Qasa! Processen var så enkel och trygg. Min hyresvärd var verifierad och allt gick smidigt. Rekommenderar starkt!",
+  rating: 5,
+  type: "tenant"
+}
+
+// Example 2: Landlord Success  
+{
+  name: "Erik Johansson",
+  story: "Som hyresvärd känner jag mig trygg med Qasa. De hanterar alla betalningar och jag får alltid hyran i tid. Perfekt för mig som inte vill ha huvudbry med administration.",
+  rating: 5,
+  type: "landlord"
+}
+```
 
 ---
 
@@ -169,39 +409,3 @@
 
 ## YOUR CONTENT DUMP AREA
 [PASTE YOUR QASA CONTENT HERE]
-
----
-
-## UI Composition Cheatsheet (for Lovable & Editors)
-
-- Do not create ad-hoc section components (e.g., `WhatIsQasa`, `HowItWorksSection`, `TrustSafetySection`). Compose pages from approved QDS components only.
-- Use these building blocks: `Typography`, `Button`, `Card`, `StatsStrip`, `FeatureCard`, `RichPromoCard`, `FAQLinkList`, `TestimonialCarousel`, `Carousel`, `CityCard`.
-
-### Recipes
-
-- “What is Qasa?”
-  - Title: `Typography` `display-sm`
-  - Subtitle: `Typography` `title-xl`
-  - Description: `Typography` `body-md` `color="secondary"`
-  - Stats grid (x3): value `title-lg` + hint `body-sm`
-
-- “How it works”
-  - Two pills: `Button` inside rounded container — active `variant="primary"`, inactive `variant="transparent"`
-  - Four step boxes: bordered `div` with icon circle, `title-lg`, and `body-sm`
-
-- Trust & Safety grid
-  - 4 items: icon container + `title-lg` + `body-sm`
-
-### Color & Contrast
-
-- On dark surfaces (e.g., `bg-[var(--color-brown)]`) or image overlays, all text must be white via `Typography color="white"`. Subtext can use `opacity-80/85`.
-- Icons in primary buttons use `text-[var(--color-text-on-primary)]`. Icons on dark non-primary surfaces use `text-white`.
-- Never use Tailwind palette or hex for colors; always use tokens.
-
-### Title Hierarchy
-
-- Page hero: `display-lg`
-- Section header: `display-sm`
-- Card title: `title-lg`
-- Paragraph: `body-md` (secondary copy uses `color="secondary"`)
-- Small: `label-sm`

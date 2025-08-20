@@ -68,7 +68,7 @@ const BlankTemplate = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-[var(--color-background-inset)] flex flex-col">
       {/* Dynamic Header based on URL param */}
       <Header variant={headerType} />
 
@@ -90,7 +90,7 @@ const BlankTemplate = () => {
               </Typography>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6 mb-6">
+            <div className="bg-[var(--color-background-inset)] rounded-lg p-6 mb-6">
               <Typography variant="title-md" className="mb-4">
                 {language === 'sv' ? '🎯 Hur man använder denna mall:' : '🎯 How to use this template:'}
               </Typography>
@@ -223,7 +223,7 @@ const BlankTemplate = () => {
                   {content?.description || sampleContent.description}
                 </Typography>
                 
-                <div className="mt-8 p-6 bg-gray-50 rounded-lg inline-block">
+                <div className="mt-8 p-6 bg-[var(--color-background-inset)] rounded-lg inline-block">
                   <Typography variant="label-md" className="text-gray-500 mb-2">
                     {language === 'sv' ? 'AI Prompt-område:' : 'AI Prompt area:'}
                   </Typography>

@@ -1,11 +1,116 @@
-# QDS - Qasa Design System
+# Qasa Design System (QDS)
 
-## 📚 Overview
-**QDS (Qasa Design System)** is the official component library and design language for all Qasa products. It lives in Storybook and serves as the single source of truth for UI components.
+## 🎨 Components
 
-**Location**: `/storybook` - Run `npm run storybook` to explore
+### Core Components
 
----
+#### Button
+- **Primary**: Main actions and CTAs
+- **Secondary**: Supporting actions
+- **Tertiary**: Subtle actions
+- **Destructive**: Dangerous actions (red)
+
+#### Card
+- **PropertyCard**: Display rental properties
+- **LandlordCard**: Landlord information
+- **TenantCard**: Tenant profiles
+- **ContactCard**: Contact information
+- **CreateProfileCard**: Profile creation flows
+
+#### Typography
+- **Headings**: H1-H6 with proper hierarchy
+- **Body**: Regular and medium weights
+- **Labels**: Form labels and small text
+- **Mono**: Code and technical content
+
+#### Input
+- **Text**: Standard text input
+- **Search**: Search functionality
+- **Select**: Dropdown selections
+- **TextArea**: Multi-line text
+- **DatePicker**: Date selection
+
+#### Navigation
+- **Header**: Main navigation
+- **Breadcrumbs**: Page hierarchy
+- **Tabs**: Content organization
+- **Pagination**: List navigation
+
+#### Feedback
+- **Toast**: Success, error, info messages
+- **Modal**: Overlay dialogs
+- **Loading**: Loading states
+- **Skeleton**: Content placeholders
+
+#### Data Display
+- **Table**: Data tables
+- **List**: Item lists
+- **Stats**: Statistics display
+- **Progress**: Progress indicators
+
+#### Layout
+- **Container**: Content wrapper
+- **Grid**: Layout system
+- **Spacing**: Consistent spacing
+- **Divider**: Visual separation
+
+#### Interactive
+- **Checkbox**: Multiple selection
+- **Radio**: Single selection
+- **Switch**: Toggle states
+- **Slider**: Range selection
+
+#### Media
+- **Avatar**: User images
+- **Image**: Content images
+- **Icon**: System icons (Lucide React)
+- **Carousel**: Image galleries
+- **FeatureBadge**: Inline feature indicators
+- **TrustIndicator**: Trust and safety indicators
+
+#### Maps & Location
+- **Map**: Interactive property maps
+- **LocationSearch**: Address search
+- **CityCard**: City information
+
+### Map Component
+
+The Map component provides interactive property visualization with the following features:
+
+#### Features
+- **OpenStreetMap Integration**: Free, open-source mapping
+- **Grouped Pins**: Automatic clustering of nearby properties
+- **Price Display**: SEK prices shown when zoomed in
+- **Hover Interactions**: Property cards appear on hover
+- **Click Navigation**: Navigate to property details
+- **Sweden Optimization**: Focused on Swedish locations
+
+#### Usage
+```jsx
+import Map from '../components/ui/Map';
+
+<Map
+  properties={propertyArray}
+  center={[59.3293, 18.0686]} // Stockholm
+  zoom={11}
+  onPropertyClick={handleClick}
+  selectedProperty={selected}
+  showGroupedPins={true}
+/>
+```
+
+#### States
+- **Zoomed Out**: Shows grouped pins with property counts
+- **Zoomed In**: Shows individual price pins
+- **Hover**: Displays floating property card
+- **Selected**: Highlights active property
+- **Loading**: Shows loading state while tiles load
+
+#### Accessibility
+- Keyboard navigation support
+- Screen reader compatibility
+- High contrast mode support
+- Touch-friendly interactions
 
 ## 🎯 Core Principles
 
@@ -49,6 +154,9 @@ QDS/
 | Checkbox | ✅ | Stable | With label |
 | RadioGroup | ✅ | Stable | Vertical, horizontal |
 | Switch | ✅ | Stable | On/off toggle |
+| Icon | ✅ | Stable | 5 sizes, 45+ icons |
+| FeatureBadge | ✅ | Stable | 3 variants |
+| TrustIndicator | ✅ | Stable | 4 types, 3 variants |
 
 ### Patterns (Composite Components)
 | Component | Storybook | Status | Purpose |
@@ -136,6 +244,11 @@ mono-sm     /* 12px/16px */
 - White-on-dark: When a surface is dark (e.g., `--color-brown`) or uses an image with dark gradient overlays, text must be white. Implement via `Typography` using `color="white"` and optional opacity classes (`opacity-80/85`).
 - Icons on primary: use `--color-text-on-primary` for icons and text inside primary buttons and brand pills.
 - Icons on dark non-primary surfaces: use white (`text-white`).
+- **Icon styling rules**:
+  - Icons use transparent backgrounds - Never add background colors or radius to icons themselves
+  - Icon containers can have backgrounds when needed for visual hierarchy
+  - Use proper color tokens for icon colors: `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`
+  - For checkmarks/bullets: Use `CheckCircle` icon with `text-[var(--color-text-primary)]`, never red or green colors
 - Never set `--color-text-primary` on dark surfaces; contrast fails.
 - Maintain WCAG 2.1 AA contrast in both themes.
 
@@ -143,6 +256,14 @@ mono-sm     /* 12px/16px */
 
 - Allowed shadows: `shadow-sm`, `shadow-md`, `shadow-lg` on cards/compact boxes only. Avoid shadows on full-width strips (hero, stats strip).
 - Borders must use tokens like `--color-border` or brand-subtle variants. Avoid pure white fills/borders to simulate contrast; use overlays/tokens.
+
+### Content Block Variants
+For content blocks with rounded backgrounds and layouts:
+- **Background colors**: Use `bg-[var(--color-softPink)]`, `bg-[var(--color-background-inset)]`, `bg-white`
+- **Rounded containers**: Use `rounded-xl`, `rounded-2xl`, `rounded-full` for different levels
+- **Image layouts**: Support image-left, image-right, centered layouts
+- **Call to actions**: Include buttons with proper QDS styling
+- **Stepper components**: Use numbered circles (1, 2, 3) with `bg-white` or `bg-[var(--color-background-inset)]` backgrounds
 
 ### Box
 - Background: `--color-background-inset` (Gray 10). No built-in shadow. Use `Card` for elevation.

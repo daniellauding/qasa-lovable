@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
-import { ArrowLeft } from 'lucide-react';
+import SectionFooter from '../../../../components/ui/SectionFooter';
 
 const CreateListingStep10 = ({ onNext, onPrev }) => {
   return (
@@ -21,24 +20,12 @@ const CreateListingStep10 = ({ onNext, onPrev }) => {
               <SectionHeader title="Vad får ditt hem att sticka ut?" description="Lägg till bilder och beskrivning för att få din annons att stå ut ur mängden." />
             </div>
 
-            {/* Footer */}
-            <div className="flex items-center justify-between">
-              <Button
-                variant="tertiary"
-                size="lg"
-                onClick={onPrev}
-                iconOnly
-                icon={<ArrowLeft className="h-5 w-5" />}
-                aria-label="Tillbaka"
-              />
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={onNext}
-              >
-                Nästa
-              </Button>
-            </div>
+            <SectionFooter
+              onNext={onNext}
+              onPrev={onPrev}
+              nextText="Nästa"
+              prevText="Tillbaka"
+            />
           </div>
 
           {/* Right Side - Image */}

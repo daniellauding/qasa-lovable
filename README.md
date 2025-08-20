@@ -2,210 +2,238 @@
 
 A React-based prototyping platform for testing different approaches to Qasa's rental matching features. Built with Vite, React Router, and Tailwind CSS.
 
-## 🧪 Variant System
+## 👨‍💻 About the Author
 
-This project includes a powerful variant system that allows teams to create, manage, and compare different versions of prototypes:
+**Created by**: Daniel Lauding  
+**Role**: Senior Product Designer & Prototyping Specialist  
+**Company**: Instinctly AB
+**Date**: June 2025
+**Contact**: daniel@lauding.se – https://www.daniellauding.se
 
-### Features
-- **URL-based variants**: Switch between versions using `?variant=name` 
-- **Visual variant selector**: Floating selector to switch between variants
-- **Experiments dashboard**: Grid view of all prototypes with variant dropdowns
-- **Shareable links**: Each variant gets its own unique URL
-- **Status tracking**: Mark variants as `draft`, `active`, or `archived`
-- **Easy comparison**: Side-by-side testing of different approaches
+**Background**: 15+ years in product design and prototyping, expert in design systems and component libraries. Previously worked at Spotify and other tech companies.
 
-### Creating Variants
+**Why I Built This**: To make prototyping accessible to everyone at Qasa while ensuring consistent branding and faster ideation.
 
-#### Step 1: Add to Variant Registry
+**Copywriter Guidelines**: This project follows Qasa's established copywriting guidelines and tone of voice. All content maintains consistency with Qasa's brand messaging and user experience standards.
 
-Add your prototype to `src/utils/variants.js`:
-
-```js
-'your-prototype-id': {
-  name: 'Your Prototype Name',
-  description: 'Brief description of what this prototype does',
-  variants: [
-    {
-      id: 'default',
-      name: 'Default',
-      description: 'Standard implementation',
-      component: () => import('../prototypes/path/to/YourPrototype'),
-      tags: ['baseline']
-    },
-    {
-      id: 'enhanced',
-      name: 'Enhanced Version',
-      description: 'Improved user experience with additional features',
-      component: () => import('../prototypes/path/to/variants/YourPrototypeEnhanced'),
-      tags: ['improved', 'features'],
-      status: 'draft'  // draft, active, or archived
-    }
-  ]
-}
-```
-
-#### Step 2: Create Variant Components
-
-Create a `variants/` folder in your prototype directory:
-
-```
-src/prototypes/your-prototype/
-├── YourPrototype.jsx           # Default variant
-├── variants/
-│   ├── YourPrototypeEnhanced.jsx
-│   ├── YourPrototypeGamified.jsx
-│   └── components/             # Variant-specific components
-│       ├── EnhancedStep1.jsx
-│       └── GamifiedStep2.jsx
-```
-
-#### Step 3: Update App.tsx Routes
-
-Add VariantWrapper to your routes:
-
-```js
-<Route path="/your-prototype" element={
-  <VariantWrapper 
-    prototypeId="your-prototype-id" 
-    defaultComponent={YourPrototype}
-  />
-} />
-<Route path="/your-prototype/step/:step" element={
-  <VariantWrapper 
-    prototypeId="your-prototype-id" 
-    defaultComponent={YourPrototype}
-  />
-} />
-```
-
-#### Step 4: URLs Work Automatically
-
-- Default: `/your-prototype`
-- Variant: `/your-prototype?variant=enhanced`
-- With parameters: `/your-prototype/step/2?variant=enhanced`
-
-### Profile Completion Experiments
-
-We've implemented three different approaches to profile completion in the auth register flow:
-
-#### 1. Enhanced Profile Completion (`enhanced-profile`)
-- **URL**: `/auth/register/step/2?variant=enhanced-profile`
-- **Approach**: Combines email verification with optional profile fields
-- **Features**:
-  - Real-time profile preview sidebar
-  - Progress percentage calculation
-  - Immediate feedback on field completion
-  - Mobile-responsive layout
-
-#### 2. Gamified Completion (`gamified`)
-- **URL**: `/auth/register/step/2?variant=gamified`
-- **Approach**: Uses gamification elements to encourage completion
-- **Features**:
-  - Points system (+50 to +200 points per field)
-  - Achievement unlocking with visual notifications
-  - Level progression system
-  - Progress challenges and motivational messaging
-
-#### 3. Step-by-Step Profile (`step-by-step`)
-- **URL**: `/auth/register/step/3?variant=step-by-step`
-- **Approach**: Breaks profile completion into focused micro-steps
-- **Features**:
-  - One field per step for maximum focus
-  - Clear benefit explanations for each field
-  - Skip options for non-critical fields
-  - Progress tracking with completion count
-
-### Best Practices for Variants
-
-1. **Start Simple**: Begin with one clear hypothesis to test
-2. **Document Purpose**: Clearly state what you're testing and why
-3. **Use Descriptive IDs**: `simplified`, `enhanced`, `gamified` are better than `v1`, `v2`
-4. **Track Status**: Mark variants as `draft` while developing, `active` when ready to test
-5. **Mobile First**: Ensure all variants work well on mobile devices
-6. **Test Thoroughly**: Each variant should be fully functional
-7. **Clean Up**: Archive or remove variants that aren't providing value
-
-### Example Variants
-- **create-tenant-listing-simplify**: 5-step simplified flow vs 17-step complete flow
-- **find-tenant-cards**: Card layout vs list layout for tenant discovery
-- **create-listing-enhanced-media**: Enhanced media upload experience
-
-## 🎨 Theme System
-
-Supports multiple themes via URL parameters:
-- `?theme=qasa` - Qasa branding (default)
-- `?theme=blocket` - Blocket branding
-
-### Storybook Integration
-- Theme picker toolbar in Storybook
-- Automatic theme switching for component testing
-- All components work with both themes
-
-## 🚀 Getting Started
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Open Storybook
-npm run storybook
-
-# Build for production
-npm run build
-```
-
-## 📁 Project Structure
-
-```
-src/
-├── prototypes/           # Main prototype flows
-│   ├── tenants/
-│   │   └── create-tenant-listing/
-│   │       ├── CreateTenantListingFlow.jsx     # Default variant
-│   │       └── variants/
-│   │           ├── CreateTenantListingSimplify.jsx
-│   │           └── CreateTenantListingExperimental.jsx
-│   └── landlords/
-├── components/
-│   ├── ui/               # Reusable UI components
-│   │   ├── VariantSelector.jsx  # Variant switching dropdown
-│   │   └── VariantCard.jsx      # Enhanced experiment cards
-│   └── VariantWrapper.jsx       # Handles variant loading
-├── utils/
-│   └── variants.js       # Variant registry and utilities
-└── contexts/             # React contexts (theme, auth, etc.)
-```
-
-## 🔗 Key URLs
-
-- `/experiments` - Dashboard showing all prototypes with variants
-- `/tenants/create-tenant-listing` - Default tenant listing flow
-- `/tenants/create-tenant-listing?variant=simplify` - Simplified variant
-- `/auth/register/step/3` - Default landing page (for testing)
-
-## 🛠 Development Workflow
-
-1. **Create new variant**: Add entry to `variants.js` and create component
-2. **Test variant**: Use variant selector or URL parameter
-3. **Share with team**: Copy variant URL from experiments dashboard
-4. **Compare approaches**: Open multiple tabs with different variants
-5. **Iterate**: Update variants based on feedback
-
-## 📊 Experiments Dashboard
-
-Visit `/experiments` to see:
-- All prototypes with their available variants
-- Variant status (draft, active, archived)
-- Description and tags for each variant
-- Quick links to copy variant URLs
-- Organized sections for prototypes with/without variants
-
-This system makes it easy for designers and developers to experiment with different approaches and share specific versions for feedback and testing.
+---
 
 ## 🚀 Quick Start
+
+### 🎨 Lovable Prototyping (Recommended for Everyone)
+
+**🔗 Access Qasa Templates**:
+- **Main Project**: [https://qasa.lovable.app/](https://qasa.lovable.app/) - Press "Remix with Lovable" in bottom right
+- **Direct Remix**: [https://lovable.dev/projects/20f61ed3-ba3b-4b5c-aa81-ea1b6eadea3f](https://lovable.dev/projects/20f61ed3-ba3b-4b5c-aa81-ea1b6eadea3f?utm_source=lovable-badge) - Press "Remix" in top right
+
+**📧 For Qasa Lovable Account**: Reach out to Product Manager leads
+
+**📖 Complete Guide**: [Complete Usage Guide](COMPLETE_USAGE_GUIDE.md) - How to access and use Qasa <3 Lovable
+
+**About Lovable**: Lovable is a powerful prototyping platform that makes it easy for designers and product teams to create, share, and iterate on prototypes. This project is specifically designed to work seamlessly with Lovable, providing Qasa-specific templates and components that maintain brand consistency while enabling rapid prototyping.
+
+### 🔧 Local Development (For Technical Users)
+
+**GitHub Repository**: [https://github.com/daniellauding/qasa-lovable](https://github.com/daniellauding/qasa-lovable)
+
+See setup instructions below
+
+---
+
+## 📖 Content Examples
+
+This project includes comprehensive content examples from Qasa's website to ensure prototypes accurately reflect the real product experience:
+
+### Navigation & Header Content
+- **Skip to main content**
+- **Homes** | **Tenants** | **How it works**
+- **A better way to rent**
+- **Finding a home should feel just as good as living in one.**
+- **Where do you want to live?** - Search cities or districts
+
+### City Examples
+- **Stockholm** - 1499 homes
+- **Gothenburg** - 1120 homes  
+- **Malmö** - 491 homes
+- **Uppsala** - 309 homes
+- **Linköping** - 197 homes
+
+### Value Propositions
+- **Keep calm when renting with Qasa**
+- **No deposit** - Keep your money in your pocket, we'll handle the deposit
+- **Move in, pay later** - Make sure everything is as promised, before paying rent
+- **Protection and expert aid** - We've got your back, thanks to our comprehensive lease agreement and team of rental experts
+
+### Qasa Premium Features
+- **Find your next home 2.5x easier with Qasa Premium**
+- **Super apply** - Give your application an extra boost. Stay at the top of the landlord's inbox
+- **Exclusive insights** - See how the rent compares to similar homes, number of applicants, ongoing chats, and your queue position
+- **Highlighted profile** - Get a premium badge on your profile, increasing your visibility
+- **Apply earlier** - Apply before everyone else, with priority access to selected first-hand homes
+- **More applications** - Apply to 10 first-hand homes simultaneously
+
+### Statistics & Social Proof
+- **5+ million applications every year**
+- **600,000+ homes published to date**
+- **200,000+ tenant ads published to date**
+- **"I have signed 2 contracts with Qasa so far, and I really feel safe with them. I wouldn't do it any other way!"** — Karen Hus
+
+### How It Works Content
+- **Renting with Qasa** - Manage your rental the right way - safe and simple
+- **The rental marketplace** - The biggest marketplace for renting and renting out homes in the Nordics
+- **Rental management** - Smart rental management from publishing listings, creating and signing a lease to automatic rent payments
+- **Safety guaranteed** - Guaranteed rent, property protection and an expert support team
+
+### Step-by-Step Process
+1. **Publish your listing** - Your listing is seen by thousands of tenants and shared to our partnering marketplaces
+2. **Quickly find the perfect tenant** - All applicants are verified, and you can either receive applications or reach out to tenants who match your criteria
+3. **Sign the lease digitally** - Sign the lease as is, or customise it to your needs. Our lease was created by lawyers to be safe for both you and the tenant
+4. **Receive rent on time** - We always pay your rent on time, even if the tenant stops paying
+5. **Manage your rental** - See your past and upcoming rent payments, report incidents and manage your rental
+6. **Keep on renting** - If a tenant moves out, you can republish your home
+
+### Safety Features
+- **Your home insured** - You're covered beyond your regular insurance
+- **Your rent guaranteed** - Always get your rent on time, even if the tenant pays late
+- **Verified tenants & landlords** - We use the latest tools to verify landlords and tenants on our platform
+- **Deposit-free as standard** - We guarantee the deposit, so that tenants can rent deposit-free
+- **Incident reporting** - Easy incident reporting directly in your rental dashboard
+- **Mediation support** - We are here to assist with mediation and evictions if necessary
+
+### Footer Content
+- **Start** | **Homes** | **Tenants** | **Help** | **Login** | **Register**
+- **Sitemap** | **Qasa Premium** | **Pricing** | **Housing rentals** | **For companies**
+- **Terms & conditions** | **Privacy policy** | **Blog** | **Careers** | **Press & media**
+
+### Special Initiatives
+- **HusFrid** – an initiative by Qasa to help women and children to a home free from violence
+- **HusFrid helps women experiencing domestic violence find a new home**
+
+### FAQ Content
+- **How it works for landlords**
+- **How it works for tenants** 
+- **How to rent out vacation homes**
+- **What if my tenant doesn't pay?**
+- **Is my rental insured?**
+- **How much can I rent out for?**
+- **Do I need permit to rent out?**
+- **Writing a rental agreement**
+- **What is Qasa Premium**
+
+## 🎨 Using Lovable with Qasa
+
+### Getting Started with Lovable
+
+1. **Access the Project**: Visit [https://qasa.lovable.app/](https://qasa.lovable.app/)
+2. **Remix the Project**: Click "Remix with Lovable" in the bottom right corner
+3. **Start Creating**: Use the content examples below to guide your prompts
+4. **Iterate Quickly**: Build on previous versions and refine your ideas
+
+### Effective Prompting for Qasa Prototypes
+
+#### Basic Structure
+```
+Create a [component/page] for Qasa that [specific goal/function]
+Use Qasa's design system and follow their tone of voice
+Include real Swedish content and locations
+```
+
+#### Example Prompts
+
+**For Landing Pages:**
+```
+Create a new landing page including parts of the app at start increasing landlords and tenants conversion? Can mix in homes, tenants, main CTA and best practices
+```
+
+**For Iterative Design:**
+```
+Bring in map? Some home cards? Tenant cards? Maybe bento grid? Or carousel like Netflix? And first step "list your home"?
+```
+
+**For Tenant-Focused Pages:**
+```
+Create a new landing page more focused on tenants
+```
+
+**For Prototype Modifications:**
+```
+Make "find tenant" the first screen here in this app route. And add filters similar to this image
+```
+
+**For Dashboard Creation:**
+```
+Replace this page and content and instead create a rental dashboard for a landlord who is viewing their home that is currently rented by a tenant. Use components from storybooks
+```
+
+**For User Flows:**
+```
+Create a 5-step tenant registration flow for Qasa
+Include profile completion with progress tracking
+Use Qasa's safety messaging and trust indicators
+```
+
+**For Components:**
+```
+Create a Qasa Premium feature card showing "Super apply" benefits
+Include the 2.5x improvement messaging
+Use Qasa's color scheme and typography
+```
+
+### Iterative Prototyping Strategy
+
+**Start Broad, Then Refine:**
+1. **Initial Prompt**: Create a basic version with your main goal
+2. **Iteration Prompts**: Ask for specific improvements or additions
+3. **Refinement**: Polish details and interactions
+
+**Example Iteration Flow:**
+```
+1. "Create a new landing page including parts of the app at start increasing landlords and tenants conversion"
+2. "Bring in map? Some home cards? Tenant cards? Maybe bento grid? Or carousel like Netflix?"
+3. "Add first step 'list your home' and improve the CTA buttons"
+```
+
+**Quick Modifications:**
+- **Change Focus**: "Make this more tenant-focused instead of landlord-focused"
+- **Add Features**: "Include a search bar and filter options"
+- **Improve Layout**: "Use a bento grid layout like modern landing pages"
+- **Enhance UX**: "Add progress indicators and better navigation"
+
+### Content Guidelines
+
+#### Always Include:
+- **Real Swedish cities**: Stockholm, Gothenburg, Malmö, Uppsala, Linköping
+- **Accurate statistics**: 5+ million applications, 600,000+ homes
+- **Qasa's value props**: No deposit, guaranteed rent, expert support
+- **Safety messaging**: Insurance, verification, mediation support
+
+#### Tone of Voice:
+- **Friendly but professional**
+- **Clear and direct**
+- **Trust-building language**
+- **Swedish cultural context**
+
+### Maintaining the Project
+
+#### Content Updates
+1. **Review Qasa's live site** regularly for content changes
+2. **Update the Content Examples section** in this README
+3. **Refresh Lovable prompts** with new messaging
+4. **Test prototypes** with updated content
+
+#### Design System Updates
+1. **Monitor QDS changes** in the main Qasa design system
+2. **Update component libraries** when new components are available
+3. **Maintain consistency** across all prototypes
+4. **Document changes** for team reference
+
+#### Documentation
+- **Keep content examples current** with live site
+- **Update prompting guidelines** based on what works
+- **Share successful prompts** with the team
+- **Maintain usage guides** for non-technical users
+
+## 🚀 Quick Start (For Developers)
 
 ```bash
 # Install dependencies
@@ -218,55 +246,14 @@ npm run dev
 npm run storybook
 ```
 
-## 📦 Creating New Experiments
+## 📚 Documentation
 
-To create a new experiment:
+- **[QASA_KNOWLEDGE_BASE.md](QASA_KNOWLEDGE_BASE.md)** - Complete Qasa product knowledge
+- **[QASA_LANGUAGE_GUIDE.md](QASA_LANGUAGE_GUIDE.md)** - Tone of voice and messaging guidelines
+- **[QDS_DESIGN_SYSTEM.md](QDS_DESIGN_SYSTEM.md)** - Design system documentation
+- **[QDS_COMPONENT_RULES.md](QDS_COMPONENT_RULES.md)** - Component usage guidelines
+- **[QDS_AI_COMPONENT_GUIDE.md](QDS_AI_COMPONENT_GUIDE.md)** - AI prompting for components
 
-```bash
-npm run new-experiment
-```
+## 🤝 Contributing
 
-This will:
-1. Create the experiment directory structure
-2. Set up the component files
-3. Create Storybook stories
-4. Add it to the main App.jsx
-
-## 🧪 Development
-
-- Each experiment is isolated in its own directory under `src/prototypes`
-- Components specific to an experiment should be in the experiment's `components` directory
-- Shared components go in `src/components`
-- Every component should have a corresponding story in `src/stories`
-
-## 📚 Storybook
-
-We use Storybook for:
-- Component development and testing
-- Visual documentation
-- Experiment previews
-
-Access it by running:
-```bash
-npm run storybook
-```
-
-## 🔄 Git Workflow
-
-1. Create a new branch for your experiment:
-   ```bash
-   git checkout -b experiment/feature-name
-   ```
-
-2. Commit your changes:
-   ```bash
-   git add .
-   git commit -m "feat: add new experiment feature"
-   ```
-
-3. Push your changes:
-   ```bash
-   git push origin experiment/feature-name
-   ```
-
-4. Create a Pull Request when ready for review 
+This project is maintained by the Qasa design team. For questions or contributions, please reach out to the Product Manager leads. 

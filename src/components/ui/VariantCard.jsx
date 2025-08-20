@@ -31,7 +31,7 @@ const getPrototypeIcon = (prototypeId, category) => {
     'tenant-profile': User,
     'tenant-profile-public': User,
     'tenant-apply-home': Home,
-    'bet-increase-quality': Target,
+
     'create-tenant-listing': FileText,
     
     // Landlord prototypes
@@ -50,7 +50,7 @@ const getPrototypeIcon = (prototypeId, category) => {
     'messages': MessageCircle,
     
     // Mail templates
-    'mail-template-welcome-premium': Mail,
+
     
     // Templates
     'blank-template': Plus,
@@ -154,7 +154,7 @@ const VariantCard = ({ prototype }) => {
                 <select
                   value={selectedVariant.id}
                   onChange={handleVariantChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md bg-white text-sm font-medium text-gray-700 hover:bg-[var(--color-background-inset)] focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none"
                 >
                   {prototype.variants.map((variant) => (
                     <option key={variant.id} value={variant.id}>
@@ -170,7 +170,7 @@ const VariantCard = ({ prototype }) => {
                   </div>
 
               {/* Selected variant info */}
-              <div className="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+              <div className="text-xs text-gray-600 bg-[var(--color-background-inset)] p-2 rounded">
                 {selectedVariant.description}
               </div>
 
@@ -198,7 +198,7 @@ const VariantCard = ({ prototype }) => {
               </Link>
                 <button
                   onClick={(e) => copyVariantLink(selectedVariant, e)}
-                  className="px-3 py-2 border border-gray-300 rounded-md text-gray-400 hover:text-gray-600 hover:bg-gray-50 transition-colors"
+                  className="px-3 py-2 border border-gray-300 rounded-md text-gray-400 hover:text-gray-600 hover:bg-[var(--color-background-inset)] transition-colors"
                   title="Copy link"
                 >
                   <LinkIcon className="w-4 h-4" />

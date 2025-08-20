@@ -153,19 +153,19 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
             <nav className="space-y-2">
               <a
                 href="/homes"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 {t('header.homes')}
               </a>
               <a
                 href="/tenants/apply-home"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 {t('header.tenants')}
               </a>
               <a
                 href="/sv/how-it-works"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 {t('header.howItWorks')}
               </a>
@@ -175,7 +175,7 @@ const HeaderLoggedOut = ({ onLogin, onSignup }) => {
                 variant="transparent"
                 size="md"
                 onClick={handleLogin}
-                className="w-full justify-start text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                className="w-full justify-start text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)]"
               >
                 {t('header.login')}
               </Button>

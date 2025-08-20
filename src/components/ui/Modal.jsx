@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import * as Dialog from '@radix-ui/react-dialog';
 import Icon from './Icon';
 import Typography from './Typography';
+import SectionHeader from './SectionHeader';
+import SectionFooter from './SectionFooter';
 
 const Modal = ({
   isOpen,
   onClose,
   title,
+  description,
   children,
   showCloseButton = true,
+  showFooter = false,
+  footerProps = {},
   className = '',
 }) => {
   return (
@@ -27,15 +32,24 @@ const Modal = ({
             ${className}
           `}
         >
-          {title && (
-            <Dialog.Title asChild>
-              <Typography variant="h2" className="mb-6">
-                {title}
-              </Typography>
-            </Dialog.Title>
+          {(title || description) && (
+            <SectionHeader
+              title={title}
+              description={description}
+              className="mb-6"
+            />
           )}
           
-          {children}
+          <div className="flex-1">
+            {children}
+          </div>
+
+          {showFooter && (
+            <SectionFooter
+              {...footerProps}
+              className="mt-6"
+            />
+          )}
 
           {showCloseButton && (
             <button
@@ -55,8 +69,11 @@ Modal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   title: PropTypes.string,
+  description: PropTypes.string,
   children: PropTypes.node.isRequired,
   showCloseButton: PropTypes.bool,
+  showFooter: PropTypes.bool,
+  footerProps: PropTypes.object,
   className: PropTypes.string,
 };
 

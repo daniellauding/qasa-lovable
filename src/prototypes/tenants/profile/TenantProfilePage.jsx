@@ -117,7 +117,7 @@ export default function TenantProfilePage() {
           </div>
 
           {/* Verification section */}
-          <div className="bg-gray-50 rounded-lg p-4">
+          <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
             <Typography variant="h3" className="text-gray-900 mb-2">
               Ej verifierad
             </Typography>
@@ -371,7 +371,7 @@ export default function TenantProfilePage() {
     >
       <div className="space-y-6">
         {/* Existing employment */}
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
           <div className="flex justify-between items-start">
             <div>
               <Typography variant="h3" className="text-gray-900 mb-1">
@@ -649,7 +649,7 @@ export default function TenantProfilePage() {
                   )}
                 </div>
                 
-                <div className="bg-gray-50 rounded-lg p-4">
+                <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
                   <Typography variant="h3" className="text-gray-900 mb-2">
                     {profile.occupation.title}
                   </Typography>
@@ -710,7 +710,7 @@ export default function TenantProfilePage() {
                 <Typography variant="h2" className="text-gray-900 mb-4">
                   Tidigare kontaktförfrågningar
                 </Typography>
-                <div className="bg-gray-50 rounded-lg p-4 text-sm text-gray-600">
+                <div className="bg-[var(--color-background-inset)] rounded-lg p-4 text-sm text-gray-600">
                   <p><strong>Bostäderna ligger i:</strong> Stockholm, Håcksvik, Solna</p>
                   <p><strong>Priserna har legat mellan:</strong> 8000 och 35000</p>
                   <p><strong>Antal rum:</strong> 2</p>

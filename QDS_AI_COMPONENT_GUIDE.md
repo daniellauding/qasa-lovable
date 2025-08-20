@@ -185,6 +185,21 @@ import FilterButton from '@/components/ui/FilterButton';
 />
 ```
 
+### 🏷️ Feature Badges & Trust Indicators
+```jsx
+import FeatureBadge from '@/components/ui/FeatureBadge';
+import TrustIndicator from '@/components/ui/TrustIndicator';
+
+// Feature badges for property features
+<FeatureBadge text="Balkong" />
+<FeatureBadge text="Verifierad hyresvärd" icon={<CheckCircle className="w-4 h-4" />} />
+
+// Trust indicators for safety
+<TrustIndicator text="ID Verified" type="verified" />
+<TrustIndicator text="Secure payment" type="secure" />
+<TrustIndicator text="Trusted landlord" type="trusted" />
+```
+
 ---
 
 ## 🎯 Common Use Cases & Patterns
@@ -282,18 +297,52 @@ import FilterButton from '@/components/ui/FilterButton';
 
 ## 🔧 Icon Usage (Lucide React)
 
+### Available QDS Icons
+Always use these approved icons from Lucide React:
 ```jsx
-import { Home, User, Heart, Search, Filter, Plus, X, Check } from 'lucide-react';
+import { 
+  AlertCircle, AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, ArrowUp,
+  Bell, BellOff, Bookmark, Calendar, Camera, CheckCircle, Check,
+  ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Globe, Heart,
+  HelpCircle, History, Home, Image, Info, List, ListFilter, LogOut,
+  Map, MapPin, Menu, MessageCircle, Minus, MoreHorizontal, MoreVertical,
+  Pen, Plus, Search, Settings, Share, Sliders, Star, Trash, User, XCircle, X
+} from 'lucide-react';
+```
 
+### Icon Styling Rules
+- **Icons use transparent backgrounds** - Never add background colors or radius to icons themselves
+- **Icon containers** can have backgrounds when needed for visual hierarchy
+- **Use proper color tokens** for icon colors
+- **Consistent sizing** with QDS size scale
+
+```jsx
+// ✅ CORRECT - Icons with transparent backgrounds
+<Home className="w-5 h-5 text-[var(--color-text-primary)]" />
+
+// ✅ CORRECT - Icon in container with background
+<div className="w-16 h-16 bg-[var(--color-uiPink)] rounded-full flex items-center justify-center">
+  <Home className="w-8 h-8 text-[var(--color-brown)]" />
+</div>
+
+// ❌ WRONG - Icon with background color
+<Home className="w-5 h-5 bg-pink-500 rounded-full" />
+```
+
+### Icon Usage Examples
+```jsx
 // In buttons
 <Button leftIcon={<Plus />}>Lägg till</Button>
 <Button iconOnly icon={<X />} variant="ghost" />
 
 // In text
 <div className="flex items-center gap-2">
-  <Home className="w-5 h-5 text-gray-600" />
+  <Home className="w-5 h-5 text-[var(--color-text-primary)]" />
   <Typography variant="body-md">2 rum och kök</Typography>
 </div>
+
+// In feature badges
+<FeatureBadge text="Verified" icon={<CheckCircle className="w-4 h-4" />} />
 ```
 
 ---
@@ -406,6 +455,11 @@ export default MyComponent;
   - On generic dark surfaces (non-primary): `text-white`.
   - Icon containers on light sections: `bg-[var(--color-button-tertiary-bg)]` with icon `text-[var(--color-text-primary)]`.
   - Icon containers on dark sections: `bg-white/10` with icon `text-white`.
+- **Icon styling rules**:
+  - **Icons use transparent backgrounds** - Never add background colors or radius to icons themselves
+  - **Icon containers** can have backgrounds when needed for visual hierarchy
+  - **Use proper color tokens** for icon colors: `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`
+  - **For checkmarks/bullets**: Use `CheckCircle` icon with `text-[var(--color-text-primary)]`, never red or green colors
 - **Never** use `text-[var(--color-text-primary)]` on dark surfaces; contrast fails.
 - Prefer tokens over hex or Tailwind palette. If a token seems missing, use the closest semantic token and open a follow-up to extend tokens—do not hardcode colors.
 
@@ -449,8 +503,157 @@ Do not output raw `<h*>`/`<p>` with manual classes for size. Always use `Typogra
 
 - Do not introduce new section components such as `WhatIsQasa`, `HowItWorksSection`, or `TrustSafetySection`.
 - Build sections by composing approved QDS primitives/patterns:
-  - `Typography`, `Button`, `Card`, `Avatar`, `Carousel`, `CityCard`, `FeatureCard`, `RichPromoCard`, `StatsStrip`, `TestimonialCarousel`, `FAQLinkList`.
+  - `Typography`, `Button`, `Card`, `Avatar`, `Carousel`, `CityCard`, `FeatureCard`, `RichPromoCard`, `StatsStrip`, `TestimonialCarousel`, `FAQLinkList`, `FeatureBadge`, `TrustIndicator`.
 - If a reusable pattern is truly needed, follow the QDS creation process (folder + story + tokens). Never invent ad-hoc components in prototypes.
+
+### Content Block Variants
+### ContentBlock Component
+
+Use the `ContentBlock` component for landing pages, information sections, and teasers:
+
+#### Background Colors
+- Use `bg-[var(--color-softPink)]` for premium/feature highlights
+- Use `bg-[var(--color-background-inset)]` for secondary information
+- Use `bg-white` for primary content
+
+#### Rounded Containers
+- Use `rounded-xl` for standard content blocks
+- Use `rounded-2xl` for featured content
+- Use `rounded-full` for pill-shaped elements
+
+#### Image Layouts
+- Support `image-left`, `image-right`, and `centered` layouts
+- Images should be responsive and maintain aspect ratio
+
+#### Call to Actions
+- Include buttons with proper QDS styling (primary, secondary, tertiary, outline)
+- Use consistent spacing and typography
+
+#### Stepper Components
+- Use numbered circles (1, 2, 3) with proper backgrounds
+- Include connecting lines between steps
+- Use proper color tokens for accessibility
+
+#### AI Prompts for ContentBlock
+```
+Create a content block with:
+- Title: "Find Your Dream Home"
+- Description: "Browse thousands of verified rental properties"
+- Background: softPink
+- Image position: left
+- CTA: "Browse Homes" (primary variant)
+- Rounded: xl
+```
+
+```
+Create an information section with:
+- Title: "No Deposit Required"
+- Description: "Keep your money in your pocket"
+- Background: inset
+- CTA: "Learn More" (outline variant)
+- Stepper: ["Search", "Apply", "Move In"]
+```
+
+#### Component Props
+```jsx
+<ContentBlock
+  title="Welcome to Qasa"
+  description="Find your perfect home or tenant"
+  image="image-url.jpg"
+  imagePosition="left"              // left, right, center
+  background="white"                // white, softPink, inset
+  rounded="xl"                      // none, sm, md, lg, full
+  ctaText="Get Started"
+  ctaVariant="primary"              // primary, secondary, tertiary, outline
+  stepper={["Step 1", "Step 2"]}
+  onCtaClick={handleClick}
+/>
+```
+
+### Modal Component
+
+Use the `Modal` component for overlays, dialogs, and forms. The Modal component integrates with `SectionHeader` and `SectionFooter` for consistent styling:
+
+#### Basic Usage
+```jsx
+<Modal
+  isOpen={isOpen}
+  onClose={handleClose}
+  title="Modal Title"
+>
+  <p>Modal content goes here</p>
+</Modal>
+```
+
+#### Modal with SectionHeader
+```jsx
+<Modal
+  isOpen={isOpen}
+  onClose={handleClose}
+  title="Create New Listing"
+  description="Fill in the details below to create your new rental listing."
+>
+  <div className="space-y-4">
+    <p>Modal content with consistent header styling</p>
+  </div>
+</Modal>
+```
+
+#### Modal with SectionFooter
+```jsx
+<Modal
+  isOpen={isOpen}
+  onClose={handleClose}
+  title="Confirm Action"
+  showFooter={true}
+  footerProps={{
+    onNext: handleConfirm,
+    onPrev: handleCancel,
+    nextText: 'Confirm',
+    prevText: 'Cancel',
+    showPrev: true,
+    showNext: true
+  }}
+>
+  <div className="space-y-4">
+    <p>Are you sure you want to proceed?</p>
+  </div>
+</Modal>
+```
+
+#### Form Modal with SectionHeader and SectionFooter
+```jsx
+<Modal
+  isOpen={isOpen}
+  onClose={handleClose}
+  title="Contact Information"
+  description="Please provide your contact details below."
+  showFooter={true}
+  footerProps={{
+    onNext: handleSave,
+    onPrev: handleCancel,
+    nextText: 'Save',
+    prevText: 'Cancel',
+    showPrev: true,
+    showNext: true
+  }}
+>
+  <div className="space-y-4">
+    <Input placeholder="Name" />
+    <Input placeholder="Email" />
+    <TextArea placeholder="Message" />
+  </div>
+</Modal>
+```
+
+#### Modal Footer Variations
+- **Multi-step**: Left tertiary button with arrow, right primary button
+- **Left Tertiary Right Primary**: Text buttons with tertiary and primary variants
+- **Centered Primary Only**: Single centered primary button
+- **Centered Wide Primary Only**: Full-width centered primary button
+- **Centered Tertiary and Primary**: Two centered buttons
+- **Stacked Primary and Tertiary**: Vertical button layout
+- **Only Right Primary**: Right-aligned primary button only
 
 ### Composition Recipes
 
@@ -474,3 +677,150 @@ Do not output raw `<h*>`/`<p>` with manual classes for size. Always use `Typogra
 
 ### Box Usage
 - Use `Box` as a neutral container with `variant="gray"` (default). It renders Gray 10 (inset). Do not expect shadows or a white variant. For elevation, use `Card` or apply shadow classes explicitly.
+
+---
+
+## 🗺️ Map Component
+
+### Component Description
+Interactive map component with grouped pins and price display. Uses OpenStreetMap and supports hover interactions with property cards.
+
+### Key Features
+- **Grouped Pins**: Automatically groups nearby properties when zoomed out
+- **Price Display**: Shows SEK prices when zoomed in close enough
+- **Hover Interactions**: Displays property cards on hover
+- **Click Navigation**: Navigate to property details on click
+- **Sweden Focus**: Optimized for Swedish property locations
+
+### AI Prompts for Map Usage
+
+#### Basic Map Implementation
+```
+Create a map component showing rental properties in Stockholm
+Use the QDS Map component with grouped pins and price display
+Include hover interactions and click navigation to property details
+```
+
+#### Map with Custom Properties
+```
+Add a map to this page showing these properties:
+- Stockholm: 3 properties in Östermalm, Södermalm, Vasastan
+- Gothenburg: 2 properties in city center
+- Malmö: 1 property near the station
+Use grouped pins when zoomed out and individual price pins when zoomed in
+```
+
+#### Map Integration in Landing Page
+```
+Create a landing page with a map section showing available rental properties
+Use the QDS Map component with:
+- Sweden overview zoom level
+- Grouped pins showing property counts
+- Hover to show property cards
+- Click to navigate to apply page
+```
+
+#### Map with Filters
+```
+Add a map to the property search page that:
+- Shows properties based on current filters
+- Updates markers when filters change
+- Maintains grouped pins for performance
+- Highlights selected property
+```
+
+### Component Props
+
+```jsx
+<Map
+  properties={propertyArray}           // Array of property objects
+  center={[59.3293, 18.0686]}         // Map center coordinates
+  zoom={11}                           // Initial zoom level
+  onPropertyClick={handleClick}       // Click handler
+  selectedProperty={selected}         // Currently selected property
+  showGroupedPins={true}              // Enable grouped pins
+  className="w-full h-full"           // CSS classes
+/>
+```
+
+### Property Object Structure
+```jsx
+{
+  id: 1,
+  images: ['url1', 'url2'],
+  location: 'Östermalm, Stockholm',
+  type: 'Lägenhet',
+  details: '2 rum / 65 m²',
+  price: 'SEK 18,500',
+  dateRange: '2025-07-15 → Tillsvidare',
+  lat: 59.3358,
+  lng: 18.0871,
+}
+```
+
+### Best Practices
+
+#### For Lovable Prompts
+- **Specify Location**: Always mention Swedish cities and areas
+- **Include Properties**: Provide property data or mock data structure
+- **Describe Interactions**: Explain hover and click behaviors
+- **Mention Zoom Levels**: Specify when to show grouped vs individual pins
+
+#### For Developers
+- **Performance**: Use grouped pins for large property datasets
+- **Accessibility**: Ensure keyboard navigation works
+- **Mobile**: Test touch interactions on mobile devices
+- **Loading**: Show loading states while map tiles load
+
+### Example Implementations
+
+#### Property Search Page
+```jsx
+<Map
+  properties={filteredProperties}
+  center={[59.3293, 18.0686]}
+  zoom={11}
+  selectedProperty={selectedProperty}
+  onPropertyClick={(property) => navigate(`/apply-home/${property.id}`)}
+  showGroupedPins={true}
+/>
+```
+
+#### City Overview
+```jsx
+<Map
+  properties={allProperties}
+  center={[62.0, 15.0]} // Sweden center
+  zoom={6}
+  onPropertyClick={handleCityClick}
+  showGroupedPins={true}
+/>
+```
+
+#### Neighborhood Focus
+```jsx
+<Map
+  properties={neighborhoodProperties}
+  center={[59.3293, 18.0686]}
+  zoom={14}
+  selectedProperty={selectedProperty}
+  onPropertyClick={handlePropertyClick}
+  showGroupedPins={false}
+/>
+```
+
+### Common Use Cases
+
+1. **Property Search Results**: Show filtered properties with interactive map
+2. **City Overview**: Display property distribution across Sweden
+3. **Neighborhood Explorer**: Focus on specific areas with detailed property info
+4. **Property Comparison**: Allow users to compare nearby properties
+5. **Location-Based Search**: Help users find properties in desired areas
+
+### Integration Tips
+
+- **Combine with Filters**: Update map when search filters change
+- **Sync with List**: Keep map and property list in sync
+- **Responsive Design**: Adjust map size and behavior for mobile
+- **Loading States**: Show skeleton or loading indicator while map loads
+- **Error Handling**: Provide fallback for map loading failures

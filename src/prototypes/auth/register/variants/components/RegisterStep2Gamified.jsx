@@ -252,7 +252,7 @@ const RegisterStep2Gamified = ({ onNext, onPrev, formData, updateFormData }) => 
                       className={`border-2 rounded-lg p-3 text-center transition-all ${
                         achievements.includes(id)
                           ? 'border-yellow-400 bg-yellow-50'
-                          : 'border-gray-200 bg-gray-50 opacity-50'
+                          : 'border-gray-200 bg-[var(--color-background-inset)] opacity-50'
                       }`}
                     >
                       <div className="text-lg mb-1">{achievement.icon}</div>

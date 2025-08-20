@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
-import { ArrowLeft } from 'lucide-react';
+import SectionFooter from '../../../../components/ui/SectionFooter';
 
 const CreateListingStep15 = ({ onNext, onPrev }) => {
   return (
@@ -32,25 +31,12 @@ const CreateListingStep15 = ({ onNext, onPrev }) => {
               Gör klart din annons och förhandsgranska den innan publicering.
             </Typography>
 
-            {/* Footer */}
-            <div className="flex items-center justify-between pt-6">
-              <Button
-                variant="tertiary"
-                size="lg"
-                onClick={onPrev}
-                iconOnly
-                icon={<ArrowLeft className="h-5 w-5" />}
-                aria-label="Tillbaka"
-              />
-              
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={onNext}
-              >
-                Nästa
-              </Button>
-            </div>
+            <SectionFooter
+              onNext={onNext}
+              onPrev={onPrev}
+              nextText="Nästa"
+              prevText="Tillbaka"
+            />
           </div>
         </div>
       </div>

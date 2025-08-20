@@ -136,7 +136,9 @@ Use Typography component with semantic variants:
 ### Data Display
 - `Avatar` - User profile image
 - `Chip` - Tag or label
-- `Icon` - Heroicons wrapper
+- `Icon` - Lucide React wrapper
+- `FeatureBadge` - Inline feature indicators
+- `TrustIndicator` - Trust and safety indicators
 
 ### Navigation
 - `Header` - App header
@@ -175,6 +177,9 @@ import { FaHome } from 'react-icons/fa';
 
 // ❌ No inline Tailwind components
 const Button = () => <button className="px-4 py-2">Click</button>;
+
+// ❌ No custom icon components
+const CustomIcon = () => <svg>...</svg>;
 ```
 
 ---
@@ -227,8 +232,12 @@ Before committing any new component or screen:
 - When a section uses a dark surface or image overlay (e.g., `bg-[var(--color-brown)]`, gradients from black), all readable text must use `Typography` with `color="white"`. Do not rely on inherited colors.
 - On brand/primary surfaces (buttons, chips) use `text-[var(--color-text-on-primary)]` for icons/text inside.
 
-### Icon Coloring
-- Lucide icons must follow context:
+### Icon Styling Rules
+- **Icons use transparent backgrounds** - Never add background colors or radius to icons themselves
+- **Icon containers** can have backgrounds when needed for visual hierarchy
+- **Use proper color tokens** for icon colors: `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`
+- **For checkmarks/bullets**: Use `CheckCircle` icon with `text-[var(--color-text-primary)]`, never red or green colors
+- **Lucide icons must follow context**:
   - On primary buttons: `text-[var(--color-text-on-primary)]`.
   - On dark non-primary surfaces: `text-white`.
   - In light info boxes: icon container `bg-[var(--color-button-tertiary-bg)]`, icon `text-[var(--color-text-primary)]`.
@@ -264,8 +273,16 @@ Do not output raw `<h*>`/`<p>` with size classes.
 ## 🧱 Composition — No New Ad-hoc Sections
 
 - Do not create new components like `WhatIsQasa`, `HowItWorksSection`, `TrustSafetySection` in prototypes.
-- Compose with approved QDS components: `Typography`, `Button`, `Card`, `StatsStrip`, `FeatureCard`, `RichPromoCard`, `FAQLinkList`, `TestimonialCarousel`, `Carousel`, `CityCard`.
+- Compose with approved QDS components: `Typography`, `Button`, `Card`, `StatsStrip`, `FeatureCard`, `RichPromoCard`, `FAQLinkList`, `TestimonialCarousel`, `Carousel`, `CityCard`, `FeatureBadge`, `TrustIndicator`.
 - If a reusable pattern is needed, follow the formal QDS component process and add Storybook docs before use.
+
+### Content Block Variants
+For content blocks with rounded backgrounds and layouts:
+- **Background colors**: Use `bg-[var(--color-softPink)]`, `bg-[var(--color-background-inset)]`, `bg-white`
+- **Rounded containers**: Use `rounded-xl`, `rounded-2xl`, `rounded-full` for different levels
+- **Image layouts**: Support image-left, image-right, centered layouts
+- **Call to actions**: Include buttons with proper QDS styling
+- **Stepper components**: Use numbered circles (1, 2, 3) with `bg-white` or `bg-[var(--color-background-inset)]` backgrounds
 
 ---
 
@@ -366,4 +383,19 @@ export default NewFeature;
 --color-background: #ffffff
 --color-surface: #f9fafb
 --color-border: #e5e7eb
+--color-softPink: #FCEEF0
+--color-background-inset: #f3f4f6
+```
+
+### Available Icons
+```jsx
+// Always use these approved Lucide React icons
+import { 
+  AlertCircle, AlertTriangle, ArrowDown, ArrowLeft, ArrowRight, ArrowUp,
+  Bell, BellOff, Bookmark, Calendar, Camera, CheckCircle, Check,
+  ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Globe, Heart,
+  HelpCircle, History, Home, Image, Info, List, ListFilter, LogOut,
+  Map, MapPin, Menu, MessageCircle, Minus, MoreHorizontal, MoreVertical,
+  Pen, Plus, Search, Settings, Share, Sliders, Star, Trash, User, XCircle, X
+} from 'lucide-react';
 ```

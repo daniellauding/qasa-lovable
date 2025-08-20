@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
+import SectionFooter from '../../../../components/ui/SectionFooter';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import Input from '../../../../components/ui/Input';
-import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -108,25 +107,12 @@ const CreateListingStep5 = ({ onNext, onPrev, formData, updateFormData }) => {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="px-8 py-6 bg-white flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label="Tillbaka"
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={onNext}
-          >
-            Nästa
-          </Button>
-        </div>
+        <SectionFooter
+          onNext={onNext}
+          onPrev={onPrev}
+          nextText="Nästa"
+          prevText="Tillbaka"
+        />
       </div>
     </div>
   );

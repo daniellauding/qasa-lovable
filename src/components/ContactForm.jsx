@@ -23,7 +23,7 @@ const ContactForm = ({ propertyData }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <div className="mb-4 p-4 bg-gray-50 rounded-lg">
+        <div className="mb-4 p-4 bg-[var(--color-background-inset)] rounded-lg">
           <div className="flex items-center space-x-3">
             <img
               src={propertyData.images[0]}

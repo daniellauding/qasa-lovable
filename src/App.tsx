@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 import TenantApplyHome from './prototypes/tenants/apply-home/TenantApplyHome';
 import TenantProfilePage from './prototypes/tenants/profile/TenantProfilePage';
-import BetIncreaseQuality from './prototypes/tenants/bet-increase-quality/BetIncreaseQuality';
+
 import CreateTenantListingFlow from './prototypes/tenants/create-tenant-listing/CreateTenantListingFlow';
 import FindTenant from './prototypes/landlords/find-tenant/FindTenant';
 import CreateListingFlow from './prototypes/landlords/create-listing/CreateListingFlow';
@@ -31,7 +31,7 @@ import Dashboard from './prototypes/landlords/dashboard/Dashboard';
 import EditRent from './prototypes/landlords/edit-rent/EditRent';
 import EditListingOverview from './prototypes/landlords/edit-listing/EditListingOverview';
 import LandlordProfilePage from './prototypes/landlords/profile/LandlordProfilePage';
-import WelcomeToPremiumEmail from './prototypes/mail-templates/WelcomeToPremiumEmail';
+
 import LoginFlow from './prototypes/auth/login/LoginFlow';
 import RegisterFlow from './prototypes/auth/register/RegisterFlow';
 import HomesPage from './prototypes/homes/HomesPage';
@@ -61,7 +61,7 @@ const getPrototypeIcon = (prototypeId, category) => {
     'tenant-profile': User,
     'tenant-profile-public': User,
     'tenant-apply-home': Home,
-    'bet-increase-quality': Target,
+
     'create-tenant-listing': FileText,
     
     // Landlord prototypes
@@ -80,7 +80,7 @@ const getPrototypeIcon = (prototypeId, category) => {
     'messages': MessageCircle,
     
     // Mail templates
-    'mail-template-welcome-premium': Mail,
+
     
     // Templates
     'blank-template': Plus,
@@ -147,15 +147,8 @@ const prototypes = [
     path: '/tenants/apply-home',
     component: TenantApplyHome,
   },
-  {
-    id: 'bet-increase-quality',
-    category: 'tenants',
-    name: 'BET: Increase Application Quality',
-    description: 'Experiment to increase the quality of rental applications through real-time feedback and gamification',
-    thumbnail: '/thumbnails/bet-increase-quality.png',
-    path: '/tenants/bet-increase-quality',
-    component: BetIncreaseQuality,
-    tags: ['experiment', 'gamification'],
+
+    
   },
   {
     id: 'create-tenant-listing',
@@ -227,16 +220,7 @@ const prototypes = [
     component: LandlordProfilePage,
     tags: ['profile', 'listings', 'landlord'],
   },
-  {
-    id: 'mail-template-welcome-premium',
-    category: 'mail-templates',
-    name: 'Mail Template: Welcome to Premium',
-    description: 'Email template preview for Premium welcome messages with theme support for both Qasa and Blocket',
-    thumbnail: '/thumbnails/mail-template-premium.png',
-    path: '/mail-templates/welcome-to-premium',
-    component: WelcomeToPremiumEmail,
-    tags: ['email', 'template', 'premium', 'theme'],
-  },
+
   {
     id: 'login',
     category: 'auth',
@@ -563,7 +547,7 @@ function App() {
           } />
           
           <Route path="/tenants/profile" element={<TenantProfilePage />} />
-          <Route path="/tenants/bet-increase-quality" element={<BetIncreaseQuality />} />
+  
           <Route path="/tenants/create-tenant-listing" element={
             <VariantWrapper 
               prototypeId="create-tenant-listing" 
@@ -590,7 +574,7 @@ function App() {
           <Route path="/templates/blank" element={<BlankTemplate />} />
           <Route path="/templates/builder" element={<TemplateBuilder />} />
           
-          <Route path="/mail-templates/welcome-to-premium" element={<WelcomeToPremiumEmail />} />
+  
           
           {prototypes
             .filter(p => p.id !== 'find-tenant' && p.id !== 'create-listing' && p.id !== 'media-management' && p.id !== 'dashboard' && p.id !== 'edit-listing' && p.id !== 'tenant-apply-home' && p.id !== 'login' && p.id !== 'register')

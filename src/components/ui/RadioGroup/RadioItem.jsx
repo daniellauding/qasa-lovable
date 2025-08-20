@@ -23,10 +23,12 @@ const RadioItem = ({ option, variant }) => {
         </div>
       )}
       
-      <div className={getRadioStyles(variant)}>
-        <RadioGroupPrimitive.Indicator className="flex items-center justify-center w-full h-full">
-          <div className="w-2 h-2 bg-[var(--color-text-primary,#322721)] rounded-full" />
-        </RadioGroupPrimitive.Indicator>
+      <div className={variant === 'card' ? 'absolute right-4 top-1' : ''}>
+        <div className={getRadioStyles(variant)}>
+          <RadioGroupPrimitive.Indicator className="flex items-center justify-center w-full h-full">
+            <div className="w-2 h-2 bg-[var(--color-text-primary,#322721)] rounded-full" />
+          </RadioGroupPrimitive.Indicator>
+        </div>
       </div>
 
       {variant === 'default' && (

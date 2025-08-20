@@ -49,7 +49,7 @@ const CreateTenantListingStep8 = ({ onNext, onPrev, formData, updateFormData }) 
           </div>
 
           {/* Info Card */}
-          <HintBox className="bg-gray-50">
+          <HintBox>
             <div className="flex items-start gap-3">
               <span className="text-2xl">🙌</span>
               <div>

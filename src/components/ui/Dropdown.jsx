@@ -5,7 +5,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 const TriggerButton = forwardRef(({ children, className = '', ...props }, ref) => (
   <button
     ref={ref}
-    className={`flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-gray-50 ${className}`}
+    className={`flex items-center gap-2 px-4 py-2 text-gray-700 bg-white border rounded-lg hover:bg-[var(--color-background-inset)] ${className}`}
     {...props}
   >
     {children}

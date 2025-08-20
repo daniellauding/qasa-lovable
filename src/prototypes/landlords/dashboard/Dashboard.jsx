@@ -250,7 +250,7 @@ const Dashboard = () => {
               </div>
 
               {/* ID Verification */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+              <div className="bg-[var(--color-background-inset)] border border-gray-200 rounded-lg p-4 mb-6">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-4 h-4 text-gray-500">🆔</div>
                   <Typography variant="body-sm" className="font-medium text-gray-900">

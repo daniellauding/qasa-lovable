@@ -171,7 +171,7 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
                     key={index}
                     type="button"
                     onClick={() => handleLocationSelect(suggestion)}
-                    className="w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-100 last:border-b-0 flex items-center gap-3"
+                    className="w-full text-left px-4 py-3 hover:bg-[var(--color-background-inset)] border-b border-gray-100 last:border-b-0 flex items-center gap-3"
                   >
                     <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />

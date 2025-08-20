@@ -57,19 +57,19 @@ function TenantApplyHome() {
       title: 'Snabba insikter',
       content: (
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Publicerad</div>
             <div className="font-medium">Idag</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Visningar</div>
             <div className="font-medium">6</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Antal sökande</div>
             <div className="font-medium">4</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Svarstid</div>
             <div className="font-medium">&lt; 24h</div>
           </div>
@@ -183,7 +183,7 @@ function TenantApplyHome() {
               {accordionSections.map((section, idx) => (
                 <div key={idx} className="border border-gray-200 rounded-lg overflow-hidden">
                   <button
-                    className="w-full px-4 py-3 flex items-center justify-between text-left bg-white hover:bg-gray-50 transition-colors"
+                    className="w-full px-4 py-3 flex items-center justify-between text-left bg-white hover:bg-[var(--color-background-inset)] transition-colors"
                     onClick={() => setActiveAccordion(activeAccordion === idx ? null : idx)}
                   >
                     <span className="font-medium">{section.title}</span>

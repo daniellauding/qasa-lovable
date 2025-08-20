@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "analyze": "node scripts/analyze-file-usage.js"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",

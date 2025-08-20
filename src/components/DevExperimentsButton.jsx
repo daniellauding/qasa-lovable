@@ -11,11 +11,7 @@ const experiments = [
     path: '/tenants/apply-home',
     description: 'Tenant application flow prototype'
   },
-  {
-    name: 'BET: Increase Application Quality',
-    path: '/tenants/bet-increase-quality',
-    description: 'Experiment to increase application quality through gamification'
-  },
+  
   {
     name: 'Create Tenant Listing',
     path: '/tenants/create-tenant-listing',
@@ -91,11 +87,7 @@ const experiments = [
     path: '/landlords/profile',
     description: 'Landlord profile page with personal information and published listings'
   },
-  {
-    name: 'Mail Template: Welcome to Premium',
-    path: '/mail-templates/welcome-to-premium',
-    description: 'Email template preview for Premium welcome messages with theme support'
-  }
+
 ];
 
 function DevExperimentsButton() {
@@ -203,7 +195,7 @@ function DevExperimentsButton() {
                     {currentVariants.map((variant) => (
                       <div
                         key={variant.id}
-                        className={`p-2 rounded hover:bg-gray-50 cursor-pointer flex items-center justify-between ${
+                        className={`p-2 rounded hover:bg-[var(--color-background-inset)] cursor-pointer flex items-center justify-between ${
                           currentVariant === variant.id ? 'bg-blue-50 border border-blue-200' : ''
                         }`}
                       >
@@ -255,7 +247,7 @@ function DevExperimentsButton() {
                 <Link
                   key={experiment.path}
                   to={experiment.path}
-                  className="block p-3 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block p-3 hover:bg-[var(--color-background-inset)] rounded-lg transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   <div className="text-sm font-medium text-gray-900">{experiment.name}</div>

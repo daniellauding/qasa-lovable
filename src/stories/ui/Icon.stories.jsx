@@ -1,4 +1,4 @@
-import Icon from '../../components/ui/Icon';
+import Icon, { QDS_ICONS } from '../../components/ui/Icon';
 import * as LucideIcons from 'lucide-react';
 
 export default {
@@ -6,15 +6,22 @@ export default {
   component: Icon,
   parameters: {
     layout: 'centered',
+    docs: {
+      description: {
+        component: 'Icon component using Lucide React icons. Icons use transparent backgrounds with proper color tokens.'
+      }
+    }
   },
   argTypes: {
     name: {
       control: 'select',
-      options: Object.keys(LucideIcons),
+      options: QDS_ICONS,
+      description: 'Icon name from QDS approved Lucide React icons'
     },
     size: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'Icon size'
     },
   },
 };
@@ -51,6 +58,10 @@ const commonIcons = [
   'ArrowRight',
   'ArrowLeft',
   'Menu',
+  'CheckCircle',
+  'Home',
+  'Search',
+  'Star',
 ];
 
 export const CommonIcons = {
@@ -69,7 +80,7 @@ export const CommonIcons = {
 export const AllIcons = {
   render: () => (
     <div className="grid grid-cols-6 gap-4">
-      {Object.keys(LucideIcons).map((iconName) => (
+      {QDS_ICONS.map((iconName) => (
         <div key={iconName} className="flex flex-col items-center gap-2 p-4 border rounded">
           <Icon name={iconName} size="md" />
           <span className="text-xs text-gray-600">{iconName}</span>

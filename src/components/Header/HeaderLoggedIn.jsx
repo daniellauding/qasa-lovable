@@ -270,7 +270,7 @@ const HeaderLoggedIn = ({
               </React.Fragment>
             ))}
             {/* <div className="mt-2 border-t border-gray-200 pt-2 px-4">
-              <a href="/premium" className="block py-2 px-3 bg-gray-50 rounded-lg">
+              <a href="/premium" className="block py-2 px-3 bg-[var(--color-background-inset)] rounded-lg">
                 <p className="text-sm font-medium">{t('headerMenu.premiumTitle')}</p>
                 <p className="font-semibold">{t('headerMenu.premiumBrand')}</p>
               </a>

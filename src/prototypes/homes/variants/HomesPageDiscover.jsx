@@ -391,9 +391,9 @@ const HomesPageDiscover = () => {
                     {sortOptions.map(option => (
                       <button
                         key={option.value}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-background-inset)] transition-colors ${
                           sortBy === option.value
-                            ? 'bg-gray-50 text-gray-900 font-medium'
+                            ? 'bg-[var(--color-background-inset)] text-gray-900 font-medium'
                             : 'text-gray-700'
                         }`}
                         onClick={() => {

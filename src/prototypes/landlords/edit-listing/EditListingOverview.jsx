@@ -94,7 +94,7 @@ const EditListingOverview = () => {
             <div key={step.number}>
               <button
                 onClick={() => navigate(step.path)}
-                className="w-full p-6 text-left hover:bg-gray-50 transition-colors group"
+                className="w-full p-6 text-left hover:bg-[var(--color-background-inset)] transition-colors group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">

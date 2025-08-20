@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
+import SectionFooter from '../../../../components/ui/SectionFooter';
 import Checkbox from '../../../../components/ui/Checkbox';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeft } from 'lucide-react';
 
 const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [amenities, setAmenities] = useState(formData.amenities || []);
@@ -135,23 +134,12 @@ const CreateListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label="Tillbaka"
-          />
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={onNext}
-          >
-            Nästa
-          </Button>
-        </div>
+        <SectionFooter
+          onNext={onNext}
+          onPrev={onPrev}
+          nextText="Nästa"
+          prevText="Tillbaka"
+        />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import FindTenant from '../prototypes/landlords/find-tenant/FindTenant';
 import { LanguageProvider } from '../utils/translations/LanguageContext';
 
 export default {
-  title: 'Prototypes/FindTenant',
+  title: 'Tenants/FindTenant',
   component: FindTenant,
   parameters: {
     layout: 'fullscreen',
@@ -11,19 +11,7 @@ export default {
 };
 
 export const Default = () => (
-  <LanguageProvider>
-      <FindTenant />
-    </LanguageProvider>
-);
-
-export const SwedishVersion = () => (
   <LanguageProvider initialLanguage="sv">
-      <FindTenant />
-    </LanguageProvider>
-);
-
-export const FinnishVersion = () => (
-  <LanguageProvider initialLanguage="fi">
       <FindTenant />
     </LanguageProvider>
 ); 

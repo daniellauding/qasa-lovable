@@ -253,7 +253,7 @@ export default function MessagesPage() {
               {message.timestamp}
             </Typography>
           </div>
-          <div className="bg-gray-50 rounded-lg p-6 max-w-md mx-auto">
+          <div className="bg-[var(--color-background-inset)] rounded-lg p-6 max-w-md mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <img src="/_next/static/media/qasa-logotype-brown.9d4d7f96.png" alt="Qasa" className="h-6" />
             </div>
@@ -331,31 +331,31 @@ export default function MessagesPage() {
                     <div className="p-2">
                       <button 
                         onClick={() => { setActiveFilter('all'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-50 ${activeFilter === 'all' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'all' ? 'bg-gray-100' : ''}`}
                       >
                         <Typography variant="body" className="text-gray-900">All conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('active'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-50 ${activeFilter === 'active' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'active' ? 'bg-gray-100' : ''}`}
                       >
                         <Typography variant="body" className="text-gray-700">Active conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('archived'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-50 ${activeFilter === 'archived' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'archived' ? 'bg-gray-100' : ''}`}
                       >
                         <Typography variant="body" className="text-gray-700">Archived conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('favorited'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-50 ${activeFilter === 'favorited' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'favorited' ? 'bg-gray-100' : ''}`}
                       >
                         <Typography variant="body" className="text-gray-700">Favorited conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('home'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-gray-50 ${activeFilter === 'home' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'home' ? 'bg-gray-100' : ''}`}
                       >
                         <Typography variant="body" className="text-gray-700">Filter by home</Typography>
                       </button>
@@ -377,7 +377,7 @@ export default function MessagesPage() {
               <button
                 key={conversation.id}
                 onClick={() => setSelectedConversation(conversation.id)}
-                className={`w-full p-4 text-left border-b border-gray-100 hover:bg-gray-50 ${
+                className={`w-full p-4 text-left border-b border-gray-100 hover:bg-[var(--color-background-inset)] ${
                   selectedConversation === conversation.id ? 'bg-blue-50' : ''
                 }`}
               >
@@ -470,26 +470,26 @@ export default function MessagesPage() {
                               navigate('/tenants/profile?view=public');
                               setShowConversationDropdown(false);
                             }}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-gray-50"
+                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
                             <Typography variant="body" className="text-gray-900">View profile</Typography>
                           </button>
                           <a 
                             href="#" 
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-gray-50"
+                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
                             <Typography variant="body" className="text-gray-900">View home</Typography>
                           </a>
                           <button 
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-gray-50"
+                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
                             <Typography variant="body" className="text-gray-900">Report user</Typography>
                           </button>
                           <button 
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-gray-50"
+                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
                             <Typography variant="body" className="text-gray-900">Archive conversation</Typography>
                           </button>
@@ -504,7 +504,7 @@ export default function MessagesPage() {
               <div className="flex-1 overflow-y-auto">
                 {/* Property Section */}
                 <div className="p-4 border-b border-gray-200 bg-white">
-                  <a href="#" className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <a href="#" className="flex items-center gap-4 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-gray-100 transition-colors">
                     <img
                       src={selectedConv.property.image}
                       alt="Property"
@@ -530,7 +530,7 @@ export default function MessagesPage() {
                   <div className="p-4 border-b border-gray-200 bg-white">
                     <button 
                       onClick={() => navigate('/tenants/profile?view=public')}
-                      className="w-full bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition-colors text-left"
+                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-gray-100 transition-colors text-left"
                     >
                       <div className="flex items-start gap-4 mb-4">
                         <div className="relative">
@@ -626,7 +626,7 @@ export default function MessagesPage() {
                       disabled={selectedConv.isClosed}
                       className={`w-full p-3 border rounded-lg resize-none ${
                         selectedConv.isClosed 
-                          ? 'border-gray-200 bg-gray-50 text-gray-400 cursor-not-allowed' 
+                          ? 'border-gray-200 bg-[var(--color-background-inset)] text-gray-400 cursor-not-allowed' 
                           : 'border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent'
                       }`}
                       rows={2}
@@ -660,7 +660,7 @@ export default function MessagesPage() {
 
             {/* Property Sidebar */}
             <div className="w-80 border-l border-gray-200 bg-white p-4">
-              <a href="#" className="block mb-6 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+              <a href="#" className="block mb-6 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-gray-100 transition-colors">
                 <img
                   src={selectedConv.property.image}
                   alt="Property"

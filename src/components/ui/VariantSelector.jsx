@@ -29,7 +29,7 @@ const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, cl
     <div className={`relative inline-block text-left ${className}`}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-md"
+        className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-[var(--color-background-inset)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-md"
       >
         <FlaskConical className="w-4 h-4 mr-2" />
         {current.name}
@@ -52,7 +52,7 @@ const VariantSelector = ({ prototypeId, currentVariant = 'default', basePath, cl
             {variants.map((variant) => (
               <div
                 key={variant.id}
-                className={`relative px-4 py-3 hover:bg-gray-50 cursor-pointer ${
+                className={`relative px-4 py-3 hover:bg-[var(--color-background-inset)] cursor-pointer ${
                   variant.id === currentVariant ? 'bg-indigo-50' : ''
                 }`}
                 onClick={() => handleVariantSelect(variant.id)}

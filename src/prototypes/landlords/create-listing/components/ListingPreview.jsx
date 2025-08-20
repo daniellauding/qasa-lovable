@@ -45,19 +45,19 @@ function ListingPreview({ formData, onEdit, onPublish }) {
       title: 'Snabba insikter',
       content: (
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Publicerad</div>
             <div className="font-medium">Idag</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Visningar</div>
             <div className="font-medium">6</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Antal sökande</div>
             <div className="font-medium">4</div>
           </div>
-          <div className="p-4 bg-gray-50 rounded-lg">
+          <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
             <div className="text-sm text-gray-500">Svarstid</div>
             <div className="font-medium">&lt; 24h</div>
           </div>

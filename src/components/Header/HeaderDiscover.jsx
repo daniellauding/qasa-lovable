@@ -221,7 +221,7 @@ const HeaderDiscover = ({
                       {menuItems.map((item, index) => (
                         <button
                           key={index}
-                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                          className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-[var(--color-background-inset)] transition-colors"
                           onClick={() => {
                             if (item.isLogoutButton) {
                               handleLogout();
@@ -274,13 +274,13 @@ const HeaderDiscover = ({
             <nav className="space-y-2">
               <a
                 href="/homes?variant=discover"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 Discover
               </a>
               <a
                 href="/sv/how-it-works"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 {t('header.howItWorks')}
               </a>
@@ -288,13 +288,13 @@ const HeaderDiscover = ({
             <div className="mt-4 pt-4 border-t border-gray-200 space-y-2">
               <button
                 onClick={handleMessagesClick}
-                className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 Messages {messageCount > 0 && `(${messageCount})`}
               </button>
               <button
                 onClick={handleLogout}
-                className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 rounded-md"
+                className="w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-[var(--color-background-inset)] rounded-md"
               >
                 {t('header.logout')}
               </button>

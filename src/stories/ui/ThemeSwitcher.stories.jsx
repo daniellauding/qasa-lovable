@@ -25,7 +25,7 @@ export const Default = {
 
 export const WithContainer = {
   render: () => (
-    <div className="bg-gray-50 p-8 rounded-lg">
+    <div className="bg-[var(--color-background-inset)] p-8 rounded-lg">
       <h3 className="text-lg font-semibold mb-4">Theme Configuration</h3>
       <ThemeSwitcher />
       <div className="mt-6 space-y-4">
