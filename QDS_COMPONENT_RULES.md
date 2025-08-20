@@ -304,6 +304,17 @@ For content blocks with rounded backgrounds and layouts:
 - Use `Button` internally for triggers; content area is caller‑provided.
 ## 🤖 AI/Lovable Tool Instructions
 
+### 📚 MANDATORY DOCUMENTATION READING
+**Before generating any Qasa content, you MUST read ALL these documentation files:**
+
+1. **`QASA_KNOWLEDGE_BASE.md`** - Product knowledge, business model, user journeys
+2. **`QDS_DESIGN_SYSTEM.md`** - Design system rules, components, color tokens
+3. **`QDS_COMPONENT_RULES.md`** - Component usage rules, import patterns
+4. **`QASA_LANGUAGE_GUIDE.md`** - Voice, tone, Swedish terminology
+5. **`QDS_AI_COMPONENT_GUIDE.md`** - AI-specific guidelines
+
+**Failure to read all documentation will result in design violations and incorrect implementations.**
+
 When generating new components or screens:
 
 1. **Always check** `src/components/ui/` for existing components

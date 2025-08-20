@@ -2,6 +2,22 @@
 
 **For AI tools, Lovable, and developers: Always use these QDS components instead of creating custom ones.**
 
+### 📚 MANDATORY DOCUMENTATION READING
+**Before generating any Qasa content, you MUST read ALL these documentation files:**
+
+1. **`QASA_KNOWLEDGE_BASE.md`** - Product knowledge, business model, user journeys
+2. **`QDS_DESIGN_SYSTEM.md`** - Design system rules, components, color tokens
+3. **`QDS_COMPONENT_RULES.md`** - Component usage rules, import patterns
+4. **`QASA_LANGUAGE_GUIDE.md`** - Voice, tone, Swedish terminology
+5. **`QDS_AI_COMPONENT_GUIDE.md`** - This file - AI-specific guidelines
+
+**Failure to read all documentation will result in:**
+- ❌ Incorrect component usage
+- ❌ Wrong color schemes
+- ❌ Inconsistent voice/tone
+- ❌ Missing Swedish context
+- ❌ Design rule violations
+
 ---
 
 ## 🚨 CRITICAL RULES

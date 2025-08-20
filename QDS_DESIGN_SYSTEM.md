@@ -537,6 +537,17 @@ npm run lint:qds
 
 ## 🤝 Contributing to QDS
 
+### 📚 MANDATORY DOCUMENTATION READING
+**Before contributing to QDS, you MUST read ALL these documentation files:**
+
+1. **`QASA_KNOWLEDGE_BASE.md`** - Product knowledge, business model, user journeys
+2. **`QDS_DESIGN_SYSTEM.md`** - Design system rules, components, color tokens
+3. **`QDS_COMPONENT_RULES.md`** - Component usage rules, import patterns
+4. **`QASA_LANGUAGE_GUIDE.md`** - Voice, tone, Swedish terminology
+5. **`QDS_AI_COMPONENT_GUIDE.md`** - AI-specific guidelines
+
+**Failure to read all documentation will result in design violations and incorrect implementations.**
+
 1. **Propose** - Discuss need for new component
 2. **Design** - Create mockups following QDS principles
 3. **Build** - Implement with all requirements

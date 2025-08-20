@@ -148,6 +148,18 @@ The conversion landing page is available at `/landing` and showcases real app fu
 - Simplified routing without variant complexity
 
 ### AI/Lovable Development Guidelines
+
+#### 📚 MANDATORY DOCUMENTATION READING
+**Before generating any Qasa content, you MUST read ALL these documentation files:**
+
+1. **`QASA_KNOWLEDGE_BASE.md`** - Product knowledge, business model, user journeys
+2. **`QDS_DESIGN_SYSTEM.md`** - Design system rules, components, color tokens
+3. **`QDS_COMPONENT_RULES.md`** - Component usage rules, import patterns
+4. **`QASA_LANGUAGE_GUIDE.md`** - Voice, tone, Swedish terminology
+5. **`QDS_AI_COMPONENT_GUIDE.md`** - AI-specific guidelines
+
+**Failure to read all documentation will result in design violations and incorrect implementations.**
+
 When creating new landing pages or components:
 1. **Always specify the URL** where the page will be accessible
 2. **Include the file path** where the component was created
