@@ -147,6 +147,22 @@ The conversion landing page is available at `/landing` and showcases real app fu
 - Accessible directly at `/landing` (no variant parameters)
 - Simplified routing without variant complexity
 
+### AI/Lovable Development Guidelines
+When creating new landing pages or components:
+1. **Always specify the URL** where the page will be accessible
+2. **Include the file path** where the component was created
+3. **Provide clear access instructions** for testing
+4. **Follow QDS component rules** for consistency
+5. **Use conversion best practices** (bento grids, carousels, CTAs)
+
+**Example Response Format:**
+```
+✅ Generated: ConversionLandingPage component
+📍 URL: /landing
+📁 File: src/prototypes/landing/ConversionLandingPage.jsx
+🚀 Access: Navigate to /landing to view the new conversion-optimized landing page
+```
+
 
 ---
 

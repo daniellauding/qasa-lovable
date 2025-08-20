@@ -463,6 +463,8 @@ When working on conversion-focused pages:
 3. Include clear CTAs for both user types
 4. Showcase actual app features, not just mockups
 5. Follow all documented design rules for consistency
+6. **Always provide the URL** where you generated the page (e.g., `/landing`, `/landlords/create-listing`, etc.)
+7. **Include file path** where the component was created (e.g., `src/prototypes/landing/NewLandingPage.jsx`)
 
 ---
 

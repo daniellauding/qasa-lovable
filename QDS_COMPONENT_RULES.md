@@ -349,6 +349,22 @@ NewFeature.propTypes = {
 export default NewFeature;
 ```
 
+### AI/Lovable Prompt Guide
+When generating new components or pages, **always include**:
+
+1. **URL Path**: Where the page/component will be accessible (e.g., `/landing`, `/landlords/dashboard`)
+2. **File Path**: Where the component was created (e.g., `src/prototypes/landing/NewLandingPage.jsx`)
+3. **Component Name**: The exported component name
+4. **Usage Instructions**: How to access and test the generated content
+
+**Example Response Format:**
+```
+✅ Generated: NewLandingPage component
+📍 URL: /landing 
+📁 File: src/prototypes/landing/NewLandingPage.jsx
+🚀 Access: Navigate to /landing to view the new conversion-optimized landing page
+```
+
 ---
 
 ## 📚 Resources
