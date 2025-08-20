@@ -342,6 +342,13 @@ mono-sm     /* 12px/16px */
 - **No blue/green themes**: Never create blue or green themed sections
 - **No purple gradients**: Never use purple in gradients or backgrounds
 
+### 🚫 **NEVER Use Undefined Components (React Error #130)**
+- **Verify component exists**: Always check if component exists before using it
+- **Correct component names**: Use exact component names (e.g., `CreateProfileCard`, not `CreateTenantProfileCard`)
+- **Check imports**: Ensure components are properly imported and exported
+- **No typos**: Double-check component name spelling
+- **Use only QDS components**: Stick to documented QDS components only
+
 ### List & Bullet Point Rules
 - **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
 - **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons

@@ -390,6 +390,16 @@ When generating new components or pages, **always include**:
 - **CUSTOM ICON BACKGROUNDS**: Creating `bg-blue-500 rounded-xl` for icons
 - **BLUE/GREEN THEMES**: Introducing non-QDS color schemes
 - **PURPLE GRADIENTS**: Using purple in gradients or backgrounds
+- **UNDEFINED COMPONENT ERROR**: Using non-existent components like `Card.CreateTenantProfileCard`
+- **WRONG COMPONENT NAMES**: Using incorrect component names that don't exist
+
+### 🔍 **Component Verification Checklist**
+**Before using any component, verify:**
+- ✅ Component exists in the import path
+- ✅ Component name is spelled correctly
+- ✅ Component is properly exported from its module
+- ✅ Component props match the expected interface
+- ✅ No typos in component names (e.g., `CreateTenantProfileCard` vs `CreateProfileCard`)
 
 **Example Response Format:**
 ```

@@ -111,6 +111,26 @@ const tenant = {
 {property?.images?.[0] || defaultImage}
 ```
 
+#### ❌ **Undefined Component Errors (React Error #130)**
+```jsx
+// ❌ REJECT - Using non-existent components
+import Card from '../../components/ui/Card';
+<Card.CreateTenantProfileCard /> // This component doesn't exist!
+
+// ❌ REJECT - Wrong component names
+<Card.CreateTenantProfileCard /> // Should be Card.CreateProfileCard
+<Button.PrimaryButton /> // Should be Button (no sub-components)
+
+// ✅ ACCEPT - Use only existing components
+import Card from '../../components/ui/Card';
+<Card.CreateProfileCard /> // This exists
+<Card.PropertyCard /> // This exists
+<Card.TenantCard /> // This exists
+
+// ✅ ACCEPT - Check component exports first
+// Always verify component exists before using it
+```
+
 #### 🔍 **Component Prop Requirements**
 
 **TenantCard:**
@@ -509,6 +529,8 @@ className="text-[var(--color-text-primary)]"
 - NEW COLORS VIOLATION: Using 'bg-blue-500', 'bg-green-500', 'from-blue-600 to-purple-600'
 - CUSTOM ICON BACKGROUNDS: Creating 'bg-blue-500 rounded-xl' for icons
 - BLUE/GREEN THEMES: Introducing non-QDS color schemes
+- UNDEFINED COMPONENT ERROR: Using non-existent components like Card.CreateTenantProfileCard
+- WRONG COMPONENT NAMES: Using incorrect component names that don't exist
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```
