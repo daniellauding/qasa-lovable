@@ -131,6 +131,27 @@ import Card from '../../components/ui/Card';
 // Always verify component exists before using it
 ```
 
+#### ❌ **Position Absolute Layout Errors**
+```jsx
+// ❌ REJECT - Position absolute breaks layout
+<div className="absolute top-0 right-0">
+<div className="fixed bottom-0 left-0">
+<div className="sticky top-0">
+
+// ❌ REJECT - Overlapping elements
+<div className="absolute inset-0">
+<div className="absolute z-10">
+
+// ✅ ACCEPT - Use flexbox/grid for layout
+<div className="flex justify-between items-center">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div className="relative">
+
+// ✅ ACCEPT - Proper layout flow
+<div className="flex flex-col space-y-4">
+<div className="flex items-center gap-4">
+```
+
 #### 🔍 **Component Prop Requirements**
 
 **TenantCard:**
@@ -533,6 +554,8 @@ className="text-[var(--color-text-primary)]"
 - WRONG COMPONENT NAMES: Using incorrect component names that don't exist
 - VARIANT PARAMETERS: Using `/landing?variant=conversion` or similar variant URLs
 - A/B TESTING URLS: Creating variant-based URLs for testing
+- POSITION ABSOLUTE: Using `absolute`, `fixed`, or `sticky` positioning
+- LAYOUT OVERLAPS: Creating overlapping elements with absolute positioning
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```

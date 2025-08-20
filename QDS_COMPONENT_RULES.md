@@ -394,6 +394,8 @@ When generating new components or pages, **always include**:
 - **WRONG COMPONENT NAMES**: Using incorrect component names that don't exist
 - **VARIANT PARAMETERS**: Using `/landing?variant=conversion` or similar variant URLs
 - **A/B TESTING URLS**: Creating variant-based URLs for testing
+- **POSITION ABSOLUTE**: Using `absolute`, `fixed`, or `sticky` positioning
+- **LAYOUT OVERLAPS**: Creating overlapping elements with absolute positioning
 
 ### 🔍 **Component Verification Checklist**
 **Before using any component, verify:**
@@ -410,6 +412,14 @@ When generating new components or pages, **always include**:
 - ✅ No A/B testing URL patterns
 - ✅ Single landing page at `/landing`
 - ✅ No variant system implementation
+
+### 🔍 **Layout Verification Checklist**
+**Before creating layouts, verify:**
+- ✅ No `absolute`, `fixed`, or `sticky` positioning
+- ✅ Use `flex` or `grid` for layout
+- ✅ No overlapping elements
+- ✅ Proper responsive behavior
+- ✅ No z-index conflicts
 
 **Example Response Format:**
 ```

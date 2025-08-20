@@ -356,6 +356,15 @@ mono-sm     /* 12px/16px */
 - **No typos**: Double-check component name spelling
 - **Use only QDS components**: Stick to documented QDS components only
 
+### 🚫 **NEVER Use Position Absolute**
+- **No position absolute**: Never use `position: absolute` or `absolute` classes
+- **No fixed positioning**: Never use `position: fixed` or `fixed` classes
+- **No sticky positioning**: Never use `position: sticky` or `sticky` classes
+- **Use flexbox/grid**: Always use `flex`, `grid`, or `relative` positioning
+- **Layout stability**: Position absolute breaks layout flow and causes overlapping issues
+- **Responsive problems**: Absolute positioning doesn't work well on mobile
+- **Accessibility issues**: Screen readers struggle with absolutely positioned elements
+
 ### List & Bullet Point Rules
 - **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
 - **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons
