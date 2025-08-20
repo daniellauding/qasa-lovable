@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qasa <3 Lovable – Simple Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #f19ec1;
+            margin-bottom: 0.5em;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #322721;
+            border-bottom: 2px solid #f19ec1;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #322721;
+            margin-top: 1.5em;
+        }
+        
+        h4 {
+            font-size: 1.2em;
+            color: #322721;
+            margin-top: 1.2em;
+        }
+        
+        .callout {
+            background: linear-gradient(135deg, #f19ec1, #f8bbd9);
+            border-left: 4px solid #e91e63;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: white;
+            font-weight: 500;
+        }
+        
+        .quick-links {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .quick-links h3 {
+            margin-top: 0;
+            color: #f19ec1;
+        }
+        
+        .quick-links a {
+            color: #322721;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .quick-links a:hover {
+            color: #f19ec1;
+        }
+        
+        .step-box {
+            background: white;
+            border: 2px solid #f19ec1;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+        
+        .step-number {
+            background: #f19ec1;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .feature-card h4 {
+            color: #f19ec1;
+            margin-top: 0;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .warning-box h4 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .success-box h4 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .critical-rules {
+            background: #fee;
+            border: 2px solid #f19ec1;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .critical-rules h3 {
+            color: #d63384;
+            margin-top: 0;
+        }
+        
+        .rule-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+        }
+        
+        .rule-item .x {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .rule-item .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #322721;
+        }
+        
+        em {
+            color: #666;
+        }
+        
+        .emoji {
+            font-size: 1.2em;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #f19ec1;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #e91e63;
+        }
+        
+        .divider {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #f19ec1, #f8bbd9);
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1><span class="emoji">🏡</span> Qasa <3 Lovable – Simple Guide</h1>
+    
+    <div class="callout">
+        <strong>Qasa designs by describing what you want – no coding involved!</strong>
+    </div>
+    
+    <hr class="divider">
+    
+    <h2><span class="emoji">📚</span> Quick Links</h2>
+    
+    <div class="quick-links">
+        <ul>
+            <li><strong><a href="https://github.com/daniellauding/qasa-lovable/blob/main/COMPLETE_USAGE_GUIDE.md">Complete Usage Guide</a></strong> - Full technical guide</li>
+            <li><strong><a href="https://github.com/daniellauding/qasa-lovable/blob/main/QASA_KNOWLEDGE_BASE.md">Qasa Knowledge Base</a></strong> - Product knowledge & content</li>
+            <li><strong><a href="https://github.com/daniellauding/qasa-lovable/blob/main/QDS_DESIGN_SYSTEM.md">QDS Design System</a></strong> - Component library</li>
+            <li><strong><a href="https://lovable.dev/qasa-prototypes">Prototyping</a></strong> - Start creating now!</li>
+        </ul>
+    </div>
+    
+    <h2><span class="emoji">🚀</span> Getting Started (2 minutes)</h2>
+    
+    <div class="step-box">
+        <h3><span class="step-number">1</span>Open Lovable</h3>
+        <p><a href="https://lovable.dev/qasa-prototypes" class="cta-button">Click here to start prototyping</a></p>
+    </div>
+    
+    <div class="step-box">
+        <h3><span class="step-number">2</span>Choose Your Starting Point</h3>
+        <ul>
+            <li><strong><span class="emoji">📋</span> Remix a Template</strong> - Start with existing Qasa designs</li>
+            <li><strong><span class="emoji">🆕</span> Start Blank</strong> - Create from scratch</li>
+            <li><strong><span class="emoji">🖼️</span> Upload Image</strong> - Show what you want to build</li>
+        </ul>
+    </div>
+    
+    <div class="step-box">
+        <h3><span class="step-number">3</span>Describe What You Want</h3>
+        <p>Just write in plain language! Examples:</p>
+        <ul>
+            <li>"Create a property listing page with 3 apartments in Stockholm"</li>
+            <li>"Make a tenant profile for Anna, 28, looking for 2 rooms"</li>
+            <li>"Design a landing page for Qasa Premium"</li>
+        </ul>
+    </div>
+    
+    <hr class="divider">
+    
+    <h2><span class="emoji">🎨</span> Lovable Interface Guide</h2>
+    
+    <h3>Main Interface Elements</h3>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4><span class="emoji">📝</span> Prompt Bar (Bottom of screen)</h4>
+            <ul>
+                <li><strong>Location:</strong> Bottom center of the screen</li>
+                <li><strong>Purpose:</strong> Where you type your requests and instructions</li>
+                <li><strong>Usage:</strong> Type natural language descriptions, ask for specific changes, request new features</li>
+                <li><strong>Example:</strong> "Make the button pink and add Swedish text"</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">🔍</span> Inspector Panel (Right sidebar)</h4>
+            <ul>
+                <li><strong>Location:</strong> Right side of the screen</li>
+                <li><strong>Purpose:</strong> Inspect and modify individual elements</li>
+                <li><strong>Features:</strong> Element Properties, Layout Controls, Style Options, Component Settings</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">⚙️</span> Project Settings (Top right)</h4>
+            <ul>
+                <li><strong>Location:</strong> Top right corner (gear icon)</li>
+                <li><strong>Purpose:</strong> Configure project-wide settings</li>
+                <li><strong>Options:</strong> Theme, Layout, Components, Export</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">👁️</span> Preview Panel (Center)</h4>
+            <ul>
+                <li><strong>Location:</strong> Main center area</li>
+                <li><strong>Purpose:</strong> See your design in real-time</li>
+                <li><strong>Features:</strong> Live Updates, Interactive Elements, Responsive View, Full Screen</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2><span class="emoji">🚫</span> Critical Design Rules (Never Break These!)</h2>
+    
+    <div class="critical-rules">
+        <h3><span class="emoji">👤</span> Avatar Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never use illustrated/cartoon avatars</span> - Always use realistic person photos
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use real photos</span> of people for tenant profiles and user avatars
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ High quality</span> - Professional, clear photos
+        </div>
+        
+        <h3><span class="emoji">🏠</span> Property Image Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never show people, humans, or animals</span> in property listing images
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Show the actual property</span> - rooms, buildings, exteriors
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use professional real estate photos</span> - clean, well-lit property shots
+        </div>
+        
+        <h3><span class="emoji">🎨</span> Background Color Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never use dark backgrounds</span> like `bg-gray-50` or similar dark grays
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use only</span> `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Keep it light</span> - white or very light gray backgrounds only
+        </div>
+        
+        <h3><span class="emoji">🔘</span> Button Text Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never add "- Free"</span> to button text
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Keep button text clean</span> - "Start Listing", "Create Profile"
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Avoid promotional text</span> in button labels
+        </div>
+        
+        <h3><span class="emoji">🎯</span> Icon Color Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never use green, blue, yellow</span> or other non-brand colors for icons
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use brand colors only</span> - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Follow Qasa palette</span> - pink (#f19ec1), brown (#322721)
+        </div>
+        
+        <h3><span class="emoji">🎴</span> TenantCard Background Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Never use grayish backgrounds</span> for TenantCard components
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use white or light backgrounds</span> for better contrast and readability
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Keep it clean</span> - avoid busy or dark backgrounds
+        </div>
+        
+        <h3><span class="emoji">🔘</span> Button & Icon Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Don't mix different icon styles</span> on the same button
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Icons and text should be on the same line</span> within buttons
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use consistent icon sizing</span> (`w-5 h-5`) within buttons
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Place icons after text</span> with proper spacing (`ml-2`)
+        </div>
+        
+        <h3><span class="emoji">📋</span> List & Bullet Point Rules</h3>
+        <div class="rule-item">
+            <span class="x">❌ Don't use custom bullet points</span> with `w-2 h-2 rounded-full` divs
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Always use CheckCircle icons</span> from Lucide React for lists
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Use proper styling</span> - `text-[var(--color-text-primary)]` for check circles
+        </div>
+        <div class="rule-item">
+            <span class="check">✅ Consistent spacing</span> between list items (`space-y-3`)
+        </div>
+    </div>
+    
+    <h2><span class="emoji">💬</span> Magic Prompts That Work</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4><span class="emoji">🏠</span> Property Listings</h4>
+            <div class="code-block">
+"Create a property card for a 2-room apartment in Vasastan, 
+65 sqm, 15,000 kr/month, with balcony and dishwasher. 
+Make it look like Qasa's style with pink accents."
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">👤</span> Tenant Profiles</h4>
+            <div class="code-block">
+"Make a tenant profile for Emma, 32, software developer at Spotify, 
+looking for 1-2 rooms in Stockholm, max 12,000 kr. 
+She has a cat and prefers quiet neighborhoods."
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">📱</span> Landing Pages</h4>
+            <div class="code-block">
+"Design a Qasa landing page that shows:
+- Hero section with 'Find your next home'
+- 3 benefits of using Qasa
+- Featured properties section
+- Trust indicators (verified landlords)
+Use Swedish text and Qasa's pink color"
+            </div>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">🗺️</span> Maps & Location</h4>
+            <div class="code-block">
+"Add a map showing rental properties in Stockholm
+Use grouped pins when zoomed out, individual price pins when zoomed in
+Include hover interactions to show property cards
+Click to navigate to property details"
+            </div>
+        </div>
+    </div>
+    
+    <h2><span class="emoji">🎨</span> Qasa Style Guide (Copy This!)</h2>
+    
+    <h3>Colors to Use</h3>
+    <ul>
+        <li><strong>Qasa Pink:</strong> #f19ec1 (main brand color)</li>
+        <li><strong>Dark Brown:</strong> #322721 (text and accents)</li>
+        <li><strong>Light Gray:</strong> #f9fafb (backgrounds)</li>
+    </ul>
+    
+    <h3>Swedish Phrases to Use</h3>
+    <ul>
+        <li>"Hitta ditt nästa hem" - Find your next home</li>
+        <li>"Ansök nu" - Apply now</li>
+        <li>"Verifierad hyresvärd" - Verified landlord</li>
+        <li>"Trygg bostadssökning" - Safe housing search</li>
+        <li>"Schyssta villkor" - Fair conditions</li>
+        <li>"rum och kök" - rooms and kitchen</li>
+        <li>"kr/mån" - SEK/month</li>
+    </ul>
+    
+    <h3>Tone of Voice</h3>
+    <ul>
+        <li>Friendly neighbor, not corporate</li>
+        <li>Use "du" (you) not formal Swedish</li>
+        <li>Encouraging and supportive</li>
+        <li>Clear and simple</li>
+    </ul>
+    
+    <h2><span class="emoji">📚</span> Templates You Can Remix</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4><span class="emoji">1</span> Property Listing</h4>
+            <p><strong>Prompt:</strong> "Show me the property listing template"</p>
+            <ul>
+                <li>Complete apartment details</li>
+                <li>Photo gallery</li>
+                <li>Landlord info</li>
+                <li>Apply button</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">2</span> Tenant Search</h4>
+            <p><strong>Prompt:</strong> "Show me how landlords find tenants"</p>
+            <ul>
+                <li>Grid of tenant cards</li>
+                <li>Filter options</li>
+                <li>Premium badges</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">3</span> Registration Flow</h4>
+            <p><strong>Prompt:</strong> "Show me the sign-up process"</p>
+            <ul>
+                <li>Step-by-step forms</li>
+                <li>Progress indicator</li>
+                <li>Swedish labels</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">4</span> Dashboard</h4>
+            <p><strong>Prompt:</strong> "Show me a tenant dashboard"</p>
+            <ul>
+                <li>Active applications</li>
+                <li>Saved properties</li>
+                <li>Profile completion</li>
+            </ul>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">5</span> Map View</h4>
+            <p><strong>Prompt:</strong> "Show me a map with properties"</p>
+            <ul>
+                <li>Interactive map with pins</li>
+                <li>Property cards on hover</li>
+                <li>Click to view details</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h2><span class="emoji">⚠️</span> Troubleshooting</h2>
+    
+    <div class="warning-box">
+        <h4>Common Issues & Solutions</h4>
+        
+        <h5>Page appears white/blank:</h5>
+        <ul>
+            <li>Do a hard refresh (Ctrl+F5 or Cmd+Shift+R)</li>
+            <li>Check if the page is still loading</li>
+            <li>Try opening in a new tab/window</li>
+        </ul>
+        
+        <h5>Preview not updating:</h5>
+        <ul>
+            <li>Sometimes Lovable opens a new preview while working</li>
+            <li>Refresh the preview window/tab</li>
+            <li>Check if changes are saved before refreshing</li>
+        </ul>
+        
+        <h5>Component not loading:</h5>
+        <ul>
+            <li>Verify the component exists in the codebase</li>
+            <li>Check browser console for errors</li>
+            <li>Restart the development server if needed</li>
+        </ul>
+        
+        <h5>Lovable not working:</h5>
+        <ul>
+            <li>Check internet connection</li>
+            <li>Try refreshing the page</li>
+            <li>Clear browser cache</li>
+        </ul>
+    </div>
+    
+    <h2><span class="emoji">✨</span> Pro Tips</h2>
+    
+    <div class="success-box">
+        <h4>Make It Feel Swedish</h4>
+        <ul>
+            <li>Use Swedish city names: Stockholm, Göteborg, Malmö</li>
+            <li>Include Swedish areas: Östermalm, Vasastan, Södermalm</li>
+            <li>Add "kr" after prices (15,000 kr)</li>
+            <li>Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)</li>
+        </ul>
+    </div>
+    
+    <div class="success-box">
+        <h4>Make It Feel Like Qasa</h4>
+        <ul>
+            <li>Always use pink (#f19ec1) for main actions</li>
+            <li>Include "verified" badges on landlords</li>
+            <li>Add trust messages about safety</li>
+            <li>Use friendly, encouraging language</li>
+        </ul>
+    </div>
+    
+    <h2><span class="emoji">🎯</span> Quick Start Challenges</h2>
+    
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4><span class="emoji">🏠</span> Challenge 1: Property Card</h4>
+            <p>"Create a property card for a 3-room apartment in Gamla Stan, 85 sqm, 18,500 kr/month"</p>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">🔍</span> Challenge 2: Search Filter</h4>
+            <p>"Design a filter modal with options for price range, number of rooms, and area"</p>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">✅</span> Challenge 3: Application Success</h4>
+            <p>"Create a success page after someone applies for an apartment, with next steps"</p>
+        </div>
+        
+        <div class="feature-card">
+            <h4><span class="emoji">🗺️</span> Challenge 4: Interactive Map</h4>
+            <p>"Add a map showing properties in Stockholm with grouped pins and hover interactions"</p>
+        </div>
+    </div>
+    
+    <h2><span class="emoji">💡</span> Remember</h2>
+    
+    <ul>
+        <li><strong>You don't need to code</strong> - Just describe what you want</li>
+        <li><strong>Use Swedish examples</strong> - It makes it feel authentic</li>
+        <li><strong>Include Qasa's pink</strong> - It's our signature color</li>
+        <li><strong>Keep it friendly</strong> - We're helping people find homes</li>
+        <li><strong>Test on mobile</strong> - Most users are on phones</li>
+        <li><strong>If stuck, refresh</strong> - Sometimes a hard refresh fixes issues</li>
+    </ul>
+    
+    <hr class="divider">
+    
+    <h2><span class="emoji">🚀</span> Start Now!</h2>
+    
+    <div class="callout">
+        <ol>
+            <li>Open Lovable</li>
+            <li>Type: "Create a Qasa property listing page"</li>
+            <li>Watch the magic happen!</li>
+        </ol>
+        
+        <p><strong>Need help?</strong> Just ask Lovable to explain what components are available or show you examples.</p>
+        
+        <p style="text-align: center; margin-top: 20px;">
+            <a href="https://lovable.dev/qasa-prototypes" class="cta-button">Start Prototyping Now!</a>
+        </p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f9fafb; border-radius: 12px;">
+        <p><em>Happy prototyping! Remember - if it doesn't feel like Qasa, just tell Lovable to make it more "Qasa-style" with pink colors and Swedish text.</em> <span class="emoji">🏡💗</span></p>
+    </div>
+</body>
+</html>

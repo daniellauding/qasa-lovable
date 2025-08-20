@@ -236,6 +236,21 @@ Click to navigate to property details"
 - **✅ Show the actual property** - rooms, buildings, exteriors
 - **✅ Use professional real estate photos** - clean, well-lit property shots
 
+#### Background Color Rules
+- **❌ Never use dark backgrounds** like `bg-gray-50` or similar dark grays
+- **✅ Use only** `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
+- **✅ Keep it light** - white or very light gray backgrounds only
+
+#### Button Text Rules
+- **❌ Never add "- Free"** to button text
+- **✅ Keep button text clean** - "Start Listing", "Create Profile"
+- **✅ Avoid promotional text** in button labels
+
+#### Icon Color Rules
+- **❌ Never use green, blue, yellow** or other non-brand colors for icons
+- **✅ Use brand colors only** - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
+- **✅ Follow Qasa palette** - pink (#f19ec1), brown (#322721)
+
 #### TenantCard Background Rules
 - **❌ Never use grayish backgrounds** for TenantCard components
 - **✅ Use white or light backgrounds** for better contrast and readability

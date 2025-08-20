@@ -266,6 +266,23 @@ mono-sm     /* 12px/16px */
 - **Image quality**: Use high-quality, professional photos for all user-facing content
 - **Image relevance**: Property images should show the actual property, not lifestyle shots with people
 
+### Background Color Rules
+- **Page backgrounds**: Never use dark backgrounds like `bg-gray-50` or similar dark grays
+- **Use only**: `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
+- **Card backgrounds**: Use `bg-white` for card components
+- **Section backgrounds**: Use `bg-white` or `bg-[var(--color-gray-10)]` for sections
+
+### Button Text Rules
+- **Never add "- Free"**: Don't append "- Free" to button text
+- **Keep button text clean**: Use simple, action-oriented text like "Start Listing", "Create Profile"
+- **Avoid promotional text**: Don't include pricing or promotional text in button labels
+
+### Icon Color Rules
+- **Use brand colors only**: Icons should use `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`, or `text-[var(--color-primary)]`
+- **Never use**: Green, blue, yellow, or other non-brand colors for icons
+- **Consistent styling**: All icons in the same context should use the same color scheme
+- **Brand compliance**: Icons should follow Qasa's color palette (#f19ec1, #322721, etc.)
+
 ### List & Bullet Point Rules
 - **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
 - **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons
