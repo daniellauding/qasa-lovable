@@ -445,6 +445,27 @@ export default MyComponent;
 
 ---
 
+## 🎯 Conversion Landing Page Reference
+
+### URL Access
+The conversion landing page is available at: `/landing` (variant system simplified)
+
+### Key Implementation Notes
+- **Real App Components**: Uses actual QDS components to demonstrate value
+- **Conversion Focused**: Designed to increase sign-ups for both landlords and tenants
+- **Immediate Value**: Shows app functionality rather than just describing it
+- **QDS Compliant**: Follows all design system rules and guidelines
+
+### For AI/Lovable Development
+When working on conversion-focused pages:
+1. Use real QDS components to demonstrate functionality
+2. Focus on immediate value proposition
+3. Include clear CTAs for both user types
+4. Showcase actual app features, not just mockups
+5. Follow all documented design rules for consistency
+
+---
+
 ## 🎨 Color & Contrast Rules (Mandatory)
 
 - **White text on dark surfaces**: When the background is dark or image-overlaid (e.g., `bg-[var(--color-brown)]`, `from-black/60`, hero images), set text explicitly to white using `Typography` with `color="white"`.

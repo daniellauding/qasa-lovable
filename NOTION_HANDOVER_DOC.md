@@ -256,6 +256,12 @@ Click to navigate to property details"
 - **✅ Use white or light backgrounds** for better contrast and readability
 - **✅ Keep it clean** - avoid busy or dark backgrounds
 
+#### Card & Border Rules
+- **✅ Add borders to cards** when they're on the same background color
+- **✅ Use subtle borders** - `border border-gray-100` or `border border-[var(--color-border)]`
+- **✅ Cards should use white backgrounds** for contrast against colored sections
+- **✅ Borders provide visual separation** between cards and container
+
 #### Button & Icon Rules
 - **❌ Don't mix different icon styles** on the same button
 - **✅ Icons and text should be on the same line** within buttons
@@ -264,6 +270,15 @@ Click to navigate to property details"
 - **✅ Always use `flex items-center justify-center`** for buttons with icons
 - **✅ Use `gap-2` or `gap-3`** for consistent spacing between icon and text
 - **✅ Icons must be vertically aligned** with text baseline
+
+#### Component Usage Rules
+- **❌ Never create custom implementations** when QDS components exist
+- **✅ Always use QDS Tabs component** instead of custom button groups
+- **✅ Use Button component** with proper `icon` and `iconPosition` props
+- **✅ Use Icon wrapper component** with `name` prop, not direct Lucide imports
+- **✅ Use Typography component** with proper variants
+- **✅ Use Card components** (PropertyCard, TenantCard, etc.) from QDS
+- **✅ Follow QDS patterns** for consistent functionality
 
 #### List & Bullet Point Rules
 - **❌ Don't use custom bullet points** with `w-2 h-2 rounded-full` divs

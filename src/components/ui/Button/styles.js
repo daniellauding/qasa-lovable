@@ -80,7 +80,7 @@ export const buttonSizes = {
 };
 
 export const baseButtonStyles = [
-  'inline-flex items-center justify-center',
+  'inline-flex items-center justify-center gap-2',
   'font-medium',
   'rounded-full',
   'transition-all duration-150 ease-in-out',

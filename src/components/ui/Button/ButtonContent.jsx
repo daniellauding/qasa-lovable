@@ -19,15 +19,15 @@ const ButtonContent = ({
   }
 
   return (
-    <div className="flex items-center justify-center gap-2">
+    <>
       {icon && iconPosition === 'left' && (
-        <span className="flex-shrink-0 flex items-center">{icon}</span>
+        <span className="flex-shrink-0 flex items-center mr-2">{icon}</span>
       )}
       {children && <span className="truncate flex items-center">{children}</span>}
       {icon && iconPosition === 'right' && (
-        <span className="flex-shrink-0 flex items-center">{icon}</span>
+        <span className="flex-shrink-0 flex items-center ml-2">{icon}</span>
       )}
-    </div>
+    </>
   );
 };
 

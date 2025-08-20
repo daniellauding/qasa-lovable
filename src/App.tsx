@@ -477,6 +477,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/landing" replace />} />
           <Route path="/landing" element={<Landing />} />
+          <Route path="/landing/conversion" element={<Landing />} />
           
           <Route path="/experiments" element={
             <div className="min-h-screen flex flex-col">

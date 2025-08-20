@@ -244,6 +244,8 @@ mono-sm     /* 12px/16px */
 ## 🧪 Contrast & Accessibility Rules
 
 - White-on-dark: When a surface is dark (e.g., `--color-brown`) or uses an image with dark gradient overlays, text must be white. Implement via `Typography` using `color="white"` and optional opacity classes (`opacity-80/85`).
+- **Never use dark text on dark backgrounds**: Dark brown, dark blue, or any dark surface must use white text for proper contrast
+- **Contrast requirement**: All text on dark backgrounds must meet WCAG 2.1 AA contrast ratio (4.5:1 minimum)
 - Icons on primary: use `--color-text-on-primary` for icons and text inside primary buttons and brand pills.
 - Icons on dark non-primary surfaces: use white (`text-white`).
 - **Icon styling rules**:
@@ -265,12 +267,29 @@ mono-sm     /* 12px/16px */
 - **Icon sizing**: Use `w-5 h-5` for standard button icons, `w-4 h-4` for small buttons
 - **Vertical centering**: Icons must be vertically aligned with text baseline
 
+### Component Usage Rules
+- **Always use QDS components**: Never create custom implementations when QDS components exist
+- **Tabs**: Use `Tabs` component from QDS instead of custom button groups or segmented controls
+- **Buttons**: Use `Button` component with proper `icon` and `iconPosition` props
+- **Icons**: Use `Icon` wrapper component with `name` prop, not direct Lucide imports
+- **Typography**: Always use `Typography` component with proper variants
+- **Cards**: Use `Card` components (PropertyCard, TenantCard, etc.) from QDS
+- **No custom CSS**: Avoid writing custom CSS when QDS components provide the functionality
+- **Consistent patterns**: Follow established QDS patterns for similar functionality
+
 ### Avatar & Image Rules
 - **Avatars**: Never use illustrated/cartoon avatars - always use realistic person photos
 - **Property images**: Never show people, humans, or animals in property listing images
 - **TenantCard background**: Never use grayish backgrounds for TenantCard components
 - **Image quality**: Use high-quality, professional photos for all user-facing content
 - **Image relevance**: Property images should show the actual property, not lifestyle shots with people
+
+### Card & Border Rules
+- **Cards on same background**: When cards (PropertyCard, TenantCard, etc.) are placed on backgrounds of the same color, add borders for visual separation
+- **Border styling**: Use `border border-[var(--color-border)]` or `border border-gray-100` for subtle borders
+- **Card backgrounds**: Cards should typically use `bg-white` for contrast against colored backgrounds
+- **Visual hierarchy**: Borders help distinguish cards from their container background
+- **Consistent spacing**: Use proper gap spacing between cards (`gap-6` or similar)
 
 ### Background Color Rules
 - **Page backgrounds**: Never use dark backgrounds like `bg-gray-50` or similar dark grays
@@ -435,20 +454,23 @@ Before creating any UI:
 ### Phase 1: Standardization (Current)
 - [x] Document all existing components
 - [x] Create usage guidelines
-- [ ] Migrate from Heroicons to Lucide React
-- [ ] Fix all inconsistencies
+- [x] Migrate from Heroicons to Lucide React
+- [x] Fix all inconsistencies
+- [x] Create conversion landing page with real app functionality
 
 ### Phase 2: Enhancement
 - [ ] Add more complex patterns
 - [ ] Create form builder components
 - [ ] Add animation system
 - [ ] Improve theme switching
+- [ ] Optimize conversion landing page performance
 
 ### Phase 3: Optimization
 - [ ] Component lazy loading
 - [ ] Tree shaking optimization
 - [ ] Performance monitoring
 - [ ] A11y automation
+- [ ] A/B testing for conversion optimization
 
 ---
 

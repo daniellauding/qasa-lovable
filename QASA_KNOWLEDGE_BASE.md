@@ -121,6 +121,32 @@ Create a safe Lease
 Sign lease and send to tenant
 Manage your rental in Rental Dashboard
 
+---
+
+## 🎯 Conversion Landing Page
+
+### Overview
+The conversion landing page is available at `/landing` and showcases real app functionality to increase conversions for both landlords and tenants. The variant system has been simplified to skip variant options for cleaner implementation.
+
+### Key Features
+- **Real App Components**: Uses actual QDS components to demonstrate value immediately
+- **Proven Conversion Elements**: Combines best practices for conversion optimization
+- **Dual Audience**: Designed to convert both landlords and tenants effectively
+- **Immediate Value Demonstration**: Shows app functionality rather than just describing it
+
+### Purpose
+- Increase sign-up conversions for both user types
+- Demonstrate actual app value through functional components
+- Provide immediate engagement with real features
+- Showcase the quality and professionalism of the platform
+
+### Implementation Notes
+- Built using QDS components for consistency
+- Follows all design system rules and guidelines
+- Optimized for conversion with clear CTAs and value propositions
+- Accessible directly at `/landing` (no variant parameters)
+- Simplified routing without variant complexity
+
 
 ---
 
