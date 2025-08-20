@@ -9,8 +9,8 @@ const StatsStrip = ({ items, className = '' }) => {
         <div className="px-6 md:px-10 py-24 grid grid-cols-1 sm:grid-cols-3 gap-12 text-center">
           {items.map((it, idx) => (
             <div className="flex gap-4 flex-col items-center" key={idx}>
-              <Typography variant="title-lg" className="mb-1 text-[var(--color-accent,#ff84b6)]">{it.value}</Typography>
-              <Typography variant="body-md" color="secondary" className="text-[var(--color-accent,#ff84b6)]">{it.hint}</Typography>
+              <Typography variant="title-lg" color="white" className="mb-1">{it.value}</Typography>
+              <Typography variant="body-md" color="white" className="opacity-85">{it.hint}</Typography>
             </div>
           ))}
         </div>
