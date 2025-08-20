@@ -41,6 +41,7 @@
 - **Modal**: Overlay dialogs
 - **Loading**: Loading states
 - **Skeleton**: Content placeholders
+- **FAQLinkList**: FAQ links with arrow navigation
 
 #### Data Display
 - **Table**: Data tables
@@ -169,6 +170,7 @@ QDS/
 | DatePicker | ✅ | Stable | Date selection |
 | RangeSlider | ✅ | Stable | Min/max selection |
 | FilterModal | ✅ | Stable | Advanced filters |
+| FAQLinkList | ✅ | Stable | FAQ links with navigation |
 
 ### Layout Components
 | Component | Storybook | Status | Usage |

@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 
 const FAQLinkList = ({ title, links, className = '' }) => {
   return (
-    <section className={`bg-[var(--color-surface)] rounded-2xl ${className}`}>
+    <section className={`bg-white rounded-2xl ${className}`}>
       <div className="px-4 md:px-8 py-10">
         {title ? <Typography variant="title-xs" className="mb-6">{title}</Typography> : null}
         <div className="grid grid-cols-1 md:grid-cols-2">
