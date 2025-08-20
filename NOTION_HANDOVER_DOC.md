@@ -1,12 +1,15 @@
-# 🏡 Qasa Prototyping with Lovable - Simple Guide
+# 🏡 Qasa <3 Lovable – Simple Guide
 
-## What is this?
-A tool where you can create Qasa designs by describing what you want - no coding needed!
+> **Qasa designs by describing what you want – no coding involved!**
 
-**📚 For detailed documentation, see:**
+---
+
+## 📚 Quick Links
+
 - **[Complete Usage Guide](https://github.com/daniellauding/qasa-lovable/blob/main/COMPLETE_USAGE_GUIDE.md)** - Full technical guide
-- **[Qasa Knowledge Base](https://github.com/daniellauding/qasa-lovable/blob/main/QASA_KNOWLEDGE_BASE.md)** - Product knowledge & content
+- **[Qasa Knowledge Base](https://github.com/daniellauding/qasa-lovable/blob/main/QASA_KNOWLEDGE_BASE.md)** - Product knowledge & content  
 - **[QDS Design System](https://github.com/daniellauding/qasa-lovable/blob/main/QDS_DESIGN_SYSTEM.md)** - Component library
+- **[Prototyping](https://lovable.dev/qasa-prototypes)** - Start creating now!
 
 ---
 
@@ -17,7 +20,7 @@ A tool where you can create Qasa designs by describing what you want - no coding
 
 ### Step 2: Choose Your Starting Point
 - **📋 Remix a Template** - Start with existing Qasa designs
-- **🆕 Start Blank** - Create from scratch
+- **🆕 Start Blank** - Create from scratch  
 - **🖼️ Upload Image** - Show what you want to build
 
 ### Step 3: Describe What You Want
@@ -221,6 +224,35 @@ Click to navigate to property details"
 - Encouraging and supportive
 - Clear and simple
 
+### 🚫 Critical Design Rules (Never Break These!)
+
+#### Avatar Rules
+- **❌ Never use illustrated/cartoon avatars** - Always use realistic person photos
+- **✅ Use real photos** of people for tenant profiles and user avatars
+- **✅ High quality** - Professional, clear photos
+
+#### Property Image Rules
+- **❌ Never show people, humans, or animals** in property listing images
+- **✅ Show the actual property** - rooms, buildings, exteriors
+- **✅ Use professional real estate photos** - clean, well-lit property shots
+
+#### TenantCard Background Rules
+- **❌ Never use grayish backgrounds** for TenantCard components
+- **✅ Use white or light backgrounds** for better contrast and readability
+- **✅ Keep it clean** - avoid busy or dark backgrounds
+
+#### Button & Icon Rules
+- **❌ Don't mix different icon styles** on the same button
+- **✅ Icons and text should be on the same line** within buttons
+- **✅ Use consistent icon sizing** (`w-5 h-5`) within buttons
+- **✅ Place icons after text** with proper spacing (`ml-2`)
+
+#### List & Bullet Point Rules
+- **❌ Don't use custom bullet points** with `w-2 h-2 rounded-full` divs
+- **✅ Always use CheckCircle icons** from Lucide React for lists
+- **✅ Use proper styling** - `text-[var(--color-text-primary)]` for check circles
+- **✅ Consistent spacing** between list items (`space-y-3`)
+
 ---
 
 ## 📚 Templates You Can Remix
@@ -340,6 +372,11 @@ You can upload screenshots and say:
 - ❌ Don't use blue (that's Blocket's color)
 - ❌ Don't make it too formal or corporate
 - ❌ Don't forget mobile view
+- ❌ Don't use illustrated/cartoon avatars - use realistic person photos
+- ❌ Don't show people or animals in property images
+- ❌ Don't use grayish backgrounds for TenantCard components
+- ❌ Don't use custom bullet points - use CheckCircle icons instead
+- ❌ Don't mix different icon styles on the same button
 
 ---
 

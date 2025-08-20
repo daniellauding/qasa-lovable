@@ -252,6 +252,27 @@ mono-sm     /* 12px/16px */
 - Never set `--color-text-primary` on dark surfaces; contrast fails.
 - Maintain WCAG 2.1 AA contrast in both themes.
 
+### Button & Icon Rules
+- **Icons on buttons**: Icons and text should be on the same line within buttons
+- **Icon placement**: Place icons after text with proper spacing (`ml-2` or `mr-2`)
+- **Icon consistency**: Use consistent icon sizing within buttons (`w-5 h-5`)
+- **Avoid mixing**: Don't mix different icon styles on the same button
+- **Icon alignment**: Ensure icons are vertically centered with text
+
+### Avatar & Image Rules
+- **Avatars**: Never use illustrated/cartoon avatars - always use realistic person photos
+- **Property images**: Never show people, humans, or animals in property listing images
+- **TenantCard background**: Never use grayish backgrounds for TenantCard components
+- **Image quality**: Use high-quality, professional photos for all user-facing content
+- **Image relevance**: Property images should show the actual property, not lifestyle shots with people
+
+### List & Bullet Point Rules
+- **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
+- **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons
+- **Avoid custom bullets**: Don't use custom div elements with `w-2 h-2 rounded-full` for bullets
+- **Consistent spacing**: Use proper spacing between list items (`space-y-3`)
+- **Icon alignment**: Ensure check circle icons are properly aligned with text
+
 ## 🧱 Shadows & Borders
 
 - Allowed shadows: `shadow-sm`, `shadow-md`, `shadow-lg` on cards/compact boxes only. Avoid shadows on full-width strips (hero, stats strip).
