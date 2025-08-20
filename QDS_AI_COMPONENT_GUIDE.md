@@ -198,6 +198,9 @@ import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
 - **TenantCard & PropertyCard**: Must always use `bg-white` backgrounds
 - **Never gray backgrounds**: No `bg-gray-10`, `bg-gray-20`, or grayish backgrounds
 - **White backgrounds mandatory**: Ensures proper contrast and QDS compliance
+- **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
+- **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
+- **No fluid height**: Never render cards with fluid height - let content determine height
 
 ### 📥 Forms - Multiple Components
 ```jsx
@@ -903,6 +906,8 @@ Use the QDS Map component with:
 - Grouped pins showing property counts
 - Hover to show property cards
 - Click to navigate to apply page
+- Map takes 2/3 width, cards on right with fixed width
+- Map renders to parent height if wrapper is higher
 ```
 
 #### Map with Filters
@@ -961,14 +966,25 @@ Add a map to the property search page that:
 
 #### Property Search Page
 ```jsx
-<Map
-  properties={filteredProperties}
-  center={[59.3293, 18.0686]}
-  zoom={11}
-  selectedProperty={selectedProperty}
-  onPropertyClick={(property) => navigate(`/apply-home/${property.id}`)}
-  showGroupedPins={true}
-/>
+<div className="grid grid-cols-3 gap-6">
+  <div className="col-span-2">
+    <Map
+      properties={filteredProperties}
+      center={[59.3293, 18.0686]}
+      zoom={11}
+      selectedProperty={selectedProperty}
+      onPropertyClick={(property) => navigate(`/apply-home/${property.id}`)}
+      showGroupedPins={true}
+      className="h-full" // Map renders to parent height
+    />
+  </div>
+  <div className="col-span-1">
+    <PropertyCard 
+      property={selectedProperty} 
+      className="w-full" // Fixed width, content-based height
+    />
+  </div>
+</div>
 ```
 
 #### City Overview

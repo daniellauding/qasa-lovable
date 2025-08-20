@@ -86,6 +86,13 @@ The Map component provides interactive property visualization with the following
 - **Click Navigation**: Navigate to property details
 - **Sweden Optimization**: Focused on Swedish locations
 
+#### Layout Rules
+- **Map takes majority width**: Map should occupy 2/3 of container width
+- **Card has fixed width**: Property cards maintain consistent width on right side
+- **Map renders to parent height**: If map wrapper is higher, map fills parent container
+- **Side-by-side layout**: Map on left, property details on right
+- **Consistent heights**: Map and card should align at top and bottom edges
+
 #### Usage
 ```jsx
 import Map from '../components/ui/Map';
@@ -297,6 +304,9 @@ mono-sm     /* 12px/16px */
 - **Contrast requirement**: White backgrounds ensure proper contrast and readability
 - **Visual consistency**: All cards should have consistent white backgrounds across the platform
 - **Design system compliance**: White card backgrounds are mandatory for QDS compliance
+- **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
+- **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
+- **No fluid height**: Never render cards with fluid height - let content determine height
 
 ### Layout & Navigation Rules
 - **Never skip header**: Always include `DynamicHeader` or `Header` component for consistent navigation

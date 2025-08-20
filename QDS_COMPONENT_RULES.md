@@ -440,3 +440,10 @@ import {
 - **Grid layout**: `grid grid-cols-1 md:grid-cols-2` for responsive design
 - **Icon styling**: `w-8 h-8` with `group-hover:translate-x-1 transition-transform`
 - **Typography**: Use `Typography` component with `title-sm` variant for labels
+
+### Card Height & Layout Rules
+- **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
+- **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
+- **No fluid height**: Never render cards with fluid height - let content determine height
+- **Map integration**: Map takes 2/3 width, cards on right with fixed width
+- **Map parent height**: If map wrapper is higher, map fills parent container with `h-full`
