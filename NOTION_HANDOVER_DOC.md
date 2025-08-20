@@ -261,6 +261,9 @@ Click to navigate to property details"
 - **✅ Icons and text should be on the same line** within buttons
 - **✅ Use consistent icon sizing** (`w-5 h-5`) within buttons
 - **✅ Place icons after text** with proper spacing (`ml-2`)
+- **✅ Always use `flex items-center justify-center`** for buttons with icons
+- **✅ Use `gap-2` or `gap-3`** for consistent spacing between icon and text
+- **✅ Icons must be vertically aligned** with text baseline
 
 #### List & Bullet Point Rules
 - **❌ Don't use custom bullet points** with `w-2 h-2 rounded-full` divs

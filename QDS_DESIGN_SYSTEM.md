@@ -260,6 +260,10 @@ mono-sm     /* 12px/16px */
 - **Icon consistency**: Use consistent icon sizing within buttons (`w-5 h-5`)
 - **Avoid mixing**: Don't mix different icon styles on the same button
 - **Icon alignment**: Ensure icons are vertically centered with text
+- **Button flex layout**: Always use `flex items-center justify-center` for buttons with icons
+- **Icon spacing**: Use `gap-2` or `gap-3` for consistent spacing between icon and text
+- **Icon sizing**: Use `w-5 h-5` for standard button icons, `w-4 h-4` for small buttons
+- **Vertical centering**: Icons must be vertically aligned with text baseline
 
 ### Avatar & Image Rules
 - **Avatars**: Never use illustrated/cartoon avatars - always use realistic person photos
