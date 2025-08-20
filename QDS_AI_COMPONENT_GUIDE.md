@@ -200,6 +200,25 @@ import TrustIndicator from '@/components/ui/TrustIndicator';
 <TrustIndicator text="Trusted landlord" type="trusted" />
 ```
 
+### 📋 FAQ Link Lists
+```jsx
+import FAQLinkList from '@/components/ui/FAQLinkList';
+
+<FAQLinkList
+  title="Common questions"
+  links={[
+    { label: "How it works for landlords", href: "/help/landlords", external: true },
+    { label: "How it works for tenants", href: "/help/tenants", external: true },
+    { label: "What happens if tenant doesn't pay?", href: "/help/payment", external: true },
+    { label: "What can I rent out for?", href: "/help/rental-types", external: true }
+  ]}
+/>
+
+// Border rule: Each item gets border-b, last item gets last:border-b-0
+// Grid: grid-cols-1 md:grid-cols-2 for responsive layout
+// Icons: w-8 h-8 with hover translate-x-1 effect
+```
+
 ---
 
 ## 🎯 Common Use Cases & Patterns

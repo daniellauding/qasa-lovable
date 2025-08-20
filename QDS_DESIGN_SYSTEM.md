@@ -315,6 +315,13 @@ mono-sm     /* 12px/16px */
 - **Consistent spacing**: Use proper spacing between list items (`space-y-3`)
 - **Icon alignment**: Ensure check circle icons are properly aligned with text
 
+### FAQ Link List Rules
+- **Border styling**: Use `border-b border-gray-100` for each link item
+- **Last item border**: Always include `last:border-b-0` to remove border from last item
+- **Grid layout**: Use `grid grid-cols-1 md:grid-cols-2` for responsive layout
+- **Hover effects**: Include `group-hover:translate-x-1 transition-transform` for arrow icons
+- **Icon sizing**: Use `w-8 h-8` for arrow icons in FAQ links
+
 ## 🧱 Shadows & Borders
 
 - Allowed shadows: `shadow-sm`, `shadow-md`, `shadow-lg` on cards/compact boxes only. Avoid shadows on full-width strips (hero, stats strip).

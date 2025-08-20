@@ -415,3 +415,10 @@ import {
   Pen, Plus, Search, Settings, Share, Sliders, Star, Trash, User, XCircle, X
 } from 'lucide-react';
 ```
+
+### FAQ Link List Border Rules
+- **Each item**: `border-b border-gray-100` for visual separation
+- **Last item**: `last:border-b-0` to remove bottom border from final item
+- **Grid layout**: `grid grid-cols-1 md:grid-cols-2` for responsive design
+- **Icon styling**: `w-8 h-8` with `group-hover:translate-x-1 transition-transform`
+- **Typography**: Use `Typography` component with `title-sm` variant for labels
