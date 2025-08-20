@@ -91,6 +91,11 @@ import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
 - **TenantCard**: Tenant profiles, applications
 - **LandlordCard**: Landlord profiles, contact info
 
+**Critical Rules:**
+- **TenantCard & PropertyCard**: Must always use `bg-white` backgrounds
+- **Never gray backgrounds**: No `bg-gray-10`, `bg-gray-20`, or grayish backgrounds
+- **White backgrounds mandatory**: Ensures proper contrast and QDS compliance
+
 ### 📥 Forms - Multiple Components
 ```jsx
 import Input from '@/components/ui/Input';
@@ -281,6 +286,24 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
   <div>
     <LandlordCard landlord={landlord} />
   </div>
+</div>
+<Footer />
+```
+
+### 4. **Complete Page Structure**
+```jsx
+// ✅ CORRECT - Always include header and footer
+<div className="min-h-screen flex flex-col">
+  <DynamicHeader isFluid={true} />
+  <main className="flex-grow">
+    {/* Your page content here */}
+  </main>
+  <Footer isFluid={true} />
+</div>
+
+// ❌ WRONG - Never skip header or footer
+<div>
+  {/* Just content without navigation */}
 </div>
 ```
 

@@ -291,6 +291,20 @@ mono-sm     /* 12px/16px */
 - **Visual hierarchy**: Borders help distinguish cards from their container background
 - **Consistent spacing**: Use proper gap spacing between cards (`gap-6` or similar)
 
+### TenantCard & PropertyCard Rules
+- **Always white background**: TenantCard and PropertyCard components must use `bg-white` backgrounds
+- **Never gray backgrounds**: Never use `bg-gray-10`, `bg-gray-20`, or any grayish backgrounds for cards
+- **Contrast requirement**: White backgrounds ensure proper contrast and readability
+- **Visual consistency**: All cards should have consistent white backgrounds across the platform
+- **Design system compliance**: White card backgrounds are mandatory for QDS compliance
+
+### Layout & Navigation Rules
+- **Never skip header**: Always include `DynamicHeader` or `Header` component for consistent navigation
+- **Never skip footer**: Always include `Footer` component for complete page structure
+- **Page structure**: Every page must have: Header → Main Content → Footer
+- **Navigation consistency**: Users must always have access to main navigation and footer links
+- **Accessibility**: Headers and footers provide essential navigation landmarks for screen readers
+
 ### Background Color Rules
 - **Page backgrounds**: Never use dark backgrounds like `bg-gray-50` or similar dark grays
 - **Use only**: `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds

@@ -356,6 +356,10 @@ When generating new components or pages, **always include**:
 2. **File Path**: Where the component was created (e.g., `src/prototypes/landing/NewLandingPage.jsx`)
 3. **Component Name**: The exported component name
 4. **Usage Instructions**: How to access and test the generated content
+5. **Complete Structure**: Always include header and footer components
+6. **Navigation**: Never skip navigation elements for user experience
+7. **Card Backgrounds**: TenantCard and PropertyCard must use `bg-white` backgrounds
+8. **No Gray Cards**: Never use grayish backgrounds for any cards
 
 **Example Response Format:**
 ```
@@ -363,6 +367,8 @@ When generating new components or pages, **always include**:
 📍 URL: /landing 
 📁 File: src/prototypes/landing/NewLandingPage.jsx
 🚀 Access: Navigate to /landing to view the new conversion-optimized landing page
+📋 Structure: Includes DynamicHeader, main content, and Footer components
+🎨 Cards: All TenantCard and PropertyCard components use white backgrounds
 ```
 
 ---
