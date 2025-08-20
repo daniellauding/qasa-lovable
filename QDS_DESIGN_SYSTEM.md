@@ -332,6 +332,16 @@ mono-sm     /* 12px/16px */
 - **Consistent styling**: All icons in the same context should use the same color scheme
 - **Brand compliance**: Icons should follow Qasa's color palette (#f19ec1, #322721, etc.)
 
+### 🚫 **NEVER Create New Colors or Icon Backgrounds**
+- **No new color classes**: Never use `bg-blue-500`, `bg-green-500`, `text-blue-600`, etc.
+- **No custom icon backgrounds**: Never create `bg-blue-500 rounded-xl` for icons
+- **No new color schemes**: Don't introduce blue/green/purple color schemes
+- **No custom gradients**: Don't create `from-blue-600 to-purple-600` gradients
+- **Use only QDS colors**: Stick to `--color-primary`, `--color-secondary`, `--color-brown`, etc.
+- **Icon containers only**: Use existing `bg-[var(--color-button-tertiary-bg)]` for icon containers
+- **No blue/green themes**: Never create blue or green themed sections
+- **No purple gradients**: Never use purple in gradients or backgrounds
+
 ### List & Bullet Point Rules
 - **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
 - **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons

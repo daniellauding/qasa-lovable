@@ -386,6 +386,10 @@ When generating new components or pages, **always include**:
 - **Missing default arrays**: Not providing `|| []` fallbacks for array props
 - **Undefined object properties**: Accessing properties on undefined objects without checks
 - **Missing object validation**: Not verifying objects exist before rendering components
+- **NEW COLORS VIOLATION**: Using `bg-blue-500`, `bg-green-500`, `from-blue-600 to-purple-600`
+- **CUSTOM ICON BACKGROUNDS**: Creating `bg-blue-500 rounded-xl` for icons
+- **BLUE/GREEN THEMES**: Introducing non-QDS color schemes
+- **PURPLE GRADIENTS**: Using purple in gradients or backgrounds
 
 **Example Response Format:**
 ```

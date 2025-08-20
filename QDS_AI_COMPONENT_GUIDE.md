@@ -449,6 +449,30 @@ className="text-[var(--color-text-secondary)]"
 className="bg-[var(--color-gray-10)]"
 ```
 
+#### ❌ **New Colors & Icon Backgrounds**
+```jsx
+// ❌ REJECT - Creating new colors
+className="bg-blue-500"
+className="bg-green-500"
+className="text-blue-600"
+className="from-blue-600 to-purple-600"
+
+// ❌ REJECT - Custom icon backgrounds
+<div className="w-12 h-12 bg-blue-500 rounded-xl">
+  <Home className="w-6 h-6 text-white" />
+</div>
+
+// ✅ ACCEPT - Use only QDS colors
+className="bg-[var(--color-primary)]"
+className="bg-[var(--color-secondary)]"
+className="text-[var(--color-text-primary)]"
+
+// ✅ ACCEPT - Use existing icon containers
+<div className="w-12 h-12 bg-[var(--color-button-tertiary-bg)] rounded-xl">
+  <Home className="w-6 h-6 text-[var(--color-text-primary)]" />
+</div>
+```
+
 #### ❌ **Wrong Typography Variants**
 ```jsx
 // ❌ REJECT - Non-existent variants
@@ -482,6 +506,9 @@ className="bg-[var(--color-gray-10)]"
 - Missing default arrays: Provide fallbacks for all array props
 - Undefined object property error: Use user?.avatar or provide default user object
 - Missing object checks: Always verify objects exist before accessing properties
+- NEW COLORS VIOLATION: Using 'bg-blue-500', 'bg-green-500', 'from-blue-600 to-purple-600'
+- CUSTOM ICON BACKGROUNDS: Creating 'bg-blue-500 rounded-xl' for icons
+- BLUE/GREEN THEMES: Introducing non-QDS color schemes
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```
