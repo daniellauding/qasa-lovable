@@ -372,6 +372,17 @@ When generating new components or pages, **always include**:
 7. **Card Backgrounds**: TenantCard and PropertyCard must use `bg-white` backgrounds
 8. **No Gray Cards**: Never use grayish backgrounds for any cards
 
+### 🚫 **Code Rejection Guidelines**
+**Reject any code that violates QDS rules:**
+
+- **Wrong prop names**: `tenant` instead of `user`, `testimonials` instead of `items`
+- **Missing header/footer**: No navigation components
+- **Invalid color classes**: `bg-background`, `text-muted-foreground`, `bg-muted/30`
+- **Invalid typography variants**: `title-4xl`, `body-lg` (non-existent variants)
+- **Invalid button variants**: `size="xl"` (should be `size="lg"`)
+- **Direct color usage**: Any Tailwind colors instead of CSS variables
+- **Missing QDS imports**: Using raw HTML instead of QDS components
+
 **Example Response Format:**
 ```
 ✅ Generated: NewLandingPage component

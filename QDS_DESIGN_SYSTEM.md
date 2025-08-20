@@ -543,6 +543,25 @@ npm run lint:qds
 4. **Accessibility is required** - Not optional
 5. **Both themes must work** - Test Qasa and Blocket
 
+## 🚫 Code Rejection Policy
+
+### **Reject Code That Violates:**
+- **Wrong prop names**: `tenant` instead of `user`, `testimonials` instead of `items`
+- **Missing navigation**: No header or footer components
+- **Invalid color classes**: `bg-background`, `text-muted-foreground`, `bg-muted/30`
+- **Invalid typography variants**: `title-4xl`, `body-lg` (non-existent)
+- **Invalid button variants**: `size="xl"` (should be `size="lg"`)
+- **Direct color usage**: Tailwind colors instead of CSS variables
+- **Missing QDS imports**: Raw HTML instead of QDS components
+
+### **Response Template:**
+```
+❌ REJECTED: Code violates QDS rules
+🔧 Issues found:
+- [List specific violations]
+✅ Please fix these issues and resubmit following QDS guidelines.
+```
+
 ---
 
 ## 🤝 Contributing to QDS

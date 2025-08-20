@@ -347,6 +347,82 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
 - `TenantCard was called with invalid props` → Verify all required props
 - `TestimonialCarousel expects 'items' prop` → Use correct prop name
 
+### 🚫 **Code Rejection Rules**
+
+**Reject code that violates these QDS rules:**
+
+#### ❌ **Wrong Prop Names**
+```jsx
+// ❌ REJECT - Wrong prop name
+<Card.TenantCard tenant={tenant} />
+
+// ✅ ACCEPT - Correct prop name  
+<Card.TenantCard user={tenant} />
+```
+
+#### ❌ **Missing Header/Footer**
+```jsx
+// ❌ REJECT - Missing navigation
+<div className="min-h-screen bg-background">
+  {/* Just content without header/footer */}
+</div>
+
+// ✅ ACCEPT - Complete structure
+<div className="min-h-screen flex flex-col">
+  <DynamicHeader isFluid={true} />
+  <main className="flex-grow">
+    {/* Content */}
+  </main>
+  <Footer isFluid={true} />
+</div>
+```
+
+#### ❌ **Wrong Color Classes**
+```jsx
+// ❌ REJECT - Direct color classes
+className="bg-background"
+className="text-muted-foreground"
+className="bg-muted/30"
+
+// ✅ ACCEPT - QDS color tokens
+className="bg-white"
+className="text-[var(--color-text-secondary)]"
+className="bg-[var(--color-gray-10)]"
+```
+
+#### ❌ **Wrong Typography Variants**
+```jsx
+// ❌ REJECT - Non-existent variants
+<Typography variant="title-4xl" />
+<Typography variant="body-lg" />
+
+// ✅ ACCEPT - Valid QDS variants
+<Typography variant="display-sm" />
+<Typography variant="body-md" />
+```
+
+#### ❌ **Wrong Button Variants**
+```jsx
+// ❌ REJECT - Non-existent variants
+<Button variant="primary" size="xl" />
+
+// ✅ ACCEPT - Valid QDS variants
+<Button variant="primary" size="lg" />
+```
+
+**Response to Violations:**
+```
+❌ REJECTED: Code violates QDS rules
+🔧 Issues found:
+- Wrong prop name: 'tenant' should be 'user'
+- Missing header/footer components
+- Invalid color classes: 'bg-background', 'text-muted-foreground'
+- Invalid typography variants: 'title-4xl', 'body-lg'
+- Invalid button size: 'xl' should be 'lg'
+
+✅ Please fix these issues and resubmit following QDS guidelines.
+```
+
 ---
 
 ## 🎯 Common Use Cases & Patterns
