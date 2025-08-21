@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as ToastPrimitive from '@radix-ui/react-toast';
-import { CheckCircle, Info, X } from 'lucide-react';
+import { CheckCircle, Info, X, AlertCircle } from 'lucide-react';
 
 const Toast = ({
   title,
@@ -9,20 +9,17 @@ const Toast = ({
   variant = 'info',
   duration = 5000,
   className = '',
+  showIcon = true,
   ...props
 }) => {
   const variantStyles = {
-    success: {
-      container: 'border-green-500 bg-green-50',
-      icon: <CheckCircle className="h-5 w-5 text-green-500" />,
+    black: {
+      container: 'border-gray-800 bg-black text-white',
+      icon: <Info className="h-5 w-5 text-white" />,
     },
-    error: {
-      container: 'border-red-500 bg-red-50',
-      icon: <ExclamationCircleIcon className="h-5 w-5 text-red-500" />,
-    },
-    info: {
-      container: 'border-blue-500 bg-blue-50',
-      icon: <Info className="h-5 w-5 text-blue-500" />,
+    negative: {
+      container: 'border-red-600 bg-red-600 text-white',
+      icon: <AlertCircle className="h-5 w-5 text-white" />,
     },
   };
 
@@ -45,25 +42,33 @@ const Toast = ({
       `}
       {...props}
     >
-      <div className="shrink-0">
-        {variantStyles[variant].icon}
-      </div>
+      {showIcon && (
+        <div className="shrink-0">
+          {variantStyles[variant].icon}
+        </div>
+      )}
 
       <div className="flex-1">
         {title && (
-          <ToastPrimitive.Title className="text-sm font-medium text-gray-900">
+          <ToastPrimitive.Title className={`text-sm font-medium ${
+            variant === 'black' || variant === 'negative' ? 'text-white' : 'text-gray-900'
+          }`}>
             {title}
           </ToastPrimitive.Title>
         )}
         {description && (
-          <ToastPrimitive.Description className="mt-1 text-sm text-gray-600">
+          <ToastPrimitive.Description className={`mt-1 text-sm ${
+            variant === 'black' || variant === 'negative' ? 'text-gray-200' : 'text-gray-600'
+          }`}>
             {description}
           </ToastPrimitive.Description>
         )}
       </div>
 
       <ToastPrimitive.Close
-        className="absolute right-2 top-2 rounded p-1 text-gray-400 hover:text-gray-600"
+        className={`absolute right-2 top-2 rounded p-1 hover:opacity-80 transition-opacity ${
+          variant === 'black' || variant === 'negative' ? 'text-gray-300 hover:text-white' : 'text-gray-400 hover:text-gray-600'
+        }`}
       >
         <X className="h-4 w-4" />
       </ToastPrimitive.Close>
@@ -74,9 +79,10 @@ const Toast = ({
 Toast.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  variant: PropTypes.oneOf(['success', 'error', 'info']),
+  variant: PropTypes.oneOf(['black', 'negative']),
   duration: PropTypes.number,
   className: PropTypes.string,
+  showIcon: PropTypes.bool,
 };
 
 export const ToastProvider = ToastPrimitive.Provider;

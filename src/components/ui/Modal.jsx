@@ -56,7 +56,7 @@ const Modal = ({
               onClick={onClose}
               className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100"
             >
-              <Icon name="XMarkIcon" size="md" />
+              <Icon name="X" size="md" />
             </button>
           )}
         </Dialog.Content>

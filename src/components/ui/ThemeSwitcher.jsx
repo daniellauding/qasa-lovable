@@ -12,7 +12,7 @@ export const ThemeSwitcher = ({ className = '' }) => {
         <Button
           key={themeName}
           variant={currentTheme === themeName ? 'primary' : 'outline'}
-          size="small"
+          size="sm"
           onClick={() => switchTheme(themeName)}
           style={{
             backgroundColor: currentTheme === themeName ? themes[themeName].colors.primary : undefined,

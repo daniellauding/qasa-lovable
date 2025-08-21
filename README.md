@@ -1,4 +1,4 @@
-# Qasa Match Prototyping
+# Lovable <3 Qasa
 
 A React-based prototyping platform for testing different approaches to Qasa's rental matching features. Built with Vite, React Router, and Tailwind CSS.
 
@@ -13,8 +13,6 @@ A React-based prototyping platform for testing different approaches to Qasa's re
 **Background**: 15+ years in product design and prototyping, expert in design systems and component libraries. Previously worked at Spotify and other tech companies.
 
 **Why I Built This**: To make prototyping accessible to everyone at Qasa while ensuring consistent branding and faster ideation.
-
-**Copywriter Guidelines**: This project follows Qasa's established copywriting guidelines and tone of voice. All content maintains consistency with Qasa's brand messaging and user experience standards.
 
 ---
 

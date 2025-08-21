@@ -9,6 +9,7 @@ const PropertyCard = ({
   liked = false,
   onLikeToggle,
   onCardClick,
+  statusChip = null,
   className = '',
   ...props
 }) => {
@@ -29,6 +30,21 @@ const PropertyCard = ({
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  const getStatusChipStyle = (status) => {
+    switch (status) {
+      case 'apply-earlier':
+        return 'bg-yellow-500 text-[var(--color-brown)] font-semibold';
+      case 'first-hand':
+        return 'bg-green-500 text-white font-semibold';
+      case 'premium':
+        return 'bg-[var(--color-primary)] text-white font-semibold';
+      case 'new':
+        return 'bg-blue-500 text-white font-semibold';
+      default:
+        return 'bg-gray-500 text-white font-semibold';
+    }
+  };
+
   return (
     <Card variant="property" className={`cursor-pointer ${className}`} onClick={onCardClick} {...props}>
       <div 
@@ -41,6 +57,19 @@ const PropertyCard = ({
           alt={property.title}
           className="w-full h-48 object-cover"
         />
+        
+        {/* Status Chip */}
+        {statusChip && (
+          <div className="absolute top-3 left-3">
+            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs ${getStatusChipStyle(statusChip)}`}>
+              {statusChip === 'apply-earlier' && 'Apply earlier'}
+              {statusChip === 'first-hand' && 'First hand'}
+              {statusChip === 'premium' && 'Premium'}
+              {statusChip === 'new' && 'New'}
+              {statusChip !== 'apply-earlier' && statusChip !== 'first-hand' && statusChip !== 'premium' && statusChip !== 'new' && statusChip}
+            </span>
+          </div>
+        )}
         
         {/* Navigation arrows - only show on hover if multiple images */}
         {hasMultipleImages && isHovered && (
@@ -131,6 +160,7 @@ PropertyCard.propTypes = {
   liked: PropTypes.bool,
   onLikeToggle: PropTypes.func,
   onCardClick: PropTypes.func,
+  statusChip: PropTypes.oneOf(['apply-earlier', 'first-hand', 'premium', 'new']),
   className: PropTypes.string,
 };
 

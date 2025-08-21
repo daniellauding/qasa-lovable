@@ -30,9 +30,9 @@ export const SavedToFavorites = {
         <Toast
           open={open}
           onOpenChange={setOpen}
-          title="Saved to favorites"
-          description="You can edit your preferences at any time in your profile."
-          variant="success"
+          title="Premium Feature Unlocked"
+          description="You now have access to exclusive premium features."
+          variant="black"
         />
       </div>
     );
@@ -44,21 +44,75 @@ export const AllVariants = {
     <div className="space-y-4 w-[380px]">
       <Toast
         open={true}
-        title="Saved to favorites"
-        description="You can edit your preferences at any time in your profile."
-        variant="success"
+        title="Premium Feature Unlocked"
+        description="You now have access to exclusive premium features."
+        variant="black"
       />
       <Toast
         open={true}
-        title="Error occurred"
-        description="There was a problem saving your preferences."
-        variant="error"
+        title="Action Required"
+        description="Please complete your profile to continue."
+        variant="negative"
+      />
+    </div>
+  ),
+};
+
+export const BlackVariant = {
+  render: () => (
+    <div className="space-y-4 w-[380px]">
+      <Toast
+        open={true}
+        title="Premium Feature Unlocked"
+        description="You now have access to exclusive premium features including Super Apply and Early Access."
+        variant="black"
       />
       <Toast
         open={true}
-        title="Information"
-        description="Your preferences have been updated."
+        title="Welcome to Qasa Premium"
+        description="Enjoy 2.5x better chances to find your dream home."
+        variant="black"
+        showIcon={false}
+      />
+    </div>
+  ),
+};
+
+export const NegativeVariant = {
+  render: () => (
+    <div className="space-y-4 w-[380px]">
+      <Toast
+        open={true}
+        title="Action Required"
+        description="Please complete your profile verification to continue."
+        variant="negative"
+      />
+      <Toast
+        open={true}
+        title="Payment Failed"
+        description="Your premium subscription payment could not be processed."
+        variant="negative"
+      />
+    </div>
+  ),
+};
+
+export const WithoutIcons = {
+  render: () => (
+    <div className="space-y-4 w-[380px]">
+      <Toast
+        open={true}
+        title="Simple Notification"
+        description="This toast doesn't have an icon."
         variant="info"
+        showIcon={false}
+      />
+      <Toast
+        open={true}
+        title="Clean Message"
+        description="Sometimes less is more."
+        variant="black"
+        showIcon={false}
       />
     </div>
   ),

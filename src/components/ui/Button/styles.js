@@ -70,6 +70,13 @@ export const buttonVariants = {
     'hover:bg-gray-50',
     'focus:bg-gray-50 focus:scale-95',
     'disabled:bg-transparent disabled:text-gray-400 disabled:border-gray-300'
+  ].join(' '),
+  premium: [
+    'bg-yellow-500 text-[var(--color-brown)]',
+    'hover:bg-yellow-600',
+    'focus:bg-yellow-600',
+    'disabled:bg-yellow-300 disabled:text-[var(--color-brown)]',
+    'font-semibold'
   ].join(' ')
 };
 

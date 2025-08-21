@@ -261,3 +261,71 @@ export const InformationSection = {
     </div>
   )
 };
+
+export const AllVariants = {
+  render: () => (
+    <div className="space-y-8">
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Image Left</h3>
+        <ContentBlock
+          title="Find Your Dream Home"
+          description="Browse thousands of verified rental properties across Sweden."
+          image="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=300&fit=crop"
+          imagePosition="left"
+          ctaText="Browse Homes"
+          ctaOnClick={() => console.log('Browse clicked')}
+        />
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Image Right</h3>
+        <ContentBlock
+          title="List Your Property"
+          description="Reach thousands of verified tenants looking for their next home."
+          image="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop"
+          imagePosition="right"
+          ctaText="List Property"
+          ctaOnClick={() => console.log('List clicked')}
+        />
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Centered Image</h3>
+        <ContentBlock
+          title="Trusted by Thousands"
+          description="Join over 100,000 satisfied users who have found their perfect rental match."
+          image="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&h=300&fit=crop"
+          imagePosition="center"
+          ctaText="Learn More"
+          ctaOnClick={() => console.log('Learn clicked')}
+        />
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold mb-4">With Stepper</h3>
+        <ContentBlock
+          title="How It Works"
+          description="Get started in just three simple steps."
+          stepper={['Search', 'Apply', 'Move In']}
+          ctaText="Start Searching"
+          ctaOnClick={() => console.log('Start clicked')}
+        />
+      </div>
+      
+      <div>
+        <h3 className="text-lg font-semibold mb-4">Soft Pink Background</h3>
+        <ContentBlock
+          title="Premium Features"
+          description="Unlock advanced features and get priority access."
+          background="softPink"
+          ctaText="Upgrade Now"
+          ctaVariant="secondary"
+          ctaOnClick={() => console.log('Upgrade clicked')}
+        />
+      </div>
+    </div>
+  ),
+  parameters: {
+    docs: { disable: true },
+  },
+};

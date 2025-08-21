@@ -37,7 +37,7 @@ import RegisterFlow from './prototypes/auth/register/RegisterFlow';
 import HomesPage from './prototypes/homes/HomesPage';
 import MessagesPage from './prototypes/messages/MessagesPage';
 import BlankTemplate from './prototypes/templates/BlankTemplate';
-import TemplateBuilder from './prototypes/templates/TemplateBuilder';
+import DesignSystem from './prototypes/design-system/DesignSystem';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Landing from './prototypes/landing/Landing';
 import Header from './components/Header';
@@ -84,7 +84,7 @@ const getPrototypeIcon = (prototypeId, category) => {
     
     // Templates
     'blank-template': Plus,
-    'template-builder': Wand2,
+    'design-system': Settings,
   };
   
   return iconMap[prototypeId] || FlaskConical;
@@ -260,16 +260,17 @@ const prototypes = [
     isNew: true,
   },
   {
-    id: 'template-builder',
-    category: 'templates',
-    name: 'Template Builder',
-    description: 'Configure and create custom templates for AI-assisted prototyping with component presets.',
-    thumbnail: '/thumbnails/template-builder.png',
-    path: '/templates/builder',
-    component: TemplateBuilder,
-    tags: ['builder', 'configuration', 'ai'],
+    id: 'design-system',
+    category: 'system',
+    name: 'Design System',
+    description: 'Complete QDS component library with all variants and examples from storybook.',
+    thumbnail: '/thumbnails/design-system.png',
+    path: '/design-system',
+    component: DesignSystem,
+    tags: ['components', 'library', 'variants'],
     isNew: true,
   },
+
 ];
 
 function PrototypeGrid() {
@@ -311,86 +312,6 @@ function PrototypeGrid() {
         </div>
         
         <div className="space-y-12">
-          {/* Template System - Special Section */}
-          <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl p-8 border border-pink-200">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-pink-500 rounded-full mb-4">
-                <Wand2 className="w-8 h-8 text-white" />
-              </div>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-2">
-                AI Template System
-              </h2>
-              <p className="text-gray-600">
-                Start prototyping with blank templates optimized for Lovable and AI tools
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-              <Link
-                to="/templates/blank"
-                className="block group transform hover:-translate-y-1 transition-all duration-200"
-              >
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-pink-200">
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
-                    <Plus className="w-16 h-16 text-pink-400" />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="text-sm font-medium px-3 py-1 rounded-full bg-pink-100 text-pink-700">
-                        Templates
-                      </div>
-                      <div className="text-xs font-medium px-2 py-1 rounded bg-green-100 text-green-700">
-                        NEW
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 group-hover:text-pink-600 transition-colors">
-                      Blank Template
-                    </h3>
-                    <p className="text-gray-600 text-sm mt-1">
-                      Empty template ready for AI/Lovable prototyping with QDS components
-                    </p>
-                    <div className="flex gap-2 mt-3">
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">ai</span>
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">lovable</span>
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">blank</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-
-              <Link
-                to="/templates/builder"
-                className="block group transform hover:-translate-y-1 transition-all duration-200"
-              >
-                <div className="bg-white rounded-xl shadow-sm hover:shadow-lg overflow-hidden border border-pink-200">
-                  <div className="aspect-w-16 aspect-h-9 bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center">
-                    <Wand2 className="w-16 h-16 text-purple-400" />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="text-sm font-medium px-3 py-1 rounded-full bg-purple-100 text-purple-700">
-                        Templates
-                      </div>
-                      <div className="text-xs font-medium px-2 py-1 rounded bg-green-100 text-green-700">
-                        NEW
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 group-hover:text-purple-600 transition-colors">
-                      Template Builder
-                    </h3>
-                    <p className="text-gray-600 text-sm mt-1">
-                      Configure and create custom templates for AI-assisted prototyping
-                    </p>
-                    <div className="flex gap-2 mt-3">
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">builder</span>
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">config</span>
-                      <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">ai</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
 
           {/* Prototypes with variants */}
           {variantPrototypes.length > 0 && (
@@ -570,7 +491,7 @@ function App() {
           
           {/* Template System */}
           <Route path="/templates/blank" element={<BlankTemplate />} />
-          <Route path="/templates/builder" element={<TemplateBuilder />} />
+          <Route path="/design-system" element={<DesignSystem />} />
           
   
           
@@ -579,19 +500,21 @@ function App() {
             .map((prototype) => {
               const El = prototype.component;
               return (
-                <Route
-                  path={prototype.path}
-                  element={
-                    <div className="min-h-screen flex flex-col">
-                      <Header />
-                      <main className="flex-grow">
-                        <El />
-                      </main>
-                      <Footer />
-                      <DevExperimentsButton />
-                    </div>
-                  }
-                />
+                <React.Fragment key={prototype.id}>
+                  <Route
+                    path={prototype.path}
+                    element={
+                      <div className="min-h-screen flex flex-col">
+                        <Header />
+                        <main className="flex-grow">
+                          <El />
+                        </main>
+                        <Footer />
+                        <DevExperimentsButton />
+                      </div>
+                    }
+                  />
+                </React.Fragment>
               );
             })}
         </Routes>

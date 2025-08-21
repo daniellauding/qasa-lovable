@@ -1,5 +1,8 @@
 import React from 'react';
 import Card from '../../components/ui/Card';
+import Button from '../../components/ui/Button';
+import Typography from '../../components/ui/Typography';
+import Icon from '../../components/ui/Icon';
 
 // Cat icon for create profile card
 const CatIcon = () => (
@@ -293,78 +296,186 @@ export const LandlordCTACards = {
   ),
 };
 
+const AllVariantsTemplate = () => (
+  <div className="space-y-8 max-w-6xl">
+    <div>
+      <h3 className="text-lg font-semibold mb-4">Basic Card</h3>
+      <div className="max-w-md">
+        <Card className="p-6">
+          <Typography variant="title-lg" className="mb-2">Basic Card</Typography>
+          <Typography variant="body-md" className="text-gray-600">
+            Simple card with content
+          </Typography>
+        </Card>
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold mb-4">Promotional Cards</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+        <Card className="p-6">
+          <div className="space-y-4">
+            <Typography variant="title-lg">Rent better and safer with Qasa</Typography>
+            <Typography variant="body-md" className="text-gray-600">
+              This home has a verified landlord, a safe lease and dedicated support 7 days a week. All payments are managed through us.
+            </Typography>
+            <Button variant="outline" size="sm">Read more</Button>
+          </div>
+        </Card>
+        
+        <Card className="p-6">
+          <div className="space-y-4">
+            <Typography variant="title-lg">First hand contract</Typography>
+            <Typography variant="body-md" className="text-gray-600">
+              This lease is for an ongoing first hand lease with a professional landlord. They have extensive experience and offer stability and well-managed rentals.
+            </Typography>
+            <Button variant="outline" size="sm">Read more</Button>
+          </div>
+        </Card>
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold mb-4">Tenant Profile Cards</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Card.TenantCard
+          user={dummyTenant}
+          verified
+          matchPercentage={85}
+          onCardClick={() => console.log('Tenant clicked!')}
+        />
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold mb-4">Property Listing Cards</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <Card.PropertyCard
+          property={dummyProperty}
+          onLikeToggle={() => console.log('Like toggled!')}
+          onCardClick={() => console.log('Property clicked!')}
+        />
+      </div>
+    </div>
+
+    <div>
+      <h3 className="text-lg font-semibold mb-4">Contact Request Cards</h3>
+      <div className="max-w-md">
+        <Card.ContactCard
+          property={dummyContactProperty}
+          message="You sent a contact request to Simon"
+        />
+      </div>
+    </div>
+  </div>
+);
+
 export const AllVariants = {
+  render: AllVariantsTemplate,
+  parameters: {
+    docs: { disable: true },
+  },
+};
+
+// Promotional and First-hand contract usage examples
+export const PromotionalCard = {
   render: () => (
-    <div className="space-y-8 max-w-6xl">
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Tenant Profile Cards</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card.TenantCard
-            user={dummyTenant}
-            verified
-            matchPercentage={85}
-            onCardClick={() => alert('Tenant clicked!')}
-          />
+    <div className="max-w-xl">
+      <Card className="p-6">
+        <div className="space-y-4">
+          <Typography variant="title-lg">Rent better and safer with Qasa</Typography>
+          <Typography variant="body-md" className="text-gray-600">
+            This home has a verified landlord, a safe lease and dedicated support 7 days a week. All payments are managed through us.
+          </Typography>
+          <Button variant="outline" size="sm">Read more</Button>
         </div>
-      </div>
+      </Card>
+    </div>
+  ),
+};
 
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Create Profile Cards</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
-          <Card.CreateProfileCard
-            title="Want landlords to find you?"
-            description="Publish your profile here and let your future home come to you."
-            icon={<CatIcon />}
-            onButtonClick={() => alert('Create profile!')}
-          />
-          <Card.CreateTenantProfileCard
-            title="Want landlords to find you?"
-            description="Publish your profile here and let your future home come to you."
-            buttonText="Create profile"
-            onButtonClick={() => alert('Create tenant profile!')}
-          />
+export const FirstHandContractCard = {
+  render: () => (
+    <div className="max-w-xl">
+      <Card className="p-6">
+        <div className="space-y-4">
+          <Typography variant="title-lg">First hand contract</Typography>
+          <Typography variant="body-md" className="text-gray-600">
+            This lease is for an ongoing first hand lease with a professional landlord. They have extensive experience and offer stability and well-managed rentals.
+          </Typography>
+          <Button variant="outline" size="sm">Read more</Button>
         </div>
-      </div>
+      </Card>
+    </div>
+  ),
+};
 
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Property Listing Cards</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card.PropertyCard
-            property={dummyProperty}
-            onLikeToggle={() => alert('Like toggled!')}
-            onCardClick={() => alert('Property clicked!')}
-          />
+// Box Card Variants (moved from BoxCards.stories.jsx)
+export const BoxCardInsights = {
+  render: () => (
+    <div className="bg-white border rounded-lg p-6 shadow-sm max-w-md">
+      <Typography variant="title-sm" className="mb-4">Insights</Typography>
+      <div className="grid grid-cols-2 gap-4">
+        <div className="flex items-center gap-3">
+          <Icon name="Home" size="sm" className="text-gray-600" />
+          <div>
+            <Typography variant="body-sm">Published 0 days ago</Typography>
+            <Typography variant="body-xs" className="text-gray-500">0 views</Typography>
+          </div>
+        </div>
+        <div className="flex items-center gap-3">
+          <Icon name="Users" size="sm" className="text-gray-600" />
+          <div>
+            <Typography variant="body-sm">0 applicants</Typography>
+            <Typography variant="body-xs" className="text-gray-500">0 open conversations</Typography>
+          </div>
         </div>
       </div>
+    </div>
+  ),
+};
 
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Landlord Cards</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card.LandlordCard
-            landlord={dummyLandlord}
-            verified
-          />
+export const BoxCardStats = {
+  render: () => (
+    <div className="bg-green-50 border border-green-200 rounded-lg p-6 shadow-sm max-w-md">
+      <Typography variant="title-lg" className="mb-4">Property Statistics</Typography>
+      <div className="space-y-3">
+        <div className="flex justify-between">
+          <Typography variant="body-sm">Days on market</Typography>
+          <Typography variant="body-sm" className="font-medium">7</Typography>
+        </div>
+        <div className="flex justify-between">
+          <Typography variant="body-sm">Views this week</Typography>
+          <Typography variant="body-sm" className="font-medium">156</Typography>
+        </div>
+        <div className="flex justify-between">
+          <Typography variant="body-sm">Applications</Typography>
+          <Typography variant="body-sm" className="font-medium">12</Typography>
         </div>
       </div>
+    </div>
+  ),
+};
 
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Contact Request Cards</h3>
-        <div className="max-w-md">
-          <Card.ContactCard
-            property={dummyContactProperty}
-            message="You sent a contact request to Simon"
-          />
+export const BoxCardContact = {
+  render: () => (
+    <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm max-w-md">
+      <Typography variant="title-lg" className="mb-3">Contact Information</Typography>
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <Icon name="User" size="sm" className="text-gray-600" />
+          <Typography variant="body-sm">Karin Andersson</Typography>
+        </div>
+        <div className="flex items-center gap-3">
+          <Icon name="Phone" size="sm" className="text-gray-600" />
+          <Typography variant="body-sm">+46 70 123 45 67</Typography>
+        </div>
+        <div className="flex items-center gap-3">
+          <Icon name="Mail" size="sm" className="text-gray-600" />
+          <Typography variant="body-sm">karin@example.com</Typography>
         </div>
       </div>
-
-      <div>
-        <h3 className="text-lg font-semibold mb-4">Landlord CTA Cards</h3>
-        <div className="max-w-md">
-          <Card.LandlordCTACard
-            onClick={() => alert('Create listing clicked!')}
-          />
-        </div>
-      </div>
+      <Button variant="primary" size="sm" className="mt-4 w-full">Contact Landlord</Button>
     </div>
   ),
 };

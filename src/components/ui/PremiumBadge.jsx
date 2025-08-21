@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Star, Crown, Award, Sparkles } from 'lucide-react';
+import { Star, Crown, Award, Sparkles, Megaphone, Lightbulb, Zap, Clock, Send } from 'lucide-react';
 
 const PremiumBadge = ({
   text,
   variant = 'default',
   icon = 'star',
+  premiumFeature = null,
   className = '',
   ...props
 }) => {
@@ -13,33 +14,72 @@ const PremiumBadge = ({
     star: <Star className="w-4 h-4" />,
     crown: <Crown className="w-4 h-4" />,
     award: <Award className="w-4 h-4" />,
-    sparkles: <Sparkles className="w-4 h-4" />
+    sparkles: <Sparkles className="w-4 h-4" />,
+    // Premium feature icons (yellow)
+    megaphone: <Megaphone className="w-4 h-4 text-yellow-500" />,
+    bulb: <Lightbulb className="w-4 h-4 text-yellow-500" />,
+    flashlight: <Zap className="w-4 h-4 text-yellow-500" />,
+    chicken: <Clock className="w-4 h-4 text-yellow-500" />,
+    plane: <Send className="w-4 h-4 text-yellow-500" />
+  };
+
+  const premiumFeatureMap = {
+    'super-apply': {
+      icon: 'megaphone',
+      text: 'Super apply',
+      description: 'Give your application an extra boost'
+    },
+    'exclusive-insights': {
+      icon: 'bulb',
+      text: 'Exclusive insights',
+      description: 'See how the rent compares to similar homes'
+    },
+    'highlighted-profile': {
+      icon: 'flashlight',
+      text: 'Highlighted profile',
+      description: 'Get a premium badge on your profile'
+    },
+    'apply-earlier': {
+      icon: 'chicken',
+      text: 'Apply earlier',
+      description: 'Apply before everyone else'
+    },
+    'more-applications': {
+      icon: 'plane',
+      text: 'More applications',
+      description: 'Apply to 10 first-hand homes simultaneously'
+    }
   };
 
   const variantClasses = {
-    default: 'inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary)]/80 text-white rounded-full shadow-sm',
-    compact: 'inline-flex items-center gap-1.5 px-2 py-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary)]/80 text-white rounded-md shadow-sm',
-    pill: 'inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary)]/80 text-white rounded-full shadow-sm',
-    outline: 'inline-flex items-center gap-2 px-3 py-1.5 border-2 border-[var(--color-primary)] text-[var(--color-primary)] rounded-full',
-    subtle: 'inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full'
+    // Premium-specific variants (yellowish/gold only)
+    premium: 'inline-flex items-center gap-2 px-3 py-1.5 bg-yellow-500 text-[var(--color-brown)] rounded-full shadow-sm font-semibold',
+    'premium-outline': 'inline-flex items-center gap-2 px-3 py-1.5 border-2 border-yellow-500 text-yellow-600 rounded-full font-semibold',
+    'premium-subtle': 'inline-flex items-center gap-2 px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-full font-semibold'
   };
+
+  // If premiumFeature is provided, use its data
+  const featureData = premiumFeature ? premiumFeatureMap[premiumFeature] : null;
+  const displayText = featureData ? featureData.text : text;
+  const displayIcon = featureData ? featureData.icon : icon;
 
   return (
     <span className={`${variantClasses[variant]} ${className}`} {...props}>
       <span className="text-current">
-        {iconMap[icon]}
+        {iconMap[displayIcon]}
       </span>
       <span className="text-current text-sm font-semibold">
-        {text}
+        {displayText}
       </span>
     </span>
   );
 };
 
 PremiumBadge.propTypes = {
-  text: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(['default', 'compact', 'pill', 'outline', 'subtle']),
-  icon: PropTypes.oneOf(['star', 'crown', 'award', 'sparkles']),
+  text: PropTypes.string,
+  variant: PropTypes.oneOf(['default', 'compact', 'pill', 'outline', 'subtle', 'premium', 'premium-outline', 'premium-subtle']),
+  icon: PropTypes.oneOf(['star', 'crown', 'award', 'sparkles', 'megaphone', 'bulb', 'flashlight', 'chicken', 'plane']),
+  premiumFeature: PropTypes.oneOf(['super-apply', 'exclusive-insights', 'highlighted-profile', 'apply-earlier', 'more-applications']),
   className: PropTypes.string,
 };
 

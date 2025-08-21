@@ -34,10 +34,12 @@
 - **Header**: Main navigation
 - **Breadcrumbs**: Page hierarchy
 - **Tabs**: Content organization
-- **Pagination**: List navigation
+- **Pagination**: List navigation with page numbers, navigation arrows, and ellipsis support
+- **Search**: Property and content search functionality
+- **Accordion**: Collapsible content sections
 
 #### Feedback
-- **Toast**: Success, error, info messages
+- **Toast**: Success, error, info, black, negative messages
 - **Modal**: Overlay dialogs
 - **Loading**: Loading states
 - **Skeleton**: Content placeholders
@@ -68,6 +70,7 @@
 - **Carousel**: Image galleries
 - **FeatureBadge**: Inline feature indicators
 - **TrustIndicator**: Trust and safety indicators
+- **PremiumBadge**: Premium feature badges with yellow icons
 
 #### Maps & Location
 - **Map**: Interactive property maps
@@ -365,12 +368,59 @@ mono-sm     /* 12px/16px */
 - **Responsive problems**: Absolute positioning doesn't work well on mobile
 - **Accessibility issues**: Screen readers struggle with absolutely positioned elements
 
+### 🚫 **NEVER Use Wrong Icon Names**
+- **No CalendarIcon**: Use `Calendar` from lucide-react, not `CalendarIcon`
+- **No UserIcon**: Use `User` from lucide-react, not `UserIcon`
+- **No HomeIcon**: Use `Home` from lucide-react, not `HomeIcon`
+- **No SearchIcon**: Use `Search` from lucide-react, not `SearchIcon`
+- **No MailIcon**: Use `Mail` from lucide-react, not `MailIcon`
+- **No PhoneIcon**: Use `Phone` from lucide-react, not `PhoneIcon`
+- **No MapPinIcon**: Use `MapPin` from lucide-react, not `MapPinIcon`
+- **No StarIcon**: Use `Star` from lucide-react, not `StarIcon`
+- **No HeartIcon**: Use `Heart` from lucide-react, not `HeartIcon`
+- **No EyeIcon**: Use `Eye` from lucide-react, not `EyeIcon`
+- **No EditIcon**: Use `Edit` from lucide-react, not `EditIcon`
+- **No TrashIcon**: Use `Trash` from lucide-react, not `TrashIcon`
+- **No PlusIcon**: Use `Plus` from lucide-react, not `PlusIcon`
+- **No MinusIcon**: Use `Minus` from lucide-react, not `MinusIcon`
+- **No CheckIcon**: Use `Check` from lucide-react, not `CheckIcon`
+- **No XIcon**: Use `X` from lucide-react, not `XIcon`
+- **No ArrowRightIcon**: Use `ArrowRight` from lucide-react, not `ArrowRightIcon`
+- **No ArrowLeftIcon**: Use `ArrowLeft` from lucide-react, not `ArrowLeftIcon`
+- **No ChevronRightIcon**: Use `ChevronRight` from lucide-react, not `ChevronRightIcon`
+- **No ChevronLeftIcon**: Use `ChevronLeft` from lucide-react, not `ChevronLeftIcon`
+- **Always use QDS Icon component**: Use `<Icon name="Calendar" />` not direct imports
+- **Check icon names**: Verify icon names exist in lucide-react documentation
+
 ### List & Bullet Point Rules
 - **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
 - **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons
 - **Avoid custom bullets**: Don't use custom div elements with `w-2 h-2 rounded-full` for bullets
 - **Consistent spacing**: Use proper spacing between list items (`space-y-3`)
 - **Icon alignment**: Ensure check circle icons are properly aligned with text
+
+### Premium Features & Badges
+- **Premium badges**: Use `PremiumBadge` component with yellow icons for premium features
+- **Premium variants**: `premium`, `premium-outline`, `premium-subtle` for different styling
+- **Premium features**: Use `premiumFeature` prop for auto-configured badges
+  - `super-apply`: Megaphone icon, "Super apply" text
+  - `exclusive-insights`: Lightbulb icon, "Exclusive insights" text
+  - `highlighted-profile`: Zap icon, "Highlighted profile" text
+  - `apply-earlier`: Clock icon, "Apply earlier" text
+  - `more-applications`: Send icon, "More applications" text
+- **Property status chips**: Use `statusChip` prop on PropertyCard
+  - `apply-earlier`: Yellow background with brown text
+  - `first-hand`: Green background with white text
+  - `premium`: Pink background with white text
+  - `new`: Blue background with white text
+- **Yellow premium icons**: Use `text-yellow-500` for premium feature icons
+  - Megaphone, Lightbulb, Zap, Clock, Send icons in yellow
+
+### Toast Component Variants
+- **Standard variants**: `success`, `error`, `info` with colored backgrounds
+- **Premium variants**: `black` (black background, white text), `negative` (red background, white text)
+- **Icon control**: Use `showIcon={false}` to hide icons when needed
+- **Premium styling**: Black toasts for premium features, negative toasts for critical actions
 
 ### FAQ Link List Rules
 - **Border styling**: Use `border-b border-gray-100` for each link item

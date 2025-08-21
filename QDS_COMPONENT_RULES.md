@@ -278,11 +278,66 @@ Do not output raw `<h*>`/`<p>` with size classes.
 
 ### Content Block Variants
 For content blocks with rounded backgrounds and layouts:
-- **Background colors**: Use `bg-[var(--color-softPink)]`, `bg-[var(--color-background-inset)]`, `bg-white`
-- **Rounded containers**: Use `rounded-xl`, `rounded-2xl`, `rounded-full` for different levels
-- **Image layouts**: Support image-left, image-right, centered layouts
-- **Call to actions**: Include buttons with proper QDS styling
-- **Stepper components**: Use numbered circles (1, 2, 3) with `bg-white` or `bg-[var(--color-background-inset)]` backgrounds
+- **Background colors**: Use `background="softPink"`, `background="inset"`, `background="white"`
+- **Rounded containers**: Use `rounded="xl"`, `rounded="lg"`, `rounded="full"` for different levels
+- **Image layouts**: Support `imagePosition="left"`, `imagePosition="right"`, `imagePosition="center"`
+- **Call to actions**: Include buttons with proper QDS styling (primary, secondary, tertiary, outline)
+- **Stepper components**: Use numbered circles (1, 2, 3) with proper backgrounds and connecting lines
+
+#### ContentBlock Component Variants
+```jsx
+// Image Left Layout
+<ContentBlock
+  title="Why Choose Qasa?"
+  description="Safe, secure, and simple rental process"
+  image="property-image.jpg"
+  imagePosition="left"
+  background="softPink"
+  ctaText="Learn More"
+  ctaVariant="primary"
+/>
+
+// Image Right Layout
+<ContentBlock
+  title="Find Your Dream Home"
+  description="Browse thousands of verified rental properties"
+  image="property-image.jpg"
+  imagePosition="right"
+  background="white"
+  ctaText="Browse Homes"
+  ctaVariant="secondary"
+/>
+
+// Centered Layout
+<ContentBlock
+  title="No Deposit Required"
+  description="Keep your money in your pocket"
+  image="property-image.jpg"
+  imagePosition="center"
+  background="inset"
+  ctaText="Learn More"
+  ctaVariant="outline"
+/>
+
+// With Stepper
+<ContentBlock
+  title="How It Works"
+  description="Simple steps to find your perfect home"
+  background="softPink"
+  stepper={["Search", "Apply", "Move In"]}
+  ctaText="Get Started"
+  ctaVariant="primary"
+/>
+
+// No Image
+<ContentBlock
+  title="Trust & Safety"
+  description="All landlords are verified and all properties are inspected"
+  background="white"
+  ctaText="Learn About Safety"
+  ctaVariant="tertiary"
+/>
+```
 
 ---
 
@@ -396,6 +451,8 @@ When generating new components or pages, **always include**:
 - **A/B TESTING URLS**: Creating variant-based URLs for testing
 - **POSITION ABSOLUTE**: Using `absolute`, `fixed`, or `sticky` positioning
 - **LAYOUT OVERLAPS**: Creating overlapping elements with absolute positioning
+- **WRONG ICON NAMES**: Using `CalendarIcon`, `UserIcon`, `HomeIcon` (causes ReferenceError)
+- **DIRECT ICON IMPORTS**: Importing directly from lucide-react instead of using QDS Icon component
 
 ### 🔍 **Component Verification Checklist**
 **Before using any component, verify:**
@@ -420,6 +477,14 @@ When generating new components or pages, **always include**:
 - ✅ No overlapping elements
 - ✅ Proper responsive behavior
 - ✅ No z-index conflicts
+
+### 🔍 **Icon Verification Checklist**
+**Before using icons, verify:**
+- ✅ Use QDS Icon component: `<Icon name="Calendar" />`
+- ✅ No direct lucide-react imports
+- ✅ Correct icon names: `Calendar`, `User`, `Home`, `Search`, `Mail`, `Phone`, `MapPin`, `Star`, `Heart`, `Eye`, `Edit`, `Trash`, `Plus`, `Minus`, `Check`, `X`, `ArrowRight`, `ArrowLeft`, `ChevronRight`, `ChevronLeft`
+- ✅ No wrong names: `CalendarIcon`, `UserIcon`, `HomeIcon`, `SearchIcon`, etc.
+- ✅ No ReferenceError: Icon names must exist in lucide-react
 
 **Example Response Format:**
 ```
@@ -479,8 +544,88 @@ import {
   ChevronDown, ChevronLeft, ChevronRight, ChevronUp, Globe, Heart,
   HelpCircle, History, Home, Image, Info, List, ListFilter, LogOut,
   Map, MapPin, Menu, MessageCircle, Minus, MoreHorizontal, MoreVertical,
-  Pen, Plus, Search, Settings, Share, Sliders, Star, Trash, User, XCircle, X
+  Pen, Plus, Search, Settings, Share, Sliders, Star, Trash, User, XCircle, X,
+  // Premium feature icons (yellow)
+  Megaphone, Lightbulb, Zap, Clock, Send
 } from 'lucide-react';
+```
+
+### Available QDS Components
+```jsx
+// Navigation Components
+import Pagination from '@/components/ui/Pagination';
+import Tabs from '@/components/ui/Tabs';
+import Accordion from '@/components/ui/Accordion';
+import Search from '@/components/ui/Search';
+import Carousel from '@/components/ui/Carousel';
+
+// Button Components
+import Button from '@/components/ui/Button';
+
+// Typography Components
+import Typography from '@/components/ui/Typography';
+
+// Card Components
+import Card from '@/components/ui/Card';
+import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
+
+// Form Components
+import Input from '@/components/ui/Input';
+import TextArea from '@/components/ui/TextArea';
+import Select from '@/components/ui/Select';
+import Checkbox from '@/components/ui/Checkbox';
+import RadioGroup from '@/components/ui/RadioGroup';
+import Switch from '@/components/ui/Switch';
+import DatePicker from '@/components/ui/DatePicker';
+import RangeSlider from '@/components/ui/RangeSlider';
+import FilterButton from '@/components/ui/FilterButton';
+import Dropdown from '@/components/ui/Dropdown';
+
+// Feedback Components
+import Toast from '@/components/ui/Toast';
+import HintBox from '@/components/ui/HintBox';
+import LoadingDots from '@/components/ui/LoadingDots';
+import Modal from '@/components/ui/Modal';
+
+// Data Display Components
+import Avatar from '@/components/ui/Avatar';
+import Chip from '@/components/ui/Chip';
+import Icon from '@/components/ui/Icon';
+import FeatureBadge from '@/components/ui/FeatureBadge';
+import TrustIndicator from '@/components/ui/TrustIndicator';
+import PremiumBadge from '@/components/ui/PremiumBadge';
+import Skeleton from '@/components/ui/Skeleton';
+
+// Layout Components
+import ContentBlock from '@/components/ui/ContentBlock';
+import HeroSection from '@/components/ui/HeroSection';
+import StatsStrip from '@/components/ui/StatsStrip';
+import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
+import FAQLinkList from '@/components/ui/FAQLinkList';
+import CityCard from '@/components/ui/CityCard';
+import FeatureCard from '@/components/ui/FeatureCard';
+import RichPromoCard from '@/components/ui/RichPromoCard';
+import LocationSearch from '@/components/ui/LocationSearch';
+import VariantCard from '@/components/ui/VariantCard';
+import VariantSelector from '@/components/ui/VariantSelector';
+import SectionHeader from '@/components/ui/SectionHeader';
+import SectionFooter from '@/components/ui/SectionFooter';
+
+// Map Components
+import Map from '@/components/ui/Map';
+
+// Utility Components
+import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+```
+
+### Premium Feature Icons (Yellow)
+```jsx
+// Premium feature icons with yellow color (text-yellow-500)
+megaphone: <Megaphone className="w-4 h-4 text-yellow-500" />     // Super apply
+bulb: <Lightbulb className="w-4 h-4 text-yellow-500" />          // Exclusive insights
+flashlight: <Zap className="w-4 h-4 text-yellow-500" />          // Highlighted profile
+chicken: <Clock className="w-4 h-4 text-yellow-500" />           // Apply earlier
+plane: <Send className="w-4 h-4 text-yellow-500" />              // More applications
 ```
 
 ### FAQ Link List Border Rules
@@ -490,9 +635,112 @@ import {
 - **Icon styling**: `w-8 h-8` with `group-hover:translate-x-1 transition-transform`
 - **Typography**: Use `Typography` component with `title-sm` variant for labels
 
+### Premium Features & Badges
+- **Premium badges**: Use `PremiumBadge` component with yellow icons for premium features
+- **Premium variants**: `premium`, `premium-outline`, `premium-subtle` for different styling
+- **Premium features**: Use `premiumFeature` prop for auto-configured badges
+  - `super-apply`: Megaphone icon, "Super apply" text
+  - `exclusive-insights`: Lightbulb icon, "Exclusive insights" text
+  - `highlighted-profile`: Zap icon, "Highlighted profile" text
+  - `apply-earlier`: Clock icon, "Apply earlier" text
+  - `more-applications`: Send icon, "More applications" text
+- **Property status chips**: Use `statusChip` prop on PropertyCard
+  - `apply-earlier`: Yellow background with brown text
+  - `first-hand`: Green background with white text
+  - `premium`: Pink background with white text
+  - `new`: Blue background with white text
+
 ### Card Height & Layout Rules
 - **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
 - **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
 - **No fluid height**: Never render cards with fluid height - let content determine height
 - **Map integration**: Map takes 2/3 width, cards on right with fixed width
 - **Map parent height**: If map wrapper is higher, map fills parent container with `h-full`
+
+---
+
+## 🚫 Critical Design Rules (AI MUST Follow)
+
+### 👤 Avatar Rules
+- **❌ Never use illustrated/cartoon avatars** - Always use realistic person photos
+- **✅ Use real photos** of people for tenant profiles and user avatars
+- **✅ High quality** - Professional, clear photos
+
+### 🏠 Property Image Rules
+- **❌ Never show people, humans, or animals** in property listing images
+- **✅ Show the actual property** - rooms, buildings, exteriors
+- **✅ Use professional real estate photos** - clean, well-lit property shots
+
+### 🎨 Background Color Rules
+- **❌ Never use dark backgrounds** like `bg-gray-50` or similar dark grays
+- **✅ Use only** `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
+- **✅ Keep it light** - white or very light gray backgrounds only
+
+### 🔘 Button Text Rules
+- **❌ Never add "- Free"** to button text
+- **✅ Keep button text clean** - "Start Listing", "Create Profile"
+- **✅ Avoid promotional text** in button labels
+
+### 🎯 Icon Color Rules
+- **❌ Never use green, blue, yellow** or other non-brand colors for icons
+- **✅ Use brand colors only** - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
+- **✅ Follow Qasa palette** - pink (#f19ec1), brown (#322721)
+
+### 🎴 TenantCard Background Rules
+- **❌ Never use grayish backgrounds** for TenantCard components
+- **✅ Use white or light backgrounds** for better contrast and readability
+- **✅ Keep it clean** - avoid busy or dark backgrounds
+
+### 🃏 Card & Border Rules
+- **✅ Add borders to cards** when they're on the same background color
+- **✅ Use subtle borders** - `border border-gray-100` or `border border-[var(--color-border)]`
+- **✅ Cards should use white backgrounds** for contrast against colored sections
+- **✅ Borders provide visual separation** between cards and container
+
+### 🔘 Button & Icon Rules
+- **❌ Don't mix different icon styles** on the same button
+- **✅ Icons and text should be on the same line** within buttons
+- **✅ Use consistent icon sizing** (`w-5 h-5`) within buttons
+- **✅ Place icons after text** with proper spacing (`ml-2`)
+
+### 📋 List & Bullet Point Rules
+- **❌ Don't use custom bullet points** with `w-2 h-2 rounded-full` divs
+- **✅ Always use CheckCircle icons** from Lucide React for lists
+- **✅ Use proper styling** - `text-[var(--color-text-primary)]` for check circles
+- **✅ Consistent spacing** between list items (`space-y-3`)
+
+---
+
+## 🎨 Qasa Style Guide (AI Reference)
+
+### Colors to Use
+- **Qasa Pink:** #f19ec1 (main brand color)
+- **Dark Brown:** #322721 (text and accents)
+- **Light Gray:** #f9fafb (backgrounds)
+
+### Swedish Phrases to Use
+- "Hitta ditt nästa hem" - Find your next home
+- "Ansök nu" - Apply now
+- "Verifierad hyresvärd" - Verified landlord
+- "Trygg bostadssökning" - Safe housing search
+- "Schyssta villkor" - Fair conditions
+- "rum och kök" - rooms and kitchen
+- "kr/mån" - SEK/month
+
+### Tone of Voice
+- Friendly neighbor, not corporate
+- Use "du" (you) not formal Swedish
+- Encouraging and supportive
+- Clear and simple
+
+### Make It Feel Swedish
+- Use Swedish city names: Stockholm, Göteborg, Malmö
+- Include Swedish areas: Östermalm, Vasastan, Södermalm
+- Add "kr" after prices (15,000 kr)
+- Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
+
+### Make It Feel Like Qasa
+- Always use pink (#f19ec1) for main actions
+- Include "verified" badges on landlords
+- Add trust messages about safety
+- Use friendly, encouraging language

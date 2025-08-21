@@ -10,7 +10,7 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'outline', 'ghost', 'transparent', 'bordered'],
+      options: ['primary', 'secondary', 'tertiary', 'outline', 'ghost', 'transparent', 'bordered', 'premium'],
     },
     size: {
       control: 'select',
@@ -56,6 +56,7 @@ export const Variants = {
         <Button variant="ghost">Ghost</Button>
         <Button variant="transparent">Transparent</Button>
         <Button variant="bordered">Bordered</Button>
+        <Button variant="premium">Premium</Button>
       </div>
       <div className="space-x-4">
         <Button variant="primary" disabled>Primary Disabled</Button>

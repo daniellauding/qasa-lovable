@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 
 const DatePicker = ({
   label,
@@ -120,7 +120,7 @@ const DatePicker = ({
           onClick={() => setIsOpen(!isOpen)}
           className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-60 hover:text-gray-90 transition-colors"
         >
-          <CalendarIcon className="w-5 h-5" />
+          <Calendar className="w-5 h-5" />
         </button>
       </div>
 

@@ -7,6 +7,11 @@ import { parseVariantFromUrl, getPrototypeVariants, getVariantUrl, variantStatus
 // Import all experiments from App.jsx
 const experiments = [
   {
+    name: 'Blank Template',
+    path: '/templates/blank',
+    description: 'Minimal template with header and footer ready for AI/Lovable to populate'
+  },
+  {
     name: 'Apply Home',
     path: '/tenants/apply-home',
     description: 'Tenant application flow prototype'
@@ -87,7 +92,11 @@ const experiments = [
     path: '/landlords/profile',
     description: 'Landlord profile page with personal information and published listings'
   },
-
+  {
+    name: 'Design System',
+    path: '/design-system',
+    description: 'Complete QDS component library with all variants and examples'
+  },
 ];
 
 function DevExperimentsButton() {
@@ -258,26 +267,11 @@ function DevExperimentsButton() {
             <div className="mt-4 pt-3 border-t border-gray-100 space-y-3">
               <ThemeSwitcher />
               <a
-                href="/storybook"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
-              >
-                Open Storybook →
-              </a>
-              <a
                 href="/experiments"
                 className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
               >
                 Full Experiments Dashboard →
               </a>
-              <Link
-                to="/experiments"
-                className="block text-sm text-[var(--color-primary,#6E3FF3)] hover:text-[var(--color-primary-hover,#5B35CC)] font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                View All Variants →
-              </Link>
             </div>
           </div>
         </div>

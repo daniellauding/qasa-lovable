@@ -131,6 +131,26 @@ import Card from '../../components/ui/Card';
 // Always verify component exists before using it
 ```
 
+#### ❌ **Icon Reference Errors (ReferenceError)**
+```jsx
+// ❌ REJECT - Wrong icon imports (causes ReferenceError)
+import { CalendarIcon } from 'lucide-react'; // CalendarIcon doesn't exist!
+import { UserIcon, HomeIcon } from 'lucide-react'; // Wrong names!
+
+// ❌ REJECT - Direct lucide-react usage
+import { Calendar } from 'lucide-react';
+<Calendar />
+
+// ✅ ACCEPT - Use QDS Icon component only
+import Icon from '../../components/ui/Icon';
+<Icon name="Calendar" />
+<Icon name="User" />
+<Icon name="Home" />
+
+// ✅ ACCEPT - Correct icon names for QDS Icon component
+// Calendar, User, Home, Search, Mail, Phone, MapPin, Star, Heart, Eye, Edit, Trash, Plus, Minus, Check, X, ArrowRight, ArrowLeft, ChevronRight, ChevronLeft
+```
+
 #### ❌ **Position Absolute Layout Errors**
 ```jsx
 // ❌ REJECT - Position absolute breaks layout
@@ -150,6 +170,29 @@ import Card from '../../components/ui/Card';
 // ✅ ACCEPT - Proper layout flow
 <div className="flex flex-col space-y-4">
 <div className="flex items-center gap-4">
+```
+
+#### ❌ **Wrong Icon Name Errors (ReferenceError)**
+```jsx
+// ❌ REJECT - Wrong icon names (causes ReferenceError)
+import { CalendarIcon } from 'lucide-react';
+import { UserIcon, HomeIcon, SearchIcon } from 'lucide-react';
+<CalendarIcon />
+<UserIcon />
+
+// ❌ REJECT - Direct icon usage without QDS Icon component
+import { Calendar } from 'lucide-react';
+<Calendar />
+
+// ✅ ACCEPT - Use QDS Icon component with correct names
+import Icon from '../../components/ui/Icon';
+<Icon name="Calendar" />
+<Icon name="User" />
+<Icon name="Home" />
+<Icon name="Search" />
+
+// ✅ ACCEPT - Correct lucide-react icon names
+// Calendar, User, Home, Search, Mail, Phone, MapPin, Star, Heart, Eye, Edit, Trash, Plus, Minus, Check, X, ArrowRight, ArrowLeft, ChevronRight, ChevronLeft
 ```
 
 #### 🔍 **Component Prop Requirements**
@@ -390,10 +433,68 @@ import FilterButton from '@/components/ui/FilterButton';
 />
 ```
 
+### 📄 Pagination
+```jsx
+import Pagination from '@/components/ui/Pagination';
+
+<Pagination
+  currentPage={1}
+  totalPages={10}
+  onPageChange={(page) => setCurrentPage(page)}
+  showPageNumbers={true}
+  showNavigation={true}
+  maxVisiblePages={5}
+/>
+
+// Navigation only
+<Pagination
+  currentPage={3}
+  totalPages={10}
+  onPageChange={setCurrentPage}
+  showPageNumbers={false}
+  showNavigation={true}
+/>
+
+// Many pages with ellipsis
+<Pagination
+  currentPage={5}
+  totalPages={50}
+  onPageChange={setCurrentPage}
+  maxVisiblePages={5}
+/>
+```
+
+### 🏆 Premium Features & Badges
+```jsx
+import PremiumBadge from '@/components/ui/PremiumBadge';
+
+// Premium feature badges with yellow icons
+<PremiumBadge premiumFeature="super-apply" variant="premium" />
+<PremiumBadge premiumFeature="exclusive-insights" variant="premium" />
+<PremiumBadge premiumFeature="highlighted-profile" variant="premium" />
+<PremiumBadge premiumFeature="apply-earlier" variant="premium" />
+<PremiumBadge premiumFeature="more-applications" variant="premium" />
+
+// Premium variants
+<PremiumBadge text="Premium" variant="premium" />
+<PremiumBadge text="Premium" variant="premium-outline" />
+<PremiumBadge text="Premium" variant="premium-subtle" />
+
+// Property cards with status chips
+<PropertyCard 
+  property={propertyData}
+  statusChip="apply-earlier"  // Yellow chip for premium features
+  statusChip="first-hand"     // Green chip for first-hand properties
+  statusChip="premium"        // Pink chip for premium properties
+  statusChip="new"           // Blue chip for new listings
+/>
+```
+
 ### 🏷️ Feature Badges & Trust Indicators
 ```jsx
 import FeatureBadge from '@/components/ui/FeatureBadge';
 import TrustIndicator from '@/components/ui/TrustIndicator';
+import PremiumBadge from '@/components/ui/PremiumBadge';
 
 // Feature badges for property features
 <FeatureBadge text="Balkong" />
@@ -403,6 +504,14 @@ import TrustIndicator from '@/components/ui/TrustIndicator';
 <TrustIndicator text="ID Verified" type="verified" />
 <TrustIndicator text="Secure payment" type="secure" />
 <TrustIndicator text="Trusted landlord" type="trusted" />
+
+// Premium badges with yellow icons
+<PremiumBadge text="Premium" variant="premium" />
+<PremiumBadge premiumFeature="super-apply" variant="premium" />
+<PremiumBadge premiumFeature="exclusive-insights" variant="premium" />
+<PremiumBadge premiumFeature="highlighted-profile" variant="premium" />
+<PremiumBadge premiumFeature="apply-earlier" variant="premium" />
+<PremiumBadge premiumFeature="more-applications" variant="premium" />
 ```
 
 ### 📋 FAQ Link Lists
@@ -556,6 +665,8 @@ className="text-[var(--color-text-primary)]"
 - A/B TESTING URLS: Creating variant-based URLs for testing
 - POSITION ABSOLUTE: Using `absolute`, `fixed`, or `sticky` positioning
 - LAYOUT OVERLAPS: Creating overlapping elements with absolute positioning
+- WRONG ICON NAMES: Using `CalendarIcon`, `UserIcon`, `HomeIcon` (causes ReferenceError)
+- DIRECT ICON IMPORTS: Importing directly from lucide-react instead of using QDS Icon component
 
 ✅ Please fix these issues and resubmit following QDS guidelines.
 ```
@@ -852,6 +963,94 @@ When working on conversion-focused pages:
 
 ---
 
+## 🚫 Critical Design Rules (AI MUST Follow)
+
+### 👤 Avatar Rules
+- **❌ Never use illustrated/cartoon avatars** - Always use realistic person photos
+- **✅ Use real photos** of people for tenant profiles and user avatars
+- **✅ High quality** - Professional, clear photos
+
+### 🏠 Property Image Rules
+- **❌ Never show people, humans, or animals** in property listing images
+- **✅ Show the actual property** - rooms, buildings, exteriors
+- **✅ Use professional real estate photos** - clean, well-lit property shots
+
+### 🎨 Background Color Rules
+- **❌ Never use dark backgrounds** like `bg-gray-50` or similar dark grays
+- **✅ Use only** `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
+- **✅ Keep it light** - white or very light gray backgrounds only
+
+### 🔘 Button Text Rules
+- **❌ Never add "- Free"** to button text
+- **✅ Keep button text clean** - "Start Listing", "Create Profile"
+- **✅ Avoid promotional text** in button labels
+
+### 🎯 Icon Color Rules
+- **❌ Never use green, blue, yellow** or other non-brand colors for icons
+- **✅ Use brand colors only** - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
+- **✅ Follow Qasa palette** - pink (#f19ec1), brown (#322721)
+
+### 🎴 TenantCard Background Rules
+- **❌ Never use grayish backgrounds** for TenantCard components
+- **✅ Use white or light backgrounds** for better contrast and readability
+- **✅ Keep it clean** - avoid busy or dark backgrounds
+
+### 🃏 Card & Border Rules
+- **✅ Add borders to cards** when they're on the same background color
+- **✅ Use subtle borders** - `border border-gray-100` or `border border-[var(--color-border)]`
+- **✅ Cards should use white backgrounds** for contrast against colored sections
+- **✅ Borders provide visual separation** between cards and container
+
+### 🔘 Button & Icon Rules
+- **❌ Don't mix different icon styles** on the same button
+- **✅ Icons and text should be on the same line** within buttons
+- **✅ Use consistent icon sizing** (`w-5 h-5`) within buttons
+- **✅ Place icons after text** with proper spacing (`ml-2`)
+
+### 📋 List & Bullet Point Rules
+- **❌ Don't use custom bullet points** with `w-2 h-2 rounded-full` divs
+- **✅ Always use CheckCircle icons** from Lucide React for lists
+- **✅ Use proper styling** - `text-[var(--color-text-primary)]` for check circles
+- **✅ Consistent spacing** between list items (`space-y-3`)
+
+---
+
+## 🎨 Qasa Style Guide (AI Reference)
+
+### Colors to Use
+- **Qasa Pink:** #f19ec1 (main brand color)
+- **Dark Brown:** #322721 (text and accents)
+- **Light Gray:** #f9fafb (backgrounds)
+
+### Swedish Phrases to Use
+- "Hitta ditt nästa hem" - Find your next home
+- "Ansök nu" - Apply now
+- "Verifierad hyresvärd" - Verified landlord
+- "Trygg bostadssökning" - Safe housing search
+- "Schyssta villkor" - Fair conditions
+- "rum och kök" - rooms and kitchen
+- "kr/mån" - SEK/month
+
+### Tone of Voice
+- Friendly neighbor, not corporate
+- Use "du" (you) not formal Swedish
+- Encouraging and supportive
+- Clear and simple
+
+### Make It Feel Swedish
+- Use Swedish city names: Stockholm, Göteborg, Malmö
+- Include Swedish areas: Östermalm, Vasastan, Södermalm
+- Add "kr" after prices (15,000 kr)
+- Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
+
+### Make It Feel Like Qasa
+- Always use pink (#f19ec1) for main actions
+- Include "verified" badges on landlords
+- Add trust messages about safety
+- Use friendly, encouraging language
+
+---
+
 ## 🎨 Color & Contrast Rules (Mandatory)
 
 - **White text on dark surfaces**: When the background is dark or image-overlaid (e.g., `bg-[var(--color-brown)]`, `from-black/60`, hero images), set text explicitly to white using `Typography` with `color="white"`.
@@ -919,18 +1118,19 @@ Do not output raw `<h*>`/`<p>` with manual classes for size. Always use `Typogra
 Use the `ContentBlock` component for landing pages, information sections, and teasers:
 
 #### Background Colors
-- Use `bg-[var(--color-softPink)]` for premium/feature highlights
-- Use `bg-[var(--color-background-inset)]` for secondary information
-- Use `bg-white` for primary content
-
-#### Rounded Containers
-- Use `rounded-xl` for standard content blocks
-- Use `rounded-2xl` for featured content
-- Use `rounded-full` for pill-shaped elements
+- Use `background="softPink"` for premium/feature highlights
+- Use `background="inset"` for secondary information  
+- Use `background="white"` for primary content
 
 #### Image Layouts
-- Support `image-left`, `image-right`, and `centered` layouts
-- Images should be responsive and maintain aspect ratio
+- `imagePosition="left"` - Image on left, text on right
+- `imagePosition="right"` - Image on right, text on left
+- `imagePosition="center"` - Image above text, centered layout
+
+#### Rounded Containers
+- Use `rounded="xl"` for standard content blocks
+- Use `rounded="lg"` for featured content
+- Use `rounded="full"` for pill-shaped elements
 
 #### Call to Actions
 - Include buttons with proper QDS styling (primary, secondary, tertiary, outline)
@@ -949,7 +1149,6 @@ Create a content block with:
 - Background: softPink
 - Image position: left
 - CTA: "Browse Homes" (primary variant)
-- Rounded: xl
 ```
 
 ```
@@ -959,6 +1158,15 @@ Create an information section with:
 - Background: inset
 - CTA: "Learn More" (outline variant)
 - Stepper: ["Search", "Apply", "Move In"]
+```
+
+```
+Create a hero section with:
+- Title: "Welcome to Qasa"
+- Description: "Safe and secure rental platform"
+- Image position: center
+- Background: white
+- CTA: "Get Started" (primary variant)
 ```
 
 #### Component Props
@@ -973,7 +1181,62 @@ Create an information section with:
   ctaText="Get Started"
   ctaVariant="primary"              // primary, secondary, tertiary, outline
   stepper={["Step 1", "Step 2"]}
-  onCtaClick={handleClick}
+  ctaOnClick={handleClick}
+/>
+```
+
+#### Available Variants
+```jsx
+// Image Left Layout
+<ContentBlock
+  title="Why Choose Qasa?"
+  description="Safe, secure, and simple rental process"
+  image="property-image.jpg"
+  imagePosition="left"
+  background="softPink"
+  ctaText="Learn More"
+  ctaVariant="primary"
+/>
+
+// Image Right Layout
+<ContentBlock
+  title="Find Your Dream Home"
+  description="Browse thousands of verified rental properties"
+  image="property-image.jpg"
+  imagePosition="right"
+  background="white"
+  ctaText="Browse Homes"
+  ctaVariant="secondary"
+/>
+
+// Centered Layout
+<ContentBlock
+  title="No Deposit Required"
+  description="Keep your money in your pocket"
+  image="property-image.jpg"
+  imagePosition="center"
+  background="inset"
+  ctaText="Learn More"
+  ctaVariant="outline"
+/>
+
+// With Stepper
+<ContentBlock
+  title="How It Works"
+  description="Simple steps to find your perfect home"
+  background="softPink"
+  stepper={["Search", "Apply", "Move In"]}
+  ctaText="Get Started"
+  ctaVariant="primary"
+/>
+
+// No Image
+<ContentBlock
+  title="Trust & Safety"
+  description="All landlords are verified and all properties are inspected"
+  background="white"
+  ctaText="Learn About Safety"
+  ctaVariant="tertiary"
 />
 ```
 

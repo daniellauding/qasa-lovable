@@ -33,6 +33,11 @@ export default {
       control: 'boolean',
       description: 'Whether to show the next button'
     },
+    variant: {
+      control: 'select',
+      options: ['default', 'centered', 'centered-wide', 'left-tertiary-right-primary', 'centered-tertiary-and-primary'],
+      description: 'Layout variant for the footer'
+    },
     className: {
       control: 'text',
       description: 'Additional CSS classes'
@@ -54,7 +59,8 @@ export const LeftTertiaryRightPrimary = {
     onNext: () => console.log('Primary clicked'),
     onPrev: () => console.log('Tertiary clicked'),
     nextText: 'Continue',
-    prevText: 'No, thanks'
+    prevText: 'No, thanks',
+    variant: 'left-tertiary-right-primary'
   }
 };
 
@@ -63,7 +69,8 @@ export const CenteredPrimaryOnly = {
     onNext: () => console.log('Primary clicked'),
     nextText: 'Continue',
     showPrev: false,
-    showNext: true
+    showNext: true,
+    variant: 'centered'
   }
 };
 
@@ -73,7 +80,7 @@ export const CenteredWidePrimaryOnly = {
     nextText: 'Continue',
     showPrev: false,
     showNext: true,
-    className: 'justify-center'
+    variant: 'centered-wide'
   }
 };
 
@@ -85,7 +92,7 @@ export const CenteredTertiaryAndPrimary = {
     prevText: 'Cancel',
     showPrev: true,
     showNext: true,
-    className: 'justify-center gap-4'
+    variant: 'centered-tertiary-and-primary'
   }
 };
 
