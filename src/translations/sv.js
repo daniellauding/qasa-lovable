@@ -11,7 +11,8 @@ export const sv = {
     apply: 'Tillämpa',
     back: 'Tillbaka',
     language: 'Språk',
-    clear: 'Rensa'
+    clear: 'Rensa',
+    helpCenter: 'Hjälpcenter',
   },
 
   // Header
@@ -120,6 +121,26 @@ export const sv = {
       ctaPrimary: 'Sök bostäder',
       ctaSecondary: 'Så fungerar det'
     },
+    cities: {
+      count: '{count} hem',
+    },
+    featuresTitle: 'Hyr med Qasa och känna dig trygg',
+    premium: {
+      label: 'För hemletare',
+      title: 'Hitta ditt nästa hem dubbelt så enkelt med Qasa Premium',
+      button: 'Läs mer',
+    },
+    husfrid: {
+      label: 'Hyr bättre',
+      title: 'Genom HusFrid hjälper vi kvinnor och barn som utsatts för våld att hitta ett nytt hem.',
+      button: 'Läs mer',
+    },
+    testimonials: {
+      items: {
+        0: { quote: 'Jämförelsevis en av de bästa plattformarna för hyresbostäder. Mycket enkelt och transparent efter att man fått en match.', author: 'Marina' },
+        1: { quote: 'Jag provade flera sätt att hitta lägenhet och Qasa är bäst.', author: 'Jan' },
+      },
+    },
     features: {
       noDeposit: { title: 'Ingen deposition', desc: 'Behåll dina pengar — vi tar hand om depositionen.' },
       payLater: { title: 'Flytta in först, betala sen', desc: 'Flexibilitet när livet händer.' },
@@ -129,6 +150,20 @@ export const sv = {
       applicants: '5+ miljoner', applicantsHint: 'ansökningar varje år',
       homes: '600 000+', homesHint: 'publicerade hem sedan starten',
       rating: '4,4 av 5', ratingHint: 'på Trustpilot'
+    },
+    faq: {
+      title: 'Vanliga frågor',
+      links: {
+        0: 'Så funkar det för hyresvärdar',
+        1: 'Så funkar det för hyresgäster',
+        2: 'Så hyr du ut semesterboende',
+        3: 'Vad händer om hyresgästen inte betalar?',
+        4: 'Är min uthyrning försäkrad?',
+        5: 'Vad kan jag hyra ut för?',
+        6: 'Behöver jag tillstånd för att hyra ut?',
+        7: 'Hur skriver jag hyresavtal?',
+        8: 'Vad är Qasa Premium',
+      },
     },
     cta: {
       title: 'Redo att komma igång?',

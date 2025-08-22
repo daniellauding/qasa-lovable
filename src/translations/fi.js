@@ -11,7 +11,8 @@ export const fi = {
     apply: 'Käytä',
     back: 'Takaisin',
     language: 'Kieli',
-    clear: 'Tyhjennä'
+    clear: 'Tyhjennä',
+    helpCenter: 'Tukikeskus',
   },
 
   // Header
@@ -120,6 +121,26 @@ export const fi = {
       ctaPrimary: 'Hae asuntoja',
       ctaSecondary: 'Näin se toimii'
     },
+    cities: {
+      count: '{count} kotia',
+    },
+    featuresTitle: 'Vuokraa Qasan kanssa ja tunne olosi turvalliseksi',
+    premium: {
+      label: 'Kotihakijoille',
+      title: 'Löydä seuraava kotisi kaksi kertaa helpommin Qasa Premiumilla',
+      button: 'Lue lisää',
+    },
+    husfrid: {
+      label: 'Vuokraa paremmin',
+      title: 'HusFridin kautta autamme väkivallalle altistuneita naisia ja lapsia löytämään uuden kodin.',
+      button: 'Lue lisää',
+    },
+    testimonials: {
+      items: {
+        0: { quote: 'Vertailussa yksi parhaimmista vuokra-asuntoalustoista. Erittäin helppo ja läpinäkyvä prosessi kun löydät sopivan.', author: 'Marina' },
+        1: { quote: 'Kokeilin useita tapoja löytää asunto ja Qasa on paras.', author: 'Jan' },
+      },
+    },
     features: {
       noDeposit: { title: 'Ei vakuutta', desc: 'Pidä rahasi — me hoidamme vakuuden.' },
       payLater: { title: 'Muutto ensin, maksu myöhemmin', desc: 'Joustoa, kun elämä yllättää.' },
@@ -129,6 +150,20 @@ export const fi = {
       applicants: '5+ miljoonaa', applicantsHint: 'hakemusta vuosittain',
       homes: '600 000+', homesHint: 'julkaistua kotia alusta lähtien',
       rating: '4,4 / 5', ratingHint: 'Trustpilotissa'
+    },
+    faq: {
+      title: 'Kysymyksesi - Vastattu',
+      links: {
+        0: 'Miten se toimii vuokranantajille',
+        1: 'Miten se toimii vuokralaisille',
+        2: 'Kuinka vuokrata lomakoti',
+        3: 'Mitä jos vuokralainen ei maksa?',
+        4: 'Onko vuokraukseni vakuutettu?',
+        5: 'Minkä hintainen vuokra voin pyytää?',
+        6: 'Tarvitsenko luvan vuokraukseen?',
+        7: 'Vuokrasopimuksen kirjoittaminen',
+        8: 'Mikä on Qasa Premium',
+      },
     },
     cta: {
       title: 'Valmis aloittamaan?',

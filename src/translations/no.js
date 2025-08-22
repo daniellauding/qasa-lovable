@@ -16,6 +16,7 @@ export const no = {
     back: 'Tilbake',
     language: 'Språk',
     clear: 'Tøm',
+    helpCenter: 'Hjelpesenter',
   },
 
   // Landing Page
@@ -26,6 +27,26 @@ export const no = {
       ctaPrimary: 'Søk boliger',
       ctaSecondary: 'Slik fungerer det'
     },
+    cities: {
+      count: '{count} boliger',
+    },
+    featuresTitle: 'Lei med Qasa og føl deg trygg',
+    premium: {
+      label: 'For boligsøkere',
+      title: 'Finn ditt neste hjem dobbelt så lett med Qasa Premium',
+      button: 'Les mer',
+    },
+    husfrid: {
+      label: 'Lei bedre',
+      title: 'Gjennom HusFrid hjelper vi kvinner og barn utsatt for vold med å finne et nytt hjem.',
+      button: 'Les mer',
+    },
+    testimonials: {
+      items: {
+        0: { quote: 'Sammenlignbart en av de beste plattformene for utleiebolig. Veldig enkel og gjennomsiktig prosess etter at du har fått en match.', author: 'Marina' },
+        1: { quote: 'Jeg prøvde flere måter å finne leilighet på og Qasa er best.', author: 'Jan' },
+      },
+    },
     features: {
       noDeposit: { title: 'Ingen depositum', desc: 'Behold pengene dine — vi ordner depositumet.' },
       payLater: { title: 'Flytt inn først, betal senere', desc: 'Fleksibilitet når livet skjer.' },
@@ -35,6 +56,20 @@ export const no = {
       applicants: '5+ millioner', applicantsHint: 'søknader hvert år',
       homes: '600 000+', homesHint: 'publiserte boliger siden starten',
       rating: '4,4 av 5', ratingHint: 'på Trustpilot'
+    },
+    faq: {
+      title: 'Dine spørsmål - Besvart',
+      links: {
+        0: 'Slik fungerer det for utleiere',
+        1: 'Slik fungerer det for leietakere',
+        2: 'Slik leier du ut feriebolig',
+        3: 'Hva skjer hvis leietakeren ikke betaler?',
+        4: 'Er utleien min forsikret?',
+        5: 'Hvor mye kan jeg leie ut for?',
+        6: 'Trenger jeg tillatelse for å leie ut?',
+        7: 'Skrive en leieavtale',
+        8: 'Hva er Qasa Premium',
+      },
     },
     cta: {
       title: 'Klar til å komme i gang?',

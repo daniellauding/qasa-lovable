@@ -12,21 +12,26 @@ const SectionFooter = ({
   showPrev = true,
   showNext = true,
   variant = 'default',
+  nextVariant = 'primary',
+  nextSize = 'lg',
+  background = 'white',
   className = '',
   ...props 
 }) => {
   const getLayoutClasses = () => {
+    const bgClass = background === 'transparent' ? 'bg-transparent' : 'bg-white';
+    
     switch (variant) {
       case 'centered':
-        return 'px-8 py-6 bg-white flex items-center justify-center';
+        return `px-8 py-6 ${bgClass} flex items-center justify-center`;
       case 'centered-wide':
-        return 'px-8 py-6 bg-white flex items-center justify-center w-full';
+        return `px-8 py-6 ${bgClass} flex items-center justify-center w-full`;
       case 'left-tertiary-right-primary':
-        return 'px-8 py-6 bg-white flex items-center justify-between';
+        return `px-8 py-6 ${bgClass} flex items-center justify-between`;
       case 'centered-tertiary-and-primary':
-        return 'px-8 py-6 bg-white flex items-center justify-center gap-4';
+        return `px-8 py-6 ${bgClass} flex items-center justify-center gap-4`;
       default:
-        return 'px-8 py-6 bg-white flex items-center justify-between';
+        return `px-8 py-6 ${bgClass} flex items-center justify-between`;
     }
   };
 
@@ -35,8 +40,8 @@ const SectionFooter = ({
       case 'centered':
         return (
           <Button
-            variant="primary"
-            size="lg"
+            variant={nextVariant}
+            size={nextSize}
             onClick={onNext}
             disabled={nextDisabled}
             className="mx-auto"
@@ -48,8 +53,8 @@ const SectionFooter = ({
       case 'centered-wide':
         return (
           <Button
-            variant="primary"
-            size="lg"
+            variant={nextVariant}
+            size={nextSize}
             onClick={onNext}
             disabled={nextDisabled}
             className="w-full max-w-md mx-auto"
@@ -75,8 +80,8 @@ const SectionFooter = ({
             
             {showNext && (
               <Button
-                variant="primary"
-                size="lg"
+                variant={nextVariant}
+                size={nextSize}
                 onClick={onNext}
                 disabled={nextDisabled}
               >
@@ -101,8 +106,8 @@ const SectionFooter = ({
             
             {showNext && (
               <Button
-                variant="primary"
-                size="lg"
+                variant={nextVariant}
+                size={nextSize}
                 onClick={onNext}
                 disabled={nextDisabled}
               >
@@ -130,8 +135,8 @@ const SectionFooter = ({
             
             {showNext && (
               <Button
-                variant="primary"
-                size="lg"
+                variant={nextVariant}
+                size={nextSize}
                 onClick={onNext}
                 disabled={nextDisabled}
               >
@@ -159,6 +164,9 @@ SectionFooter.propTypes = {
   showPrev: PropTypes.bool,
   showNext: PropTypes.bool,
   variant: PropTypes.oneOf(['default', 'centered', 'centered-wide', 'left-tertiary-right-primary', 'centered-tertiary-and-primary']),
+  nextVariant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'outline', 'ghost', 'transparent', 'bordered', 'premium']),
+  nextSize: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
+  background: PropTypes.oneOf(['white', 'transparent']),
   className: PropTypes.string,
 };
 

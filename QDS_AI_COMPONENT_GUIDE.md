@@ -294,8 +294,14 @@ import Typography from '@/components/ui/Typography';
 <Typography variant="title-lg">Card Title</Typography>
 
 // For body text
+<Typography variant="body-lg">Large body text</Typography>
 <Typography variant="body-md">Normal text</Typography>
 <Typography variant="body-sm">Secondary text</Typography>
+
+// For larger text (flexible sizing)
+<Typography variant="text-4xl">Large display text</Typography>
+<Typography variant="text-2xl">Prominent text</Typography>
+<Typography variant="text-xl">Emphasized text</Typography>
 
 // For labels
 <Typography variant="label-md">Form Label</Typography>
@@ -403,7 +409,8 @@ className="text-[var(--color-primary)]"        // Qasa pink
 className="text-[var(--color-text-primary)]"   // Main text
 className="text-[var(--color-text-secondary)]" // Gray text
 className="bg-[var(--color-surface)]"          // Card backgrounds
-className="border-[var(--color-border)]"       // Borders
+className="border-[var(--color-border)]"       // Default borders (#e5e5df)
+className="border-[var(--border-color-default)]" // Alternative border token
 
 // ❌ DON'T use direct colors
 className="text-pink-500"   // Wrong!
@@ -528,7 +535,7 @@ import FAQLinkList from '@/components/ui/FAQLinkList';
   ]}
 />
 
-// Border rule: Each item gets border-b, last item gets last:border-b-0
+// Border rule: Each item gets border-b border-[var(--color-border)], last item gets last:border-b-0
 // Grid: grid-cols-1 md:grid-cols-2 for responsive layout
 // Icons: w-8 h-8 with hover translate-x-1 effect
 ```

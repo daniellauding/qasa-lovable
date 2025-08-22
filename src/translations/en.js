@@ -12,6 +12,7 @@ export const en = {
     back: 'Back',
     language: 'Language',
     clear: 'Clear',
+    helpCenter: 'Help center',
   },
 
   // Header
@@ -151,12 +152,17 @@ export const en = {
       },
     },
     faq: {
-      title: 'Common questions',
+      title: 'Your questions - Answered',
       links: {
         0: 'How it works for landlords',
         1: 'How it works for tenants',
-        2: 'What happens if the tenant does not pay?',
-        3: 'What can I rent out for?',
+        2: 'How to rent out vacation homes',
+        3: 'What if my tenant doesn\'t pay?',
+        4: 'Is my rental insured?',
+        5: 'How much can I rent out for?',
+        6: 'Do I need permit to rent out?',
+        7: 'Writing a rental agreement',
+        8: 'What is Qasa Premium',
       },
     },
     cta: {

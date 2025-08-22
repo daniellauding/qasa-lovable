@@ -48,6 +48,7 @@ import VariantCard from '../../components/ui/VariantCard';
 import VariantSelector from '../../components/ui/VariantSelector';
 import SectionHeader from '../../components/ui/SectionHeader';
 import SectionFooter from '../../components/ui/SectionFooter';
+import SectionContainer from '../../components/ui/SectionContainer';
 import Pagination from '../../components/ui/Pagination';
 
 // Import specialized cards
@@ -422,7 +423,10 @@ const DesignSystem = () => {
               <Typography variant="title-xl" className="mb-6">Typography Component</Typography>
               <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                 <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                  <strong>Prompt usage:</strong> "Use Typography component with variant='title-lg' for headings" or "Add Typography variant='body-md' for paragraph text"
+                  <strong>Prompt usage:</strong> "Use Typography variant='title-lg' for headings" or "Add Typography variant='body-lg' for paragraph text" or "Include Typography variant='text-4xl' for large display text" or "Use Typography weight='light' for elegant body text"
+                </Typography>
+                <Typography variant="body-sm" className="text-[var(--color-text-secondary)] mt-2">
+                  <strong>Font Smoothing:</strong> All Typography components include automatic font smoothing with antialiased rendering for crisp text on all devices.
                 </Typography>
                 <button
                   onClick={() => copyToClipboard('Use Typography component with variant=\'title-lg\' for headings')}
@@ -432,70 +436,220 @@ const DesignSystem = () => {
                   Copy prompt
                 </button>
               </div>
-              <div className="space-y-4">
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="display-lg"</Typography>
-                  <Typography variant="display-lg">Display Large</Typography>
+              {/* Display & Title Variants */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Display Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-lg</Typography>
+                      <Typography variant="display-lg">Display Large</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-md</Typography>
+                      <Typography variant="display-md">Display Medium</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-sm</Typography>
+                      <Typography variant="display-sm">Display Small</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="display-md"</Typography>
-                  <Typography variant="display-md">Display Medium</Typography>
+                
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Title Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xl</Typography>
+                      <Typography variant="title-xl">Title Extra Large</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-lg</Typography>
+                      <Typography variant="title-lg">Title Large</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-md</Typography>
+                      <Typography variant="title-md">Title Medium</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-sm</Typography>
+                      <Typography variant="title-sm">Title Small</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xs</Typography>
+                      <Typography variant="title-xs">Title Extra Small</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="display-sm"</Typography>
-                  <Typography variant="display-sm">Display Small</Typography>
+                
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Body & Label Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-lg</Typography>
+                      <Typography variant="body-lg">Body Large</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-md</Typography>
+                      <Typography variant="body-md">Body Medium</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-sm</Typography>
+                      <Typography variant="body-sm">Body Small</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">label-md</Typography>
+                      <Typography variant="label-md">Label Medium</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">label-sm</Typography>
+                      <Typography variant="label-sm">Label Small</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">mono-md</Typography>
+                      <Typography variant="mono-md">Mono Medium</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="title-xl"</Typography>
-                  <Typography variant="title-xl">Title Extra Large</Typography>
+              </div>
+              
+              {/* Extended Body & Text Variants */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Extended Body Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-4xl</Typography>
+                      <Typography variant="body-4xl">Body 4XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-3xl</Typography>
+                      <Typography variant="body-3xl">Body 3XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-2xl</Typography>
+                      <Typography variant="body-2xl">Body 2XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-xl</Typography>
+                      <Typography variant="body-xl">Body XL</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="title-lg"</Typography>
-                  <Typography variant="title-lg">Title Large</Typography>
+                
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Large Text Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-6xl</Typography>
+                      <Typography variant="text-6xl">Text 6XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-4xl</Typography>
+                      <Typography variant="text-4xl">Text 4XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-2xl</Typography>
+                      <Typography variant="text-2xl">Text 2XL</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="title-md"</Typography>
-                  <Typography variant="title-md">Title Medium</Typography>
+                
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Standard Text Variants</Typography>
+                  <div className="space-y-3">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-xl</Typography>
+                      <Typography variant="text-xl">Text XL</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-lg</Typography>
+                      <Typography variant="text-lg">Text Large</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-base</Typography>
+                      <Typography variant="text-base">Text Base</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">text-sm</Typography>
+                      <Typography variant="text-sm">Text Small</Typography>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="title-sm"</Typography>
-                  <Typography variant="title-sm">Title Small</Typography>
+              </div>
+              
+              <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                  <strong>New Typography Variants:</strong> Enhanced with larger body and text variants for more flexible typography hierarchy. Body variants use normal weight, text variants are for flexible sizing.
+                </Typography>
+                <button
+                  onClick={() => copyToClipboard('Use Typography variant=\'body-lg\' for larger paragraph text')}
+                  className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:opacity-80 text-sm"
+                >
+                  {copiedText === 'Use Typography variant=\'body-lg\' for larger paragraph text' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                  Copy prompt
+                </button>
+              </div>
+              
+              {/* Font Weight Examples */}
+              <div className="mt-8">
+                <Typography variant="title-md" className="mb-4">Font Weight Control</Typography>
+                <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                  <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                    <strong>Prompt usage:</strong> "Use Typography weight='light' for elegant body text" or "Add Typography weight='medium' for labels" or "Include Typography weight='bold' for emphasis"
+                  </Typography>
+                  <button
+                    onClick={() => copyToClipboard('Use Typography weight=\'light\' for elegant body text')}
+                    className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:opacity-80 text-sm"
+                  >
+                    {copiedText === 'Use Typography weight=\'light\' for elegant body text' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    Copy prompt
+                  </button>
                 </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="title-xs"</Typography>
-                  <Typography variant="title-xs">Title Extra Small</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="body-lg"</Typography>
-                  <Typography variant="body-lg">Body Large</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="body-md"</Typography>
-                  <Typography variant="body-md">Body Medium</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="body-sm"</Typography>
-                  <Typography variant="body-sm">Body Small</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="label-md"</Typography>
-                  <Typography variant="label-md">Label Medium</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="label-md"</Typography>
-                  <Typography variant="label-md">Label Medium</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="label-sm"</Typography>
-                  <Typography variant="label-sm">Label Small</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="mono-md"</Typography>
-                  <Typography variant="mono-md">Mono Medium</Typography>
-                </div>
-                <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Typography variant="mono-sm"</Typography>
-                  <Typography variant="mono-sm">Mono Small</Typography>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <Typography variant="title-sm" className="mb-3 font-medium">Font Weight Scale</Typography>
+                    <div className="space-y-3">
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">weight="light" (300)</Typography>
+                        <Typography variant="body-lg" weight="light">Light weight text - elegant and modern</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">weight="normal" (400) - default</Typography>
+                        <Typography variant="body-lg" weight="normal">Normal weight text - standard reading</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">weight="medium" (500)</Typography>
+                        <Typography variant="body-lg" weight="medium">Medium weight text - perfect for labels and UI</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">weight="semibold" (600)</Typography>
+                        <Typography variant="body-lg" weight="semibold">Semibold weight text - for emphasis</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">weight="bold" (700)</Typography>
+                        <Typography variant="body-lg" weight="bold">Bold weight text - for titles and strong emphasis</Typography>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <Typography variant="title-sm" className="mb-3 font-medium">Weight Examples in Context</Typography>
+                    <div className="space-y-4">
+                      <div>
+                        <Typography variant="text-2xl" weight="light">Large Light Heading</Typography>
+                        <Typography variant="body-md" weight="light">Body text with light weight - perfect for elegant reading experiences.</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="text-xl" weight="medium">Medium Weight Title</Typography>
+                        <Typography variant="body-sm" weight="medium">UI labels and interface text work well with medium weight.</Typography>
+                      </div>
+                      <div>
+                        <Typography variant="text-lg" weight="bold">Bold Emphasis Text</Typography>
+                        <Typography variant="body-sm" weight="normal">Standard body text maintains readability.</Typography>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -1944,7 +2098,7 @@ const DesignSystem = () => {
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">FAQLinkList Component</Typography>
                   <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                     <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                      <strong>Prompt usage:</strong> "Add FAQLinkList for help sections" or "Use FAQLinkList with external links for documentation" or "Include FAQLinkList for common questions"
+                      <strong>Prompt usage:</strong> "Add FAQLinkList for help sections" or "Use FAQLinkList with external links for documentation" or "Include FAQLinkList for common questions with Help center button"
                     </Typography>
                     <button
                       onClick={() => copyToClipboard('Add FAQLinkList for help sections')}
@@ -1961,6 +2115,144 @@ const DesignSystem = () => {
                       { label: "How it works for tenants", href: "/help/tenants", external: true }
                     ]}
                   />
+                </div>
+                
+                <div>
+                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">SectionContainer Component</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Use SectionContainer variant='tertiary' roundedTop for FAQ sections" or "Add SectionContainer variant='gray10' for light backgrounds" or "Include SectionContainer variant='softPink' for promotional sections"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Use SectionContainer variant=\'tertiary\' roundedTop for FAQ sections')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Use SectionContainer variant=\'tertiary\' roundedTop for FAQ sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Plain Section (variant="none")</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Add SectionContainer variant='none' padding='md' for standard sections"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Add SectionContainer variant=\'none\' padding=\'md\' for standard sections')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Add SectionContainer variant=\'none\' padding=\'md\' for standard sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="none" padding="md">
+                        <Typography variant="title-md" className="mb-2">Plain Section</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">No background, standard inner padding</Typography>
+                      </SectionContainer>
+                    </div>
+
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Inset Background with Rounded Top</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Use SectionContainer variant='inset' roundedTop padding='md' for FAQ sections"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Use SectionContainer variant=\'inset\' roundedTop padding=\'md\' for FAQ sections')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Use SectionContainer variant=\'inset\' roundedTop padding=\'md\' for FAQ sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="inset" roundedTop padding="md">
+                        <Typography variant="title-md" className="mb-2">Inset Rounded Section</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">Uses bg-[var(--color-background-inset)] and rounded top, perfect for FAQ sections</Typography>
+                      </SectionContainer>
+                    </div>
+
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Gray-10 Background</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Add SectionContainer variant='gray10' roundedTop padding='lg' for light sections"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Add SectionContainer variant=\'gray10\' roundedTop padding=\'lg\' for light sections')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Add SectionContainer variant=\'gray10\' roundedTop padding=\'lg\' for light sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="gray10" roundedTop padding="lg">
+                        <Typography variant="title-md" className="mb-2">Gray-10 Background</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">Uses bg-[var(--color-gray-10)] with large padding</Typography>
+                      </SectionContainer>
+                    </div>
+
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Tertiary Background</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Use SectionContainer variant='tertiary' roundedTop for FAQ sections"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Use SectionContainer variant=\'tertiary\' roundedTop for FAQ sections')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Use SectionContainer variant=\'tertiary\' roundedTop for FAQ sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="tertiary" roundedTop padding="md">
+                        <Typography variant="title-md" className="mb-2">Tertiary Background</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">Uses bg-[var(--color-button-tertiary-bg)] perfect for FAQ sections</Typography>
+                      </SectionContainer>
+                    </div>
+
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Soft Pink Background</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Use SectionContainer variant='softPink' roundedTop for promotional sections"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Use SectionContainer variant=\'softPink\' roundedTop for promotional sections')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Use SectionContainer variant=\'softPink\' roundedTop for promotional sections' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="softPink" roundedTop padding="md">
+                        <Typography variant="title-md" className="mb-2">Soft Pink Section</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">Perfect for promotional content with soft pink background</Typography>
+                      </SectionContainer>
+                    </div>
+
+                    <div>
+                      <Typography variant="title-sm" className="mb-3">Custom Padding and Classes</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Add SectionContainer variant='none' padding='none' contentClassName='px-2 md:px-4' to preserve original spacing"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Add SectionContainer variant=\'none\' padding=\'none\' contentClassName=\'px-2 md:px-4\' to preserve original spacing')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Add SectionContainer variant=\'none\' padding=\'none\' contentClassName=\'px-2 md:px-4\' to preserve original spacing' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <SectionContainer variant="inset" padding="none" contentClassName="px-2 md:px-4 py-8">
+                        <Typography variant="title-md" className="mb-2">Custom Spacing</Typography>
+                        <Typography variant="body-sm" className="text-gray-600">Uses contentClassName for custom padding while maintaining background styling</Typography>
+                      </SectionContainer>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>

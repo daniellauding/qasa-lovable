@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Diatype Rounded Font Faces */
+/* Qasa Diatype Rounded Font Faces - Official Brand Fonts */
 @font-face {
   font-family: 'DiatypeRounded';
-  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Regular.woff2') format('woff2');
+  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Regular.woff2') format('woff2'),
+       url('/fonts/Diatype Rounded/QasaDiatypeRounded-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,7 +14,8 @@
 
 @font-face {
   font-family: 'DiatypeRounded';
-  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Medium.woff2') format('woff2');
+  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Medium.woff2') format('woff2'),
+       url('/fonts/Diatype Rounded/QasaDiatypeRounded-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -21,7 +23,8 @@
 
 @font-face {
   font-family: 'DiatypeRounded';
-  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Bold.woff2') format('woff2');
+  src: url('/fonts/Diatype Rounded/QasaDiatypeRounded-Bold.woff2') format('woff2'),
+       url('/fonts/Diatype Rounded/QasaDiatypeRounded-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -29,7 +32,8 @@
 
 @font-face {
   font-family: 'DiatypeRoundedMono';
-  src: url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Regular.woff2') format('woff2');
+  src: url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Regular.woff2') format('woff2'),
+       url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -37,7 +41,8 @@
 
 @font-face {
   font-family: 'DiatypeRoundedMono';
-  src: url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Bold.woff2') format('woff2');
+  src: url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Bold.woff2') format('woff2'),
+       url('/fonts/Diatype Rounded Semi-Mono/QasaDiatypeRoundedSemi-Mono-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -113,10 +118,19 @@
     /* Button tokens - Outline */
     --color-button-outline-text: var(--color-brown);
     --color-button-outline-border: var(--color-gray-30);
+    
+    /* Border tokens */
+    --color-border: var(--color-gray-30);
+    --border-color-default: var(--color-gray-30);
   }
 
   body {
     @apply font-body font-normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1;
+    font-kerning: auto;
   }
   
   /* Default text should use body-md sizing */
@@ -131,6 +145,19 @@
 }
 
 @layer components {
+  /* Typography font smoothing for better rendering */
+  .font-title, .font-body, .font-mono {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Enhanced font smoothing for all text elements */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   .btn-primary {
     background-color: var(--color-primary);
     @apply text-white py-2 px-4 rounded-lg transition-colors;

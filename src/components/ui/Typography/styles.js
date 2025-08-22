@@ -27,11 +27,29 @@ export const variantClasses = {
   'label-sm': 'text-sm font-medium font-body', // 14px
   
   // Body variants - using Regular (400)
+  'body-4xl': 'text-4xl font-normal font-body', // 36px
+  'body-3xl': 'text-3xl font-normal font-body', // 30px
+  'body-2xl': 'text-2xl font-normal font-body', // 24px
   'body-xl': 'text-xl font-normal font-body', // 20px
   'body-lg': 'text-lg font-normal font-body', // 18px
   'body-md': 'text-base font-normal font-body', // 16px
   'body-sm': 'text-sm font-normal font-body', // 14px
   'body-xs': 'text-[10px] font-normal font-body', // 10px
+  
+  // Text variants - using Regular (400) for flexible sizing
+  'text-9xl': 'text-9xl font-normal font-body', // 128px
+  'text-8xl': 'text-8xl font-normal font-body', // 96px
+  'text-7xl': 'text-7xl font-normal font-body', // 72px
+  'text-6xl': 'text-6xl font-normal font-body', // 60px
+  'text-5xl': 'text-5xl font-normal font-body', // 48px
+  'text-4xl': 'text-4xl font-normal font-body', // 36px
+  'text-3xl': 'text-3xl font-normal font-body', // 30px
+  'text-2xl': 'text-2xl font-normal font-body', // 24px
+  'text-xl': 'text-xl font-normal font-body', // 20px
+  'text-lg': 'text-lg font-normal font-body', // 18px
+  'text-base': 'text-base font-normal font-body', // 16px
+  'text-sm': 'text-sm font-normal font-body', // 14px
+  'text-xs': 'text-xs font-normal font-body', // 12px
   
   // Mono variants - using Diatype Rounded Semi-Mono
   'mono-md': 'text-base font-normal font-mono', // 16px
@@ -59,6 +77,7 @@ export const colorClasses = {
 
 // Typography weight classes
 export const weightClasses = {
+  light: 'font-light',
   normal: 'font-normal',
   medium: 'font-medium',
   semibold: 'font-semibold',
@@ -75,7 +94,9 @@ export const typographyVariants = [
   // Label variants
   'label-md', 'label-sm',
   // Body variants
-  'body-xl', 'body-lg', 'body-md', 'body-sm', 'body-xs',
+  'body-4xl', 'body-3xl', 'body-2xl', 'body-xl', 'body-lg', 'body-md', 'body-sm', 'body-xs',
+  // Text variants
+  'text-9xl', 'text-8xl', 'text-7xl', 'text-6xl', 'text-5xl', 'text-4xl', 'text-3xl', 'text-2xl', 'text-xl', 'text-lg', 'text-base', 'text-sm', 'text-xs',
   // Mono variants
   'mono-md', 'mono-sm', 'mono-bold',
   // Legacy variants
@@ -86,4 +107,4 @@ export const typographyVariants = [
 export const typographyColors = ['default', 'secondary', 'primary', 'white', 'theme'];
 
 // Available typography weights
-export const typographyWeights = ['normal', 'medium', 'semibold', 'bold']; 
+export const typographyWeights = ['light', 'normal', 'medium', 'semibold', 'bold']; 
