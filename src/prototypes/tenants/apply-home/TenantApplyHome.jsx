@@ -10,6 +10,7 @@ import HintBox from '../../../components/ui/HintBox';
 import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
 import Card from '../../../components/ui/Card';
+import PremiumBadge from '../../../components/ui/PremiumBadge';
 
 // Fix for default markers in react-leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -132,53 +133,90 @@ function TenantApplyHome() {
             <Typography variant="title-lg" className="mb-4">
               {t('propertyDetails.title')}
             </Typography>
-            <div className="flex items-center gap-4 mb-8">
-              <Typography variant="body-md" color="secondary">3 {t('propertyDetails.rooms')}</Typography>
-              <Typography variant="body-md" color="secondary">•</Typography>
-              <Typography variant="body-md" color="secondary">95 {t('propertyDetails.sqm')}</Typography>
-              <Typography variant="body-md" color="secondary">•</Typography>
-              <Typography variant="body-md" color="secondary">9 104 {t('propertyDetails.price')}</Typography>
+            <div className="flex items-center gap-1 mb-8">
+              <Typography variant="body-md">3 {t('propertyDetails.rooms')}</Typography>
+              <Typography variant="body-md">/</Typography>
+              <Typography variant="body-md">95 {t('propertyDetails.sqm')}</Typography>
+              <Typography variant="body-md">/</Typography>
+              <Typography variant="body-md">9 104 {t('propertyDetails.price')}</Typography>
+            </div>
+
+            {/* Description */}
+            <div className="mb-8 flex gap-3 flex-col">
+              <Typography variant="body-md">
+                Modern lägenhet med öppen planlösning och gott om naturligt ljus. Lägenheten ligger i ett lugnt område med närhet till kommunikationer och service. Parkering ingår och fiber finns indraget.
+              </Typography>
+
+              <Typography variant="body-sm" color="secondary">
+                This description has been automatically translated to English and may contain inaccuracies. Show original
+              </Typography>
+            </div>
+
+            <div className="text-center">
+              <Button variant="tertiary" size="lg">
+                Read more
+              </Button>
+            </div>
+
+            {/* Insights */}
+            <div className="mb-8">
+              <Typography variant="title-md" className="mb-6">Insights</Typography>
+              <div className="grid grid-cols-2 gap-4 mb-6">
+                <div className="flex items-center gap-3">
+                  <Icon name="Home" size="sm" />
+                  <Typography variant="body-md">Published 0 days ago / 8 views</Typography>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Users" size="sm" />
+                  <div className="flex items-center gap-2">
+                    <div className="w-4 h-4 bg-gray-300 rounded-full blur-sm"></div>
+                    <Typography variant="body-md">applicants /</Typography>
+                    <div className="w-4 h-4 bg-gray-300 rounded-full blur-sm"></div>
+                    <Typography variant="body-md">open conversations</Typography>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="Settings" size="sm" />
+                  <Typography variant="body-md">Rent for similar homes not available</Typography>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Icon name="MessageCircle" size="sm" />
+                  <div className="flex items-center gap-2">
+                    <Typography variant="body-md">Typically responds within</Typography>
+                    <div className="w-12 h-4 bg-gray-300 rounded blur-sm"></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Qasa Premium Section */}
+              <div className="bg-[var(--color-gray-10)] rounded-2xl p-6 mb-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Typography variant="title-xs">Unlock all insights with</Typography>
+                    <PremiumBadge className="h-[50px] -ml-8" />
+                  </div>
+                  <Button variant="primary" className="bg-[var(--color-brown)] hover:bg-[var(--color-brown)]/90 text-white rounded-full px-6">
+                    Get Qasa Premium
+                  </Button>
+                </div>
+              </div>
+
+              {/* Read More Button */}
+              <div className="text-center">
+                <Button variant="tertiary" size="lg">
+                  Read more
+                </Button>
+              </div>
             </div>
 
             {/* Amenities */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               {amenities.map((amenity, idx) => (
                 <div key={idx} className="flex items-center gap-3">
-                  <Icon name={amenity.icon} size="sm" className="text-gray-600" />
-                  <Typography variant="body-sm">{amenity.label}</Typography>
+                  <Icon name={amenity.icon} size="sm" />
+                  <Typography variant="body-md">{amenity.label}</Typography>
                 </div>
               ))}
-            </div>
-
-            {/* Description */}
-            <div className="mb-8">
-              <Typography variant="title-md" className="mb-4">{t('propertyDetails.description')}</Typography>
-              <Typography variant="body-md">
-                Modern lägenhet med öppen planlösning och gott om naturligt ljus. Lägenheten ligger i ett lugnt område med närhet till kommunikationer och service. Parkering ingår och fiber finns indraget.
-              </Typography>
-            </div>
-
-            {/* Quick Insights */}
-            <div className="mb-8">
-              <Typography variant="title-md" className="mb-4">{t('propertyDetails.quickInsights')}</Typography>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
-                  <Typography variant="body-sm" color="secondary">{t('propertyDetails.published')}</Typography>
-                  <Typography variant="body-md" weight="medium">{t('propertyDetails.today')}</Typography>
-                </div>
-                <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
-                  <Typography variant="body-sm" color="secondary">{t('propertyDetails.viewings')}</Typography>
-                  <Typography variant="body-md" weight="medium">6</Typography>
-                </div>
-                <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
-                  <Typography variant="body-sm" color="secondary">{t('propertyDetails.applicants')}</Typography>
-                  <Typography variant="body-md" weight="medium">4</Typography>
-                </div>
-                <div className="p-4 bg-[var(--color-background-inset)] rounded-lg">
-                  <Typography variant="body-sm" color="secondary">{t('propertyDetails.responseTime')}</Typography>
-                  <Typography variant="body-md" weight="medium">{t('propertyDetails.lessThan24h')}</Typography>
-                </div>
-              </div>
             </div>
 
             {/* All Images Grid */}
