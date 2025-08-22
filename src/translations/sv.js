@@ -67,6 +67,8 @@ export const sv = {
     rentBetter: 'Hyr bättre och tryggare med Qasa',
     rentBetterDescription: 'Detta hem har en verifierad hyresvärd, ett tryggt hyresavtal och dedikerad support 7 dagar i veckan. Alla betalningar hanteras genom oss.',
     readMore: 'Läs mer',
+    showMore: 'Visa mer',
+    applyTo: 'Ansök till',
     published: 'Publicerad',
     today: 'Idag',
     viewings: 'Visningar',

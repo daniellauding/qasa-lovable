@@ -3,10 +3,19 @@ import PropTypes from 'prop-types';
 
 const PremiumBadge = ({
   className = '',
+  size = 'md',
   ...props
 }) => {
+  
+  const sizeClasses = {
+    xs: 'transform scale-50',
+    sm: 'transform scale-75', 
+    md: 'transform scale-100',
+    lg: 'transform scale-125',
+    xl: 'transform scale-150',
+  };
   return (
-    <div className={`inline-block ${className}`} {...props}>
+    <div className={`inline-block ${sizeClasses[size]} ${className}`} {...props}>
       <span className="xl:hidden">
         <span className="qasa-premium-badge-mobile">
           <span style={{ display: 'inline-block', translate: '0px 1px', whiteSpace: 'nowrap' }}>
@@ -27,6 +36,7 @@ const PremiumBadge = ({
 
 PremiumBadge.propTypes = {
   className: PropTypes.string,
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
 };
 
 export default PremiumBadge;

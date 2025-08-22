@@ -159,6 +159,8 @@ export const no = {
     rentBetter: 'Lei bedre og tryggere med Qasa',
     rentBetterDescription: 'Dette hjemmet har en verifisert utleier, en trygg leieavtale og dedikert støtte 7 dager i uken. Alle betalinger håndteres gjennom oss.',
     readMore: 'Les mer',
+    showMore: 'Vis mer',
+    applyTo: 'Søk til',
     published: 'Publisert',
     today: 'I dag',
     viewings: 'Visninger',

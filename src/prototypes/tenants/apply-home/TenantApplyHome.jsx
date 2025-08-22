@@ -51,6 +51,13 @@ function TenantApplyHome() {
     { icon: 'Settings', label: t('propertyDetails.amenities.storage') },
   ];
 
+  const houseRules = [
+    { icon: 'Check', label: 'Up to 3 tenants', allowed: true },
+    { icon: 'X', label: 'No pets', allowed: false },
+    { icon: 'X', label: 'Not wheelchair accessible', allowed: false },
+    { icon: 'X', label: 'No smoking', allowed: false },
+  ];
+
   const propertyData = {
     image: propertyImages[0],
     title: 'Billingevägen, Röstånga',
@@ -189,17 +196,21 @@ function TenantApplyHome() {
               </div>
 
               {/* Qasa Premium Section */}
-              <div className="bg-[var(--color-gray-10)] rounded-2xl p-6 mb-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Typography variant="title-xs">Unlock all insights with</Typography>
-                    <PremiumBadge className="h-[50px] -ml-8" />
-                  </div>
-                  <Button variant="primary" className="bg-[var(--color-brown)] hover:bg-[var(--color-brown)]/90 text-white rounded-full px-6">
-                    Get Qasa Premium
-                  </Button>
+              <HintBox 
+                className="mb-6"
+                actions={[
+                  {
+                    label: "Get Qasa Premium",
+                    variant: "secondary",
+                    onClick: () => console.log("Get Qasa Premium clicked")
+                  }
+                ]}
+              >
+                <div className="flex items-center gap-2">
+                  <Typography variant="title-xs">Unlock all insights with</Typography>
+                  <PremiumBadge size="xs" className="-ml-16" />
                 </div>
-              </div>
+              </HintBox>
 
               {/* Read More Button */}
               <div className="text-center">
@@ -210,13 +221,86 @@ function TenantApplyHome() {
             </div>
 
             {/* Amenities */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              {amenities.map((amenity, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <Icon name={amenity.icon} size="sm" />
-                  <Typography variant="body-md">{amenity.label}</Typography>
+            <div className="mb-8">
+              <Typography variant="title-md" className="mb-6">Amenities</Typography>
+              <div className="grid grid-cols-3 gap-4">
+                {amenities.map((amenity, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <Icon name={amenity.icon} size="sm" />
+                    <Typography variant="body-md">{amenity.label}</Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* House Rules and Accessibility */}
+            <div className="mb-8">
+              <Typography variant="title-md" className="mb-6">House rules and accessibility</Typography>
+              <div className="grid grid-cols-4 gap-4">
+                {houseRules.map((rule, idx) => (
+                  <div key={idx} className="flex items-center gap-3">
+                    <Icon name={rule.icon} size="sm" />
+                    <Typography variant="body-md">{rule.label}</Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Dates */}
+            <div className="mb-8">
+              <Typography variant="title-sm" className="mb-6">Dates</Typography>
+              <div className="flex items-center gap-2">
+                <Typography variant="body-lg" className="font-medium">2025-10-01</Typography>
+                <Icon name="ArrowRight" size="sm" />
+                <Typography variant="body-lg" className="font-medium">2026-10-01</Typography>
+              </div>
+            </div>
+
+            {/* Rent */}
+            <div className="mb-8">
+              <Typography variant="title-sm" className="mb-4">Rent</Typography>
+              <div className="space-y-0">
+                <div className="flex justify-between items-center py-3">
+                  <Typography variant="title-xs">Monthly cost</Typography>
+                  <Typography variant="title-xs">SEK 15,524</Typography>
                 </div>
-              ))}
+                
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center">
+                    <Typography variant="body-md">Rent</Typography>
+                    <Typography variant="body-md">SEK 14,653</Typography>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <Typography variant="body-md">Service fee</Typography>
+                    <Typography variant="body-md">SEK 871</Typography>
+                  </div>
+                  
+                  <div className="py-3">
+                    <Typography variant="title-xs" className="mb-3">Additional costs</Typography>
+                    <div className="flex justify-between items-center">
+                      <Typography variant="body-sm">Electricity fee</Typography>
+                      <Typography variant="body-sm">Included</Typography>
+                    </div>
+                  </div>
+                  
+                  <div className="flex justify-between items-center py-3">
+                    <div>
+                      <Typography variant="title-xs" className="font-medium">Deposit</Typography>
+                    </div>
+                    <div className="text-right">
+                      <Typography variant="body-md" className="line-through text-gray-400">SEK 14,653</Typography>
+                      <Typography variant="title-xs">SEK 0</Typography>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center pt-4">
+                  <Button variant="tertiary" size="lg">
+                    {t('propertyDetails.showMore')}
+                  </Button>
+                </div>
+              </div>
             </div>
 
             {/* All Images Grid */}

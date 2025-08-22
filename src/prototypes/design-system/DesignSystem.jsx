@@ -2052,6 +2052,44 @@ const DesignSystem = () => {
                         Uses DiatypeRoundedMono font family with official Qasa brand colors.
                       </Typography>
                     </div>
+                    
+                    <div className="bg-white border rounded-lg p-6">
+                      <Typography variant="title-sm" className="mb-4">PremiumBadge Sizes</Typography>
+                      <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                          <strong>Prompt usage:</strong> "Add PremiumBadge size='sm' for smaller contexts" or "Use PremiumBadge size='lg' for prominent display" or "Include PremiumBadge size='xs' for compact spaces"
+                        </Typography>
+                        <button
+                          onClick={() => copyToClipboard('Add PremiumBadge size=\'sm\' for smaller contexts')}
+                          className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                        >
+                          {copiedText === 'Add PremiumBadge size=\'sm\' for smaller contexts' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          Copy prompt
+                        </button>
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4">
+                          <span className="w-12 text-sm">XS:</span>
+                          <PremiumBadge size="xs" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="w-12 text-sm">SM:</span>
+                          <PremiumBadge size="sm" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="w-12 text-sm">MD:</span>
+                          <PremiumBadge size="md" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="w-12 text-sm">LG:</span>
+                          <PremiumBadge size="lg" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <span className="w-12 text-sm">XL:</span>
+                          <PremiumBadge size="xl" />
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

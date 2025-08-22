@@ -67,6 +67,8 @@ export const en = {
     rentBetter: 'Rent better and safer with Qasa',
     rentBetterDescription: 'This home has a verified landlord, a secure rental agreement and dedicated support 7 days a week. All payments are handled through us.',
     readMore: 'Read more',
+    showMore: 'Show more',
+    applyTo: 'Apply to',
     published: 'Published',
     today: 'Today',
     viewings: 'Viewings',

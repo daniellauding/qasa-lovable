@@ -67,6 +67,8 @@ export const fi = {
     rentBetter: 'Vuokraa paremmin ja turvallisemmin Qasan kanssa',
     rentBetterDescription: 'Tässä kodissa on varmennettu vuokranantaja, turvallinen vuokrasopimus ja omisteinen tuki 7 päivää viikossa. Kaikki maksut käsitellään meidän kautta.',
     readMore: 'Lue lisää',
+    showMore: 'Näytä lisää',
+    applyTo: 'Hae kohteeseen',
     published: 'Julkaistu',
     today: 'Tänään',
     viewings: 'Näytöt',
