@@ -11,6 +11,7 @@ import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
 import Card from '../../../components/ui/Card';
 import PremiumBadge from '../../../components/ui/PremiumBadge';
+import ContentBlock from '../../../components/ui/ContentBlock';
 
 // Fix for default markers in react-leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -52,10 +53,10 @@ function TenantApplyHome() {
   ];
 
   const houseRules = [
-    { icon: 'Check', label: 'Up to 3 tenants', allowed: true },
-    { icon: 'X', label: 'No pets', allowed: false },
-    { icon: 'X', label: 'Not wheelchair accessible', allowed: false },
-    { icon: 'X', label: 'No smoking', allowed: false },
+    { icon: 'Check', labelKey: 'upToTenants', params: { count: 3 }, allowed: true },
+    { icon: 'X', labelKey: 'noPets', allowed: false },
+    { icon: 'X', labelKey: 'notWheelchairAccessible', allowed: false },
+    { icon: 'X', labelKey: 'noSmoking', allowed: false },
   ];
 
   const propertyData = {
@@ -135,7 +136,7 @@ function TenantApplyHome() {
         </div>
 
         {/* Property Info */}
-        <div className="flex gap-8">
+        <div className="flex gap-8 pb-8">
           <div className="flex-1">
             <Typography variant="title-lg" className="mb-4">
               {t('propertyDetails.title')}
@@ -151,45 +152,45 @@ function TenantApplyHome() {
             {/* Description */}
             <div className="mb-8 flex gap-3 flex-col">
               <Typography variant="body-md">
-                Modern lägenhet med öppen planlösning och gott om naturligt ljus. Lägenheten ligger i ett lugnt område med närhet till kommunikationer och service. Parkering ingår och fiber finns indraget.
+                {t('propertyDetails.description.modernApartment')}
               </Typography>
 
               <Typography variant="body-sm" color="secondary">
-                This description has been automatically translated to English and may contain inaccuracies. Show original
+                {t('propertyDetails.description.autoTranslated')}
               </Typography>
             </div>
 
             <div className="text-center">
               <Button variant="tertiary" size="lg">
-                Read more
+                {t('propertyDetails.readMore')}
               </Button>
             </div>
 
             {/* Insights */}
             <div className="mb-8">
-              <Typography variant="title-md" className="mb-6">Insights</Typography>
+              <Typography variant="title-md" className="mb-6">{t('propertyDetails.landlord.insights')}</Typography>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center gap-3">
                   <Icon name="Home" size="sm" />
-                  <Typography variant="body-md">Published 0 days ago / 8 views</Typography>
+                  <Typography variant="body-md">{t('propertyDetails.landlord.publishedDaysAgo', { days: 0 })} / {t('propertyDetails.landlord.views', { views: 8 })}</Typography>
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Users" size="sm" />
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 bg-gray-300 rounded-full blur-sm"></div>
-                    <Typography variant="body-md">applicants /</Typography>
+                    <Typography variant="body-md">{t('propertyDetails.landlord.applicantsCount', { count: '?' })} /</Typography>
                     <div className="w-4 h-4 bg-gray-300 rounded-full blur-sm"></div>
-                    <Typography variant="body-md">open conversations</Typography>
+                    <Typography variant="body-md">{t('propertyDetails.landlord.conversations', { count: '?' })}</Typography>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="Settings" size="sm" />
-                  <Typography variant="body-md">Rent for similar homes not available</Typography>
+                  <Typography variant="body-md">{t('propertyDetails.landlord.similarRent')}</Typography>
                 </div>
                 <div className="flex items-center gap-3">
                   <Icon name="MessageCircle" size="sm" />
                   <div className="flex items-center gap-2">
-                    <Typography variant="body-md">Typically responds within</Typography>
+                    <Typography variant="body-md">{t('propertyDetails.landlord.responseTime', { time: '?' })}</Typography>
                     <div className="w-12 h-4 bg-gray-300 rounded blur-sm"></div>
                   </div>
                 </div>
@@ -199,7 +200,7 @@ function TenantApplyHome() {
               <HintBox className="mb-6">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Typography variant="title-xs">Unlock all insights with</Typography>
+                    <Typography variant="title-xs">{t('propertyDetails.landlord.unlockInsights')}</Typography>
                     <PremiumBadge size="xs" className="-ml-16" />
                   </div>
                   <Button 
@@ -207,7 +208,7 @@ function TenantApplyHome() {
                     className="rounded-full px-6"
                     onClick={() => console.log("Get Qasa Premium clicked")}
                   >
-                    Get Qasa Premium
+                    {t('propertyDetails.landlord.getPremium')}
                   </Button>
                 </div>
               </HintBox>
@@ -215,14 +216,14 @@ function TenantApplyHome() {
               {/* Read More Button */}
               <div className="text-center">
                 <Button variant="tertiary" size="lg">
-                  Read more
+                  {t('propertyDetails.landlord.readMore')}
                 </Button>
               </div>
             </div>
 
             {/* Amenities */}
             <div className="mb-8">
-              <Typography variant="title-md" className="mb-6">Amenities</Typography>
+              <Typography variant="title-md" className="mb-6">{t('propertyDetails.amenitiesTitle')}</Typography>
               <div className="grid grid-cols-3 gap-4">
                 {amenities.map((amenity, idx) => (
                   <div key={idx} className="flex items-center gap-3">
@@ -235,12 +236,17 @@ function TenantApplyHome() {
 
             {/* House Rules and Accessibility */}
             <div className="mb-8">
-              <Typography variant="title-md" className="mb-6">House rules and accessibility</Typography>
+              <Typography variant="title-md" className="mb-6">{t('propertyDetails.houseRulesTitle')}</Typography>
               <div className="grid grid-cols-4 gap-4">
                 {houseRules.map((rule, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <Icon name={rule.icon} size="sm" />
-                    <Typography variant="body-md">{rule.label}</Typography>
+                    <Typography variant="body-md">
+                      {rule.params 
+                        ? t(`propertyDetails.houseRules.${rule.labelKey}`, rule.params)
+                        : t(`propertyDetails.houseRules.${rule.labelKey}`)
+                      }
+                    </Typography>
                   </div>
                 ))}
               </div>
@@ -248,7 +254,7 @@ function TenantApplyHome() {
 
             {/* Dates */}
             <div className="mb-8">
-              <Typography variant="title-sm" className="mb-6">Dates</Typography>
+              <Typography variant="title-sm" className="mb-6">{t('propertyDetails.datesTitle')}</Typography>
               <div className="flex items-center gap-2">
                 <Typography variant="body-lg" className="font-medium">2025-10-01</Typography>
                 <Icon name="ArrowRight" size="sm" />
@@ -258,35 +264,35 @@ function TenantApplyHome() {
 
             {/* Rent */}
             <div className="mb-8">
-              <Typography variant="title-sm" className="mb-4">Rent</Typography>
+              <Typography variant="title-sm" className="mb-4">{t('propertyDetails.rentTitle')}</Typography>
               <div className="space-y-0">
                 <div className="flex justify-between items-center py-3">
-                  <Typography variant="title-xs">Monthly cost</Typography>
+                  <Typography variant="title-xs">{t('propertyDetails.rentDetails.monthlyCost')}</Typography>
                   <Typography variant="title-xs">SEK 15,524</Typography>
                 </div>
                 
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <Typography variant="body-md">Rent</Typography>
+                    <Typography variant="body-md">{t('propertyDetails.rentDetails.rent')}</Typography>
                     <Typography variant="body-md">SEK 14,653</Typography>
                   </div>
                   
                   <div className="flex justify-between items-center">
-                    <Typography variant="body-md">Service fee</Typography>
+                    <Typography variant="body-md">{t('propertyDetails.rentDetails.serviceFee')}</Typography>
                     <Typography variant="body-md">SEK 871</Typography>
                   </div>
                   
                   <div className="py-3">
-                    <Typography variant="title-xs" className="mb-3">Additional costs</Typography>
+                    <Typography variant="title-xs" className="mb-3">{t('propertyDetails.rentDetails.additionalCosts')}</Typography>
                     <div className="flex justify-between items-center">
-                      <Typography variant="body-sm">Electricity fee</Typography>
-                      <Typography variant="body-sm">Included</Typography>
+                      <Typography variant="body-sm">{t('propertyDetails.rentDetails.electricityFee')}</Typography>
+                      <Typography variant="body-sm">{t('propertyDetails.rentDetails.included')}</Typography>
                     </div>
                   </div>
                   
                   <div className="flex justify-between items-center py-3">
                     <div>
-                      <Typography variant="title-xs" className="font-medium">Deposit</Typography>
+                      <Typography variant="title-xs" className="font-medium">{t('propertyDetails.rentDetails.deposit')}</Typography>
                     </div>
                     <div className="text-right">
                       <Typography variant="body-md" className="line-through text-gray-400">SEK 14,653</Typography>
@@ -300,22 +306,6 @@ function TenantApplyHome() {
                     {t('propertyDetails.showMore')}
                   </Button>
                 </div>
-              </div>
-            </div>
-
-            {/* All Images Grid */}
-            <div className="mt-8">
-              <Typography variant="title-sm" className="mb-4">{t('propertyDetails.allImages')}</Typography>
-              <div className="grid grid-cols-3 gap-4">
-                {allImages.map((img, idx) => (
-                  <div key={idx} className="aspect-square cursor-pointer" onClick={() => setSelectedImage(img)}>
-                    <img 
-                      src={img} 
-                      alt={`Property view ${idx + 1}`} 
-                      className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity"
-                    />
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -340,7 +330,7 @@ function TenantApplyHome() {
                   <Marker position={[55.9233, 13.2133]} />
                 </MapContainer>
               </div>
-              <div className="mt-4">
+              {/* <div className="mt-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Icon name="MapPin" size="sm" />
                   <Typography variant="body-sm" color="secondary">{t('propertyDetails.title')}</Typography>
@@ -349,8 +339,80 @@ function TenantApplyHome() {
                   <Typography variant="body-sm" color="secondary">• 2 {t('propertyDetails.busStop')}</Typography>
                   <Typography variant="body-sm" color="secondary">• 15 {t('propertyDetails.toCenter')}</Typography>
                 </div>
+              </div> */}
+            </div>
+
+            {/* All Images Grid */}
+            <div className="mt-8">
+              <Typography variant="title-sm" className="mb-4">{t('propertyDetails.allImages')}</Typography>
+              <div className="grid grid-cols-3 gap-4">
+                {allImages.map((img, idx) => (
+                  <div key={idx} className="aspect-square cursor-pointer" onClick={() => setSelectedImage(img)}>
+                    <img 
+                      src={img} 
+                      alt={`Property view ${idx + 1}`} 
+                      className="w-full h-full object-cover rounded-lg hover:opacity-90 transition-opacity"
+                    />
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Meet your landlord */}
+            <ContentBlock
+              title={t('propertyDetails.landlord.meetYourLandlord')}
+              background="white"
+              rounded="none"
+              imagePosition="center"
+              padding="p-0"
+              className="mt-16"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-16 h-16 bg-gray-10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <Typography variant="title-md" className="text-gray-600">S</Typography>
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Typography variant="title-sm">{t('propertyDetails.landlord.landlordName')}</Typography>
+                    <Icon name="BadgeCheck" size="sm" />
+                  </div>
+                  <Typography variant="body-sm" color="secondary" className="mb-3">
+                    {t('propertyDetails.landlord.landlordType')}
+                  </Typography>
+                </div>
+              </div>
+                             <Typography variant="body-md" className="mt-4">
+                 {t('propertyDetails.landlord.landlordDescription')}
+               </Typography>
+              </ContentBlock>
+
+            {/* More homes you might like */}
+            <ContentBlock
+              title={t('propertyDetails.moreHomes.title')}
+              background="white"
+              rounded="none"
+              imagePosition="center"
+              padding="p-0"
+              className="mt-8 mb-8"
+            >
+              <div className="flex gap-4">
+                <Button 
+                  variant="tertiary" 
+                  size="lg" 
+                  onClick={() => console.log("All homes in Farsta clicked")}
+                >
+                  {t('propertyDetails.moreHomes.allHomesIn', { location: 'Farsta' })}
+                </Button>
+                <Button 
+                  variant="tertiary" 
+                  size="lg" 
+                  onClick={() => console.log("All apartments in Farsta clicked")}
+                >
+                  {t('propertyDetails.moreHomes.allApartmentsIn', { location: 'Farsta' })}
+                </Button>
+              </div>
+            </ContentBlock>
+
           </div>
 
           <div className="w-80 flex-shrink-0">

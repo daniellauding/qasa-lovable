@@ -84,6 +84,50 @@ export const sv = {
       dishwasher: 'Diskmaskin',
       oven: 'Ugn',
       storage: 'Förråd'
+    },
+    landlord: {
+      meetYourLandlord: 'Möt din hyresvärd',
+      landlordName: 'Samtrygg AB',
+      landlordType: 'Hyresvärd',
+      landlordDescription: 'Vi publicerar nya annonser varje dag. Följ länken i våra annonser till samtrygg.se för att boka visning tryggt, enkelt och kostnadsfritt. Samtrygg is the safe marketplace for home rentals. Follow the link in our ads to book a viewing.',
+      insights: 'Insikter',
+      publishedDaysAgo: 'Publicerad {days} dagar sedan',
+      views: '{views} visningar',
+      applicantsCount: '{count} sökande',
+      conversations: '{count} öppna konversationer',
+      similarRent: 'Hyra för liknande hem inte tillgänglig',
+      responseTime: 'Svarar vanligtvis inom {time}',
+      unlockInsights: 'Lås upp alla insikter med',
+      getPremium: 'Skaffa Qasa Premium',
+      readMore: 'Läs mer'
+    },
+    amenitiesTitle: 'Bekvämligheter',
+    houseRulesTitle: 'Husregler och tillgänglighet',
+    houseRules: {
+      upToTenants: 'Upp till {count} hyresgäster',
+      noPets: 'Inga husdjur',
+      notWheelchairAccessible: 'Ej rullstolsanpassad',
+      noSmoking: 'Rökning förbjuden'
+    },
+    datesTitle: 'Datum',
+    rentTitle: 'Hyra',
+    rentDetails: {
+      monthlyCost: 'Månadskostnad',
+      rent: 'Hyra',
+      serviceFee: 'Serviceavgift',
+      additionalCosts: 'Tilläggskostnader',
+      electricityFee: 'Elavgift',
+      included: 'Ingår',
+      deposit: 'Deposition'
+    },
+    description: {
+      modernApartment: 'Modern lägenhet med öppen planlösning och gott om naturligt ljus. Lägenheten ligger i ett lugnt område med närhet till kommunikationer och service. Parkering ingår och fiber finns indraget.',
+      autoTranslated: 'Den här beskrivningen har översatts automatiskt till engelska och kan innehålla felaktigheter. Visa original'
+    },
+    moreHomes: {
+      title: 'Fler bostäder du kanske gillar',
+      allHomesIn: 'Alla bostäder i {location}',
+      allApartmentsIn: 'Alla lägenheter i {location}'
     }
   },
 

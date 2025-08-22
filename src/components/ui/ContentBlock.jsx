@@ -10,6 +10,7 @@ const ContentBlock = ({
   imagePosition = 'left',
   background = 'white',
   rounded = 'xl',
+  padding = 'p-8',
   ctaText,
   ctaVariant = 'primary',
   ctaOnClick,
@@ -77,7 +78,7 @@ const ContentBlock = ({
   const renderContent = () => (
     <div className={`flex-1 ${imagePosition === 'center' ? 'w-full' : 'w-1/2'}`}>
       {title && (
-        <Typography variant="title-lg" className="mb-4 text-[var(--color-text-primary)]">
+        <Typography variant="title-xs" className="mb-4 text-[var(--color-text-primary)]">
           {title}
         </Typography>
       )}
@@ -106,7 +107,7 @@ const ContentBlock = ({
   return (
     <div
       className={`
-        p-8 ${backgroundClasses[background]} ${roundedClasses[rounded]}
+        ${padding} ${backgroundClasses[background]} ${roundedClasses[rounded]}
         ${image ? `flex ${imageLayoutClasses[imagePosition]} gap-8` : ''}
         ${className}
       `}
@@ -133,6 +134,7 @@ ContentBlock.propTypes = {
   imagePosition: PropTypes.oneOf(['left', 'right', 'center']),
   background: PropTypes.oneOf(['white', 'softPink', 'inset']),
   rounded: PropTypes.oneOf(['none', 'sm', 'md', 'lg', 'full']),
+  padding: PropTypes.string,
   ctaText: PropTypes.string,
   ctaVariant: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'outline']),
   ctaOnClick: PropTypes.func,

@@ -84,6 +84,50 @@ export const fi = {
       dishwasher: 'Astianpesukone',
       oven: 'Uuni',
       storage: 'Varasto'
+    },
+    landlord: {
+      meetYourLandlord: 'Tapaa vuokranantajasi',
+      landlordName: 'Samtrygg AB',
+      landlordType: 'Vuokranantaja',
+      landlordDescription: 'Julkaisemme uusia ilmoituksia joka päivä. Seuraa ilmoituksissamme olevaa linkkiä samtrygg.se-sivustolle varataksesi näytön turvallisesti, helposti ja ilmaiseksi. Samtrygg is the safe marketplace for home rentals. Follow the link in our ads to book a viewing.',
+      insights: 'Oivallukset',
+      publishedDaysAgo: 'Julkaistu {days} päivää sitten',
+      views: '{views} katselua',
+      applicantsCount: '{count} hakijaa',
+      conversations: '{count} avointa keskustelua',
+      similarRent: 'Vuokra samankaltaisille kodeille ei saatavilla',
+      responseTime: 'Vastaa yleensä {time} sisällä',
+      unlockInsights: 'Avaa kaikki oivallukset',
+      getPremium: 'Hanki Qasa Premium',
+      readMore: 'Lue lisää'
+    },
+    amenitiesTitle: 'Mukavuudet',
+    houseRulesTitle: 'Säännöt ja esteettömyys',
+    houseRules: {
+      upToTenants: 'Enintään {count} vuokralaista',
+      noPets: 'Ei lemmikkejä',
+      notWheelchairAccessible: 'Ei pyörätuolilla pääsevä',
+      noSmoking: 'Tupakointi kielletty'
+    },
+    datesTitle: 'Päivämäärät',
+    rentTitle: 'Vuokra',
+    rentDetails: {
+      monthlyCost: 'Kuukausikustannus',
+      rent: 'Vuokra',
+      serviceFee: 'Palvelumaksu',
+      additionalCosts: 'Lisäkustannukset',
+      electricityFee: 'Sähkömaksu',
+      included: 'Sisältyy',
+      deposit: 'Takuu'
+    },
+    description: {
+      modernApartment: 'Moderni asunto avoimella pohjaratkaisulla ja runsaalla luonnonvalolla. Asunto sijaitsee rauhallisella alueella lähellä liikennettä ja palveluja. Pysäköinti sisältyy ja kuitu on asennettu.',
+      autoTranslated: 'Tämä kuvaus on käännetty automaattisesti englanniksi ja saattaa sisältää epätarkkuuksia. Näytä alkuperäinen'
+    },
+    moreHomes: {
+      title: 'Lisää koteja joista saatat pitää',
+      allHomesIn: 'Kaikki kodit kohteessa {location}',
+      allApartmentsIn: 'Kaikki asunnot kohteessa {location}'
     }
   },
 

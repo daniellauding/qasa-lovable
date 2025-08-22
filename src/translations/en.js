@@ -84,6 +84,50 @@ export const en = {
       dishwasher: 'Dishwasher',
       oven: 'Oven',
       storage: 'Storage'
+    },
+    landlord: {
+      meetYourLandlord: 'Meet your landlord',
+      landlordName: 'Samtrygg AB',
+      landlordType: 'Landlord',
+      landlordDescription: 'We publish new ads every day. Follow the link in our ads to samtrygg.se to book viewings safely, easily and for free. Samtrygg is the safe marketplace for home rentals. Follow the link in our ads to book a viewing.',
+      insights: 'Insights',
+      publishedDaysAgo: 'Published {days} days ago',
+      views: '{views} views',
+      applicantsCount: '{count} applicants',
+      conversations: '{count} open conversations',
+      similarRent: 'Rent for similar homes not available',
+      responseTime: 'Typically responds within {time}',
+      unlockInsights: 'Unlock all insights with',
+      getPremium: 'Get Qasa Premium',
+      readMore: 'Read more'
+    },
+    amenitiesTitle: 'Amenities',
+    houseRulesTitle: 'House rules and accessibility',
+    houseRules: {
+      upToTenants: 'Up to {count} tenants',
+      noPets: 'No pets',
+      notWheelchairAccessible: 'Not wheelchair accessible',
+      noSmoking: 'No smoking'
+    },
+    datesTitle: 'Dates',
+    rentTitle: 'Rent',
+    rentDetails: {
+      monthlyCost: 'Monthly cost',
+      rent: 'Rent',
+      serviceFee: 'Service fee',
+      additionalCosts: 'Additional costs',
+      electricityFee: 'Electricity fee',
+      included: 'Included',
+      deposit: 'Deposit'
+    },
+    description: {
+      modernApartment: 'Modern apartment with open floor plan and plenty of natural light. The apartment is located in a quiet area with proximity to transportation and services. Parking is included and fiber is installed.',
+      autoTranslated: 'This description has been automatically translated to English and may contain inaccuracies. Show original'
+    },
+    moreHomes: {
+      title: 'More homes you might like',
+      allHomesIn: 'All homes in {location}',
+      allApartmentsIn: 'All apartments in {location}'
     }
   },
 

@@ -18,6 +18,7 @@ export const QDS_ICONS = [
   'ArrowLeft',
   'ArrowRight',
   'ArrowUp',
+  'BadgeCheck',
   'Bell',
   'BellOff',
   'Bookmark',

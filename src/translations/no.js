@@ -176,6 +176,50 @@ export const no = {
       dishwasher: 'Oppvaskmaskin',
       oven: 'Ovn',
       storage: 'Lager'
+    },
+    landlord: {
+      meetYourLandlord: 'Møt utleieren din',
+      landlordName: 'Samtrygg AB',
+      landlordType: 'Utleier',
+      landlordDescription: 'Vi publiserer nye annonser hver dag. Følg lenken i våre annonser til samtrygg.se for å bestille visning trygt, enkelt og gratis. Samtrygg is the safe marketplace for home rentals. Follow the link in our ads to book a viewing.',
+      insights: 'Innsikter',
+      publishedDaysAgo: 'Publisert {days} dager siden',
+      views: '{views} visninger',
+      applicantsCount: '{count} søkere',
+      conversations: '{count} åpne samtaler',
+      similarRent: 'Leie for lignende boliger ikke tilgjengelig',
+      responseTime: 'Svarer vanligvis innen {time}',
+      unlockInsights: 'Lås opp alle innsikter med',
+      getPremium: 'Få Qasa Premium',
+      readMore: 'Les mer'
+    },
+    amenitiesTitle: 'Fasiliteter',
+    houseRulesTitle: 'Husregler og tilgjengelighet',
+    houseRules: {
+      upToTenants: 'Opptil {count} leietakere',
+      noPets: 'Ingen kjæledyr',
+      notWheelchairAccessible: 'Ikke rullestolvennlig',
+      noSmoking: 'Røyking forbudt'
+    },
+    datesTitle: 'Datoer',
+    rentTitle: 'Leie',
+    rentDetails: {
+      monthlyCost: 'Månedlig kostnad',
+      rent: 'Leie',
+      serviceFee: 'Serviceavgift',
+      additionalCosts: 'Tilleggskostnader',
+      electricityFee: 'Strømavgift',
+      included: 'Inkludert',
+      deposit: 'Depositum'
+    },
+    description: {
+      modernApartment: 'Moderne leilighet med åpen planløsning og mye naturlig lys. Leiligheten ligger i et rolig område med nærhet til transport og tjenester. Parkering er inkludert og fiber er installert.',
+      autoTranslated: 'Denne beskrivelsen er automatisk oversatt til engelsk og kan inneholde unøyaktigheter. Vis original'
+    },
+    moreHomes: {
+      title: 'Flere boliger du kanskje liker',
+      allHomesIn: 'Alle boliger i {location}',
+      allApartmentsIn: 'Alle leiligheter i {location}'
     }
   },
 
