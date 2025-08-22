@@ -13,6 +13,9 @@ const PropertyCard = ({
   onCardClick,
   statusChip = null,
   border = true,
+  imageShape = 'rounded',
+  fullyRounded = false,
+  showFavorite = true,
   className = '',
   ...props
 }) => {
@@ -22,6 +25,12 @@ const PropertyCard = ({
   // Support both single image and image array
   const images = Array.isArray(property.images) ? property.images : [property.image];
   const hasMultipleImages = images.length > 1;
+
+  // Image shape classes
+  const imageShapeClasses = {
+    rect: 'rounded-none',
+    rounded: 'rounded-t-3xl',
+  };
 
   const goToPrevious = (e) => {
     e.stopPropagation();
@@ -49,7 +58,13 @@ const PropertyCard = ({
   };
 
   return (
-    <Card variant="property" border={border} className={`cursor-pointer ${className}`} onClick={onCardClick} {...props}>
+    <Card 
+      variant="property" 
+      border={border} 
+      className={`cursor-pointer ${fullyRounded ? 'rounded-full' : ''} ${className}`} 
+      onClick={onCardClick} 
+      {...props}
+    >
       <div 
         className="relative group"
         onMouseEnter={() => setIsHovered(true)}
@@ -58,7 +73,7 @@ const PropertyCard = ({
         <img
           src={images[currentImageIndex]}
           alt={property.title}
-          className="w-full h-48 object-cover"
+          className={`w-full h-48 object-cover ${imageShapeClasses[imageShape] || imageShapeClasses.rounded}`}
         />
         
         {/* Status Chip */}
@@ -101,7 +116,7 @@ const PropertyCard = ({
         )}
         
         {/* Heart button */}
-        {onLikeToggle && (
+        {showFavorite && onLikeToggle && (
           <div className="absolute top-3 right-3">
             <Button
               variant="ghost"
@@ -177,6 +192,9 @@ PropertyCard.propTypes = {
   onCardClick: PropTypes.func,
   statusChip: PropTypes.oneOf(['apply-earlier', 'first-hand', 'premium', 'new']),
   border: PropTypes.bool,
+  imageShape: PropTypes.oneOf(['rect', 'rounded']),
+  fullyRounded: PropTypes.bool,
+  showFavorite: PropTypes.bool,
   className: PropTypes.string,
 };
 

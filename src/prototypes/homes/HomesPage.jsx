@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../../components/ui/Search';
 import FilterButton from '../../components/ui/FilterButton';
 import FilterModal from '../../components/ui/FilterModal';
 import Card from '../../components/ui/Card';
 import Typography from '../../components/ui/Typography';
-import Select from '../../components/ui/Select';
+
 import Button from '../../components/ui/Button';
 import Icon from '../../components/ui/Icon';
 import Dropdown from '../../components/ui/Dropdown';
@@ -205,6 +205,8 @@ const HomesPage = () => {
                     onLikeToggle={() => handleLikeToggle(property.id)}
                     onCardClick={() => handlePropertyClick(property)}
                     border={false}
+                    imageShape="rect"
+                    showFavorite={false}
                     className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                   />
                 </div>
@@ -236,6 +238,8 @@ const HomesPage = () => {
                   onLikeToggle={() => handleLikeToggle(property.id)}
                   onCardClick={() => handlePropertyClick(property)}
                   border={false}
+                  imageShape="rect"
+                  showFavorite={false}
                   className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                 />
               </div>

@@ -1497,46 +1497,71 @@ const DesignSystem = () => {
                 
                 <div>
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">PropertyCard Component</Typography>
-                  <div className="space-y-4">
-                    <PropertyCard 
-                      property={{
-                        id: 1,
-                        location: 'Östermalm, Stockholm',
-                        type: 'Lägenhet',
-                        details: '2 rum / 65 m²',
-                        price: 'SEK 18,500',
-                        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
-                        lat: 59.3358,
-                        lng: 18.0871
-                      }}
-                      statusChip="apply-earlier"
-                    />
-                    <PropertyCard 
-                      property={{
-                        id: 2,
-                        location: 'Södermalm, Stockholm',
-                        type: 'Lägenhet',
-                        details: '3 rum / 85 m²',
-                        price: 'SEK 22,000',
-                        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
-                        lat: 59.3158,
-                        lng: 18.0671
-                      }}
-                      statusChip="first-hand"
-                    />
-                    <PropertyCard 
-                      property={{
-                        id: 3,
-                        location: 'Vasastan, Stockholm',
-                        type: 'Lägenhet',
-                        details: '1 rum / 45 m²',
-                        price: 'SEK 15,500',
-                        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
-                        lat: 59.3458,
-                        lng: 18.0471
-                      }}
-                      statusChip="premium"
-                    />
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add PropertyCard with border={false} for clean listings" or "Use PropertyCard imageShape='rect' for rectangular images" or "Include PropertyCard showFavorite={false} to hide heart button"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Add PropertyCard with border={false} for clean listings')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Add PropertyCard with border={false} for clean listings' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Default (Border + Rounded)</Typography>
+                      <PropertyCard 
+                        property={{
+                          id: 1,
+                          location: 'Östermalm, Stockholm',
+                          type: 'Lägenhet',
+                          details: '2 rum / 65 m²',
+                          price: 'SEK 18,500',
+                          image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          lat: 59.3358,
+                          lng: 18.0871
+                        }}
+                        statusChip="apply-earlier"
+                      />
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Borderless + Rect Image</Typography>
+                      <PropertyCard 
+                        property={{
+                          id: 2,
+                          location: 'Södermalm, Stockholm',
+                          type: 'Lägenhet',
+                          details: '3 rum / 85 m²',
+                          price: 'SEK 22,000',
+                          image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          lat: 59.3158,
+                          lng: 18.0671
+                        }}
+                        border={false}
+                        imageShape="rect"
+                        showFavorite={false}
+                        statusChip="first-hand"
+                      />
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Fully Rounded</Typography>
+                      <PropertyCard 
+                        property={{
+                          id: 3,
+                          location: 'Vasastan, Stockholm',
+                          type: 'Lägenhet',
+                          details: '1 rum / 45 m²',
+                          price: 'SEK 15,500',
+                          image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          lat: 59.3458,
+                          lng: 18.0471
+                        }}
+                        fullyRounded={true}
+                        statusChip="premium"
+                      />
+                    </div>
                   </div>
                 </div>
                 
