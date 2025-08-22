@@ -5,8 +5,9 @@ import { Search as SearchIcon } from 'lucide-react';
 const Search = forwardRef(({ 
   placeholder = 'Search cities or districts',
   size = 'md',
+  variant = 'default',
   className = '',
-  iconColorClass = 'text-gray-60',
+  iconColorClass = 'text-gray-800',
   ...props
 }, ref) => {
   const sizeClasses = {
@@ -19,6 +20,11 @@ const Search = forwardRef(({
     sm: 'w-4 h-4',
     md: 'w-5 h-5',
     lg: 'w-6 h-6',
+  };
+
+  const variantClasses = {
+    default: 'bg-white border border-gray-900 focus:border-gray-400',
+    filled: 'bg-[var(--color-button-tertiary-bg)] border-2 border-transparent focus:bg-white focus:border-gray-900',
   };
 
   return (
@@ -35,14 +41,13 @@ const Search = forwardRef(({
           ${sizeClasses[size]}
           pl-12
           rounded-full
-          border
-          border-gray-30
-          bg-white
+          ${variantClasses[variant]}
           focus:outline-none
           focus:ring-0
-          focus:border-gray-50
-          placeholder:text-gray-60
-          text-gray-90
+          focus:ring-offset-0
+          placeholder:text-gray-800
+          text-gray-800
+          transition-colors
           ${className}
         `}
         {...props}
@@ -56,6 +61,7 @@ Search.displayName = 'Search';
 Search.propTypes = {
   placeholder: PropTypes.string,
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  variant: PropTypes.oneOf(['default', 'filled']),
   className: PropTypes.string,
 };
 

@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 import Typography from '../Typography';
-import { Heart, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import Button from '../Button';
+import Icon from '../Icon';
+import { Heart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const PropertyCard = ({
   property,
@@ -10,6 +12,7 @@ const PropertyCard = ({
   onLikeToggle,
   onCardClick,
   statusChip = null,
+  border = true,
   className = '',
   ...props
 }) => {
@@ -46,7 +49,7 @@ const PropertyCard = ({
   };
 
   return (
-    <Card variant="property" className={`cursor-pointer ${className}`} onClick={onCardClick} {...props}>
+    <Card variant="property" border={border} className={`cursor-pointer ${className}`} onClick={onCardClick} {...props}>
       <div 
         className="relative group"
         onMouseEnter={() => setIsHovered(true)}
@@ -74,32 +77,44 @@ const PropertyCard = ({
         {/* Navigation arrows - only show on hover if multiple images */}
         {hasMultipleImages && isHovered && (
           <>
-            <button
-              onClick={goToPrevious}
-              className="absolute left-3 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all opacity-0 group-hover:opacity-100"
-            >
-              <ChevronLeft className="w-4 h-4 text-text-default" />
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-all opacity-0 group-hover:opacity-100"
-            >
-              <ChevronRight className="w-4 h-4 text-text-default" />
-            </button>
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={goToPrevious}
+                icon={<Icon name="ChevronLeft" size="sm" />}
+                iconOnly
+                className="bg-white/80 backdrop-blur-sm hover:bg-white"
+              />
+            </div>
+            <div className="absolute right-3 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={goToNext}
+                icon={<Icon name="ChevronRight" size="sm" />}
+                iconOnly
+                className="bg-white/80 backdrop-blur-sm hover:bg-white"
+              />
+            </div>
           </>
         )}
         
         {/* Heart button */}
         {onLikeToggle && (
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onLikeToggle();
-            }}
-            className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
-          >
-            <Heart className={`w-5 h-5 ${liked ? 'text-ui-pink fill-current' : 'text-text-subtle'}`} />
-          </button>
+          <div className="absolute top-3 right-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={(e) => {
+                e.stopPropagation();
+                onLikeToggle();
+              }}
+              icon={<Icon name="Heart" size="sm" className={liked ? 'text-[var(--color-primary)] fill-current' : 'text-gray-600'} />}
+              iconOnly
+              className="bg-white/80 backdrop-blur-sm hover:bg-white"
+            />
+          </div>
         )}
 
         {/* Dots indicator */}
@@ -135,7 +150,7 @@ const PropertyCard = ({
 
         {property.dateRange && (
           <div className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-text-subtle" />
+            <Icon name="Calendar" size="sm" className="text-gray-600" />
             <Typography variant="body-sm" color="secondary">
               {property.dateRange}
             </Typography>
@@ -161,6 +176,7 @@ PropertyCard.propTypes = {
   onLikeToggle: PropTypes.func,
   onCardClick: PropTypes.func,
   statusChip: PropTypes.oneOf(['apply-earlier', 'first-hand', 'premium', 'new']),
+  border: PropTypes.bool,
   className: PropTypes.string,
 };
 

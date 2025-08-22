@@ -1657,7 +1657,23 @@ const DesignSystem = () => {
                   </div>
                   <div>
                     <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">FilterButton Component</Typography>
-                    <FilterButton count={3} onClick={() => {}} />
+                    <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                      <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                        <strong>Prompt usage:</strong> "Add FilterButton for search filtering" or "Use FilterButton with count for active filters" or "Include FilterButton with Search component"
+                      </Typography>
+                      <button
+                        onClick={() => copyToClipboard('Add FilterButton for search filtering')}
+                        className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                      >
+                        {copiedText === 'Add FilterButton for search filtering' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        Copy prompt
+                      </button>
+                    </div>
+                    <div className="space-y-3">
+                      <FilterButton onClick={() => {}} />
+                      <FilterButton count={3} onClick={() => {}} />
+                      <FilterButton size="lg" count={5} onClick={() => {}} />
+                    </div>
                   </div>
                   <div>
                     <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">Dropdown Component</Typography>
@@ -1885,10 +1901,36 @@ const DesignSystem = () => {
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Search Component</Typography>
                   <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                     <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                      <strong>Prompt usage:</strong> "Add Search component for property search" or "Use Search with placeholder text" or "Include Search for location-based filtering"
+                      <strong>Prompt usage:</strong> "Add Search component for property search" or "Use Search variant='filled' for tertiary backgrounds" or "Include Search with FilterButton for homes search"
                     </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Add Search component for property search')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Add Search component for property search' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
                   </div>
-                  <Search placeholder="Search properties..." />
+                  <div className="space-y-4">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Default Variant</Typography>
+                      <Search placeholder="Search properties..." />
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Filled Variant</Typography>
+                      <Search variant="filled" placeholder="Search properties..." />
+                      <Typography variant="body-xs" className="text-gray-600 mt-2">Focus: white background with gray border</Typography>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">With Filter Button</Typography>
+                      <div className="flex gap-3">
+                        <div className="flex-1">
+                          <Search variant="filled" placeholder="Search cities or districts" />
+                        </div>
+                        <FilterButton onClick={() => {}} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Tabs Component</Typography>

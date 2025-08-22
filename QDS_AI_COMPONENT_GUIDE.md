@@ -433,15 +433,25 @@ import Search from '@/components/ui/Search';
 import FilterModal from '@/components/ui/FilterModal';
 import FilterButton from '@/components/ui/FilterButton';
 
+// Default search (white background)
 <Search 
-  placeholder="Sök efter område eller adress"
-  onSearch={handleSearch}
+  placeholder="Search cities or districts"
+  variant="default"
 />
 
-<FilterButton 
-  count={3} 
-  onClick={() => setShowFilters(true)}
+// Filled search (tertiary background, white + 2px border on focus)
+<Search 
+  variant="filled"
+  placeholder="Search cities or districts"
 />
+
+// Search with filter button
+<div className="flex gap-3">
+  <div className="flex-1">
+    <Search variant="filled" placeholder="Search cities or districts" />
+  </div>
+  <FilterButton count={3} onClick={() => setShowFilters(true)} />
+</div>
 
 <FilterModal 
   isOpen={showFilters}

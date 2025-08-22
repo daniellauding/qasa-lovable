@@ -122,7 +122,7 @@ Use Typography component with semantic variants:
 
 ### Action Components
 - `Button` - Primary action element (7 variants, 5 sizes)
-- `FilterButton` - Specialized filter toggle
+- `FilterButton` - Specialized filter toggle (uses Button tertiary variant internally)
 - `Dropdown` - Action menu dropdown
 
 ### Feedback Components

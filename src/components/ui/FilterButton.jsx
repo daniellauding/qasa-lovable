@@ -1,61 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SlidersHorizontal } from 'lucide-react';
+import Button from './Button';
+import Icon from './Icon';
 
 const FilterButton = ({
   onClick,
   size = 'md',
   className = '',
   children = 'Filters',
+  count,
   ...props
 }) => {
-  const sizeClasses = {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-4 py-3',
-    lg: 'px-6 py-4 text-lg',
-  };
-
-  const iconSizeClasses = {
-    sm: 'w-4 h-4',
-    md: 'w-5 h-5',
-    lg: 'w-6 h-6',
-  };
-
   return (
-    <button
-      type="button"
+    <Button
+      variant="tertiary"
+      size={size}
       onClick={onClick}
-      className={`
-        inline-flex
-        items-center
-        gap-2
-        ${sizeClasses[size]}
-        rounded-full
-        border
-        border-gray-30
-        bg-gray-10
-        hover:bg-gray-20
-        focus:outline-none
-        focus:ring-0
-        focus:border-gray-50
-        text-gray-90
-        font-medium
-        transition-colors
-        ${className}
-      `}
+      icon={<Icon name="Sliders" size="sm" />}
+      iconPosition="left"
+      className={className}
       {...props}
     >
-      <SlidersHorizontal className={`${iconSizeClasses[size]}`} />
       {children}
-    </button>
+      {count && count > 0 && (
+        <span className="ml-1 bg-[var(--color-primary)] text-white text-xs px-1.5 py-0.5 rounded-full min-w-[1.25rem] h-5 flex items-center justify-center">
+          {count}
+        </span>
+      )}
+    </Button>
   );
 };
 
 FilterButton.propTypes = {
   onClick: PropTypes.func,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg', 'xl']),
   className: PropTypes.string,
   children: PropTypes.node,
+  count: PropTypes.number,
 };
 
 export default FilterButton; 

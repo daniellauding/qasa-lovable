@@ -17,6 +17,11 @@ export default {
       control: 'select',
       options: ['sm', 'md', 'lg'],
     },
+    variant: {
+      control: 'select',
+      options: ['default', 'filled'],
+      description: 'Visual variant of the search input'
+    },
   },
 };
 
@@ -26,12 +31,36 @@ export const Default = {
   },
 };
 
+export const Filled = {
+  args: {
+    placeholder: 'Search cities or districts',
+    variant: 'filled',
+  },
+};
+
 export const Sizes = {
   render: () => (
     <div className="flex flex-col gap-6 w-[500px]">
       <Search size="sm" placeholder="Small search" />
       <Search size="md" placeholder="Medium search (default)" />
       <Search size="lg" placeholder="Large search" />
+    </div>
+  ),
+};
+
+export const Variants = {
+  render: () => (
+    <div className="flex flex-col gap-6 w-[500px]">
+      <div>
+        <h3 className="text-sm font-medium mb-3">Default (White Background)</h3>
+        <Search variant="default" placeholder="Search cities or districts" />
+        <p className="text-xs text-gray-600 mt-2">Focus: subtle border highlight</p>
+      </div>
+      <div>
+        <h3 className="text-sm font-medium mb-3">Filled (Tertiary Background)</h3>
+        <Search variant="filled" placeholder="Search cities or districts" />
+        <p className="text-xs text-gray-600 mt-2">Focus: white background with gray border</p>
+      </div>
     </div>
   ),
 };
@@ -72,11 +101,12 @@ export const SearchWithFilter = {
           />
         </div>
 
-        {/* Search Bar with Filter - Full Width Version */}
-        <div className="w-[800px] p-4 bg-gray-10 rounded-2xl">
+        {/* Search Bar with Filter - Filled Version */}
+        <div className="w-[800px] p-4 bg-[var(--color-gray-10)] rounded-2xl">
           <div className="flex gap-3">
             <div className="flex-1">
               <Search
+                variant="filled"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Search cities or districts"

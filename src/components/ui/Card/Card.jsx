@@ -9,6 +9,7 @@ import LandlordCTACard from './LandlordCTACard';
 
 const Card = ({
   variant = 'default',
+  border = true,
   className = '',
   children,
   ...props
@@ -16,7 +17,7 @@ const Card = ({
   const baseClasses = [
     'rounded-3xl',
     'transition-all duration-200',
-    'border border-gray-30',
+    border ? 'border border-gray-30' : 'border-0',
     'hover:shadow-sm',
     'h-full',
     'flex',
@@ -47,6 +48,7 @@ const Card = ({
 
 Card.propTypes = {
   variant: PropTypes.oneOf(['default', 'tenant', 'create-profile', 'property', 'landlord', 'compact']),
+  border: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,
 };

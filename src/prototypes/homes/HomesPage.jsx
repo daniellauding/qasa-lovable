@@ -6,6 +6,9 @@ import FilterModal from '../../components/ui/FilterModal';
 import Card from '../../components/ui/Card';
 import Typography from '../../components/ui/Typography';
 import Select from '../../components/ui/Select';
+import Button from '../../components/ui/Button';
+import Icon from '../../components/ui/Icon';
+import Dropdown from '../../components/ui/Dropdown';
 import DevExperimentsButton from '../../components/DevExperimentsButton';
 import HeaderLoggedIn from '../../components/Header/HeaderLoggedIn';
 import Map from '../../components/ui/Map';
@@ -116,22 +119,6 @@ const HomesPage = () => {
   const [sortBy, setSortBy] = useState('published_descending');
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [properties] = useState(mockProperties);
-  const [sortDropdownOpen, setSortDropdownOpen] = useState(false);
-  const sortDropdownRef = useRef(null);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sortDropdownRef.current && !sortDropdownRef.current.contains(event.target)) {
-        setSortDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   const handleLikeToggle = (propertyId) => {
     setLikedProperties(prev => ({
@@ -160,7 +147,7 @@ const HomesPage = () => {
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Search Header - Fixed */}
         <div className="flex-shrink-0 px-4 sm:px-6 lg:px-8 py-6 border-b border-gray-200">
-          <Typography variant="h1" className="mb-6">
+          <Typography variant="display-md" className="mb-6">
             Hitta bostad att hyra
           </Typography>
 
@@ -171,7 +158,8 @@ const HomesPage = () => {
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
                 placeholder="Sök på stad eller område"
-                size="lg"
+                size="md"
+                variant="filled"
               />
             </div>
             <FilterButton
@@ -185,40 +173,22 @@ const HomesPage = () => {
             <Typography variant="body-md" className="text-gray-600">
               {properties.length} bostäder
             </Typography>
-            <div className="relative" ref={sortDropdownRef}>
-              <button
-                type="button"
-                className="bg-transparent text-gray-900 font-medium text-sm hover:text-gray-700 transition-colors flex items-center gap-1 w-fit"
-                onClick={() => setSortDropdownOpen(!sortDropdownOpen)}
-              >
-                <span>{sortOptions.find(opt => opt.value === sortBy)?.label || 'Nyast'}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className={`w-5 h-5 transition-transform ${sortDropdownOpen ? 'rotate-180' : ''}`}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                </svg>
-              </button>
-              
-              {/* Dropdown Menu */}
-              {sortDropdownOpen && (
-                <div className="absolute right-0 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-                  <div className="py-1">
-                    {sortOptions.map((option) => (
-                      <button
-                        key={option.value}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-background-inset)] transition-colors ${
-                          sortBy === option.value ? 'bg-[var(--color-background-inset)] text-gray-900 font-medium' : 'text-gray-700'
-                        }`}
-                        onClick={() => {
-                          setSortBy(option.value);
-                          setSortDropdownOpen(false);
-                        }}
-                      >
-                        {option.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <Dropdown
+              trigger={
+                <Button 
+                  variant="ghost" 
+                  icon={<Icon name="ChevronDown" size="sm" />}
+                  iconPosition="right"
+                >
+                  {sortOptions.find(opt => opt.value === sortBy)?.label || 'Nyast'}
+                </Button>
+              }
+              items={sortOptions.map((option) => ({
+                label: option.label,
+                onClick: () => setSortBy(option.value),
+                active: sortBy === option.value
+              }))}
+            />
           </div>
         </div>
 
@@ -234,6 +204,7 @@ const HomesPage = () => {
                     liked={likedProperties[property.id]}
                     onLikeToggle={() => handleLikeToggle(property.id)}
                     onCardClick={() => handlePropertyClick(property)}
+                    border={false}
                     className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                   />
                 </div>
@@ -264,6 +235,7 @@ const HomesPage = () => {
                   liked={likedProperties[property.id]}
                   onLikeToggle={() => handleLikeToggle(property.id)}
                   onCardClick={() => handlePropertyClick(property)}
+                  border={false}
                   className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                 />
               </div>

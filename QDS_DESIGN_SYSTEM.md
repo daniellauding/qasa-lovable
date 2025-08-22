@@ -27,7 +27,7 @@
 
 #### Input
 - **Text**: Standard text input
-- **Search**: Search functionality
+- **Search**: Search functionality with default (white) and filled (tertiary) variants
 - **Select**: Dropdown selections
 - **TextArea**: Multi-line text
 - **DatePicker**: Date selection
@@ -37,7 +37,7 @@
 - **Breadcrumbs**: Page hierarchy
 - **Tabs**: Content organization
 - **Pagination**: List navigation with page numbers, navigation arrows, and ellipsis support
-- **Search**: Property and content search functionality
+- **Search**: Property and content search functionality with default (white) and filled (tertiary) variants
 - **Accordion**: Collapsible content sections
 
 #### Feedback
