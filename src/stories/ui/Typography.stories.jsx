@@ -57,6 +57,7 @@ export const Titles = {
       <Typography variant="title-sm">Title Small (24px)</Typography>
       <Typography variant="title-xs">Title Extra Small (20px)</Typography>
       <Typography variant="title-2xs">Title 2X Small (16px)</Typography>
+      <Typography variant="title-xxs">Title XXS (14px)</Typography>
       <Typography variant="title-xl">Title XL (text-xl)</Typography>
       <Typography variant="title-2xl">Title 2XL (text-2xl)</Typography>
       <Typography variant="title-3xl">Title 3XL (text-3xl)</Typography>

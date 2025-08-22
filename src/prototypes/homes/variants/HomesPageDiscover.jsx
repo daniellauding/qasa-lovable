@@ -424,6 +424,9 @@ const HomesPageDiscover = () => {
                       liked={likedProperties[property.id]}
                       onLikeToggle={() => handleLikeToggle(property.id)}
                       onCardClick={() => handlePropertyClick(property)}
+                      dimensions="4:3"
+                      border={false}
+                      showFavorite={false}
                       className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                     />
                   </div>

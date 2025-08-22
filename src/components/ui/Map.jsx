@@ -5,6 +5,37 @@ import 'leaflet/dist/leaflet.css';
 import Card from './Card';
 import Typography from './Typography';
 
+// Custom map styles to match Qasa design
+const mapStyles = `
+  .leaflet-container {
+    background: var(--color-gray-10) !important;
+  }
+  .leaflet-control-zoom a {
+    background-color: white !important;
+    border: 1px solid #e5e7eb !important;
+    color: #374151 !important;
+    border-radius: 6px !important;
+    margin: 1px !important;
+  }
+  .leaflet-control-zoom a:hover {
+    background-color: #f9fafb !important;
+    border-color: #d1d5db !important;
+  }
+  .leaflet-control-attribution {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 6px !important;
+    font-size: 10px !important;
+    border: 1px solid #e5e7eb !important;
+  }
+  .leaflet-control-zoom {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    margin-top: 1rem !important;
+    margin-right: 1rem !important;
+  }
+`;
+
 // Fix for default markers in react-leaflet
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -15,9 +46,9 @@ L.Icon.Default.mergeOptions({
 
 // Create grouped pin icon
 const createGroupedPinIcon = (count, isActive = false) => {
-  const bgColor = isActive ? '#dc2626' : '#ffffff';
-  const textColor = isActive ? '#ffffff' : '#374151';
-  const borderColor = isActive ? '#dc2626' : '#d1d5db';
+  const bgColor = isActive ? 'var(--color-primary)' : '#ffffff';
+  const textColor = isActive ? '#ffffff' : 'var(--color-brown)';
+  const borderColor = isActive ? 'var(--color-primary)' : '#e2e8f0';
   
   return L.divIcon({
     html: `
@@ -48,9 +79,9 @@ const createGroupedPinIcon = (count, isActive = false) => {
 
 // Create price pin icon
 const createPricePinIcon = (price, isActive = false) => {
-  const bgColor = isActive ? '#dc2626' : '#ffffff';
-  const textColor = isActive ? '#ffffff' : '#374151';
-  const borderColor = isActive ? '#dc2626' : '#d1d5db';
+  const bgColor = isActive ? 'var(--color-primary)' : '#ffffff';
+  const textColor = isActive ? '#ffffff' : 'var(--color-brown)';
+  const borderColor = isActive ? 'var(--color-primary)' : '#e2e8f0';
   
   return L.divIcon({
     html: `
@@ -87,6 +118,19 @@ const Map = ({
   ...props
 }) => {
   const [map, setMap] = useState(null);
+  
+  // Inject custom styles
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = mapStyles;
+    document.head.appendChild(styleElement);
+    
+    return () => {
+      if (document.head.contains(styleElement)) {
+        document.head.removeChild(styleElement);
+      }
+    };
+  }, []);
   const [currentZoom, setCurrentZoom] = useState(zoom);
   const [groupedProperties, setGroupedProperties] = useState({});
   const [hoveredProperty, setHoveredProperty] = useState(null);
@@ -137,6 +181,11 @@ const Map = ({
     if (onPropertyClick) {
       onPropertyClick(property);
     }
+    // Scroll to property card if it exists
+    const propertyElement = document.getElementById(`property-${property.id}`);
+    if (propertyElement) {
+      propertyElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   const handleGroupClick = (group) => {
@@ -155,7 +204,10 @@ const Map = ({
         <Marker
           key={`group-${index}`}
           position={[group.lat, group.lng]}
-          icon={createGroupedPinIcon(group.count, false)}
+          icon={createGroupedPinIcon(
+            group.count, 
+            group.properties.some(p => p.id === selectedProperty?.id)
+          )}
           eventHandlers={{
             click: () => handleGroupClick(group),
             mouseover: () => setHoveredProperty(group.properties[0]),
@@ -234,6 +286,7 @@ const Map = ({
           <Card.PropertyCard
             property={hoveredProperty}
             onCardClick={() => handleMarkerClick(hoveredProperty)}
+            dimensions="4:3"
             className="shadow-lg"
           />
         </div>

@@ -50,6 +50,41 @@ export const fi = {
     subtitle: 'Valitse haluamasi kieli',
   },
 
+  // Property Details
+  propertyDetails: {
+    title: 'Billingevägen, Röstånga',
+    rooms: 'huonetta',
+    sqm: 'm²',
+    price: 'kr/kk',
+    moveInDate: 'Sisäänmuuttopäivä',
+    duration: 'Toistaiseksi',
+    location: 'Sijainti',
+    allImages: 'Kaikki kuvat',
+    description: 'Kuvaus',
+    quickInsights: 'Pikaoivallukset',
+    contact: 'Ota yhteyttä',
+    superApply: 'Superhaku',
+    rentBetter: 'Vuokraa paremmin ja turvallisemmin Qasan kanssa',
+    rentBetterDescription: 'Tässä kodissa on varmennettu vuokranantaja, turvallinen vuokrasopimus ja omisteinen tuki 7 päivää viikossa. Kaikki maksut käsitellään meidän kautta.',
+    readMore: 'Lue lisää',
+    published: 'Julkaistu',
+    today: 'Tänään',
+    viewings: 'Näytöt',
+    applicants: 'Hakijoiden määrä',
+    responseTime: 'Vastausaika',
+    lessThan24h: '< 24h',
+    busStop: 'min bussipysäkille',
+    toCenter: 'min keskustaan',
+    amenities: {
+      balcony: 'Parveke',
+      internet: 'Internet',
+      ownShower: 'Oma suihku',
+      dishwasher: 'Astianpesukone',
+      oven: 'Uuni',
+      storage: 'Varasto'
+    }
+  },
+
   // Footer
   footer: {
     homepage: 'Etusivu',
@@ -70,6 +105,22 @@ export const fi = {
     careers: 'Työpaikat',
     pressMedia: 'Lehdistö & media',
     language: 'Suomi',
+  },
+
+  // Homes Page
+  homes: {
+    title: 'Löydä vuokrakoti',
+    searchPlaceholder: 'Hae kaupungilla tai alueella',
+    resultsCount: '{count} kotia',
+    sortBy: 'Lajittele',
+    sortOptions: {
+      newest: 'Uusin',
+      oldest: 'Vanhin',
+      priceAsc: 'Hinta: Alin ensin',
+      priceDesc: 'Hinta: Korkein ensin',
+      sizeAsc: 'Koko: Pienin ensin',
+      sizeDesc: 'Koko: Suurin ensin',
+    },
   },
 
   // Find Tenant Page

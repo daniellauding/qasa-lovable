@@ -215,6 +215,66 @@ export const PropertyCards = {
   },
 };
 
+export const PropertyCardDimensions = {
+  render: () => {
+    const [likedStates, setLikedStates] = React.useState({});
+    
+    const toggleLike = (id) => {
+      setLikedStates(prev => ({ ...prev, [id]: !prev[id] }));
+    };
+
+    const dimensions = [
+      { key: 'default', label: 'Default (h-48)' },
+      { key: '4:3', label: '4:3 Rectangle' },
+      { key: '16:9', label: '16:9 Widescreen' },
+      { key: '1:1', label: '1:1 Square' },
+      { key: '3:2', label: '3:2 Photo' },
+      { key: '2:3', label: '2:3 Portrait' },
+      { key: 'rectangle', label: 'Rectangle (alias for 4:3)' },
+    ];
+
+    const baseProperty = {
+      id: 1,
+      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&h=400&fit=crop',
+      location: 'Östermalm, Stockholm',
+      type: 'Apartment',
+      details: '2 rooms / 65 m²',
+      price: 'SEK 18,500',
+      dateRange: '2025-07-15 → Until further notice',
+    };
+
+    return (
+      <div className="space-y-8">
+        <div className="text-center">
+          <h3 className="text-lg font-semibold mb-2">PropertyCard Dimensions</h3>
+          <p className="text-sm text-gray-600 mb-4">
+            Different aspect ratios for property card images
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl">
+          {dimensions.map((dimension) => (
+            <div key={dimension.key} className="space-y-2">
+              <div className="text-center">
+                <p className="text-sm font-medium text-gray-700 mb-2">{dimension.label}</p>
+              </div>
+              <Card.PropertyCard
+                property={{
+                  ...baseProperty,
+                  id: `${dimension.key}-${baseProperty.id}`,
+                }}
+                dimensions={dimension.key}
+                liked={likedStates[`${dimension.key}-${baseProperty.id}`]}
+                onLikeToggle={() => toggleLike(`${dimension.key}-${baseProperty.id}`)}
+                onCardClick={() => alert(`${dimension.label} property clicked!`)}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  },
+};
+
 export const LandlordCards = {
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl">
@@ -476,6 +536,46 @@ export const BoxCardContact = {
         </div>
       </div>
       <Button variant="primary" size="sm" className="mt-4 w-full">Contact Landlord</Button>
+    </div>
+  ),
+};
+
+export const SidebarCards = {
+  render: () => (
+    <div className="space-y-6 max-w-lg">
+      <div>
+        <Typography variant="title-sm" className="mb-3">Sidebar Card (White Background)</Typography>
+        <Card variant="sidebar">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <Typography variant="body-sm" color="secondary">2025-07-01</Typography>
+                <Icon name="ArrowRight" size="sm" />
+                <Typography variant="body-sm" color="secondary">Until further notice</Typography>
+              </div>
+            </div>
+            <Button variant="tertiary" icon={<Icon name="Info" size="sm" />} />
+          </div>
+          <div className="mb-6">
+            <Typography variant="title-lg" className="font-bold">SEK 15,524</Typography>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="secondary" fullWidth>Super Apply</Button>
+            <Button variant="primary" fullWidth>Contact</Button>
+          </div>
+        </Card>
+      </div>
+
+      <div>
+        <Typography variant="title-sm" className="mb-3">Sidebar Card (Gray Background)</Typography>
+        <Card variant="sidebar-inset">
+          <Typography variant="title-sm" className="mb-3">Rent better and safer with Qasa</Typography>
+          <Typography variant="body-sm" color="secondary" className="mb-4">
+            This home has a verified landlord, a safe lease and dedicated support 7 days a week. All payments are managed through us.
+          </Typography>
+          <Button variant="tertiary" size="sm">Read more</Button>
+        </Card>
+      </div>
     </div>
   ),
 };

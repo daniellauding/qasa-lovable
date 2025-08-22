@@ -479,6 +479,14 @@ const DesignSystem = () => {
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xs</Typography>
                   <Typography variant="title-xs">Title Extra Small</Typography>
                 </div>
+                <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-2xs</Typography>
+                  <Typography variant="title-2xs">Title 2X Small</Typography>
+                </div>
+                <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xxs</Typography>
+                  <Typography variant="title-xxs">Title XXS</Typography>
+                </div>
                   </div>
                 </div>
                 
@@ -1499,13 +1507,16 @@ const DesignSystem = () => {
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">PropertyCard Component</Typography>
                   <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                     <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                      <strong>Prompt usage:</strong> "Add PropertyCard with border={false} for clean listings" or "Use PropertyCard imageShape='rect' for rectangular images" or "Include PropertyCard showFavorite={false} to hide heart button"
+                      <strong>Prompt usage:</strong> "Add PropertyCard with border={false} for clean listings" or "Use PropertyCard imageShape='rect' for rectangular images" or "Include PropertyCard showFavorite={false} to hide heart button" or "Add PropertyCard dimensions='4:3' for rectangle aspect ratio"
+                    </Typography>
+                    <Typography variant="body-sm" className="text-[var(--color-text-secondary)] mt-2">
+                      <strong>Dimensions prop:</strong> "default" (h-48), "4:3" (rectangle), "16:9" (widescreen), "1:1" (square), "3:2" (photo), "2:3" (portrait), "rectangle" (alias for 4:3)
                     </Typography>
                     <button
-                      onClick={() => copyToClipboard('Add PropertyCard with border={false} for clean listings')}
+                      onClick={() => copyToClipboard('Add PropertyCard dimensions=\'4:3\' for rectangle aspect ratio')}
                       className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
                     >
-                      {copiedText === 'Add PropertyCard with border={false} for clean listings' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedText === 'Add PropertyCard dimensions=\'4:3\' for rectangle aspect ratio' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                       Copy prompt
                     </button>
                   </div>
@@ -1563,6 +1574,89 @@ const DesignSystem = () => {
                       />
                     </div>
                   </div>
+                  
+                  {/* PropertyCard Dimensions Section */}
+                  <div className="mt-8">
+                    <Typography variant="title-sm" className="mb-3 font-medium">PropertyCard Dimensions</Typography>
+                    <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                      <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                        <strong>Prompt usage:</strong> "Add PropertyCard dimensions='4:3' for rectangle images" or "Use PropertyCard dimensions='16:9' for widescreen" or "Include PropertyCard dimensions='1:1' for square images"
+                      </Typography>
+                      <button
+                        onClick={() => copyToClipboard('Add PropertyCard dimensions=\'4:3\' for rectangle images')}
+                        className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                      >
+                        {copiedText === 'Add PropertyCard dimensions=\'4:3\' for rectangle images' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        Copy prompt
+                      </button>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">4:3 Rectangle</Typography>
+                        <PropertyCard 
+                          property={{
+                            id: 11,
+                            location: 'Östermalm, Stockholm',
+                            type: 'Lägenhet',
+                            details: '2 rum / 65 m²',
+                            price: 'SEK 18,500',
+                            image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          }}
+                          dimensions="4:3"
+                          border={false}
+                          showFavorite={false}
+                        />
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">16:9 Widescreen</Typography>
+                        <PropertyCard 
+                          property={{
+                            id: 12,
+                            location: 'Södermalm, Stockholm',
+                            type: 'Lägenhet',
+                            details: '3 rum / 85 m²',
+                            price: 'SEK 22,000',
+                            image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          }}
+                          dimensions="16:9"
+                          border={false}
+                          showFavorite={false}
+                        />
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">1:1 Square</Typography>
+                        <PropertyCard 
+                          property={{
+                            id: 13,
+                            location: 'Vasastan, Stockholm',
+                            type: 'Lägenhet',
+                            details: '1 rum / 45 m²',
+                            price: 'SEK 15,500',
+                            image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          }}
+                          dimensions="1:1"
+                          border={false}
+                          showFavorite={false}
+                        />
+                      </div>
+                      <div>
+                        <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">3:2 Photo</Typography>
+                        <PropertyCard 
+                          property={{
+                            id: 14,
+                            location: 'Norrmalm, Stockholm',
+                            type: 'Lägenhet',
+                            details: '2 rum / 55 m²',
+                            price: 'SEK 19,500',
+                            image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400',
+                          }}
+                          dimensions="3:2"
+                          border={false}
+                          showFavorite={false}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
                 <div>
@@ -1579,6 +1673,56 @@ const DesignSystem = () => {
                       moveDate: 'Available now'
                     }}
                   />
+                </div>
+                
+                <div>
+                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Sidebar Card Variants</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add Card variant='sidebar' for white sidebar content" or "Use Card variant='sidebar-inset' for gray sidebar sections" or "Include sidebar cards with shadow and rounded-lg styling"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Add Card variant=\'sidebar\' for white sidebar content')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Add Card variant=\'sidebar\' for white sidebar content' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
+                  <div className="space-y-6 max-w-md">
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Sidebar (White Background)</Typography>
+                      <Card variant="sidebar">
+                        <div className="flex items-center justify-between mb-4">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <Typography variant="body-sm" color="secondary">2025-07-01</Typography>
+                              <Icon name="ArrowRight" size="sm" />
+                              <Typography variant="body-sm" color="secondary">Until further notice</Typography>
+                            </div>
+                          </div>
+                          <Button variant="tertiary" icon={<Icon name="Info" size="sm" />} />
+                        </div>
+                        <div className="mb-6">
+                          <Typography variant="title-lg" className="font-bold">SEK 15,524</Typography>
+                        </div>
+                        <div className="flex gap-2">
+                          <Button variant="secondary" fullWidth>Super Apply</Button>
+                          <Button variant="primary" fullWidth>Contact</Button>
+                        </div>
+                      </Card>
+                    </div>
+                    <div>
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">Sidebar Inset (Gray Background)</Typography>
+                      <Card variant="sidebar-inset">
+                        <Typography variant="title-sm" className="mb-3">Rent better and safer with Qasa</Typography>
+                        <Typography variant="body-sm" color="secondary" className="mb-4">
+                          This home has a verified landlord, a safe lease and dedicated support 7 days a week.
+                        </Typography>
+                        <Button variant="tertiary" size="sm">Read more</Button>
+                      </Card>
+                    </div>
+                  </div>
                 </div>
                 
                 <div>

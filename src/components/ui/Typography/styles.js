@@ -11,6 +11,7 @@ export const variantClasses = {
   'title-sm': 'text-2xl font-bold font-title', // 24px
   'title-xs': 'text-xl font-bold font-title', // 20px
   'title-2xs': 'text-base font-bold font-title', // 16px
+  'title-xxs': 'text-sm font-bold font-title', // 14px
   // Title scale variants aligned with Tailwind text sizes
   'title-xl': 'text-xl font-bold font-title',
   'title-2xl': 'text-2xl font-bold font-title',
@@ -89,7 +90,7 @@ export const typographyVariants = [
   // Display variants
   'display-lg', 'display-md', 'display-sm',
   // Title variants  
-  'title-lg', 'title-md', 'title-sm', 'title-xs', 'title-2xs',
+  'title-lg', 'title-md', 'title-sm', 'title-xs', 'title-2xs', 'title-xxs',
   'title-xl', 'title-2xl', 'title-3xl', 'title-4xl', 'title-5xl', 'title-6xl', 'title-7xl', 'title-8xl', 'title-9xl',
   // Label variants
   'label-md', 'label-sm',

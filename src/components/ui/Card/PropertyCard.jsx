@@ -16,6 +16,7 @@ const PropertyCard = ({
   imageShape = 'rounded',
   fullyRounded = false,
   showFavorite = true,
+  dimensions = 'default',
   className = '',
   ...props
 }) => {
@@ -29,7 +30,18 @@ const PropertyCard = ({
   // Image shape classes
   const imageShapeClasses = {
     rect: 'rounded-none',
-    rounded: 'rounded-t-3xl',
+    rounded: 'rounded-3xl',
+  };
+
+  // Image dimension classes
+  const dimensionClasses = {
+    default: 'h-48', // Default height
+    '4:3': 'aspect-[4/3]',
+    '16:9': 'aspect-[16/9]',
+    '1:1': 'aspect-square',
+    '3:2': 'aspect-[3/2]',
+    '2:3': 'aspect-[2/3]',
+    rectangle: 'aspect-[4/3]', // Alias for 4:3
   };
 
   const goToPrevious = (e) => {
@@ -73,7 +85,7 @@ const PropertyCard = ({
         <img
           src={images[currentImageIndex]}
           alt={property.title}
-          className={`w-full h-48 object-cover ${imageShapeClasses[imageShape] || imageShapeClasses.rounded}`}
+          className={`w-full ${dimensionClasses[dimensions] || dimensionClasses.default} object-cover ${imageShapeClasses[imageShape] || imageShapeClasses.rounded}`}
         />
         
         {/* Status Chip */}
@@ -148,29 +160,28 @@ const PropertyCard = ({
       </div>
 
       <div className="p-4">
-        <div className="flex items-start justify-between mb-2">
+        <div className="flex items-start justify-between mb-1">
           <div>
             <Typography variant="title-xs" className="mb-1">
               {property.location}
             </Typography>
-            <Typography variant="body-sm" color="secondary">
+            <Typography variant="body-md">
               {property.type} / {property.details}
             </Typography>
           </div>
         </div>
 
-        <Typography variant="title-xs" className="mb-3">
-          {property.price}
-        </Typography>
-
         {property.dateRange && (
-          <div className="flex items-center gap-2">
-            <Icon name="Calendar" size="sm" className="text-gray-600" />
-            <Typography variant="body-sm" color="secondary">
+          <div className="flex items-center gap-2 mb-1">
+            <Typography variant="body-md">
               {property.dateRange}
             </Typography>
           </div>
         )}
+
+        <Typography variant="title-xxs" className="mb-3">
+          {property.price}
+        </Typography>
       </div>
     </Card>
   );
@@ -195,6 +206,7 @@ PropertyCard.propTypes = {
   imageShape: PropTypes.oneOf(['rect', 'rounded']),
   fullyRounded: PropTypes.bool,
   showFavorite: PropTypes.bool,
+  dimensions: PropTypes.oneOf(['default', '4:3', '16:9', '1:1', '3:2', '2:3', 'rectangle']),
   className: PropTypes.string,
 };
 

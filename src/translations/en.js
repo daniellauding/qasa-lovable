@@ -50,6 +50,41 @@ export const en = {
     subtitle: 'Choose your preferred language',
   },
 
+  // Property Details
+  propertyDetails: {
+    title: 'Billingevägen, Röstånga',
+    rooms: 'rooms',
+    sqm: 'm²',
+    price: 'kr/month',
+    moveInDate: 'Move-in date',
+    duration: 'Until further notice',
+    location: 'Location',
+    allImages: 'All images',
+    description: 'Description',
+    quickInsights: 'Quick insights',
+    contact: 'Contact',
+    superApply: 'Super apply',
+    rentBetter: 'Rent better and safer with Qasa',
+    rentBetterDescription: 'This home has a verified landlord, a secure rental agreement and dedicated support 7 days a week. All payments are handled through us.',
+    readMore: 'Read more',
+    published: 'Published',
+    today: 'Today',
+    viewings: 'Viewings',
+    applicants: 'Number of applicants',
+    responseTime: 'Response time',
+    lessThan24h: '< 24h',
+    busStop: 'min to bus stop',
+    toCenter: 'min to center',
+    amenities: {
+      balcony: 'Balcony',
+      internet: 'Internet',
+      ownShower: 'Own shower',
+      dishwasher: 'Dishwasher',
+      oven: 'Oven',
+      storage: 'Storage'
+    }
+  },
+
   // Footer
   footer: {
     homepage: 'Homepage',
@@ -70,6 +105,22 @@ export const en = {
     careers: 'Careers',
     pressMedia: 'Press & media',
     language: 'English',
+  },
+
+  // Homes Page
+  homes: {
+    title: 'Find home for rent',
+    searchPlaceholder: 'Search for city or area',
+    resultsCount: '{count} homes',
+    sortBy: 'Sort by',
+    sortOptions: {
+      newest: 'Newest',
+      oldest: 'Oldest',
+      priceAsc: 'Price: Low to High',
+      priceDesc: 'Price: High to Low',
+      sizeAsc: 'Size: Small to Large',
+      sizeDesc: 'Size: Large to Small',
+    },
   },
 
   // Find Tenant Page

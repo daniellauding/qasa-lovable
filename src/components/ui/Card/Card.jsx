@@ -18,7 +18,7 @@ const Card = ({
     'rounded-3xl',
     'transition-all duration-200',
     border ? 'border border-gray-30' : 'border-0',
-    'hover:shadow-sm',
+    // 'hover:shadow-sm',
     'h-full',
     'flex',
     'flex-col'
@@ -31,6 +31,8 @@ const Card = ({
     property: 'overflow-hidden bg-white',
     landlord: 'p-4 bg-white',
     compact: 'p-4 bg-white',
+    sidebar: 'p-6 bg-white shadow-md rounded-2xl border-0',
+    'sidebar-inset': 'p-6 bg-[var(--color-gray-10)] shadow-md rounded-2xl border-0',
   };
 
   const classes = [
@@ -47,7 +49,7 @@ const Card = ({
 };
 
 Card.propTypes = {
-  variant: PropTypes.oneOf(['default', 'tenant', 'create-profile', 'property', 'landlord', 'compact']),
+  variant: PropTypes.oneOf(['default', 'tenant', 'create-profile', 'property', 'landlord', 'compact', 'sidebar', 'sidebar-inset']),
   border: PropTypes.bool,
   className: PropTypes.string,
   children: PropTypes.node,

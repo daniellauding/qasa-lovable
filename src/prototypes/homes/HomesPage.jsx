@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../../utils/translations/LanguageContext';
 import Search from '../../components/ui/Search';
 import FilterButton from '../../components/ui/FilterButton';
 import FilterModal from '../../components/ui/FilterModal';
@@ -8,7 +9,7 @@ import Typography from '../../components/ui/Typography';
 
 import Button from '../../components/ui/Button';
 import Icon from '../../components/ui/Icon';
-import Dropdown from '../../components/ui/Dropdown';
+import Dropdown, { DropdownItem } from '../../components/ui/Dropdown';
 import DevExperimentsButton from '../../components/DevExperimentsButton';
 import HeaderLoggedIn from '../../components/Header/HeaderLoggedIn';
 import Map from '../../components/ui/Map';
@@ -98,27 +99,27 @@ const mockProperties = [
   },
 ];
 
-const sortOptions = [
-  { value: 'published_descending', label: 'Nyast' },
-  { value: 'published_ascending', label: 'Äldst' },
-  { value: 'monthly_cost_ascending', label: 'Pris – Lägst' },
-  { value: 'monthly_cost_descending', label: 'Pris – Högst' },
-  { value: 'square_meters_descending', label: 'Storlek – Störst' },
-  { value: 'square_meters_ascending', label: 'Storlek – Minst' },
-  { value: 'move_in_ascending', label: 'Inflytt – Tidigast' },
-  { value: 'move_in_descending', label: 'Inflytt – Senast' },
-  { value: 'move_out_ascending', label: 'Utflytt – Tidigast' },
-  { value: 'move_out_descending', label: 'Utflytt – Senast' },
-];
+
 
 const HomesPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [likedProperties, setLikedProperties] = useState({});
   const [sortBy, setSortBy] = useState('published_descending');
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [properties] = useState(mockProperties);
+
+  // Dynamic sort options with translations
+  const sortOptions = [
+    { value: 'published_descending', label: t('homes.sortOptions.newest') },
+    { value: 'published_ascending', label: t('homes.sortOptions.oldest') },
+    { value: 'price_ascending', label: t('homes.sortOptions.priceAsc') },
+    { value: 'price_descending', label: t('homes.sortOptions.priceDesc') },
+    { value: 'size_ascending', label: t('homes.sortOptions.sizeAsc') },
+    { value: 'size_descending', label: t('homes.sortOptions.sizeDesc') },
+  ];
 
   const handleLikeToggle = (propertyId) => {
     setLikedProperties(prev => ({
@@ -145,57 +146,64 @@ const HomesPage = () => {
 
       {/* Main Content - Full height with header and search */}
       <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Search Header - Fixed */}
-        <div className="flex-shrink-0 px-4 sm:px-6 lg:px-8 py-6 border-b border-gray-200">
-          <Typography variant="display-md" className="mb-6">
-            Hitta bostad att hyra
-          </Typography>
-
-          {/* Search and Filter */}
-          <div className="flex gap-3 mb-6">
-            <div className="flex-1">
-              <Search
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder="Sök på stad eller område"
-                size="md"
-                variant="filled"
-              />
-            </div>
-            <FilterButton
-              size="lg"
-              onClick={() => setIsFilterOpen(true)}
-            />
-          </div>
-
-          {/* Results count and sort */}
-          <div className="flex items-center justify-between">
-            <Typography variant="body-md" className="text-gray-600">
-              {properties.length} bostäder
-            </Typography>
-            <Dropdown
-              trigger={
-                <Button 
-                  variant="ghost" 
-                  icon={<Icon name="ChevronDown" size="sm" />}
-                  iconPosition="right"
-                >
-                  {sortOptions.find(opt => opt.value === sortBy)?.label || 'Nyast'}
-                </Button>
-              }
-              items={sortOptions.map((option) => ({
-                label: option.label,
-                onClick: () => setSortBy(option.value),
-                active: sortBy === option.value
-              }))}
-            />
-          </div>
-        </div>
 
         {/* Content Area - Listings and Map (Desktop) */}
         <div className="hidden lg:flex flex-1 overflow-hidden">
           {/* Property Listings - Scrollable */}
           <div className="w-1/2 overflow-y-auto p-4 sm:p-6 lg:p-8">
+
+            {/* Search Header - Fixed */}
+            <div className="flex-shrink-0 px-0 sm:px-0 lg:px-0 py-6 pb-2">
+                <Typography variant="title-md" className="mb-6">
+                 {t('homes.title')}
+               </Typography>
+
+              {/* Search and Filter */}
+              <div className="flex gap-3 mb-8">
+                <div className="flex-1">
+                  <Search
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    placeholder={t('homes.searchPlaceholder')}
+                    size="md"
+                    variant="filled"
+                  />
+                </div>
+                <FilterButton
+                  size="lg"
+                  onClick={() => setIsFilterOpen(true)}
+                  className="mr-8 mr:pr-8 mr:pr-8"
+                />
+              </div>
+
+              {/* Results count and sort */}
+              <div className="flex items-center justify-between">
+                <Typography variant="body-md">
+                  {t('homes.resultsCount', { count: properties.length })}
+                </Typography>
+                <Dropdown
+                  trigger={
+                    <Button 
+                      variant="ghost" 
+                      icon={<Icon name="ChevronDown" size="sm" />}
+                      iconPosition="right"
+                    >
+                      {sortOptions.find(opt => opt.value === sortBy)?.label || t('homes.sortOptions.newest')}
+                    </Button>
+                  }
+                >
+                  {sortOptions.map((option) => (
+                    <DropdownItem
+                      key={option.value}
+                      onClick={() => setSortBy(option.value)}
+                    >
+                      {option.label}
+                    </DropdownItem>
+                  ))}
+                </Dropdown>
+              </div>
+            </div>
+          
             <div className="grid grid-cols-2 gap-4">
               {properties.map((property) => (
                 <div key={property.id} id={`property-${property.id}`}>
@@ -207,6 +215,7 @@ const HomesPage = () => {
                     border={false}
                     imageShape="rounded"
                     showFavorite={false}
+                    dimensions="4:3"
                     className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                   />
                 </div>
@@ -215,7 +224,7 @@ const HomesPage = () => {
           </div>
 
           {/* Map - Fixed */}
-          <div className="w-1/2 border-l border-gray-200">
+          <div className="w-1/2 border-l border-gray-200 h-full">
             <Map
               properties={properties}
               center={[59.3293, 18.0686]}
@@ -223,6 +232,7 @@ const HomesPage = () => {
               selectedProperty={selectedProperty}
               onPropertyClick={handlePropertyClick}
               showGroupedPins={true}
+              className="h-full"
             />
           </div>
         </div>

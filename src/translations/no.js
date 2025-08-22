@@ -91,6 +91,22 @@ export const no = {
     }
   },
 
+  // Homes Page
+  homes: {
+    title: 'Finn bolig til leie',
+    searchPlaceholder: 'Søk på by eller område',
+    resultsCount: '{count} boliger',
+    sortBy: 'Sorter etter',
+    sortOptions: {
+      newest: 'Nyeste',
+      oldest: 'Eldste',
+      priceAsc: 'Pris: Lavest til høyest',
+      priceDesc: 'Pris: Høyest til lavest',
+      sizeAsc: 'Størrelse: Liten til stor',
+      sizeDesc: 'Størrelse: Stor til liten',
+    },
+  },
+
   // Header
   header: {
     homes: 'Boliger',
@@ -124,6 +140,41 @@ export const no = {
   languageModal: {
     title: 'Språk',
     subtitle: 'Velg foretrukket språk',
+  },
+
+  // Property Details
+  propertyDetails: {
+    title: 'Billingevägen, Röstånga',
+    rooms: 'rom',
+    sqm: 'm²',
+    price: 'kr/mnd',
+    moveInDate: 'Innflyttingsdato',
+    duration: 'Inntil videre',
+    location: 'Plassering',
+    allImages: 'Alle bilder',
+    description: 'Beskrivelse',
+    quickInsights: 'Raske innsikter',
+    contact: 'Kontakt',
+    superApply: 'Super søk',
+    rentBetter: 'Lei bedre og tryggere med Qasa',
+    rentBetterDescription: 'Dette hjemmet har en verifisert utleier, en trygg leieavtale og dedikert støtte 7 dager i uken. Alle betalinger håndteres gjennom oss.',
+    readMore: 'Les mer',
+    published: 'Publisert',
+    today: 'I dag',
+    viewings: 'Visninger',
+    applicants: 'Antall søkere',
+    responseTime: 'Responstid',
+    lessThan24h: '< 24t',
+    busStop: 'min til busstopp',
+    toCenter: 'min til sentrum',
+    amenities: {
+      balcony: 'Balkong',
+      internet: 'Internett',
+      ownShower: 'Egen dusj',
+      dishwasher: 'Oppvaskmaskin',
+      oven: 'Ovn',
+      storage: 'Lager'
+    }
   },
 
   // Footer

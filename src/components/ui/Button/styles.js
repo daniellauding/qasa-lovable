@@ -8,6 +8,15 @@ export const sizeClasses = {
   xl: 'h-14 px-8 text-lg rounded-full',
 };
 
+// Compact sizes for ghost and transparent variants
+export const compactSizeClasses = {
+  xs: 'h-8 px-1.5 text-xs rounded-full',
+  sm: 'h-8 px-2 text-sm rounded-full',
+  md: 'h-10 px-3 text-sm rounded-full',
+  lg: 'h-12 px-4 text-base rounded-full',
+  xl: 'h-14 px-6 text-lg rounded-full',
+};
+
 // Icon-only button sizes (square aspect ratio)
 export const iconOnlySizeClasses = {
   xs: 'h-8 w-8 p-0 text-xs rounded-full',
@@ -54,9 +63,9 @@ export const buttonVariants = {
     'disabled:bg-transparent disabled:text-gray-400 disabled:border-gray-300'
   ].join(' '),
   ghost: [
-    'bg-transparent theme-primary',
-    'hover:bg-gray-100',
-    'focus:bg-gray-100 focus:scale-95',
+    'bg-transparent text-gray-700',
+    'hover:bg-gray-100/50',
+    'focus:bg-gray-100/50 focus:scale-95',
     'disabled:bg-transparent disabled:text-gray-400'
   ].join(' '),
   transparent: [
