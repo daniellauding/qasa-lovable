@@ -7,7 +7,7 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: 'Examples of unordered lists (ul li), ordered lists (ol li), and basic tables for displaying amenities, house rules, and rental costs.'
+        component: 'Examples of unordered lists (ul li) with contextual icons for amenities, process lists with CheckCircle icons for steps, and basic tables for displaying rental costs.'
       }
     }
   }
@@ -62,19 +62,19 @@ const UnorderedListTemplate = (args) => (
       <Typography variant="title-sm" className="mb-4">House Rules & Accessibility</Typography>
       <ul className="space-y-3">
         <li className="flex items-center gap-3">
-          <Icon name="Check" size="sm" className="text-green-600" />
+          <Icon name="Check" size="sm" />
           <Typography variant="body-sm">Pets welcome</Typography>
         </li>
         <li className="flex items-center gap-3">
-          <Icon name="X" size="sm" className="text-red-600" />
+          <Icon name="X" size="sm" />
           <Typography variant="body-sm">Not wheelchair accessible</Typography>
         </li>
         <li className="flex items-center gap-3">
-          <Icon name="X" size="sm" className="text-red-600" />
+          <Icon name="X" size="sm" />
           <Typography variant="body-sm">No smoking</Typography>
         </li>
         <li className="flex items-center gap-3">
-          <Icon name="Check" size="sm" className="text-green-600" />
+          <Icon name="Check" size="sm" />
           <Typography variant="body-sm">Up to 2 tenants</Typography>
         </li>
       </ul>
@@ -86,44 +86,36 @@ const UnorderedListTemplate = (args) => (
 const OrderedListTemplate = (args) => (
   <div className="bg-white border rounded-lg p-6">
     <Typography variant="title-sm" className="mb-4">How It Works</Typography>
-    <ol className="space-y-4">
+    <ul className="space-y-4">
       <li className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-          <Typography variant="label-sm">1</Typography>
-        </div>
+        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
         <div>
           <Typography variant="body-md" className="font-medium">Publish your home listing</Typography>
           <Typography variant="body-sm" className="text-gray-600">Create a detailed listing with photos and information</Typography>
         </div>
       </li>
       <li className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-          <Typography variant="label-sm">2</Typography>
-        </div>
+        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
         <div>
           <Typography variant="body-md" className="font-medium">Connect with tenants today</Typography>
           <Typography variant="body-sm" className="text-gray-600">Receive applications and start conversations</Typography>
         </div>
       </li>
       <li className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-          <Typography variant="label-sm">3</Typography>
-        </div>
+        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
         <div>
           <Typography variant="body-md" className="font-medium">We handle the rental agreement</Typography>
           <Typography variant="body-sm" className="text-gray-600">Professional contracts and legal protection</Typography>
         </div>
       </li>
       <li className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-          <Typography variant="label-sm">4</Typography>
-        </div>
+        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
         <div>
           <Typography variant="body-md" className="font-medium">We handle deposit and payments</Typography>
           <Typography variant="body-sm" className="text-gray-600">Secure payment processing and deposit management</Typography>
         </div>
       </li>
-    </ol>
+    </ul>
   </div>
 );
 

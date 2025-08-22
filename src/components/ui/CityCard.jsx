@@ -5,18 +5,18 @@ import Button from './Button';
 
 const CityCard = ({ imageSrc, city, homesCount, ctaText = 'View homes', onClick }) => {
   return (
-    <div className="w-[260px] sm:w-[300px] h-[500px] rounded-3xl overflow-hidden bg-[var(--color-button-tertiary-bg)] flex flex-col">
-      <div className="aspect-[4/3] bg-gray-100 relative">
+    <div className="w-[320px] sm:w-[400px] h-[500px] rounded-3xl overflow-hidden bg-[var(--color-button-tertiary-bg)] flex flex-col">
+      <div className="aspect-[4/3] relative">
         {imageSrc ? (
-          <img src={imageSrc} alt={city} className="w-2/3 absolute top-4 right-4 h-auto object-cover rounded-xl" />
+          <img src={imageSrc} alt={city} className="w-2/3 absolute top-8 right-8 h-auto object-cover rounded-xl" />
         ) : null}
       </div>
-      <div className="p-4 mt-auto flex items-center justify-between">
+      <div className="p-8 mt-auto flex items-center justify-between">
         <div>
           <Typography variant="label-md">{city}</Typography>
           <Typography variant="body-sm" color="secondary">{homesCount}</Typography>
         </div>
-        <Button variant="secondary" size="lg" onClick={onClick}>{ctaText}</Button>
+        <Button variant="secondary" size="xl" onClick={onClick}>{ctaText}</Button>
       </div>
     </div>
   );

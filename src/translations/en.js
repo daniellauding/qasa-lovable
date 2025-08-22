@@ -137,13 +137,19 @@ export const en = {
     },
     premium: {
       label: 'For home seekers',
-      title: 'Find your next home twice as easily with Qasa Premium',
+      title: 'Find your next home twice as easily with',
       button: 'Learn more',
     },
     husfrid: {
-      label: 'Rent better',
-      title: 'Through HusFrid we help women and children exposed to violence find a new home.',
-      button: 'Read more',
+      label: 'HusFrid – an initiative by Qasa to help women and children to a home free from violence',
+      title: 'HusFrid helps women experiencing domestic violence find a new home.',
+      button: 'Learn more',
+    },
+    firstHand: {
+      label: 'First-hand leases',
+      title: 'We now offer the largest selection of first-hand leases.',
+      subtitle: 'Join the housing queue for free!',
+      button: 'Join the queue',
     },
     testimonials: {
       items: {

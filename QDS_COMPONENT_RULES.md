@@ -568,6 +568,8 @@ import Typography from '@/components/ui/Typography';
 // Card Components
 import Card from '@/components/ui/Card';
 import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
+import CityCard from '@/components/ui/CityCard';
+import FeatureCard from '@/components/ui/FeatureCard';
 
 // Form Components
 import Input from '@/components/ui/Input';
@@ -635,15 +637,15 @@ plane: <Send className="w-4 h-4 text-yellow-500" />              // More applica
 - **Icon styling**: `w-8 h-8` with `group-hover:translate-x-1 transition-transform`
 - **Typography**: Use `Typography` component with `title-sm` variant for labels
 
-### Premium Features & Badges
-- **Premium badges**: Use `PremiumBadge` component with yellow icons for premium features
-- **Premium variants**: `premium`, `premium-outline`, `premium-subtle` for different styling
-- **Premium features**: Use `premiumFeature` prop for auto-configured badges
-  - `super-apply`: Megaphone icon, "Super apply" text
-  - `exclusive-insights`: Lightbulb icon, "Exclusive insights" text
-  - `highlighted-profile`: Zap icon, "Highlighted profile" text
-  - `apply-earlier`: Clock icon, "Apply earlier" text
-  - `more-applications`: Send icon, "More applications" text
+### Qasa Premium Badge & Features
+- **Premium badge**: Use `PremiumBadge` component for official Qasa Premium branding
+  - Simple usage: `<PremiumBadge />` (no props needed)
+  - Responsive design: auto-adjusts for mobile/desktop
+  - Custom clip-path styling with brand colors
+- **Usage contexts**:
+  - RichPromoCard: `showPremiumBadge={true}`
+  - Premium ContentBlocks: centered with proper spacing
+  - Modal titles: integrated with Typography
 - **Property status chips**: Use `statusChip` prop on PropertyCard
   - `apply-earlier`: Yellow background with brown text
   - `first-hand`: Green background with white text
@@ -692,10 +694,22 @@ plane: <Send className="w-4 h-4 text-yellow-500" />              // More applica
 - **✅ Keep it clean** - avoid busy or dark backgrounds
 
 ### 🃏 Card & Border Rules
+
+#### Card Background Types
+- **White Background Cards**: PropertyCard, TenantCard, LandlordCard, ContactCard, CreateProfileCard
+  - Use `bg-white` always
+  - For data display, user profiles, property listings
+  - Highest contrast and readability
+- **Tertiary Background Cards**: CityCard, FeatureCard
+  - Use `bg-[var(--color-button-tertiary-bg)]` (off-white/cream)
+  - For navigation, feature highlights, promotional content
+  - Creates visual hierarchy and brand consistency
+
+#### Border & Visual Separation
 - **✅ Add borders to cards** when they're on the same background color
 - **✅ Use subtle borders** - `border border-gray-100` or `border border-[var(--color-border)]`
-- **✅ Cards should use white backgrounds** for contrast against colored sections
-- **✅ Borders provide visual separation** between cards and container
+- **✅ White cards on colored sections** use borders for visual separation
+- **✅ Tertiary cards** typically don't need borders due to background contrast
 
 ### 🔘 Button & Icon Rules
 - **❌ Don't mix different icon styles** on the same button

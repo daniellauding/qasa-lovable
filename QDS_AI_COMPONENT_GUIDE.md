@@ -318,6 +318,8 @@ import Typography from '@/components/ui/Typography';
 ```jsx
 import Card from '@/components/ui/Card';
 import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
+import CityCard from '@/components/ui/CityCard';
+import FeatureCard from '@/components/ui/FeatureCard';
 
 // Basic card
 <Card className="p-6">
@@ -329,6 +331,10 @@ import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
 <PropertyCard property={propertyData} />
 <TenantCard tenant={tenantData} />
 <LandlordCard landlord={landlordData} />
+
+// Tertiary background cards
+<CityCard city="Stockholm" homesCount="1522 homes" imageSrc="image.jpg" />
+<FeatureCard title="No Deposit" description="Keep your money" illustrationSrc="icon.jpg" />
 ```
 
 **When to use:**
@@ -336,11 +342,15 @@ import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
 - **PropertyCard**: Property listings, search results
 - **TenantCard**: Tenant profiles, applications
 - **LandlordCard**: Landlord profiles, contact info
+- **CityCard**: City browsing, location selection
+- **FeatureCard**: Feature highlights, benefits display
 
 **Critical Rules:**
 - **TenantCard & PropertyCard**: Must always use `bg-white` backgrounds
-- **Never gray backgrounds**: No `bg-gray-10`, `bg-gray-20`, or grayish backgrounds
-- **White backgrounds mandatory**: Ensures proper contrast and QDS compliance
+- **CityCard & FeatureCard**: Use `bg-[var(--color-button-tertiary-bg)]` (off-white/cream) for brand consistency
+- **Never gray backgrounds**: No `bg-gray-10`, `bg-gray-20`, or grayish backgrounds for PropertyCard/TenantCard
+- **White backgrounds mandatory**: PropertyCard/TenantCard ensure proper contrast and QDS compliance
+- **Tertiary background cards**: CityCard, FeatureCard use brand tertiary for visual hierarchy
 - **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
 - **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
 - **No fluid height**: Never render cards with fluid height - let content determine height
@@ -471,21 +481,36 @@ import Pagination from '@/components/ui/Pagination';
 />
 ```
 
-### 🏆 Premium Features & Badges
+### 🏆 Qasa Premium Badge
 ```jsx
 import PremiumBadge from '@/components/ui/PremiumBadge';
 
-// Premium feature badges with yellow icons
-<PremiumBadge premiumFeature="super-apply" variant="premium" />
-<PremiumBadge premiumFeature="exclusive-insights" variant="premium" />
-<PremiumBadge premiumFeature="highlighted-profile" variant="premium" />
-<PremiumBadge premiumFeature="apply-earlier" variant="premium" />
-<PremiumBadge premiumFeature="more-applications" variant="premium" />
+// Official Qasa Premium badge with responsive design
+<PremiumBadge />
 
-// Premium variants
-<PremiumBadge text="Premium" variant="premium" />
-<PremiumBadge text="Premium" variant="premium-outline" />
-<PremiumBadge text="Premium" variant="premium-subtle" />
+// In RichPromoCard titles
+<RichPromoCard 
+  showPremiumBadge={true}
+  title="Find your next home twice as easily with"
+  // ... other props
+/>
+
+// In premium content blocks
+<div className="text-center">
+  <Typography variant="display-lg" className="mb-4">
+    Find your next homes 2.5x easier with
+  </Typography>
+  <PremiumBadge className="mb-4" />
+</div>
+
+// In modals (put badge in content, not title)
+<Modal size="lg">
+  <div className="text-center">
+    <Typography variant="title-lg" className="mb-2">Find your next home 2.5x easier with</Typography>
+    <PremiumBadge className="mb-3" />
+    <Typography variant="body-sm" className="text-gray-600">From SEK 139 per month</Typography>
+  </div>
+</Modal>
 
 // Property cards with status chips
 <PropertyCard 
@@ -512,14 +537,39 @@ import PremiumBadge from '@/components/ui/PremiumBadge';
 <TrustIndicator text="Secure payment" type="secure" />
 <TrustIndicator text="Trusted landlord" type="trusted" />
 
-// Premium badges with yellow icons
-<PremiumBadge text="Premium" variant="premium" />
-<PremiumBadge premiumFeature="super-apply" variant="premium" />
-<PremiumBadge premiumFeature="exclusive-insights" variant="premium" />
-<PremiumBadge premiumFeature="highlighted-profile" variant="premium" />
-<PremiumBadge premiumFeature="apply-earlier" variant="premium" />
-<PremiumBadge premiumFeature="more-applications" variant="premium" />
+// Official Qasa Premium badge (responsive design)
+<PremiumBadge />
 ```
+
+### 🏙️ City & Feature Cards (Tertiary Background)
+```jsx
+import CityCard from '@/components/ui/CityCard';
+import FeatureCard from '@/components/ui/FeatureCard';
+
+// City navigation cards (tertiary background)
+<CityCard 
+  city="Stockholm" 
+  homesCount="1,522 homes" 
+  imageSrc="stockholm.jpg"
+  onClick={() => navigate('/homes')} 
+/>
+
+// Feature highlight cards (tertiary background)
+<FeatureCard
+  title="No Deposit"
+  description="Keep your money — we handle the deposit."
+  illustrationSrc="hand-icon.jpg"
+  variant="standard"
+  className="max-w-96"
+/>
+```
+
+**Tertiary Background Usage:**
+- **CityCard**: City browsing, location selection, carousel navigation
+- **FeatureCard**: Feature highlights, benefit showcases, promotional content
+- **Background**: Uses `bg-[var(--color-button-tertiary-bg)]` (off-white/cream)
+- **Visual hierarchy**: Distinguishes navigational/promotional cards from data cards
+- **Brand consistency**: Matches QDS tertiary color for cohesive design
 
 ### 📋 FAQ Link Lists
 ```jsx
@@ -1072,7 +1122,9 @@ When working on conversion-focused pages:
   - **Icons use transparent backgrounds** - Never add background colors or radius to icons themselves
   - **Icon containers** can have backgrounds when needed for visual hierarchy
   - **Use proper color tokens** for icon colors: `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`
-  - **For checkmarks/bullets**: Use `CheckCircle` icon with `text-[var(--color-text-primary)]`, never red or green colors
+  - **For amenities lists**: Use specific contextual icons (Home, Wifi, Car, Settings) with `text-gray-600`
+  - **For process steps**: Use `CheckCircle` icon with `stroke-2` for step-by-step guides  
+  - **For status lists**: Use `Check` and `X` icons with default colors (no color classes)
 - **Never** use `text-[var(--color-text-primary)]` on dark surfaces; contrast fails.
 - Prefer tokens over hex or Tailwind palette. If a token seems missing, use the closest semantic token and open a follow-up to extend tokens—do not hardcode colors.
 

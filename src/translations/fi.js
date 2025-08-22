@@ -127,13 +127,19 @@ export const fi = {
     featuresTitle: 'Vuokraa Qasan kanssa ja tunne olosi turvalliseksi',
     premium: {
       label: 'Kotihakijoille',
-      title: 'Löydä seuraava kotisi kaksi kertaa helpommin Qasa Premiumilla',
+      title: 'Löydä seuraava kotisi kaksi kertaa helpommin',
       button: 'Lue lisää',
     },
     husfrid: {
-      label: 'Vuokraa paremmin',
-      title: 'HusFridin kautta autamme väkivallalle altistuneita naisia ja lapsia löytämään uuden kodin.',
+      label: 'HusFrid – Qasan aloite auttaa väkivallalle altistuneita naisia ja lapsia löytämään kodin vapaana väkivallasta',
+      title: 'HusFrid auttaa perheväkivaltaa kokeneita naisia löytämään uuden kodin.',
       button: 'Lue lisää',
+    },
+    firstHand: {
+      label: 'Ensikäden vuokrasopimukset',
+      title: 'Meillä on nyt suurin valikoima ensikäden vuokrasopimuksia.',
+      subtitle: 'Liity asuntojonoon ilmaiseksi!',
+      button: 'Liity jonoon',
     },
     testimonials: {
       items: {

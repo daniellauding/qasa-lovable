@@ -100,7 +100,7 @@ const Carousel = ({
       )}
       <div
         ref={containerRef}
-        className={`${continuous ? 'flex gap-4 overflow-x-hidden pb-2' : 'flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2'}`}
+        className={`${continuous ? 'flex gap-7 overflow-x-hidden pb-2' : 'flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2'}`}
         style={{ scrollPaddingLeft: '1rem' }}
       >
         {items.map((child, i) => (

@@ -5,6 +5,7 @@ import Typography from '../../components/ui/Typography';
 import Input from '../../components/ui/Input';
 import TextArea from '../../components/ui/TextArea';
 import Icon from '../../components/ui/Icon';
+import PremiumBadge from '../../components/ui/PremiumBadge';
 
 export default {
   title: 'UI/Modal',
@@ -224,11 +225,12 @@ export const PremiumModal = {
         <Modal
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
-          title="Find your next home 2.5x easier with Qasa Premium"
           size="lg"
         >
           <div className="space-y-6">
             <div className="text-center">
+              <Typography variant="title-lg" className="mb-2">Find your next home 2.5x easier with</Typography>
+              <PremiumBadge className="mb-3" />
               <Typography variant="body-sm" className="text-gray-600">From SEK 139 per month</Typography>
             </div>
             
@@ -240,7 +242,7 @@ export const PremiumModal = {
                   <div>
                     <Typography variant="body-md" className="font-medium">Super apply</Typography>
                     <Typography variant="body-sm" className="text-gray-600">
-                      Give your application an extra boost.
+                      Give your application an extra boost. Stay at the top of the landlord's inbox by sending a Super application.
                     </Typography>
                   </div>
                 </li>
@@ -249,7 +251,34 @@ export const PremiumModal = {
                   <div>
                     <Typography variant="body-md" className="font-medium">Exclusive insights</Typography>
                     <Typography variant="body-sm" className="text-gray-600">
-                      See how the rent compares to similar homes.
+                      See how the rent compares to similar homes, number of applicants, ongoing chats, and your queue position for firsthand homes.
+                    </Typography>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <Icon name="Search" size="lg" className="text-yellow-600 mt-1" />
+                  <div>
+                    <Typography variant="body-md" className="font-medium">Highlighted profile</Typography>
+                    <Typography variant="body-sm" className="text-gray-600">
+                      Get a premium badge on your profile, increasing your visibility in the landlord's inbox and in our tenant search.
+                    </Typography>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <Icon name="Clock" size="lg" className="text-yellow-600 mt-1" />
+                  <div>
+                    <Typography variant="body-md" className="font-medium">Apply earlier</Typography>
+                    <Typography variant="body-sm" className="text-gray-600">
+                      Apply before everyone else, with priority access to selected first-hand homes.
+                    </Typography>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <Icon name="Send" size="lg" className="text-yellow-600 mt-1" />
+                  <div>
+                    <Typography variant="body-md" className="font-medium">More applications</Typography>
+                    <Typography variant="body-sm" className="text-gray-600">
+                      Apply to 10 first-hand homes simultaneously, and as always – unlimited applications to all other homes.
                     </Typography>
                   </div>
                 </li>
@@ -406,7 +435,10 @@ const AllVariantsTemplate = () => (
       <div className="bg-white border rounded-lg p-6 max-w-2xl shadow-lg">
         <div className="space-y-6">
           <div className="text-center">
-            <h4 className="text-xl font-bold mb-2">Find your next home 2.5x easier with Qasa Premium</h4>
+            <h4 className="text-xl font-bold mb-2">Find your next home 2.5x easier with</h4>
+            <div className="flex justify-center mb-3">
+              <PremiumBadge />
+            </div>
             <p className="text-gray-600 text-sm">From SEK 139 per month</p>
           </div>
           
@@ -414,35 +446,55 @@ const AllVariantsTemplate = () => (
             <h5 className="font-semibold mb-4">What's included</h5>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600">📢</div>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                  </svg>
+                </div>
                 <div>
                   <p className="font-medium">Super apply</p>
                   <p className="text-gray-600 text-sm">Give your application an extra boost. Stay at the top of the landlord's inbox by sending a Super application.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600">💡</div>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
                 <div>
                   <p className="font-medium">Exclusive insights</p>
                   <p className="text-gray-600 text-sm">See how the rent compares to similar homes, number of applicants, ongoing chats, and your queue position for firsthand homes.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600">🔍</div>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
                 <div>
                   <p className="font-medium">Highlighted profile</p>
                   <p className="text-gray-600 text-sm">Get a premium badge on your profile, increasing your visibility in the landlord's inbox and in our tenant search.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600">⏰</div>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
                 <div>
                   <p className="font-medium">Apply earlier</p>
                   <p className="text-gray-600 text-sm">Apply before everyone else, with priority access to selected first-hand homes.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center text-yellow-600">✈️</div>
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                </div>
                 <div>
                   <p className="font-medium">More applications</p>
                   <p className="text-gray-600 text-sm">Apply to 10 first-hand homes simultaneously, and as always – unlimited applications to all other homes.</p>

@@ -127,13 +127,19 @@ export const sv = {
     featuresTitle: 'Hyr med Qasa och känna dig trygg',
     premium: {
       label: 'För hemletare',
-      title: 'Hitta ditt nästa hem dubbelt så enkelt med Qasa Premium',
+      title: 'Hitta ditt nästa hem dubbelt så enkelt med',
       button: 'Läs mer',
     },
     husfrid: {
-      label: 'Hyr bättre',
-      title: 'Genom HusFrid hjälper vi kvinnor och barn som utsatts för våld att hitta ett nytt hem.',
+      label: 'HusFrid – ett initiativ från Qasa för att hjälpa kvinnor och barn till ett hem fritt från våld',
+      title: 'Genom HusFrid hjälper vi våldsutsatta kvinnor och barn hitta ett nytt hem.',
       button: 'Läs mer',
+    },
+    firstHand: {
+      label: 'Förstahandskontrakt',
+      title: 'Nu har vi flest förstahandskontrakt.',
+      subtitle: 'Ställ dig i bostadskön, helt gratis!',
+      button: 'Gå med i kön',
     },
     testimonials: {
       items: {

@@ -53,6 +53,9 @@
     /* Core brand & neutrals (from QDS docs) */
     --color-white: #ffffff;
     --color-black: #000000;
+    
+    /* Font families */
+    --font-family-semi-mono: 'DiatypeRoundedMono', monospace;
     --color-pink: #ff84b6;
     --color-uiPink: #ff99c2;
     --color-uiPink-light: #ffa3c8;
@@ -130,8 +133,49 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1;
-    font-kerning: auto;
-  }
+      font-kerning: auto;
+}
+
+/* Qasa Premium Badge Styles */
+.qasa-premium-badge-mobile {
+  font-family: var(--font-family-semi-mono);
+  font-weight: 700;
+  display: inline-block;
+  flex-shrink: 0;
+  color: var(--color-brown);
+  font-size: 2rem;
+  line-height: 2.625rem;
+  letter-spacing: -0.08rem;
+  word-spacing: 0.1875rem;
+  padding-inline: 0.5rem;
+  translate: 0 -1px;
+  border-radius: 0.8125rem;
+  clip-path: path('M0 21.8001C0 16.9279 0 14.4918 0.534503 12.4927C1.98926 7.05195 6.23846 2.80199 11.679 1.34627C13.6779 0.811415 16.114 0.810983 20.9862 0.810119L77.7763 0.800049C85.0864 0.800049 81.4314 8.08164 85.0864 8.08164C88.7415 8.08164 85.0864 0.800049 92.4008 0.800049L203.014 0.811641C207.885 0.812151 210.32 0.812406 212.319 1.34686C217.761 2.80213 222.011 7.05288 223.466 12.4949C224 14.4934 224 16.929 224 21.8001C224 26.6711 224 29.1067 223.466 31.1052C222.011 36.5472 217.761 40.798 212.319 42.2532C210.32 42.7877 207.885 42.7879 203.014 42.7885L92.4008 42.8C85.0864 42.8 88.7415 35.5185 85.0864 35.5185C81.4314 35.5185 85.0864 42.8 77.7763 42.8L20.9862 42.79C16.114 42.7891 13.6779 42.7887 11.679 42.2538C6.23846 40.7981 1.98926 36.5482 0.534503 31.1074C0 29.1083 0 26.6722 0 21.8001Z');
+  background-color: var(--color-warmYellow);
+  width: 224px;
+  box-shadow: -2px 2.503px 2.5px 0px rgba(255, 214, 108, 0.53) inset, 0px 4.5px 7px 0px rgba(255, 255, 255, 0.51) inset, 0px -1.5px 7px 0px #F5B100 inset;
+  text-shadow: 1px 1px 2.5px rgba(255, 255, 255, 0.50), -1px -1px 5px #DB9E00;
+}
+
+.qasa-premium-badge-desktop {
+  font-family: var(--font-family-semi-mono);
+  font-weight: 700;
+  display: inline-block;
+  flex-shrink: 0;
+  color: var(--color-brown);
+  font-size: 2.5rem;
+  line-height: 3.375rem;
+  letter-spacing: -0.12rem;
+  word-spacing: 0.25rem;
+  padding-inline: 0.75rem;
+  translate: 0 -1px;
+  border-radius: 1.125rem;
+  clip-path: path('M0 27.2C0 20.3617 0 16.9425 0.842522 14.1598C2.74472 7.87714 7.66049 2.9605 13.9428 1.05718C16.7254 0.214166 20.1445 0.213557 26.9828 0.212339L96.5259 0.199951C105.598 0.199951 101.062 9.2783 105.598 9.2783C110.135 9.2783 105.598 0.199951 114.676 0.199951L251.017 0.214305C257.854 0.215024 261.273 0.215384 264.055 1.05783C270.339 2.96069 275.256 7.87832 277.158 14.1625C278 16.9446 278 20.3631 278 27.2C278 34.0368 278 37.4553 277.158 40.2374C275.256 46.5216 270.339 51.4392 264.055 53.3421C261.273 54.1845 257.854 54.1849 251.017 54.1856L114.676 54.2C105.598 54.2 110.135 45.1216 105.598 45.1216C101.062 45.1216 105.598 54.2 96.5259 54.2L26.9828 54.1876C20.1445 54.1863 16.7254 54.1857 13.9428 53.3427C7.66049 51.4394 2.74472 46.5228 0.842522 40.2401C0 37.4574 0 34.0382 0 27.2Z');
+  background-color: var(--color-warmYellow);
+  width: 278px;
+  box-shadow: -2px 3px 3px 0px rgba(255, 214, 108, 0.53) inset, 0px 6px 8.5px 0px rgba(255, 255, 255, 0.51) inset, 0px -1.5px 8px 0px #F5B100 inset;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.50), -1px -1px 6.5px #DB9E00;
+}
   
   /* Default text should use body-md sizing */
   p {

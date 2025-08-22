@@ -1,5 +1,7 @@
 import React from 'react';
 import ContentBlock from '../../components/ui/ContentBlock';
+import PremiumBadge from '../../components/ui/PremiumBadge';
+import Button from '../../components/ui/Button';
 
 export default {
   title: 'UI/ContentBlock',
@@ -117,6 +119,27 @@ export const InsetBackground = {
     ctaVariant: 'outline',
     ctaOnClick: () => console.log('Safety clicked')
   }
+};
+
+export const Premium = {
+  render: () => (
+    <div className="bg-[var(--color-gray-10)] rounded-xl p-6 md:p-24">
+      <div className="max-w-[580px] mx-auto text-center">
+        <div className="mb-6">
+          <h2 className="text-6xl font-bold font-title text-[var(--color-text-primary)] mb-4">
+            Find your next homes 2.5x easier with
+          </h2>
+          <PremiumBadge className="mb-4" />
+          <p className="text-lg font-normal font-body text-[var(--color-text-secondary)]">
+            2.5x your chances to sign a lease. Make your applications and profile stand out, and learn more about the homes you're interested in.
+          </p>
+        </div>
+        <Button variant="premium" size="lg">
+          Get Premium
+        </Button>
+      </div>
+    </div>
+  )
 };
 
 export const WithStepper = {

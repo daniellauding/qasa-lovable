@@ -438,77 +438,77 @@ const DesignSystem = () => {
               </div>
               {/* Display & Title Variants */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                <div className="space-y-4">
+              <div className="space-y-4">
                   <Typography variant="title-sm" className="mb-3 font-medium">Display Variants</Typography>
                   <div className="space-y-3">
-                    <div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-lg</Typography>
-                      <Typography variant="display-lg">Display Large</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="display-lg">Display Large</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-md</Typography>
-                      <Typography variant="display-md">Display Medium</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="display-md">Display Medium</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">display-sm</Typography>
-                      <Typography variant="display-sm">Display Small</Typography>
-                    </div>
+                  <Typography variant="display-sm">Display Small</Typography>
+                </div>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <Typography variant="title-sm" className="mb-3 font-medium">Title Variants</Typography>
                   <div className="space-y-3">
-                    <div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xl</Typography>
-                      <Typography variant="title-xl">Title Extra Large</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="title-xl">Title Extra Large</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-lg</Typography>
-                      <Typography variant="title-lg">Title Large</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="title-lg">Title Large</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-md</Typography>
-                      <Typography variant="title-md">Title Medium</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="title-md">Title Medium</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-sm</Typography>
-                      <Typography variant="title-sm">Title Small</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="title-sm">Title Small</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">title-xs</Typography>
-                      <Typography variant="title-xs">Title Extra Small</Typography>
-                    </div>
+                  <Typography variant="title-xs">Title Extra Small</Typography>
+                </div>
                   </div>
                 </div>
                 
                 <div className="space-y-4">
                   <Typography variant="title-sm" className="mb-3 font-medium">Body & Label Variants</Typography>
                   <div className="space-y-3">
-                    <div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-lg</Typography>
-                      <Typography variant="body-lg">Body Large</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="body-lg">Body Large</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-md</Typography>
-                      <Typography variant="body-md">Body Medium</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="body-md">Body Medium</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-sm</Typography>
-                      <Typography variant="body-sm">Body Small</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="body-sm">Body Small</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">label-md</Typography>
-                      <Typography variant="label-md">Label Medium</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="label-md">Label Medium</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">label-sm</Typography>
-                      <Typography variant="label-sm">Label Small</Typography>
-                    </div>
-                    <div>
+                  <Typography variant="label-sm">Label Small</Typography>
+                </div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">mono-md</Typography>
-                      <Typography variant="mono-md">Mono Medium</Typography>
-                    </div>
+                  <Typography variant="mono-md">Mono Medium</Typography>
+                </div>
                   </div>
                 </div>
               </div>
@@ -518,7 +518,7 @@ const DesignSystem = () => {
                 <div className="space-y-4">
                   <Typography variant="title-sm" className="mb-3 font-medium">Extended Body Variants</Typography>
                   <div className="space-y-3">
-                    <div>
+                <div>
                       <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-1">body-4xl</Typography>
                       <Typography variant="body-4xl">Body 4XL</Typography>
                     </div>
@@ -1419,8 +1419,42 @@ const DesignSystem = () => {
               <Typography variant="title-xl" className="mb-6">Card Components</Typography>
               <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                 <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                  <strong>Prompt usage:</strong> "Use Card component for content containers" or "Add PropertyCard for property listings" or "Include TenantCard for tenant profiles"
+                  <strong>Prompt usage:</strong> "Use Card component for content containers" or "Add PropertyCard for property listings" or "Include TenantCard for tenant profiles" or "Use CityCard with tertiary background for navigation" or "Add FeatureCard with tertiary background for highlights"
                 </Typography>
+                <Typography variant="body-sm" className="text-[var(--color-text-secondary)] mt-2">
+                  <strong>Card Background Types:</strong> White backgrounds (PropertyCard, TenantCard) for data display. Tertiary backgrounds (CityCard, FeatureCard) for navigation and features.
+                </Typography>
+              </div>
+              
+              {/* Card Background Type Examples */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">White Background Cards</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Usage:</strong> PropertyCard, TenantCard, LandlordCard - use <code>bg-white</code> for highest contrast and data readability
+                    </Typography>
+                  </div>
+                  <div className="space-y-3">
+                    <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
+                      Used for: Property listings, user profiles, data display, content that requires maximum readability
+                    </Typography>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <Typography variant="title-sm" className="mb-3 font-medium">Tertiary Background Cards</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Usage:</strong> CityCard, FeatureCard - use <code>bg-[var(--color-button-tertiary-bg)]</code> for brand consistency and visual hierarchy
+                    </Typography>
+                  </div>
+                  <div className="space-y-3">
+                    <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
+                      Used for: City navigation, feature highlights, promotional content, carousel items, benefit showcases
+                    </Typography>
+                  </div>
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
                 <div>
@@ -1507,7 +1541,7 @@ const DesignSystem = () => {
                 </div>
                 
                 <div>
-                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">TenantCard Component</Typography>
+                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">TenantCard Component (White Background)</Typography>
                   <TenantCard 
                     user={{
                       name: 'Anna Andersson',
@@ -1519,6 +1553,37 @@ const DesignSystem = () => {
                       furnished: 'Furnished',
                       moveDate: 'Available now'
                     }}
+                  />
+                </div>
+                
+                <div>
+                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">CityCard Component (Tertiary Background)</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add CityCard for city navigation with tertiary background" or "Use CityCard in carousels for location selection"
+                    </Typography>
+                  </div>
+                  <CityCard
+                    city="Stockholm"
+                    homesCount="1,522 homes"
+                    imageSrc="https://qasa.se/_next/static/media/stockholm.65206cdd.png"
+                    onClick={() => console.log('Stockholm clicked')}
+                  />
+                </div>
+                
+                <div>
+                  <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">FeatureCard Component (Tertiary Background)</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add FeatureCard for benefit highlights with tertiary background" or "Use FeatureCard for feature showcases"
+                    </Typography>
+                  </div>
+                  <FeatureCard
+                    title="No Deposit"
+                    description="Keep your money — we handle the deposit."
+                    illustrationSrc="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhand.1e433989.png&w=256&q=75"
+                    variant="standard"
+                    className="max-w-96"
                   />
                 </div>
               </div>
@@ -1781,19 +1846,26 @@ const DesignSystem = () => {
                 </div>
                 <div>
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">PremiumBadge Component</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add PremiumBadge for Qasa Premium features" or "Use PremiumBadge in RichPromoCard titles" or "Include PremiumBadge for premium content highlighting"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Add PremiumBadge for Qasa Premium features')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Add PremiumBadge for Qasa Premium features' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
                   <div className="space-y-4">
-                    <div className="flex flex-wrap gap-2">
-                      <PremiumBadge text="Premium" variant="default" />
-                      <PremiumBadge text="Premium" variant="premium" />
-                      <PremiumBadge text="Premium" variant="premium-outline" />
-                      <PremiumBadge text="Premium" variant="premium-subtle" />
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <PremiumBadge premiumFeature="super-apply" variant="premium" />
-                      <PremiumBadge premiumFeature="exclusive-insights" variant="premium" />
-                      <PremiumBadge premiumFeature="highlighted-profile" variant="premium" />
-                      <PremiumBadge premiumFeature="apply-earlier" variant="premium" />
-                      <PremiumBadge premiumFeature="more-applications" variant="premium" />
+                    <div className="bg-white border rounded-lg p-4">
+                      <Typography variant="title-sm" className="mb-3">Official Qasa Premium Badge</Typography>
+                      <PremiumBadge className="mb-3" />
+                      <Typography variant="body-sm" className="text-gray-600">
+                        Responsive design with custom clip-path styling. Shows smaller version on mobile (≤1279px) and larger version on desktop (≥1280px). 
+                        Uses DiatypeRoundedMono font family with official Qasa brand colors.
+                      </Typography>
                     </div>
                   </div>
                 </div>
@@ -1908,8 +1980,8 @@ const DesignSystem = () => {
                   <strong>Prompt usage:</strong> "Add HeroSection for page headers" or "Use StatsStrip for statistics" or "Include ContentBlock for feature sections" or "Add TestimonialCarousel for reviews"
                 </Typography>
               </div>
-              <div className="bg-green-50 p-4 rounded-lg mb-4">
-                <Typography variant="body-md" className="text-green-800">
+              <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
                   <strong>ContentBlock Variants:</strong> "Create ContentBlock with imagePosition='left' and background='softPink'" or "Add ContentBlock with stepper={['Step 1', 'Step 2', 'Step 3']}" or "Use ContentBlock imagePosition='center' for hero sections"
                 </Typography>
               </div>
@@ -2058,21 +2130,31 @@ const DesignSystem = () => {
                 
                 <div>
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">ContentBlock Component - Premium</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Create premium ContentBlock with PremiumBadge" or "Add premium section with centered badge and CTA" or "Include premium content block for landing pages"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Create premium ContentBlock with PremiumBadge')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Create premium ContentBlock with PremiumBadge' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
                   <div className="bg-[var(--color-gray-10)] rounded-xl p-6 md:p-24">
                     <div className="max-w-[580px] mx-auto text-center">
                       <div className="mb-6">
                         <Typography variant="display-lg" className="mb-4">
-                          Find your next homes 2.5x easier with{' '}
-                          <span className="bg-yellow-500 text-[var(--color-brown)] px-2 py-1 rounded">
-                            Qasa Premium
-                          </span>
+                          Find your next homes 2.5x easier with
                         </Typography>
+                        <PremiumBadge className="mb-4" />
                         <Typography variant="body-lg" className="text-[var(--color-text-secondary)]">
                           2.5x your chances to sign a lease. Make your applications and profile stand out, and learn more about the homes you're interested in.
                         </Typography>
                       </div>
                       <Button variant="premium" size="lg">
-                        Get Qasa Premium
+                        Get Premium
                       </Button>
                     </div>
                   </div>
@@ -2234,23 +2316,29 @@ const DesignSystem = () => {
                     </div>
 
                     <div>
-                      <Typography variant="title-sm" className="mb-3">Custom Padding and Classes</Typography>
+                      <Typography variant="title-sm" className="mb-3">Custom Padding Control</Typography>
                       <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                         <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                          <strong>Prompt usage:</strong> "Add SectionContainer variant='none' padding='none' contentClassName='px-2 md:px-4' to preserve original spacing"
+                          <strong>Prompt usage:</strong> "Add SectionContainer paddingX='md' paddingY='none' for horizontal padding only" or "Use paddingX='none' paddingY='lg' for vertical padding only"
                         </Typography>
                         <button
-                          onClick={() => copyToClipboard('Add SectionContainer variant=\'none\' padding=\'none\' contentClassName=\'px-2 md:px-4\' to preserve original spacing')}
+                          onClick={() => copyToClipboard('Add SectionContainer paddingX=\'md\' paddingY=\'none\' for horizontal padding only')}
                           className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
                         >
-                          {copiedText === 'Add SectionContainer variant=\'none\' padding=\'none\' contentClassName=\'px-2 md:px-4\' to preserve original spacing' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                          {copiedText === 'Add SectionContainer paddingX=\'md\' paddingY=\'none\' for horizontal padding only' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                           Copy prompt
                         </button>
                       </div>
-                      <SectionContainer variant="inset" padding="none" contentClassName="px-2 md:px-4 py-8">
-                        <Typography variant="title-md" className="mb-2">Custom Spacing</Typography>
-                        <Typography variant="body-sm" className="text-gray-600">Uses contentClassName for custom padding while maintaining background styling</Typography>
-                      </SectionContainer>
+                      <div className="space-y-4">
+                        <SectionContainer variant="inset" paddingX="md" paddingY="lg">
+                          <Typography variant="title-md" className="mb-2">Custom X/Y Padding</Typography>
+                          <Typography variant="body-sm" className="text-gray-600">Uses paddingX='md' paddingY='lg' for independent horizontal and vertical spacing control</Typography>
+                        </SectionContainer>
+                        <SectionContainer variant="gray10" paddingX="md" paddingY="none">
+                          <Typography variant="title-md" className="mb-2">Horizontal Only</Typography>
+                          <Typography variant="body-sm" className="text-gray-600">Uses paddingX='md' paddingY='none' for horizontal spacing with no vertical padding</Typography>
+                        </SectionContainer>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -2738,13 +2826,13 @@ const DesignSystem = () => {
               <Typography variant="title-xl" className="mb-6">Lists, Tables & Box Cards</Typography>
               <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                 <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                  <strong>Prompt usage:</strong> "Add ul li for amenities lists" or "Use ol li for numbered steps" or "Include basic tables for data display" or "Add box cards for promotional content"
+                  <strong>Prompt usage:</strong> "Add ul li with specific icons for amenities" or "Use CheckCircle icons for process steps" or "Include basic tables for data display" or "Add box cards for promotional content"
                 </Typography>
                 <button
-                  onClick={() => copyToClipboard('Add ul li for amenities lists')}
+                  onClick={() => copyToClipboard('Add ul li with specific icons for amenities')}
                   className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
                 >
-                  {copiedText === 'Add ul li for amenities lists' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                  {copiedText === 'Add ul li with specific icons for amenities' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                   Copy prompt
                 </button>
               </div>
@@ -2755,13 +2843,13 @@ const DesignSystem = () => {
                   <Typography variant="title-md" className="mb-4">Unordered Lists (ul li)</Typography>
                   <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                     <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                      <strong>Prompt usage:</strong> "Create ul li list for amenities" or "Add unordered list with icons for features"
+                      <strong>Prompt usage:</strong> "Create ul li list with specific icons for amenities" or "Add amenities list with Home, Wifi, Car icons for features"
                     </Typography>
                     <button
-                      onClick={() => copyToClipboard('Create ul li list for amenities')}
+                      onClick={() => copyToClipboard('Create ul li list with specific icons for amenities')}
                       className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
                     >
-                      {copiedText === 'Create ul li list for amenities' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedText === 'Create ul li list with specific icons for amenities' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                       Copy prompt
                     </button>
                   </div>
@@ -2813,19 +2901,19 @@ const DesignSystem = () => {
                       <Typography variant="title-sm" className="mb-4">House Rules & Accessibility</Typography>
                       <ul className="space-y-3">
                         <li className="flex items-center gap-3">
-                          <Icon name="Check" size="sm" className="text-green-600" />
+                          <Icon name="Check" size="sm" />
                           <Typography variant="body-sm">Pets welcome</Typography>
                         </li>
                         <li className="flex items-center gap-3">
-                          <Icon name="X" size="sm" className="text-red-600" />
+                          <Icon name="X" size="sm" />
                           <Typography variant="body-sm">Not wheelchair accessible</Typography>
                         </li>
                         <li className="flex items-center gap-3">
-                          <Icon name="X" size="sm" className="text-red-600" />
+                          <Icon name="X" size="sm" />
                           <Typography variant="body-sm">No smoking</Typography>
                         </li>
                         <li className="flex items-center gap-3">
-                          <Icon name="Check" size="sm" className="text-green-600" />
+                          <Icon name="Check" size="sm" />
                           <Typography variant="body-sm">Up to 2 tenants</Typography>
                         </li>
                       </ul>
@@ -2833,62 +2921,54 @@ const DesignSystem = () => {
                   </div>
                 </div>
 
-                {/* Ordered Lists */}
+                {/* Process Lists */}
                 <div>
-                  <Typography variant="title-md" className="mb-4">Ordered Lists (ol li)</Typography>
+                  <Typography variant="title-md" className="mb-4">Process Lists (ul li)</Typography>
                   <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
                     <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                      <strong>Prompt usage:</strong> "Create ol li list for steps" or "Add numbered list for process"
+                      <strong>Prompt usage:</strong> "Create ul li list with CheckCircle icons for process steps" or "Add process list with CheckCircle stroke-2 styling"
                     </Typography>
                     <button
-                      onClick={() => copyToClipboard('Create ol li list for steps')}
+                      onClick={() => copyToClipboard('Create ul li list with CheckCircle icons for process steps')}
                       className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
                     >
-                      {copiedText === 'Create ol li list for steps' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      {copiedText === 'Create ul li list with CheckCircle icons for process steps' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                       Copy prompt
                     </button>
                   </div>
                   
                   <div className="bg-white border rounded-lg p-6">
                     <Typography variant="title-sm" className="mb-4">How It Works</Typography>
-                    <ol className="space-y-4">
+                    <ul className="space-y-4">
                       <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-                          <Typography variant="label-sm">1</Typography>
-                        </div>
+                        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
                         <div>
                           <Typography variant="body-md" className="font-medium">Publish your home listing</Typography>
                           <Typography variant="body-sm" className="text-gray-600">Create a detailed listing with photos and information</Typography>
                         </div>
                       </li>
                       <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-                          <Typography variant="label-sm">2</Typography>
-                        </div>
+                        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
                         <div>
                           <Typography variant="body-md" className="font-medium">Connect with tenants today</Typography>
                           <Typography variant="body-sm" className="text-gray-600">Receive applications and start conversations</Typography>
                         </div>
                       </li>
                       <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-                          <Typography variant="label-sm">3</Typography>
-                        </div>
+                        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
                         <div>
                           <Typography variant="body-md" className="font-medium">We handle the rental agreement</Typography>
                           <Typography variant="body-sm" className="text-gray-600">Professional contracts and legal protection</Typography>
                         </div>
                       </li>
                       <li className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-8 h-8 bg-[var(--color-primary)] text-white rounded-full flex items-center justify-center">
-                          <Typography variant="label-sm">4</Typography>
-                        </div>
+                        <Icon name="CheckCircle" size="sm" className="stroke-2 mt-1" />
                         <div>
                           <Typography variant="body-md" className="font-medium">We handle deposit and payments</Typography>
                           <Typography variant="body-sm" className="text-gray-600">Secure payment processing and deposit management</Typography>
                         </div>
                       </li>
-                    </ol>
+                    </ul>
                   </div>
                 </div>
 
@@ -3044,19 +3124,19 @@ const DesignSystem = () => {
                 </div>
 
                 {/* Premium Box Card */}
-                <div className="bg-gradient-to-br from-yellow-50 to-yellow-100 border border-yellow-200 rounded-lg p-6 shadow-sm">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon name="Star" size="lg" className="text-yellow-600" />
-                    <Typography variant="title-lg">Premium Feature</Typography>
+                <div className="border border-[var(--color-border)] rounded-lg p-6 shadow-sm">
+                  <div className="mb-3">
+                    <PremiumBadge className="mb-3" />
+                    <Typography variant="title-lg">Premium Features</Typography>
                   </div>
                   <Typography variant="body-md" className="text-gray-700 mb-4">
-                    Get exclusive access to premium features and increase your chances of finding the perfect home.
+                    Get exclusive access to premium features and increase your chances of finding the perfect home with advanced tools and priority access.
                   </Typography>
                   <Button variant="premium" size="sm">Get Premium</Button>
                 </div>
 
                 {/* Info Box Card */}
-                <div className="bg-[var(--color-gray-10)] border border-blue-200 rounded-lg p-6 shadow-sm">
+                <div className="border border-[var(--color-border)] rounded-lg p-6 shadow-sm">
                   <div className="flex items-center gap-3 mb-3">
                     <Icon name="Info" size="lg" className="text-[var(--color-brown)]" />
                     <Typography variant="title-lg">Important Information</Typography>
@@ -3068,7 +3148,7 @@ const DesignSystem = () => {
                 </div>
 
                 {/* Stats Box Card */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6 shadow-sm">
+                <div className="border border-[var(--color-border)] rounded-lg p-6 shadow-sm">
                   <Typography variant="title-lg" className="mb-4">Property Statistics</Typography>
                   <div className="space-y-3">
                     <div className="flex justify-between">
@@ -3087,7 +3167,7 @@ const DesignSystem = () => {
                 </div>
 
                 {/* Contact Box Card */}
-                <div className="bg-[var(--color-gray-10)] border border-[var(--color-border)] rounded-lg p-6 shadow-sm">
+                <div className="border border-[var(--color-border)] rounded-lg p-6 shadow-sm">
                   <Typography variant="title-lg" className="mb-3">Contact Information</Typography>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
@@ -3245,11 +3325,12 @@ const DesignSystem = () => {
                   setIsModalOpen(false);
                   setModalType('');
                 }}
-                title="Find your next home 2.5x easier with Qasa Premium"
                 size="lg"
               >
                 <div className="space-y-6">
                   <div className="text-center">
+                    <Typography variant="title-lg" className="mb-2">Find your next home 2.5x easier with</Typography>
+                    <PremiumBadge className="mb-3" />
                     <Typography variant="body-sm" className="text-gray-600">From SEK 139 per month</Typography>
                   </div>
                   

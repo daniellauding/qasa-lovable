@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import Typography from './Typography';
 
 const variantClasses = {
-  standard: 'p-6 md:p-8 rounded-2xl bg-[var(--color-button-tertiary-bg)]',
-  compact: 'p-4 rounded-xl bg-[var(--color-button-tertiary-bg)]',
+  standard: 'p-6 md:p-8 rounded-2xl bg-gray-10',
+  compact: 'p-4 rounded-xl bg-gray-10',
 };
 
 const FeatureCard = ({ illustrationSrc, title, description, variant = 'standard', className = '' }) => {
   return (
     <div className={`${variantClasses[variant]} ${className}`}>
       {illustrationSrc ? (
-        <div className="mb-4">
+        <div className="mb-10">
           <img src={illustrationSrc} alt="" aria-hidden="true" className="w-16 h-16 object-contain" />
         </div>
       ) : null}
       <Typography variant="title-sm" className="mb-1">{title}</Typography>
-      <Typography variant="body-sm" color="secondary">{description}</Typography>
+      <Typography variant="body-md">{description}</Typography>
     </div>
   );
 };

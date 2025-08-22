@@ -15,7 +15,7 @@ const FAQLinkList = ({ title, links, className = '' }) => {
         {title ? <Typography variant="text-lg" className="mb-6">{title}</Typography> : null}
         <div className="grid grid-cols-1 md:grid-cols-2">
           {links.map((link, idx) => (
-            <a key={idx} href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} className="group flex items-center justify-between px-4 py-6 border-b border-[var(--color-border)]">
+            <a key={idx} href={link.href} target={link.external ? '_blank' : undefined} rel={link.external ? 'noopener noreferrer' : undefined} className="group flex items-center justify-between px-0 py-6 border-b border-[var(--color-border)]">
               <Typography variant="text-3xl" className="group-hover:underline transition-transform font-light">{link.label}</Typography>
               <Icon name="ArrowRight" size="lg" />
             </a>

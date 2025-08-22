@@ -11,11 +11,13 @@
 - **Destructive**: Dangerous actions (red)
 
 #### Card
-- **PropertyCard**: Display rental properties
-- **LandlordCard**: Landlord information
-- **TenantCard**: Tenant profiles
-- **ContactCard**: Contact information
-- **CreateProfileCard**: Profile creation flows
+- **PropertyCard**: Display rental properties (white background)
+- **LandlordCard**: Landlord information (white background)
+- **TenantCard**: Tenant profiles (white background)
+- **ContactCard**: Contact information (white background)
+- **CreateProfileCard**: Profile creation flows (white background)
+- **CityCard**: City selection and browsing (tertiary background)
+- **FeatureCard**: Feature highlights and benefits (tertiary background)
 
 #### Typography
 - **Headings**: H1-H6 with proper hierarchy
@@ -70,7 +72,7 @@
 - **Carousel**: Image galleries
 - **FeatureBadge**: Inline feature indicators
 - **TrustIndicator**: Trust and safety indicators
-- **PremiumBadge**: Premium feature badges with yellow icons
+- **PremiumBadge**: Official Qasa Premium badge with responsive design
 
 #### Maps & Location
 - **Map**: Interactive property maps
@@ -301,15 +303,26 @@ mono-sm     /* 12px/16px */
 - **Visual hierarchy**: Borders help distinguish cards from their container background
 - **Consistent spacing**: Use proper gap spacing between cards (`gap-6` or similar)
 
-### TenantCard & PropertyCard Rules
-- **Always white background**: TenantCard and PropertyCard components must use `bg-white` backgrounds
-- **Never gray backgrounds**: Never use `bg-gray-10`, `bg-gray-20`, or any grayish backgrounds for cards
+### Card Background Rules by Type
+
+#### PropertyCard & TenantCard (White Background)
+- **Always white background**: Must use `bg-white` backgrounds
+- **Never gray backgrounds**: Never use `bg-gray-10`, `bg-gray-20`, or any grayish backgrounds
 - **Contrast requirement**: White backgrounds ensure proper contrast and readability
 - **Visual consistency**: All cards should have consistent white backgrounds across the platform
 - **Design system compliance**: White card backgrounds are mandatory for QDS compliance
+
+#### CityCard & FeatureCard (Tertiary Background)
+- **Tertiary background**: Use `bg-[var(--color-button-tertiary-bg)]` (off-white/cream)
+- **Brand consistency**: Matches brand tertiary color for visual hierarchy
+- **Carousel context**: Perfect for carousel and feature showcase contexts
+- **Content differentiation**: Distinguishes promotional/navigational cards from data cards
+
+#### Universal Card Rules
 - **Content-based height**: Cards should have intrinsic content height, never use `h-full` or `min-h-full`
 - **Fixed width**: Cards maintain consistent width, don't stretch to fill containers
 - **No fluid height**: Never render cards with fluid height - let content determine height
+- **Responsive spacing**: Use proper gaps between cards (`gap-4`, `gap-6`, etc.)
 
 ### Layout & Navigation Rules
 - **Never skip header**: Always include `DynamicHeader` or `Header` component for consistent navigation
@@ -393,27 +406,29 @@ mono-sm     /* 12px/16px */
 - **Check icon names**: Verify icon names exist in lucide-react documentation
 
 ### List & Bullet Point Rules
-- **Use CheckCircle icons**: For lists and bullet points, always use `CheckCircle` icon from Lucide React
-- **Icon styling**: Use `text-[var(--color-text-primary)]` for check circle icons
-- **Avoid custom bullets**: Don't use custom div elements with `w-2 h-2 rounded-full` for bullets
+- **Amenities lists**: Use specific contextual icons (Home, Wifi, Car, Settings, etc.) with `text-gray-600`
+- **Process lists**: Use `CheckCircle` icons with `stroke-2` for step-by-step guides
+- **Status lists**: Use `Check` and `X` icons with default colors (no green/red)
+- **Avoid custom bullets**: Don't use custom div elements with `w-2 h-2 rounded-full` for bullets  
 - **Consistent spacing**: Use proper spacing between list items (`space-y-3`)
-- **Icon alignment**: Ensure check circle icons are properly aligned with text
+- **Icon alignment**: Ensure icons are properly aligned with text
 
-### Premium Features & Badges
-- **Premium badges**: Use `PremiumBadge` component with yellow icons for premium features
-- **Premium variants**: `premium`, `premium-outline`, `premium-subtle` for different styling
-- **Premium features**: Use `premiumFeature` prop for auto-configured badges
-  - `super-apply`: Megaphone icon, "Super apply" text
-  - `exclusive-insights`: Lightbulb icon, "Exclusive insights" text
-  - `highlighted-profile`: Zap icon, "Highlighted profile" text
-  - `apply-earlier`: Clock icon, "Apply earlier" text
-  - `more-applications`: Send icon, "More applications" text
+### Qasa Premium Badge & Features
+- **Premium badge**: Use `PremiumBadge` component for official Qasa Premium branding
+  - Responsive design: smaller on mobile (≤1279px), larger on desktop (≥1280px)
+  - Custom clip-path styling with official brand colors
+  - Uses DiatypeRoundedMono font family with proper text shadow and effects
+- **Usage contexts**:
+  - RichPromoCard titles: `showPremiumBadge={true}`
+  - Premium content blocks: centered with proper spacing
+  - Modal titles: integrated with Typography components
+  - Landing page sections: highlighting premium features
 - **Property status chips**: Use `statusChip` prop on PropertyCard
   - `apply-earlier`: Yellow background with brown text
-  - `first-hand`: Green background with white text
+  - `first-hand`: Green background with white text  
   - `premium`: Pink background with white text
   - `new`: Blue background with white text
-- **Yellow premium icons**: Use `text-yellow-500` for premium feature icons
+- **Premium button**: Use `variant="premium"` for premium CTAs with yellow background
   - Megaphone, Lightbulb, Zap, Clock, Send icons in yellow
 
 ### Toast Component Variants
