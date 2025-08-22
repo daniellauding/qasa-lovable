@@ -7,6 +7,11 @@ import { parseVariantFromUrl, getPrototypeVariants, getVariantUrl, variantStatus
 // Import all experiments from App.jsx
 const experiments = [
   {
+    name: 'Design System',
+    path: '/design-system',
+    description: 'Complete QDS component library with all variants and examples'
+  },
+  {
     name: 'Blank Template',
     path: '/templates/blank',
     description: 'Minimal template with header and footer ready for AI/Lovable to populate'
@@ -91,11 +96,6 @@ const experiments = [
     name: 'Landlord Profile',
     path: '/landlords/profile',
     description: 'Landlord profile page with personal information and published listings'
-  },
-  {
-    name: 'Design System',
-    path: '/design-system',
-    description: 'Complete QDS component library with all variants and examples'
   },
 ];
 
