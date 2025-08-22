@@ -196,19 +196,19 @@ function TenantApplyHome() {
               </div>
 
               {/* Qasa Premium Section */}
-              <HintBox 
-                className="mb-6"
-                actions={[
-                  {
-                    label: "Get Qasa Premium",
-                    variant: "secondary",
-                    onClick: () => console.log("Get Qasa Premium clicked")
-                  }
-                ]}
-              >
-                <div className="flex items-center gap-2">
-                  <Typography variant="title-xs">Unlock all insights with</Typography>
-                  <PremiumBadge size="xs" className="-ml-16" />
+              <HintBox className="mb-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Typography variant="title-xs">Unlock all insights with</Typography>
+                    <PremiumBadge size="xs" className="-ml-16" />
+                  </div>
+                  <Button 
+                    variant="secondary" 
+                    className="rounded-full px-6"
+                    onClick={() => console.log("Get Qasa Premium clicked")}
+                  >
+                    Get Qasa Premium
+                  </Button>
                 </div>
               </HintBox>
 
