@@ -205,7 +205,7 @@ const HomesPage = () => {
                     onLikeToggle={() => handleLikeToggle(property.id)}
                     onCardClick={() => handlePropertyClick(property)}
                     border={false}
-                    imageShape="rect"
+                    imageShape="rounded"
                     showFavorite={false}
                     className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                   />
@@ -238,7 +238,7 @@ const HomesPage = () => {
                   onLikeToggle={() => handleLikeToggle(property.id)}
                   onCardClick={() => handlePropertyClick(property)}
                   border={false}
-                  imageShape="rect"
+                  imageShape="rounded"
                   showFavorite={false}
                   className={selectedProperty?.id === property.id ? 'ring-2 ring-blue-500' : ''}
                 />
