@@ -529,5 +529,310 @@ export const sv = {
       activeCode: 'Angiven kampanjkod'
     },
     save: 'Spara'
+  },
+  
+  howItWorks: {
+    title: 'Så fungerar det',
+    subtitle: 'Tryggt och enkelt att hyra ut eller hitta ett hem',
+    hero: {
+      badge: 'Så fungerar det',
+      title: 'Hyr med Qasa',
+      description: 'Hantera din uthyrning på rätt sätt - tryggt och enkelt.',
+      imageAlt: 'Hjältebild som visar uthyrningsprocessen'
+    },
+    features: {
+      advertising: {
+        title: 'Annonsering av bostäder',
+        description: 'Nordens största annonsplats för uthyrning av bostäder. För hyresgäster och hyresvärdar.'
+      },
+      management: {
+        title: 'Rental management',
+        description: 'Smidig uthyrningshantering från publicering av annonser, skapande och signering av hyresavtal till automatiska hyresbetalningar.'
+      },
+      security: {
+        title: 'Garanterad säkerhet',
+        description: 'Garanterad hyra, försäkrad bostad och ett team av experter för en modern och trygg hyresupplevelse.'
+      }
+    },
+    tabs: {
+      landlord: 'Hyr ut',
+      tenant: 'Hitta bostad'
+    },
+    steps: {
+      landlord: {
+        step1: {
+          title: 'Publicera din bostad',
+          description: 'Din bostad visas för tusentals hyresgäster genom våra externa samarbeten för att säkerställa maximal exponering.'
+        },
+        step2: {
+          title: 'Hitta din perfekta hyresgäst',
+          description: 'Mottag kontaktförfrågningar eller kontakta matchande hyresgäster själv. Vi verifierar dem och kan hjälpa dig välja den bästa hyresgästen för dig.'
+        },
+        step3: {
+          title: 'Signera hyresavtal digitalt',
+          description: 'Signera hyresavtalet som det är, eller skräddarsy det efter dina behov. Vårt hyresavtal är framtaget av jurister för att vara säkert för både dig och hyresgästen.'
+        },
+        step4: {
+          title: 'Få hyran i tid',
+          description: 'Vi betalar din hyra i tid även om hyresgästen slutar betala. Din hyra är garanterad upp till 6 månader av oss så att du inte behöver oroa dig.'
+        },
+        step5: {
+          title: 'Hantera din uthyrning',
+          description: 'Rapportera händelser, hantera din uthyrning och få en överblick av dina tidigare och kommande utbetalningar. Allt på ett ställe.'
+        },
+        step6: {
+          title: 'Fortsätt hyra ut',
+          description: 'Om en hyresgäst flyttar ut kan du ge ut din bostad på nytt. Med Qasa hittar du enkelt en ny hyresgäst – inget krångel och ingen slöseri med tid.'
+        }
+      },
+      tenant: {
+        step1: {
+          title: 'Skapa din profil',
+          description: 'Bygg en omfattande hyresgästprofil som visar vem du är och vad du letar efter.'
+        },
+        step2: {
+          title: 'Sök och ansök',
+          description: 'Bläddra bland tillgängliga fastigheter och ansök direkt genom vår plattform med din verifierade profil.'
+        },
+        step3: {
+          title: 'Bli matchad',
+          description: 'Vår algoritm matchar dig med lämpliga fastigheter och hyresvärdar baserat på dina preferenser.'
+        },
+        step4: {
+          title: 'Signera digitalt',
+          description: 'Signera ditt hyresavtal digitalt med vår säkra och juridiskt bindande process.'
+        },
+        step5: {
+          title: 'Flytta in tryggt',
+          description: 'Flytta in i ditt nya hem med depositionsfria alternativ och full försäkringsskydd.'
+        },
+        step6: {
+          title: 'Njut av ditt hem',
+          description: 'Lev bekvämt med vetskapen om att du har stöd och skydd under hela din hyresperiod.'
+        }
+      }
+    },
+    safety: {
+      title: 'Tryggt och säkert',
+      subtitle: 'Med oss är du trygg även om det oväntade händer',
+      features: {
+        insured: {
+          title: 'Ditt hem är försäkrat',
+          description: 'Du är skyddad utöver din vanliga försäkring.'
+        },
+        guaranteed: {
+          title: 'Din hyra är garanterad',
+          description: 'Få alltid din hyra i tid, även om hyresgästen betalar sent.'
+        },
+        verified: {
+          title: 'Verifierade hyresgäster och hyresvärdar',
+          description: 'Vi använder de senaste tjänsterna för att verifiera hyresvärdar och hyresgäster.'
+        },
+        depositFree: {
+          title: 'Depositionsfritt som standard',
+          description: 'Vi garanterar depositionen, så att hyresgäster kan hyra depositionsfritt.'
+        },
+        reporting: {
+          title: 'Händelserapportering',
+          description: 'Enkel ärenderapportering på din dedikerade uthyrningssida.'
+        },
+        mediation: {
+          title: 'Medlingsstöd',
+          description: 'Vi finns här och hjälper dig vid tvister eller vräkningar vid behov.'
+        }
+      }
+    },
+    support: {
+      title: 'Dedikerad support och råd av våra experter',
+      description: 'Vårt interna team av experter finns här för att stötta dig före, under och efter din hyresperiod.',
+      cta: 'Kontakta oss'
+    },
+    testimonials: {
+      title: 'Älskad av både hyresvärdar och hyresgäster',
+      subtitle: 'Utmärkt omdöme på Trustpilot'
+    },
+    pricing: {
+      title: 'Prissättning',
+      subtitle: 'Serviceavgifter tillkommer under uthyrningen och varierar lokalt',
+      landlord: {
+        title: 'För hyresvärdar',
+        subtitle: 'Vad ingår?',
+        features: [
+          'Publicera din bostad',
+          'Automatiserade hyresgästrekommendationer',
+          'Digital avtalssignering',
+          'Verktyg för uthyrningshantering',
+          'Hyresgaranti',
+          'Dedikerad support'
+        ],
+        cta: 'Se pris'
+      },
+      tenant: {
+        title: 'För hyresgäster',
+        subtitle: 'Vad ingår?',
+        features: [
+          'Hyresgästprofiler',
+          'Depositionshantering',
+          'Digital avtalssignering',
+          'Betalningsöversikt och hantering',
+          'Trygga betalningar genom Qasa',
+          'Dedikerad support'
+        ],
+        cta: 'Se pris'
+      },
+      propertyOwner: {
+        title: 'Är du en fastighetsägare?',
+        cta: 'Läs mer'
+      }
+    },
+    getStarted: {
+      title: 'Sätt igång',
+      subtitle: 'Bostäder och hyresgäster väntar',
+      landlord: {
+        title: 'Publicera annons',
+        description: 'Skapa en annons och hitta din hyresgäst redan idag.',
+        cta: 'Skapa annons'
+      },
+      tenant: {
+        title: 'Sök bostad',
+        description: 'Skapa en hyresgästprofil gratis och hitta ditt nästa hem.',
+        cta: 'Skapa profil'
+      }
+    }
+  },
+  
+  tenantProfile: {
+    title: 'Hyresgästprofil',
+    verified: 'ID verifierat',
+    notVerified: 'Ej verifierad',
+    hasReference: 'Har boendereferens',
+    lastActive: 'Aktiv för {time} sedan',
+    contact: 'Kontakta',
+    reportProfile: 'Anmäl användare',
+    
+    sections: {
+      overview: {
+        title: 'Överblick',
+        firstName: 'Förnamn',
+        headline: 'Din rubrik',
+        headlinePlaceholder: 'Exempel: Skötsam student söker liten lägenhet',
+        headlineDescription: 'Beskriv dig själv med en mening.',
+        verificationTitle: 'Ej verifierad',
+        verificationDescription: 'Verifierat personnummer visar att du är en pålitlig användare.',
+        verifyButton: 'Verifiera'
+      },
+      
+      introduction: {
+        title: 'Introduktion',
+        description: 'Din introduktion',
+        placeholder: 'Exempel: Jag bor just nu i Sundsvall och söker boende i Göteborg tillsammans med min pojkvän Adam...',
+        petsLabel: 'Vilka husdjur har du, om något?',
+        petsPlaceholder: 'Exempel: Jag har en söt gammal katt :)',
+        petsDescription: 'Vilken sorts husdjur har du - en tax, en innekatt, en vandrande pinne?',
+        characterCount: '{count} / {max}'
+      },
+      
+      lookingFor: {
+        title: 'Letar efter',
+        searchArea: 'Sökområde',
+        searchAreaPlaceholder: 'Ange en stad eller ett område',
+        maxRent: 'Hyra (max)',
+        maxRentPlaceholder: 'Ange den högsta hyran du kan tänka dig att betala',
+        perMonth: 'kr/månad',
+        moveIn: 'Inflytt',
+        moveOut: 'Utflytt',
+        asap: 'Snarast möjligt',
+        indefinite: 'Tillsvidare',
+        specificDate: 'Välj datum',
+        numberOfTenants: 'Antal hyresgäster',
+        numberOfTenantsPlaceholder: 'Ange hur många ni är som söker bostad',
+        location: '{location}',
+        rooms: '{rooms} rum, {size} m²',
+        people: 'Boende för {count} person',
+        people_plural: 'Boende för {count} personer',
+        furnished: 'Möblerad eller omöblerad bostad',
+        propertyTypes: 'Lägenhet, Radhus, Villa, Parhus / Eget boende',
+        dates: 'Snarast möjligt → Tillsvidare',
+        maxRentAmount: 'Max {amount} kr'
+      },
+      
+      preferences: {
+        title: 'Preferenser',
+        noPreferences: 'Inga preferenser',
+        balcony: 'Balkong',
+        storage: 'Förråd',
+        dishwasher: 'Diskmaskin',
+        washingMachine: 'Tvättmaskin',
+        tumbleDryer: 'Torktumlare',
+        bathtub: 'Badkar',
+        bikeRoom: 'Cykelrum',
+        parking: 'Parkering',
+        recycling: 'Återvinningsrum',
+        sauna: 'Egen bastu'
+      },
+      
+      requirements: {
+        title: 'Krav',
+        wheelchairAccessible: 'Tillgänglig med rullstol',
+        petsAllowed: 'Husdjur tillåtet',
+        smokingAllowed: 'Rökning tillåten'
+      },
+      
+      employment: {
+        title: 'Sysselsättning',
+        addEmployment: 'Lägg till sysselsättning',
+        fullTime: 'Heltid',
+        partTime: 'Deltid',
+        ongoing: 'Pågående'
+      },
+      
+      housingSituation: {
+        title: 'Boendesituation',
+        currentSituation: 'Nuvarande boendesituation',
+        currentSituationTitle: 'Hur bor du idag?',
+        movingReason: 'Anledning till flytt',
+        previousLocation: 'Tidigare boende',
+        reference: 'Referens',
+        
+        types: {
+          first_hand_renting: 'Första hand',
+          second_hand_renting: 'Andra hand',
+          living_with_family: 'Bor hos familj',
+          own_condominium: 'Bostadsrätt',
+          own_house: 'Eget hus',
+          student_housing: 'Studentboende',
+          co_living: 'Inneboende',
+          other_agreement_type: 'Annan boendeform'
+        }
+      },
+      
+      contactHistory: {
+        title: 'Tidigare kontaktförfrågningar',
+        locations: 'Bostäderna ligger i: {locations}',
+        priceRange: 'Priserna har legat mellan: {min} och {max}',
+        rooms: 'Antal rum: {count}'
+      }
+    },
+    
+    status: {
+      published: 'Publicerad',
+      publishedDescription: 'Hyresvärdar kan hitta din profil och kontakta dig.',
+      unpublish: 'Avpublicera',
+      publish: 'Publicera'
+    },
+    
+    sidebar: {
+      rentBetter: 'Hyr bättre',
+      rentBetterDescription: 'Du får alltid skydd mot hyresförlust, en skräddarsydd uthyrningsförsäkring, och personlig service när du hyr ut med oss.',
+      readMore: 'Läs mer'
+    },
+    
+    common: {
+      save: 'Spara',
+      cancel: 'Avbryt',
+      edit: 'Redigera',
+      back: 'Tillbaka',
+      next: 'Nästa'
+    }
   }
 }; 

@@ -92,22 +92,22 @@ const DesignSystem = () => {
 
   // Search data for components and sections
   const searchData = [
-    { id: 'typography', title: 'Typography', description: 'Text styles & variants', keywords: ['text', 'font', 'title', 'body', 'heading'] },
-    { id: 'colors', title: 'Colors', description: 'Brand & system colors', keywords: ['color', 'brand', 'theme', 'palette'] },
-    { id: 'buttons', title: 'Buttons', description: 'All button variants', keywords: ['button', 'cta', 'action', 'click'] },
-    { id: 'cards', title: 'Cards', description: 'Content containers', keywords: ['card', 'property', 'tenant', 'landlord', 'container'] },
-    { id: 'forms', title: 'Forms', description: 'Input components', keywords: ['form', 'input', 'select', 'checkbox', 'radio'] },
-    { id: 'feedback', title: 'Feedback', description: 'Toasts & loading', keywords: ['toast', 'loading', 'feedback', 'hint'] },
-    { id: 'data-display', title: 'Data Display', description: 'Avatars & badges', keywords: ['avatar', 'badge', 'chip', 'premium'] },
-    { id: 'navigation', title: 'Navigation', description: 'Search & tabs', keywords: ['search', 'tabs', 'pagination', 'accordion'] },
-    { id: 'layout', title: 'Layout', description: 'Grid systems', keywords: ['layout', 'grid', 'flex', 'container'] },
-    { id: 'headers', title: 'Headers', description: 'Page headers', keywords: ['header', 'navigation', 'logged'] },
-    { id: 'sections', title: 'Sections', description: 'Headers & footers', keywords: ['section', 'header', 'footer'] },
-    { id: 'interactive', title: 'Interactive', description: 'Modals & maps', keywords: ['modal', 'map', 'carousel', 'interactive'] },
-    { id: 'utilities', title: 'Utilities', description: 'Icons & skeletons', keywords: ['icon', 'skeleton', 'theme', 'utility'] },
-    { id: 'lists-tables', title: 'Lists & Tables', description: 'ul/ol lists & tables', keywords: ['list', 'table', 'data'] },
-    { id: 'box-cards', title: 'Box Cards', description: 'Promotional & info cards', keywords: ['box', 'promo', 'info'] },
-    { id: 'modal-variants', title: 'Modal Variants', description: 'Different modal types', keywords: ['modal', 'dialog', 'popup'] },
+    { id: 'typography', title: 'Typography', description: 'Text styles & variants', keywords: ['text', 'font', 'title', 'body', 'heading', 'display', 'weight', 'variant'] },
+    { id: 'colors', title: 'Colors', description: 'Brand & system colors', keywords: ['color', 'brand', 'theme', 'palette', 'primary', 'brown', 'pink', 'background', 'text'] },
+    { id: 'buttons', title: 'Buttons', description: 'All button variants', keywords: ['button', 'cta', 'action', 'click', 'primary', 'secondary', 'tertiary', 'outline', 'ghost', 'transparent', 'premium'] },
+    { id: 'cards', title: 'Cards', description: 'Content containers', keywords: ['card', 'property', 'tenant', 'landlord', 'container', 'sidebar', 'white', 'tertiary'] },
+    { id: 'forms', title: 'Forms', description: 'Input components', keywords: ['form', 'input', 'select', 'checkbox', 'radio', 'textarea', 'datepicker', 'slider', 'filter'] },
+    { id: 'feedback', title: 'Feedback', description: 'Toasts & loading', keywords: ['toast', 'loading', 'feedback', 'hint', 'dots', 'black', 'negative'] },
+    { id: 'data-display', title: 'Data Display', description: 'Avatars & badges', keywords: ['avatar', 'badge', 'chip', 'premium', 'feature', 'trust', 'verified'] },
+    { id: 'navigation', title: 'Navigation', description: 'Search & tabs', keywords: ['search', 'tabs', 'pagination', 'accordion', 'filled', 'filter'] },
+    { id: 'layout', title: 'Layout', description: 'Grid systems', keywords: ['layout', 'grid', 'flex', 'container', 'responsive', 'sidebar', 'bento', 'centered'] },
+    { id: 'headers', title: 'Headers', description: 'Page headers', keywords: ['header', 'navigation', 'logged', 'creation', 'discover'] },
+    { id: 'sections', title: 'Sections', description: 'Headers & footers', keywords: ['section', 'header', 'footer', 'primary', 'tertiary', 'centered'] },
+    { id: 'interactive', title: 'Interactive', description: 'Modals & maps', keywords: ['modal', 'map', 'carousel', 'interactive', 'dialog'] },
+    { id: 'utilities', title: 'Utilities', description: 'Icons & skeletons', keywords: ['icon', 'skeleton', 'theme', 'utility', 'loading'] },
+    { id: 'lists-tables', title: 'Lists & Tables', description: 'ul/ol lists & tables', keywords: ['list', 'table', 'data', 'ul', 'li', 'amenities', 'process'] },
+    { id: 'box-cards', title: 'Box Cards', description: 'Promotional & info cards', keywords: ['box', 'promo', 'info', 'insights', 'stats', 'contact'] },
+    { id: 'modal-variants', title: 'Modal Variants', description: 'Different modal types', keywords: ['modal', 'dialog', 'popup', 'contact', 'premium', 'rent', 'breakdown'] },
   ];
 
   // Handle search functionality
@@ -134,6 +134,16 @@ const DesignSystem = () => {
     setSearchQuery('');
     setShowSuggestions(false);
     setSearchSuggestions([]);
+  };
+
+  const handleSearchKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchSuggestions.length > 0) {
+        // Jump to the first matching result
+        handleSuggestionClick(searchSuggestions[0].id);
+      }
+    }
   };
 
   // Observe sections and highlight current item while scrolling
@@ -251,6 +261,7 @@ const DesignSystem = () => {
                     onChange={(e) => handleSearch(e.target.value)}
                     onFocus={() => searchQuery && setShowSuggestions(true)}
                     onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    onKeyDown={handleSearchKeyDown}
                     className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent"
                   />
                 </div>

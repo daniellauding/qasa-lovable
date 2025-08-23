@@ -588,5 +588,310 @@ export const en = {
       activeCode: 'Active code'
     },
     save: 'Save'
+  },
+  
+  howItWorks: {
+    title: 'How it works',
+    subtitle: 'Safe and easy to rent out or find a home',
+    hero: {
+      badge: 'How it works',
+      title: 'Rent with Qasa',
+      description: 'Manage your rental the right way - safe and simple.',
+      imageAlt: 'Hero image showing rental process'
+    },
+    features: {
+      advertising: {
+        title: 'Property advertising',
+        description: 'The Nordic region\'s largest advertising platform for rental properties. For tenants and landlords.'
+      },
+      management: {
+        title: 'Rental management',
+        description: 'Smooth rental management from publishing ads, creating and signing rental agreements to automatic rent payments.'
+      },
+      security: {
+        title: 'Guaranteed security',
+        description: 'Guaranteed rent, insured property and a team of experts for a modern and safe rental experience.'
+      }
+    },
+    tabs: {
+      landlord: 'Rent out',
+      tenant: 'Find home'
+    },
+    steps: {
+      landlord: {
+        step1: {
+          title: 'Publish your property',
+          description: 'Your property is shown to thousands of tenants through our external partnerships to ensure maximum exposure.'
+        },
+        step2: {
+          title: 'Find your perfect tenant',
+          description: 'Receive contact requests or contact matching tenants yourself. We verify them and can help you choose the best tenant for you.'
+        },
+        step3: {
+          title: 'Sign rental agreement digitally',
+          description: 'Sign the rental agreement as is, or customize it to your needs. Our rental agreement is created by lawyers to be safe for both you and the tenant.'
+        },
+        step4: {
+          title: 'Get rent on time',
+          description: 'We pay your rent on time even if the tenant stops paying. Your rent is guaranteed up to 6 months by us so you don\'t have to worry.'
+        },
+        step5: {
+          title: 'Manage your rental',
+          description: 'Report incidents, manage your rental and get an overview of your past and upcoming payouts. All in one place.'
+        },
+        step6: {
+          title: 'Continue renting out',
+          description: 'If a tenant moves out, you can rent out your property again. With Qasa, you easily find a new tenant – no hassle and no waste of time.'
+        }
+      },
+      tenant: {
+        step1: {
+          title: 'Create your profile',
+          description: 'Build a comprehensive tenant profile that showcases who you are and what you\'re looking for.'
+        },
+        step2: {
+          title: 'Search and apply',
+          description: 'Browse available properties and apply directly through our platform with your verified profile.'
+        },
+        step3: {
+          title: 'Get matched',
+          description: 'Our algorithm matches you with suitable properties and landlords based on your preferences.'
+        },
+        step4: {
+          title: 'Sign digitally',
+          description: 'Sign your rental agreement digitally with our secure and legally binding process.'
+        },
+        step5: {
+          title: 'Move in safely',
+          description: 'Move into your new home with deposit-free options and full insurance coverage.'
+        },
+        step6: {
+          title: 'Enjoy your home',
+          description: 'Live comfortably knowing you have support and protection throughout your tenancy.'
+        }
+      }
+    },
+    safety: {
+      title: 'Safe and secure',
+      subtitle: 'With us you are safe even if the unexpected happens',
+      features: {
+        insured: {
+          title: 'Your home is insured',
+          description: 'You are protected beyond your regular insurance.'
+        },
+        guaranteed: {
+          title: 'Your rent is guaranteed',
+          description: 'Always get your rent on time, even if the tenant pays late.'
+        },
+        verified: {
+          title: 'Verified tenants and landlords',
+          description: 'We use the latest services to verify landlords and tenants.'
+        },
+        depositFree: {
+          title: 'Deposit-free as standard',
+          description: 'We guarantee the deposit, so tenants can rent deposit-free.'
+        },
+        reporting: {
+          title: 'Incident reporting',
+          description: 'Simple case reporting on your dedicated rental page.'
+        },
+        mediation: {
+          title: 'Mediation support',
+          description: 'We are here to help you with disputes or evictions when needed.'
+        }
+      }
+    },
+    support: {
+      title: 'Dedicated support and advice from our experts',
+      description: 'Our internal team of experts is here to support you before, during and after your rental period.',
+      cta: 'Contact us'
+    },
+    testimonials: {
+      title: 'Loved by both landlords and tenants',
+      subtitle: 'Excellent rating on Trustpilot'
+    },
+    pricing: {
+      title: 'Pricing',
+      subtitle: 'Service fees are added during rental and vary locally',
+      landlord: {
+        title: 'For landlords',
+        subtitle: 'What\'s included?',
+        features: [
+          'Publish your property',
+          'Automated tenant recommendations',
+          'Digital contract signing',
+          'Rental management tools',
+          'Rent guarantee',
+          'Dedicated support'
+        ],
+        cta: 'See pricing'
+      },
+      tenant: {
+        title: 'For tenants',
+        subtitle: 'What\'s included?',
+        features: [
+          'Tenant profiles',
+          'Deposit management',
+          'Digital contract signing',
+          'Payment overview and management',
+          'Secure payments through Qasa',
+          'Dedicated support'
+        ],
+        cta: 'See pricing'
+      },
+      propertyOwner: {
+        title: 'Are you a property owner?',
+        cta: 'Read more'
+      }
+    },
+    getStarted: {
+      title: 'Get started',
+      subtitle: 'Properties and tenants are waiting',
+      landlord: {
+        title: 'Publish listing',
+        description: 'Create a listing and find your tenant today.',
+        cta: 'Create listing'
+      },
+      tenant: {
+        title: 'Search property',
+        description: 'Create a tenant profile for free and find your next home.',
+        cta: 'Create profile'
+      }
+    }
+  },
+  
+  tenantProfile: {
+    title: 'Tenant Profile',
+    verified: 'ID verified',
+    notVerified: 'Not verified',
+    hasReference: 'Has housing reference',
+    lastActive: 'Active {time} ago',
+    contact: 'Contact',
+    reportProfile: 'Report profile',
+    
+    sections: {
+      overview: {
+        title: 'Overview',
+        firstName: 'First name',
+        headline: 'Your headline',
+        headlinePlaceholder: 'Example: Responsible student looking for small apartment',
+        headlineDescription: 'Describe yourself in one sentence.',
+        verificationTitle: 'Not verified',
+        verificationDescription: 'Verified personal number shows that you are a reliable user.',
+        verifyButton: 'Verify'
+      },
+      
+      introduction: {
+        title: 'Introduction',
+        description: 'Your introduction',
+        placeholder: 'Example: I currently live in Sundsvall and am looking for housing in Gothenburg together with my boyfriend Adam...',
+        petsLabel: 'What pets do you have, if any?',
+        petsPlaceholder: 'Example: I have a cute old cat :)',
+        petsDescription: 'What kind of pet do you have - a dachshund, an indoor cat, a walking stick?',
+        characterCount: '{count} / {max}'
+      },
+      
+      lookingFor: {
+        title: 'Looking for',
+        searchArea: 'Search area',
+        searchAreaPlaceholder: 'Enter a city or area',
+        maxRent: 'Rent (max)',
+        maxRentPlaceholder: 'Enter the highest rent you can imagine paying',
+        perMonth: 'kr/month',
+        moveIn: 'Move in',
+        moveOut: 'Move out',
+        asap: 'As soon as possible',
+        indefinite: 'Until further notice',
+        specificDate: 'Choose date',
+        numberOfTenants: 'Number of tenants',
+        numberOfTenantsPlaceholder: 'Enter how many of you are looking for housing',
+        location: '{location}',
+        rooms: '{rooms} rooms, {size} m²',
+        people: 'Housing for {count} person',
+        people_plural: 'Housing for {count} people',
+        furnished: 'Furnished or unfurnished housing',
+        propertyTypes: 'Apartment, Townhouse, Villa, Semi-detached house / Own housing',
+        dates: 'As soon as possible → Until further notice',
+        maxRentAmount: 'Max {amount} kr'
+      },
+      
+      preferences: {
+        title: 'Preferences',
+        noPreferences: 'No preferences',
+        balcony: 'Balcony',
+        storage: 'Storage',
+        dishwasher: 'Dishwasher',
+        washingMachine: 'Washing machine',
+        tumbleDryer: 'Tumble dryer',
+        bathtub: 'Bathtub',
+        bikeRoom: 'Bike room',
+        parking: 'Parking',
+        recycling: 'Recycling room',
+        sauna: 'Own sauna'
+      },
+      
+      requirements: {
+        title: 'Requirements',
+        wheelchairAccessible: 'Wheelchair accessible',
+        petsAllowed: 'Pets allowed',
+        smokingAllowed: 'Smoking allowed'
+      },
+      
+      employment: {
+        title: 'Employment',
+        addEmployment: 'Add employment',
+        fullTime: 'Full time',
+        partTime: 'Part time',
+        ongoing: 'Ongoing'
+      },
+      
+      housingSituation: {
+        title: 'Housing situation',
+        currentSituation: 'Current housing situation',
+        currentSituationTitle: 'How do you live today?',
+        movingReason: 'Reason for moving',
+        previousLocation: 'Previous housing',
+        reference: 'Reference',
+        
+        types: {
+          first_hand_renting: 'First hand',
+          second_hand_renting: 'Second hand',
+          living_with_family: 'Living with family',
+          own_condominium: 'Condominium',
+          own_house: 'Own house',
+          student_housing: 'Student housing',
+          co_living: 'Lodger',
+          other_agreement_type: 'Other housing type'
+        }
+      },
+      
+      contactHistory: {
+        title: 'Previous contact requests',
+        locations: 'Properties are located in: {locations}',
+        priceRange: 'Prices have been between: {min} and {max}',
+        rooms: 'Number of rooms: {count}'
+      }
+    },
+    
+    status: {
+      published: 'Published',
+      publishedDescription: 'Landlords can find your profile and contact you.',
+      unpublish: 'Unpublish',
+      publish: 'Publish'
+    },
+    
+    sidebar: {
+      rentBetter: 'Rent better',
+      rentBetterDescription: 'You always get protection against rental loss, a tailored rental insurance, and personal service when you rent out with us.',
+      readMore: 'Read more'
+    },
+    
+    common: {
+      save: 'Save',
+      cancel: 'Cancel',
+      edit: 'Edit',
+      back: 'Back',
+      next: 'Next'
+    }
   }
 }; 
