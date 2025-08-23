@@ -77,6 +77,9 @@ const DesignSystem = () => {
   const [copiedText, setCopiedText] = React.useState('');
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
   const [activeSection, setActiveSection] = React.useState('');
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchSuggestions, setSearchSuggestions] = React.useState([]);
+  const [showSuggestions, setShowSuggestions] = React.useState(false);
 
   // Compute classes for sidebar nav buttons with active highlight
   const getNavButtonClasses = (sectionId) => {
@@ -85,6 +88,52 @@ const DesignSystem = () => {
     }`;
     const active = activeSection === sectionId ? ' bg-[var(--color-gray-10)] ring-1 ring-[var(--color-border)]' : '';
     return `${base}${active}`;
+  };
+
+  // Search data for components and sections
+  const searchData = [
+    { id: 'typography', title: 'Typography', description: 'Text styles & variants', keywords: ['text', 'font', 'title', 'body', 'heading'] },
+    { id: 'colors', title: 'Colors', description: 'Brand & system colors', keywords: ['color', 'brand', 'theme', 'palette'] },
+    { id: 'buttons', title: 'Buttons', description: 'All button variants', keywords: ['button', 'cta', 'action', 'click'] },
+    { id: 'cards', title: 'Cards', description: 'Content containers', keywords: ['card', 'property', 'tenant', 'landlord', 'container'] },
+    { id: 'forms', title: 'Forms', description: 'Input components', keywords: ['form', 'input', 'select', 'checkbox', 'radio'] },
+    { id: 'feedback', title: 'Feedback', description: 'Toasts & loading', keywords: ['toast', 'loading', 'feedback', 'hint'] },
+    { id: 'data-display', title: 'Data Display', description: 'Avatars & badges', keywords: ['avatar', 'badge', 'chip', 'premium'] },
+    { id: 'navigation', title: 'Navigation', description: 'Search & tabs', keywords: ['search', 'tabs', 'pagination', 'accordion'] },
+    { id: 'layout', title: 'Layout', description: 'Grid systems', keywords: ['layout', 'grid', 'flex', 'container'] },
+    { id: 'headers', title: 'Headers', description: 'Page headers', keywords: ['header', 'navigation', 'logged'] },
+    { id: 'sections', title: 'Sections', description: 'Headers & footers', keywords: ['section', 'header', 'footer'] },
+    { id: 'interactive', title: 'Interactive', description: 'Modals & maps', keywords: ['modal', 'map', 'carousel', 'interactive'] },
+    { id: 'utilities', title: 'Utilities', description: 'Icons & skeletons', keywords: ['icon', 'skeleton', 'theme', 'utility'] },
+    { id: 'lists-tables', title: 'Lists & Tables', description: 'ul/ol lists & tables', keywords: ['list', 'table', 'data'] },
+    { id: 'box-cards', title: 'Box Cards', description: 'Promotional & info cards', keywords: ['box', 'promo', 'info'] },
+    { id: 'modal-variants', title: 'Modal Variants', description: 'Different modal types', keywords: ['modal', 'dialog', 'popup'] },
+  ];
+
+  // Handle search functionality
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+    if (query.trim() === '') {
+      setSearchSuggestions([]);
+      setShowSuggestions(false);
+      return;
+    }
+
+    const filtered = searchData.filter(item =>
+      item.title.toLowerCase().includes(query.toLowerCase()) ||
+      item.description.toLowerCase().includes(query.toLowerCase()) ||
+      item.keywords.some(keyword => keyword.toLowerCase().includes(query.toLowerCase()))
+    );
+
+    setSearchSuggestions(filtered);
+    setShowSuggestions(true);
+  };
+
+  const handleSuggestionClick = (sectionId) => {
+    scrollToSection(sectionId);
+    setSearchQuery('');
+    setShowSuggestions(false);
+    setSearchSuggestions([]);
   };
 
   // Observe sections and highlight current item while scrolling
@@ -178,7 +227,7 @@ const DesignSystem = () => {
         {/* Sidebar Navigation */}
         <div className={`bg-white border-r shadow-sm transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-16'} flex-shrink-0 flex flex-col fixed top-0 left-0 h-screen`}>
           <div className="p-4 border-b flex-shrink-0 sticky top-0 bg-white z-10">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mb-4">
               {isSidebarOpen && (
                 <Typography variant="title-sm" className="font-medium">Navigation</Typography>
               )}
@@ -189,6 +238,46 @@ const DesignSystem = () => {
                 <Icon name={isSidebarOpen ? "ChevronLeft" : "ChevronRight"} size="sm" />
               </button>
             </div>
+            
+            {/* Search Input */}
+            {isSidebarOpen && (
+              <div className="relative">
+                <div className="relative">
+                  <Icon name="Search" size="sm" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search components..."
+                    value={searchQuery}
+                    onChange={(e) => handleSearch(e.target.value)}
+                    onFocus={() => searchQuery && setShowSuggestions(true)}
+                    onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
+                    className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent"
+                  />
+                </div>
+                
+                {/* Search Suggestions */}
+                {showSuggestions && searchSuggestions.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-64 overflow-y-auto">
+                    {searchSuggestions.map((suggestion) => (
+                      <button
+                        key={suggestion.id}
+                        onClick={() => handleSuggestionClick(suggestion.id)}
+                        className="w-full text-left px-4 py-3 hover:bg-[var(--color-gray-10)] transition-colors border-b border-gray-100 last:border-b-0"
+                      >
+                        <div className="font-medium text-sm text-gray-900">{suggestion.title}</div>
+                        <div className="text-xs text-gray-600 mt-1">{suggestion.description}</div>
+                      </button>
+                    ))}
+                  </div>
+                )}
+                
+                {showSuggestions && searchQuery && searchSuggestions.length === 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 px-4 py-3">
+                    <div className="text-sm text-gray-600">No components found</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           
           <nav className="flex-1 overflow-y-auto p-2">
@@ -1661,6 +1750,18 @@ const DesignSystem = () => {
                 
                 <div>
                   <Typography variant="label-sm" className="text-[var(--color-text-secondary)] mb-2">TenantCard Component (White Background)</Typography>
+                  <div className="bg-[var(--color-gray-10)] p-4 rounded-lg mb-4">
+                    <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
+                      <strong>Prompt usage:</strong> "Add TenantCard with onCardClick for navigation" or "Use TenantCard with cursor-pointer for clickable profiles" or "Include TenantCard onCardClick={() => window.open('/tenants/profile?view=public', '_blank')}"
+                    </Typography>
+                    <button
+                      onClick={() => copyToClipboard('Add TenantCard with onClick for navigation')}
+                      className="mt-2 flex items-center gap-2 text-[var(--color-brown)] hover:text-[var(--color-text-secondary)] text-sm"
+                    >
+                      {copiedText === 'Add TenantCard with onClick for navigation' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                      Copy prompt
+                    </button>
+                  </div>
                   <TenantCard 
                     user={{
                       name: 'Anna Andersson',
@@ -1672,6 +1773,8 @@ const DesignSystem = () => {
                       furnished: 'Furnished',
                       moveDate: 'Available now'
                     }}
+                    onCardClick={() => window.open('/tenants/profile?view=public', '_blank')}
+                    className="hover:shadow-lg transition-shadow"
                   />
                 </div>
                 

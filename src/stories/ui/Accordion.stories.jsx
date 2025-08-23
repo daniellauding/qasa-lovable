@@ -16,6 +16,24 @@ const items = [
   { title: 'What can I rent out?', content: 'Apartments, houses, rooms, and more in accordance with local regulations.' },
 ];
 
+const itemsWithDescriptions = [
+  { 
+    title: 'Personal', 
+    description: 'Your personal information and how we can contact you',
+    content: 'Name, email, phone number, and birth date information.' 
+  },
+  { 
+    title: 'Account', 
+    description: 'Set your account type',
+    content: 'Role, account type, and Qasa Premium settings.' 
+  },
+  { 
+    title: 'Notifications', 
+    description: 'Your notification preferences',
+    content: 'Frequency, contact requests, and SMS notification settings.' 
+  },
+];
+
 export const Default = {
   args: {
     items,
@@ -29,6 +47,21 @@ export const MultipleOpen = {
     items,
     allowMultiple: true,
     defaultOpenIndices: [0, 2],
+  },
+};
+
+export const WithDescriptions = {
+  args: {
+    items: itemsWithDescriptions,
+    allowMultiple: false,
+    defaultOpenIndices: [0],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Accordion items with descriptions in the header, matching the Settings page design.',
+      },
+    },
   },
 };
 

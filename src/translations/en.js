@@ -504,4 +504,89 @@ export const en = {
       },
     }
   },
+  settings: {
+    title: 'Settings',
+    personal: {
+      title: 'Personal',
+      description: 'Your personal information and how we can contact you',
+      name: 'Name',
+      firstName: 'First name',
+      lastName: 'Last name',
+      email: 'Email',
+      emailVerified: 'Email verified',
+      phone: 'Phone number',
+      phoneExample: 'Ex: +4673 xxx xx xx',
+      birthDate: 'Birth date',
+      birthDateNote: 'Your birth date is set via ID verification.',
+      privateNote: 'These are your private details. Only your first name will be visible in your public profile.'
+    },
+    account: {
+      title: 'Account',
+      description: 'Set your account type',
+      role: 'Role',
+      roleValue: 'Landlord',
+      accountType: 'Account type',
+      privateAccount: 'Private account',
+      businessAccount: 'Business account',
+      premium: {
+        title: 'Qasa Premium',
+        description: 'Priority access to selected homes, exclusive insights and more, with Qasa Premium.',
+        getButton: 'Get Qasa Premium'
+      }
+    },
+    verifications: {
+      title: 'Verifications',
+      description: 'Your verifications and certificates',
+      idVerification: 'ID verification',
+      verified: 'Verified',
+      creditCheck: 'Credit check',
+      creditCheckCompleted: 'Credit check completed',
+      validUntil: 'Valid until {date}',
+      creditHistory: 'Credit history',
+      notVerified: 'Not verified',
+      references: 'Housing references'
+    },
+    notifications: {
+      title: 'Notifications',
+      description: 'Your notification preferences',
+      frequency: 'How often do you want notifications?',
+      notProvided: 'Not provided',
+      contactRequests: 'Contact requests or messages',
+      notifyMe: 'Notify me',
+      smsNotifications: 'SMS notifications',
+      noThanks: 'No, thank you'
+    },
+    bankAccount: {
+      title: 'Bank account',
+      description: 'Your bank account and civil registration',
+      active: 'Active',
+      bankName: 'Name of bank',
+      clearingNumber: 'Clearing number',
+      accountNumber: 'Account number',
+      country: 'Country',
+      civilRegistration: 'Civil registration address',
+      added: 'Added'
+    },
+    privacy: {
+      title: 'Privacy',
+      description: 'Manage cookies and privacy settings',
+      cookieSettings: 'Cookie settings'
+    },
+    taxReports: {
+      title: 'Tax reports',
+      description: 'Summary of your payouts (DAC-7)',
+      seeReports: 'See reports'
+    },
+    deleteAccount: {
+      title: 'Delete account',
+      description: 'You can delete your account here',
+      button: 'Delete account'
+    },
+    promotionalCode: {
+      title: 'Promotional Code',
+      description: 'Add a promotional code',
+      activeCode: 'Active code'
+    },
+    save: 'Save'
+  }
 }; 

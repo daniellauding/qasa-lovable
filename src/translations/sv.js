@@ -445,4 +445,89 @@ export const sv = {
       },
     }
   },
+  settings: {
+    title: 'Inställningar',
+    personal: {
+      title: 'Personligt',
+      description: 'Din personliga information och hur vi kan kontakta dig',
+      name: 'Namn',
+      firstName: 'Förnamn',
+      lastName: 'Efternamn',
+      email: 'E-postadress',
+      emailVerified: 'E-post verifierad',
+      phone: 'Telefonnummer',
+      phoneExample: 'Ex: +4673 xxx xx xx',
+      birthDate: 'Födelsedatum',
+      birthDateNote: 'Ditt födelsedatum sätts genom ID-verifiering.',
+      privateNote: 'Det här är dina privata uppgifter. Endast ditt förnamn visas i din profil.'
+    },
+    account: {
+      title: 'Konto',
+      description: 'Ställ in din kontotyp',
+      role: 'Roll',
+      roleValue: 'Hyresvärd',
+      accountType: 'Kontotyp',
+      privateAccount: 'Privatkonto',
+      businessAccount: 'Företagskonto',
+      premium: {
+        title: 'Qasa Premium',
+        description: 'Ansök innan alla andra till utvalda bostäder, få exklusiva insikter och mycket mer. Med Qasa Premium.',
+        getButton: 'Skaffa Qasa Premium'
+      }
+    },
+    verifications: {
+      title: 'Verifieringar',
+      description: 'Dina verifieringar och intyg',
+      idVerification: 'ID-verifiering',
+      verified: 'Verifierat',
+      creditCheck: 'Kreditupplysning',
+      creditCheckCompleted: 'Kreditupplysning genomförd',
+      validUntil: 'Giltigt till {date}',
+      creditHistory: 'Kredithistorik',
+      notVerified: 'Inte verifierat',
+      references: 'Boendereferens'
+    },
+    notifications: {
+      title: 'Notiser',
+      description: 'Dina notisinställningar',
+      frequency: 'Hur ofta vill du ha notiser?',
+      notProvided: 'Ej angivet',
+      contactRequests: 'Kontaktförfrågningar och meddelanden',
+      notifyMe: 'Meddela mig',
+      smsNotifications: 'SMS-notiser',
+      noThanks: 'Nej tack'
+    },
+    bankAccount: {
+      title: 'Bankkonto',
+      description: 'Ditt bankkonto och folkbokföring',
+      active: 'Aktiv',
+      bankName: 'Bankens namn',
+      clearingNumber: 'Clearingnummer',
+      accountNumber: 'Kontonummer',
+      country: 'Land',
+      civilRegistration: 'Folkbokföringsadress',
+      added: 'Tillagt'
+    },
+    privacy: {
+      title: 'Datahantering',
+      description: 'Hantera cookies och datadelning',
+      cookieSettings: 'Hantera cookies och datadelning'
+    },
+    taxReports: {
+      title: 'Deklarationsunderlag',
+      description: 'Summering av dina utbetalningar (DAC-7)',
+      seeReports: 'Dina rapporter'
+    },
+    deleteAccount: {
+      title: 'Inaktivera konto',
+      description: 'Du kan inaktivera ditt konto här',
+      button: 'Inaktivera mitt konto'
+    },
+    promotionalCode: {
+      title: 'Kampanjkod',
+      description: 'Lägg till kampanjkod',
+      activeCode: 'Angiven kampanjkod'
+    },
+    save: 'Spara'
+  }
 }; 

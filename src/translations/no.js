@@ -508,4 +508,89 @@ export const no = {
       },
     }
   },
+  settings: {
+    title: 'Innstillinger',
+    personal: {
+      title: 'Personlig',
+      description: 'Din personlige informasjon og hvordan vi kan kontakte deg',
+      name: 'Navn',
+      firstName: 'Fornavn',
+      lastName: 'Etternavn',
+      email: 'E-post',
+      emailVerified: 'E-post verifisert',
+      phone: 'Telefonnummer',
+      phoneExample: 'Eks: +47 xxx xx xxx',
+      birthDate: 'Fødselsdato',
+      birthDateNote: 'Din fødselsdato settes via ID-verifisering.',
+      privateNote: 'Dette er dine private opplysninger. Bare fornavnet ditt vil være synlig i din offentlige profil.'
+    },
+    account: {
+      title: 'Konto',
+      description: 'Angi kontotype',
+      role: 'Rolle',
+      roleValue: 'Utleier',
+      accountType: 'Kontotype',
+      privateAccount: 'Privat konto',
+      businessAccount: 'Bedriftskonto',
+      premium: {
+        title: 'Qasa Premium',
+        description: 'Prioritert tilgang til utvalgte boliger, eksklusive innsikter og mer med Qasa Premium.',
+        getButton: 'Få Qasa Premium'
+      }
+    },
+    verifications: {
+      title: 'Verifiseringer',
+      description: 'Dine verifiseringer og sertifikater',
+      idVerification: 'ID-verifisering',
+      verified: 'Verifisert',
+      creditCheck: 'Kredittsjekk',
+      creditCheckCompleted: 'Kredittsjekk fullført',
+      validUntil: 'Gyldig til {date}',
+      creditHistory: 'Kreditthistorikk',
+      notVerified: 'Ikke verifisert',
+      references: 'Boligreferanser'
+    },
+    notifications: {
+      title: 'Varsler',
+      description: 'Dine varselinnstillinger',
+      frequency: 'Hvor ofte vil du ha varsler?',
+      notProvided: 'Ikke oppgitt',
+      contactRequests: 'Kontaktforespørsler eller meldinger',
+      notifyMe: 'Varsle meg',
+      smsNotifications: 'SMS-varsler',
+      noThanks: 'Nei takk'
+    },
+    bankAccount: {
+      title: 'Bankkonto',
+      description: 'Din bankkonto og folkeregistrering',
+      active: 'Aktiv',
+      bankName: 'Banknavn',
+      clearingNumber: 'Clearingnummer',
+      accountNumber: 'Kontonummer',
+      country: 'Land',
+      civilRegistration: 'Folkeregistrert adresse',
+      added: 'Lagt til'
+    },
+    privacy: {
+      title: 'Personvern',
+      description: 'Administrer informasjonskapsler og personverninnstillinger',
+      cookieSettings: 'Informasjonskapselinnstillinger'
+    },
+    taxReports: {
+      title: 'Skatterapporter',
+      description: 'Sammendrag av utbetalingene dine (DAC-7)',
+      seeReports: 'Se rapporter'
+    },
+    deleteAccount: {
+      title: 'Slett konto',
+      description: 'Du kan slette kontoen din her',
+      button: 'Slett konto'
+    },
+    promotionalCode: {
+      title: 'Kampanjekode',
+      description: 'Legg til en kampanjekode',
+      activeCode: 'Aktiv kode'
+    },
+    save: 'Lagre'
+  }
 };

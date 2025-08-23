@@ -38,6 +38,7 @@ import HomesPage from './prototypes/homes/HomesPage';
 import MessagesPage from './prototypes/messages/MessagesPage';
 import BlankTemplate from './prototypes/templates/BlankTemplate';
 import DesignSystem from './prototypes/design-system/DesignSystem';
+import SettingsPage from './prototypes/settings/SettingsPage';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Landing from './prototypes/landing/Landing';
 import Header from './components/Header';
@@ -488,6 +489,18 @@ function App() {
           } />
           
           <Route path="/messages" element={<MessagesPage />} />
+          
+          {/* Settings */}
+          <Route path="/sv/settings" element={
+            <div className="min-h-screen flex flex-col">
+              <DynamicHeader isFluid={true} />
+              <main className="flex-grow">
+                <SettingsPage />
+              </main>
+              <Footer isFluid={true} />
+              <DevExperimentsButton />
+            </div>
+          } />
           
           {/* Template System */}
           <Route path="/templates/blank" element={<BlankTemplate />} />

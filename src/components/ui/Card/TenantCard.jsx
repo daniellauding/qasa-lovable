@@ -18,7 +18,7 @@ const TenantCard = ({
     <Card
       variant="tenant"
       className={`bg-gray-10 cursor-pointer hover:shadow-md border-0 transition-shadow ${className}`}
-      // onClick={onCardClick}
+      onClick={onCardClick}
       {...props}
     >
       <div className="text-center flex-1 flex flex-col justify-between">

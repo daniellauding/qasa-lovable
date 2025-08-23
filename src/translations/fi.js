@@ -504,4 +504,89 @@ export const fi = {
       },
     }
   },
+  settings: {
+    title: 'Asetukset',
+    personal: {
+      title: 'Henkilökohtaiset tiedot',
+      description: 'Henkilökohtaiset tietosi ja kuinka voimme ottaa sinuun yhteyttä',
+      name: 'Nimi',
+      firstName: 'Etunimi',
+      lastName: 'Sukunimi',
+      email: 'Sähköposti',
+      emailVerified: 'Sähköposti vahvistettu',
+      phone: 'Puhelinnumero',
+      phoneExample: 'Esim: +358 xx xxx xx xx',
+      birthDate: 'Syntymäaika',
+      birthDateNote: 'Syntymäaikasi asetetaan henkilöllisyyden vahvistuksen kautta.',
+      privateNote: 'Nämä ovat yksityisiä tietojasi. Vain etunimesi näkyy julkisessa profiilissasi.'
+    },
+    account: {
+      title: 'Tili',
+      description: 'Aseta tilityyppi',
+      role: 'Rooli',
+      roleValue: 'Vuokranantaja',
+      accountType: 'Tilityyppi',
+      privateAccount: 'Yksityinen tili',
+      businessAccount: 'Yritystili',
+      premium: {
+        title: 'Qasa Premium',
+        description: 'Etuoikeutettu pääsy valittuihin koteihin, eksklusiivisia näkemyksiä ja paljon muuta Qasa Premiumin kanssa.',
+        getButton: 'Hanki Qasa Premium'
+      }
+    },
+    verifications: {
+      title: 'Vahvistukset',
+      description: 'Vahvistuksesi ja todistuksesi',
+      idVerification: 'Henkilöllisyyden vahvistus',
+      verified: 'Vahvistettu',
+      creditCheck: 'Luottotietojen tarkistus',
+      creditCheckCompleted: 'Luottotietojen tarkistus suoritettu',
+      validUntil: 'Voimassa {date} asti',
+      creditHistory: 'Luottohistoria',
+      notVerified: 'Ei vahvistettu',
+      references: 'Asumisreferenssit'
+    },
+    notifications: {
+      title: 'Ilmoitukset',
+      description: 'Ilmoitusasetuksesi',
+      frequency: 'Kuinka usein haluat ilmoituksia?',
+      notProvided: 'Ei annettu',
+      contactRequests: 'Yhteydenottopyynnöt tai viestit',
+      notifyMe: 'Ilmoita minulle',
+      smsNotifications: 'SMS-ilmoitukset',
+      noThanks: 'Ei kiitos'
+    },
+    bankAccount: {
+      title: 'Pankkitili',
+      description: 'Pankkitilisi ja väestörekisteriosoite',
+      active: 'Aktiivinen',
+      bankName: 'Pankin nimi',
+      clearingNumber: 'Clearingnumero',
+      accountNumber: 'Tilinumero',
+      country: 'Maa',
+      civilRegistration: 'Väestörekisteriosoite',
+      added: 'Lisätty'
+    },
+    privacy: {
+      title: 'Tietosuoja',
+      description: 'Hallitse evästeitä ja tietosuoja-asetuksia',
+      cookieSettings: 'Evästeasetukset'
+    },
+    taxReports: {
+      title: 'Veroraportit',
+      description: 'Yhteenveto maksuistasi (DAC-7)',
+      seeReports: 'Katso raportit'
+    },
+    deleteAccount: {
+      title: 'Poista tili',
+      description: 'Voit poistaa tilisi täältä',
+      button: 'Poista tili'
+    },
+    promotionalCode: {
+      title: 'Kampanjakoodi',
+      description: 'Lisää kampanjakoodi',
+      activeCode: 'Aktiivinen koodi'
+    },
+    save: 'Tallenna'
+  }
 }; 
