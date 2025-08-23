@@ -45,7 +45,6 @@ import RichPromoCard from '../../components/ui/RichPromoCard';
 import PremiumBadge from '../../components/ui/PremiumBadge';
 import LocationSearch from '../../components/ui/LocationSearch';
 import VariantCard from '../../components/ui/VariantCard';
-import VariantSelector from '../../components/ui/VariantSelector';
 import SectionHeader from '../../components/ui/SectionHeader';
 import SectionFooter from '../../components/ui/SectionFooter';
 import SectionContainer from '../../components/ui/SectionContainer';

@@ -827,6 +827,29 @@ export const sv = {
       readMore: 'Läs mer'
     },
     
+    modals: {
+      basicInfo: {
+        title: 'Redigera grundläggande information',
+        placeholder: 'Redigera ditt namn, ålder, titel och bio här.'
+      },
+      lookingFor: {
+        title: 'Redigera vad du söker',
+        placeholder: 'Redigera dina sökkriterier inklusive plats, antal rum, storlek och preferenser här.'
+      },
+      preferences: {
+        title: 'Redigera preferenser',
+        placeholder: 'Redigera dina bostadspreferenser och krav här.'
+      },
+      employment: {
+        title: 'Redigera anställningsinformation',
+        placeholder: 'Redigera dina anställningsdetaljer inklusive jobbtitel, företag och arbetsstatus här.'
+      },
+      housingSituation: {
+        title: 'Redigera bostadssituation',
+        placeholder: 'Redigera din nuvarande bostadssituation och flyttskäl här.'
+      }
+    },
+    
     common: {
       save: 'Spara',
       cancel: 'Avbryt',

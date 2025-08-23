@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { MapPin, Home, Users, Check, Star, IdCard, Coins, Calendar, Sofa, House, PawPrint, AlertTriangle, ArrowRight } from 'lucide-react';
+import { MapPin, Home, Users, Check, Star, IdCard, Coins, Calendar, Sofa, House, PawPrint, AlertTriangle, ArrowRight, Edit } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/ui/Icon';
+import Modal from '../../../components/ui/Modal';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
@@ -13,6 +14,7 @@ export default function TenantProfilePage() {
   const { t } = useTranslation();
   const isPublicView = searchParams.get('view') === 'public';
   const [isPublished, setIsPublished] = useState(true);
+  const [activeModal, setActiveModal] = useState(null);
   
   // Mock profile data based on the provided HTML structure
   const profile = {
@@ -62,56 +64,96 @@ export default function TenantProfilePage() {
     return t('tenantProfile.lastActive', { time });
   };
 
+  const openModal = (modalType) => {
+    setActiveModal(modalType);
+  };
+
+  const closeModal = () => {
+    setActiveModal(null);
+  };
+
+  // Reusable section header component with edit button
+  const SectionHeader = ({ title, onEdit, showEdit = !isPublicView }) => (
+    <div className="flex items-center justify-between">
+      <Typography variant="title-sm" className="text-gray-900">
+        {title}
+      </Typography>
+      {showEdit && (
+        <Button 
+          variant="ghost" 
+          size="sm" 
+          onClick={onEdit}
+          className="text-gray-500 hover:text-gray-700"
+        >
+          <Edit className="w-4 h-4" />
+        </Button>
+      )}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-white">
       <DynamicHeader isFluid={true} />
       
+      {/* Profile Header - Full Width Background */}
+      <div className="bg-[var(--color-background-inset)]">
+        <div className="max-w-6xl mx-auto px-4 py-8">
+          <div className="flex items-start gap-6">
+            <div className="relative">
+              <img
+                src={profile.avatar}
+                alt={profile.name}
+                className="w-20 h-20 rounded-full object-cover"
+              />
+            </div>
+            <div className="flex-1">
+                                <div className="flex items-start justify-between">
+                    <div>
+                  <Typography variant="title-lg" className="text-gray-900 mb-2">
+                    {profile.name} ({profile.age})
+                      </Typography>
+                  <Typography variant="title-sm" className="text-gray-700 mb-4">
+                    {profile.title}
+                      </Typography>
+                    </div>
+                    {!isPublicView && (
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => openModal('basicInfo')}
+                        className="text-gray-500 hover:text-gray-700"
+                      >
+                        <Edit className="w-4 h-4" />
+                      </Button>
+                    )}
+                  </div>
+              
+              <div className="flex flex-wrap gap-2">
+                {profile.verified && (
+                  <Button variant="outline" size="sm">
+                    <Icon name="IdCard" size="sm" className="mr-2" />
+                    {t('tenantProfile.verified')}
+                  </Button>
+                )}
+                {profile.hasReference && (
+                  <Button variant="outline" size="sm">
+                    <Icon name="HousePlus" size="sm" className="mr-2" />
+                    {t('tenantProfile.hasReference')}
+                  </Button>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Profile Content */}
           <div className="lg:col-span-2">
-            {/* Profile Header */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-              <div className="flex items-start gap-6">
-                <div className="relative">
-                  <img
-                    src={profile.avatar}
-                    alt={profile.name}
-                    className="w-20 h-20 rounded-full object-cover"
-                  />
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <Typography variant="title-lg" className="text-gray-900 mb-2">
-                        {profile.name} ({profile.age})
-                      </Typography>
-                      <Typography variant="title-sm" className="text-gray-700 mb-4">
-                        {profile.title}
-                      </Typography>
-                    </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {profile.verified && (
-                      <Button variant="outline" size="sm">
-                        <Icon name="IdCard" size="sm" className="mr-2" />
-                        {t('tenantProfile.verified')}
-                      </Button>
-                    )}
-                    {profile.hasReference && (
-                      <Button variant="outline" size="sm">
-                        <Icon name="HousePlus" size="sm" className="mr-2" />
-                        {t('tenantProfile.hasReference')}
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
 
             {/* Profile Content */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-8">
+            <div className="space-y-8">
               {/* Introduction Section */}
               <div className="space-y-4">
                 <Typography variant="body-md" className="text-gray-800">
@@ -128,11 +170,12 @@ export default function TenantProfilePage() {
 
               {/* Looking For Section */}
               <div className="space-y-4">
-                <Typography variant="title-sm" className="text-gray-900">
-                  {t('tenantProfile.sections.lookingFor.title')}
-                </Typography>
+                <SectionHeader 
+                  title={t('tenantProfile.sections.lookingFor.title')}
+                  onEdit={() => openModal('lookingFor')}
+                />
                 
-                <div className="space-y-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
@@ -173,7 +216,7 @@ export default function TenantProfilePage() {
                       </span>
                     </Typography>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 md:col-span-2">
                     <Coins className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
                       {t('tenantProfile.sections.lookingFor.maxRentAmount', { amount: profile.searchCriteria.maxRent.toLocaleString() })}
@@ -184,9 +227,10 @@ export default function TenantProfilePage() {
 
               {/* Preferences Section */}
               <div className="space-y-4">
-                <Typography variant="title-sm" className="text-gray-900">
-                  {t('tenantProfile.sections.preferences.title')}
-                </Typography>
+                <SectionHeader 
+                  title={t('tenantProfile.sections.preferences.title')}
+                  onEdit={() => openModal('preferences')}
+                />
                 <Typography variant="body-md" className="text-gray-700">
                   {profile.preferences.length === 0 ? t('tenantProfile.sections.preferences.noPreferences') : profile.preferences.join(', ')}
                 </Typography>
@@ -194,9 +238,10 @@ export default function TenantProfilePage() {
 
               {/* Employment Section */}
               <div className="space-y-4">
-                <Typography variant="title-sm" className="text-gray-900">
-                  {t('tenantProfile.sections.employment.title')}
-                </Typography>
+                <SectionHeader 
+                  title={t('tenantProfile.sections.employment.title')}
+                  onEdit={() => openModal('employment')}
+                />
                 
                 <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
                   <div className="flex justify-between items-start">
@@ -222,9 +267,10 @@ export default function TenantProfilePage() {
 
               {/* Housing Situation Section */}
               <div className="space-y-4">
-                <Typography variant="title-sm" className="text-gray-900">
-                  {t('tenantProfile.sections.housingSituation.title')}
-                </Typography>
+                <SectionHeader 
+                  title={t('tenantProfile.sections.housingSituation.title')}
+                  onEdit={() => openModal('housingSituation')}
+                />
                 
                 <div className="space-y-4">
                   <div>
@@ -325,6 +371,117 @@ export default function TenantProfilePage() {
           </div>
         </div>
       </div>
+      
+      {/* Edit Modals */}
+      {activeModal === 'basicInfo' && (
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={t('tenantProfile.modals.basicInfo.title')}
+        >
+          <div className="p-6">
+            <Typography variant="body-md" className="text-gray-600">
+              {t('tenantProfile.modals.basicInfo.placeholder')}
+            </Typography>
+            <div className="flex justify-end gap-3 mt-6">
+              <Button variant="outline" onClick={closeModal}>
+                {t('common.cancel')}
+              </Button>
+              <Button variant="primary" onClick={closeModal}>
+                {t('common.save')}
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {activeModal === 'lookingFor' && (
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={t('tenantProfile.modals.lookingFor.title')}
+        >
+          <div className="p-6">
+            <Typography variant="body-md" className="text-gray-600">
+              {t('tenantProfile.modals.lookingFor.placeholder')}
+            </Typography>
+            <div className="flex justify-end gap-3 mt-6">
+              <Button variant="outline" onClick={closeModal}>
+                {t('common.cancel')}
+              </Button>
+              <Button variant="primary" onClick={closeModal}>
+                {t('common.save')}
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {activeModal === 'preferences' && (
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={t('tenantProfile.modals.preferences.title')}
+        >
+          <div className="p-6">
+            <Typography variant="body-md" className="text-gray-600">
+              {t('tenantProfile.modals.preferences.placeholder')}
+            </Typography>
+            <div className="flex justify-end gap-3 mt-6">
+              <Button variant="outline" onClick={closeModal}>
+                {t('common.cancel')}
+              </Button>
+              <Button variant="primary" onClick={closeModal}>
+                {t('common.save')}
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {activeModal === 'employment' && (
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={t('tenantProfile.modals.employment.title')}
+        >
+          <div className="p-6">
+            <Typography variant="body-md" className="text-gray-600">
+              {t('tenantProfile.modals.employment.placeholder')}
+            </Typography>
+            <div className="flex justify-end gap-3 mt-6">
+              <Button variant="outline" onClick={closeModal}>
+                {t('common.cancel')}
+              </Button>
+              <Button variant="primary" onClick={closeModal}>
+                {t('common.save')}
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {activeModal === 'housingSituation' && (
+        <Modal
+          isOpen={true}
+          onClose={closeModal}
+          title={t('tenantProfile.modals.housingSituation.title')}
+        >
+          <div className="p-6">
+            <Typography variant="body-md" className="text-gray-600">
+              {t('tenantProfile.modals.housingSituation.placeholder')}
+            </Typography>
+            <div className="flex justify-end gap-3 mt-6">
+              <Button variant="outline" onClick={closeModal}>
+                {t('common.cancel')}
+              </Button>
+              <Button variant="primary" onClick={closeModal}>
+                {t('common.save')}
+              </Button>
+            </div>
+          </div>
+        </Modal>
+      )}
       
       <DevExperimentsButton />
     </div>

@@ -886,6 +886,29 @@ export const en = {
       readMore: 'Read more'
     },
     
+    modals: {
+      basicInfo: {
+        title: 'Edit Basic Information',
+        placeholder: 'Edit your name, age, title, and bio here.'
+      },
+      lookingFor: {
+        title: 'Edit What You\'re Looking For',
+        placeholder: 'Edit your search criteria including location, room count, size, and preferences here.'
+      },
+      preferences: {
+        title: 'Edit Preferences',
+        placeholder: 'Edit your housing preferences and requirements here.'
+      },
+      employment: {
+        title: 'Edit Employment Information',
+        placeholder: 'Edit your employment details including job title, company, and work status here.'
+      },
+      housingSituation: {
+        title: 'Edit Housing Situation',
+        placeholder: 'Edit your current housing situation and moving reasons here.'
+      }
+    },
+    
     common: {
       save: 'Save',
       cancel: 'Cancel',

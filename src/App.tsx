@@ -39,6 +39,7 @@ import MessagesPage from './prototypes/messages/MessagesPage';
 import BlankTemplate from './prototypes/templates/BlankTemplate';
 import DesignSystem from './prototypes/design-system/DesignSystem';
 import SettingsPage from './prototypes/settings/SettingsPage';
+import HowItWorksPage from './prototypes/how-it-works/HowItWorksPage';
 import DevExperimentsButton from './components/DevExperimentsButton';
 import Landing from './prototypes/landing/Landing';
 import Header from './components/Header';
@@ -489,6 +490,20 @@ function App() {
           } />
           
           <Route path="/messages" element={<MessagesPage />} />
+          
+          {/* Swedish locale routes */}
+          <Route path="/sv/" element={<Navigate to="/landing" replace />} />
+          <Route path="/sv/profile" element={<TenantProfilePage />} />
+          <Route path="/sv/how-it-works" element={
+            <div className="min-h-screen flex flex-col">
+              <DynamicHeader isFluid={true} />
+              <main className="flex-grow">
+                <HowItWorksPage />
+              </main>
+              <Footer isFluid={true} />
+              <DevExperimentsButton />
+            </div>
+          } />
           
           {/* Settings */}
           <Route path="/sv/settings" element={
