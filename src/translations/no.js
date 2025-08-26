@@ -1,4 +1,3 @@
-import { en } from './en';
 
 // Temporary Norwegian (Bokmål) translations
 // TODO: Replace with proper Norwegian copy. Falls back to English structure for now.

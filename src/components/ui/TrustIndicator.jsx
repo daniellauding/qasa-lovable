@@ -1,6 +1,6 @@
-import React from 'react';
+import { Award, IdCard, Shield, UserCheck } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { Shield, CheckCircle, UserCheck, Award } from 'lucide-react';
+import React from 'react';
 
 const TrustIndicator = ({
   text,
@@ -9,7 +9,7 @@ const TrustIndicator = ({
   className = '',
 }) => {
   const iconMap = {
-    verified: <CheckCircle className="w-4 h-4" />,
+    verified: <IdCard className="w-4 h-4" />,
     secure: <Shield className="w-4 h-4" />,
     trusted: <UserCheck className="w-4 h-4" />,
     premium: <Award className="w-4 h-4" />,
@@ -17,7 +17,7 @@ const TrustIndicator = ({
 
   const variantClasses = {
     default:
-      'inline-flex items-center gap-2 px-3 py-1.5 bg-[var(--color-button-tertiary-bg)] rounded-full',
+      'inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-button-tertiary-bg)] rounded-full',
     compact:
       'inline-flex items-center gap-1.5 px-2 py-1 bg-[var(--color-button-tertiary-bg)] rounded-md',
     pill: 'inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-button-tertiary-bg)] rounded-full',
