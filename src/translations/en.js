@@ -788,6 +788,7 @@ export const en = {
         petsLabel: 'What pets do you have, if any?',
         petsPlaceholder: 'Example: I have a cute old cat :)',
         petsDescription: 'What kind of pet do you have - a dachshund, an indoor cat, a walking stick?',
+        noPets: 'No pets',
         characterCount: '{count} / {max}'
       },
       

@@ -273,6 +273,12 @@ export const no = {
       either: 'Spiller ingen rolle',
       moveDate: 'Innflyttingsdato',
       untilFurtherNotice: 'Inntil videre',
+      
+      sections: {
+        introduction: {
+          noPets: 'Ingen kjæledyr',
+        },
+      },
     },
   },
 

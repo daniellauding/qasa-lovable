@@ -729,6 +729,7 @@ export const sv = {
         petsLabel: 'Vilka husdjur har du, om något?',
         petsPlaceholder: 'Exempel: Jag har en söt gammal katt :)',
         petsDescription: 'Vilken sorts husdjur har du - en tax, en innekatt, en vandrande pinne?',
+        noPets: 'Inga husdjur',
         characterCount: '{count} / {max}'
       },
       

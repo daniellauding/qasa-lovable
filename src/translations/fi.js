@@ -197,6 +197,12 @@ export const fi = {
       either: 'Kumpikaan',
       moveDate: 'Muuttopäivä',
       untilFurtherNotice: 'Toistaiseksi',
+      
+      sections: {
+        introduction: {
+          noPets: 'Ei lemmikkejä',
+        },
+      },
     },
   },
 

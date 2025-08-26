@@ -8,7 +8,7 @@ import {
   MapPin,
   PawPrint,
   Sofa,
-  Users,
+  Users
 } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -17,9 +17,10 @@ import DevExperimentsButton from '../../../components/DevExperimentsButton';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Avatar from '../../../components/ui/Avatar';
 import Button from '../../../components/ui/Button';
-import TrustIndicator from '../../../components/ui/TrustIndicator';
+import Card from '../../../components/ui/Card';
 import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
+import TrustIndicator from '../../../components/ui/TrustIndicator';
 import Typography from '../../../components/ui/Typography';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
@@ -156,14 +157,6 @@ export default function TenantProfilePage() {
                   <TrustIndicator
                     text={t('tenantProfile.verified')}
                     type="verified"
-                    variant="compact"
-                  />
-                )}
-                {profile.hasReference && (
-                  <TrustIndicator
-                    text={t('tenantProfile.hasReference')}
-                    type="trusted"
-                    variant="compact"
                   />
                 )}
               </div>
@@ -172,7 +165,7 @@ export default function TenantProfilePage() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Profile Content */}
           <div className="lg:col-span-2">
@@ -187,7 +180,7 @@ export default function TenantProfilePage() {
                 <div className="flex items-center gap-3">
                   <PawPrint className="w-5 h-5 text-gray-600" />
                   <Typography variant="body-md" className="text-gray-700">
-                    /
+                    {t('tenantProfile.sections.introduction.noPets')}
                   </Typography>
                 </div>
               </div>
@@ -266,11 +259,20 @@ export default function TenantProfilePage() {
                   title={t('tenantProfile.sections.preferences.title')}
                   onEdit={() => openModal('preferences')}
                 />
-                <Typography variant="body-md" className="text-gray-700">
-                  {profile.preferences.length === 0
-                    ? t('tenantProfile.sections.preferences.noPreferences')
-                    : profile.preferences.join(', ')}
-                </Typography>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center gap-3">
+                    <Icon name="Check" size="sm" className="text-[var(--color-text-primary)]" />
+                    <Typography variant="body-md" className="text-gray-700">
+                      Diskmaskin
+                    </Typography>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Icon name="Check" size="sm" className="text-[var(--color-text-primary)]" />
+                    <Typography variant="body-md" className="text-gray-700">
+                      Tvättmaskin
+                    </Typography>
+                  </div>
+                </div>
               </div>
 
               {/* Employment Section */}
@@ -280,7 +282,7 @@ export default function TenantProfilePage() {
                   onEdit={() => openModal('employment')}
                 />
 
-                <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
+                <div>
                   <div className="flex justify-between items-start">
                     <div>
                       <Typography
@@ -402,10 +404,9 @@ export default function TenantProfilePage() {
               </div>
 
               {/* Report Profile */}
-              <div className="flex justify-center">
+              <div className="flex justify-start">
                 <Button
-                  variant="outline"
-                  className="text-red-600 border-red-200 hover:bg-red-50"
+                  variant="tertiary"
                 >
                   <AlertTriangle className="w-4 h-4 mr-2" />
                   {t('tenantProfile.reportProfile')}
@@ -415,40 +416,41 @@ export default function TenantProfilePage() {
           </div>
 
           {/* Right Column - Contact & Sidebar */}
-          <div className="space-y-6">
-            {/* Contact Card */}
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <div className="space-y-4">
-                <div>
-                  <Typography variant="title-sm" className="text-gray-900 mb-2">
-                    {profile.name}
-                  </Typography>
-                  <Typography variant="body-md" className="text-gray-600">
-                    {formatLastActive(profile.lastActive)}
-                  </Typography>
+          <div className="w-80 flex-shrink-0">
+            {/* Sticky Sidebar */}
+            <div className="sticky top-24 space-y-4">
+              {/* Contact Card */}
+              <Card variant="sidebar">
+                <div className="space-y-4">
+                  <div>
+                    <Typography variant="title-sm" className="text-gray-900 mb-2">
+                      {profile.name}
+                    </Typography>
+                    <Typography variant="body-md" className="text-gray-600">
+                      {formatLastActive(profile.lastActive)}
+                    </Typography>
+                  </div>
+
+                  <hr className="border-gray-200" />
+
+                  <Button variant="primary" fullWidth>
+                    {t('tenantProfile.contact')}
+                  </Button>
                 </div>
+              </Card>
 
-                <hr className="border-gray-200" />
-
-                <Button variant="primary" fullWidth>
-                  {t('tenantProfile.contact')}
-                </Button>
-              </div>
-            </div>
-
-            {/* Rent Better Card */}
-            <div className="bg-[var(--color-background-inset)] rounded-lg p-6 shadow-lg">
-              <div className="space-y-4">
-                <Typography variant="title-md" className="text-gray-900">
+              {/* Rent Better Card */}
+              <Card variant="sidebar-inset">
+                <Typography variant="title-md" className="mb-3">
                   {t('tenantProfile.sidebar.rentBetter')}
                 </Typography>
-                <Typography variant="body-md" className="text-gray-700">
+                <Typography variant="body-md" color="secondary" className="mb-4">
                   {t('tenantProfile.sidebar.rentBetterDescription')}
                 </Typography>
-                <Button variant="outline" href="/sv/how-it-works">
+                <Button variant="tertiary" size="lg" className="w-max">
                   {t('tenantProfile.sidebar.readMore')}
                 </Button>
-              </div>
+              </Card>
             </div>
           </div>
         </div>
