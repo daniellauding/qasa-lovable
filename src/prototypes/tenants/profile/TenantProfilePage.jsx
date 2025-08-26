@@ -219,7 +219,7 @@ export default function TenantProfilePage() {
                   <div className="flex items-center gap-3 md:col-span-2">
                     <Coins className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
-                      {t('tenantProfile.sections.lookingFor.maxRentAmount', { amount: profile.searchCriteria.maxRent.toLocaleString() })}
+                      {t('tenantProfile.sections.lookingFor.maxRentAmount', { amount: Number(profile.searchCriteria.maxRent).toLocaleString() })}
                     </Typography>
                   </div>
                 </div>
