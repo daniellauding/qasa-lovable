@@ -445,6 +445,7 @@ When generating new components or pages, **always include**:
 - **CUSTOM ICON BACKGROUNDS**: Creating `bg-blue-500 rounded-xl` for icons
 - **BLUE/GREEN THEMES**: Introducing non-QDS color schemes
 - **PURPLE GRADIENTS**: Using purple in gradients or backgrounds
+- **GRAY BACKGROUND VIOLATION**: Using `bg-gray-50`, `bg-gray-100`, `bg-gray-200`, or any `bg-gray-*` classes
 - **UNDEFINED COMPONENT ERROR**: Using non-existent components like `Card.CreateTenantProfileCard`
 - **WRONG COMPONENT NAMES**: Using incorrect component names that don't exist
 - **VARIANT PARAMETERS**: Using `/landing?variant=conversion` or similar variant URLs

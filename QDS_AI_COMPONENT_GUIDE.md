@@ -726,6 +726,7 @@ className="text-[var(--color-text-primary)]"
 - NEW COLORS VIOLATION: Using 'bg-blue-500', 'bg-green-500', 'from-blue-600 to-purple-600'
 - CUSTOM ICON BACKGROUNDS: Creating 'bg-blue-500 rounded-xl' for icons
 - BLUE/GREEN THEMES: Introducing non-QDS color schemes
+- GRAY BACKGROUND VIOLATION: Using bg-gray-50, bg-gray-100, bg-gray-200, or any bg-gray-* classes
 - UNDEFINED COMPONENT ERROR: Using non-existent components like Card.CreateTenantProfileCard
 - WRONG COMPONENT NAMES: Using incorrect component names that don't exist
 - VARIANT PARAMETERS: Using `/landing?variant=conversion` or similar variant URLs

@@ -339,10 +339,11 @@ mono-sm     /* 12px/16px */
 - **Skip variant system**: Don't implement or reference any variant system
 
 ### Background Color Rules
-- **Page backgrounds**: Never use dark backgrounds like `bg-gray-50` or similar dark grays
-- **Use only**: `bg-white` or `bg-[var(--color-gray-10)]` for page backgrounds
-- **Card backgrounds**: Use `bg-white` for card components
-- **Section backgrounds**: Use `bg-white` or `bg-[var(--color-gray-10)]` for sections
+- **NEVER use gray backgrounds**: Never use `bg-gray-50`, `bg-gray-100`, `bg-gray-200`, or any `bg-gray-*` classes
+- **Page backgrounds**: Only use `bg-white` or `bg-[var(--color-background-inset)]` (QDS Gray 10)
+- **Card backgrounds**: Always use `bg-white` for card components
+- **Section backgrounds**: Only use `bg-white` or `bg-[var(--color-background-inset)]` for sections
+- **Container backgrounds**: Use `bg-transparent` or `bg-white` - never gray Tailwind classes
 
 ### Button Text Rules
 - **Never add "- Free"**: Don't append "- Free" to button text
@@ -380,6 +381,14 @@ mono-sm     /* 12px/16px */
 - **Layout stability**: Position absolute breaks layout flow and causes overlapping issues
 - **Responsive problems**: Absolute positioning doesn't work well on mobile
 - **Accessibility issues**: Screen readers struggle with absolutely positioned elements
+
+### 🚫 **NEVER Use Gray Tailwind Backgrounds**
+- **No bg-gray-50**: Never use `bg-gray-50` - use `bg-white` or `bg-[var(--color-background-inset)]`
+- **No bg-gray-100**: Never use `bg-gray-100` - use `bg-[var(--color-background-inset)]`
+- **No bg-gray-200**: Never use `bg-gray-200` or any higher gray values
+- **No bg-gray-***: Never use any `bg-gray-*` Tailwind classes
+- **Use QDS tokens only**: Always use `bg-white`, `bg-[var(--color-background-inset)]`, or `bg-transparent`
+- **Container backgrounds**: Use `bg-transparent` for containers, never gray backgrounds
 
 ### 🚫 **NEVER Use Wrong Icon Names**
 - **No CalendarIcon**: Use `Calendar` from lucide-react, not `CalendarIcon`
