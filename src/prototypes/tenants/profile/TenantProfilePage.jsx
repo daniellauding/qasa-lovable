@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
-import { MapPin, Home, Users, Check, Star, IdCard, Coins, Calendar, Sofa, House, PawPrint, AlertTriangle, ArrowRight, Edit } from 'lucide-react';
+import { MapPin, Users, Coins, Calendar, Sofa, House, PawPrint, AlertTriangle, ArrowRight, Edit } from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
+import Avatar from '../../../components/ui/Avatar';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
@@ -13,7 +15,7 @@ export default function TenantProfilePage() {
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const isPublicView = searchParams.get('view') === 'public';
-  const [isPublished, setIsPublished] = useState(true);
+
   const [activeModal, setActiveModal] = useState(null);
   
   // Mock profile data based on the provided HTML structure
@@ -91,19 +93,26 @@ export default function TenantProfilePage() {
     </div>
   );
 
+  SectionHeader.propTypes = {
+    title: PropTypes.string.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    showEdit: PropTypes.bool,
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <DynamicHeader isFluid={true} />
       
       {/* Profile Header - Full Width Background */}
       <div className="bg-[var(--color-background-inset)]">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex items-start gap-6">
+        <div className="max-w-7xl mx-auto px-4 py-16">
+          <div className="flex items-center gap-8">
             <div className="relative">
-              <img
+              <Avatar
                 src={profile.avatar}
                 alt={profile.name}
-                className="w-20 h-20 rounded-full object-cover"
+                size="3xl"
+                className="!w-20 !h-20 md:!w-80 md:!h-80 shadow-lg"
               />
             </div>
             <div className="flex-1">
