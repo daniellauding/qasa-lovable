@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
 import {
-  MapPin,
-  Users,
-  Coins,
-  Calendar,
-  Sofa,
-  House,
-  PawPrint,
   AlertTriangle,
   ArrowRight,
+  Calendar,
+  Coins,
   Edit,
+  House,
+  MapPin,
+  PawPrint,
+  Sofa,
+  Users,
 } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import DevExperimentsButton from '../../../components/DevExperimentsButton';
 import DynamicHeader from '../../../components/DynamicHeader';
-import Typography from '../../../components/ui/Typography';
+import Avatar from '../../../components/ui/Avatar';
 import Button from '../../../components/ui/Button';
+import TrustIndicator from '../../../components/ui/TrustIndicator';
 import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
-import Avatar from '../../../components/ui/Avatar';
-import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import Typography from '../../../components/ui/Typography';
 import { useTranslation } from '../../../utils/translations/LanguageContext';
 
 export default function TenantProfilePage() {
@@ -152,16 +153,18 @@ export default function TenantProfilePage() {
 
               <div className="flex flex-wrap gap-2">
                 {profile.verified && (
-                  <Button variant="outline" size="sm">
-                    <Icon name="IdCard" size="sm" className="mr-2" />
-                    {t('tenantProfile.verified')}
-                  </Button>
+                  <TrustIndicator
+                    text={t('tenantProfile.verified')}
+                    type="verified"
+                    variant="compact"
+                  />
                 )}
                 {profile.hasReference && (
-                  <Button variant="outline" size="sm">
-                    <Icon name="HousePlus" size="sm" className="mr-2" />
-                    {t('tenantProfile.hasReference')}
-                  </Button>
+                  <TrustIndicator
+                    text={t('tenantProfile.hasReference')}
+                    type="trusted"
+                    variant="compact"
+                  />
                 )}
               </div>
             </div>
