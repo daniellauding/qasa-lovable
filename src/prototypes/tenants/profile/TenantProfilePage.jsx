@@ -15,6 +15,7 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
 import DynamicHeader from '../../../components/DynamicHeader';
+import Footer from '../../../components/Footer';
 import Avatar from '../../../components/ui/Avatar';
 import Button from '../../../components/ui/Button';
 import Card from '../../../components/ui/Card';
@@ -407,6 +408,7 @@ export default function TenantProfilePage() {
               <div className="flex justify-start">
                 <Button
                   variant="tertiary"
+                  size="lg"
                 >
                   <AlertTriangle className="w-4 h-4 mr-2" />
                   {t('tenantProfile.reportProfile')}
@@ -568,6 +570,8 @@ export default function TenantProfilePage() {
       )}
 
       <DevExperimentsButton />
+      
+      <Footer isFluid={true} />
     </div>
   );
 }
