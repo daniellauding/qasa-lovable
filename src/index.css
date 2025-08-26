@@ -10,6 +10,8 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  /* Fallback for when fonts fail to load */
+  font-family: 'DiatypeRounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 @font-face {
@@ -19,6 +21,8 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  /* Fallback for when fonts fail to load */
+  font-family: 'DiatypeRounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 @font-face {
@@ -28,6 +32,8 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  /* Fallback for when fonts fail to load */
+  font-family: 'DiatypeRounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 @font-face {
@@ -37,6 +43,8 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+  /* Fallback for when fonts fail to load */
+  font-family: 'DiatypeRoundedMono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
 @font-face {
@@ -46,6 +54,8 @@
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+  /* Fallback for when fonts fail to load */
+  font-family: 'DiatypeRoundedMono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
 @layer base {
@@ -125,6 +135,33 @@
     /* Border tokens */
     --color-border: var(--color-gray-30);
     --border-color-default: var(--color-gray-30);
+    
+    /* Missing button tokens that might be referenced */
+    --color-button-primary-bg: var(--color-primary);
+    --color-button-primary-bg-hover: var(--color-primary-hover);
+    --color-button-primary-text: var(--color-text-on-primary);
+    
+    /* Additional missing variables for compatibility */
+    --radius: 0.5rem;
+    --border: var(--color-gray-30);
+    --input: var(--color-gray-20);
+    --ring: var(--color-primary);
+    --background: var(--color-background);
+    --foreground: var(--color-text-primary);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-text-on-primary);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-offWhite);
+    --muted: var(--color-gray-20);
+    --muted-foreground: var(--color-text-secondary);
+    --accent: var(--color-primary);
+    --accent-foreground: var(--color-text-on-primary);
+    --destructive: var(--color-danger);
+    --destructive-foreground: var(--color-white);
+    --popover: var(--color-background);
+    --popover-foreground: var(--color-text-primary);
+    --card: var(--color-background);
+    --card-foreground: var(--color-text-primary);
   }
 
   body {
@@ -133,8 +170,22 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "kern" 1;
-      font-kerning: auto;
-}
+    font-kerning: auto;
+  }
+
+  /* Font fallback styles for when custom fonts fail to load */
+  body.font-fallback {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  }
+  
+  body.font-fallback * {
+    font-family: inherit !important;
+  }
+  
+  body.font-fallback .font-mono,
+  body.font-fallback [class*="font-mono"] {
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+  }
 
 /* Qasa Premium Badge Styles */
 .qasa-premium-badge-mobile {

@@ -52,6 +52,7 @@ import { LanguageProvider } from './utils/translations/LanguageContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { variantRegistry, getAllPrototypesWithVariants, getVariant, parseVariantFromUrl } from './utils/variants';
+import ErrorBoundary from './components/ErrorBoundary';
 
 // Import MessagesPage for the prototypes array
 import MessagesPageImport from './prototypes/messages/MessagesPage';
@@ -393,11 +394,12 @@ const RegisterRedirect = () => {
 
 function App() {
   return (
-    <ThemeProvider>
-    <LanguageProvider>
-        <AuthProvider>
-      <Router basename="/">
-        <Routes>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AuthProvider>
+            <Router basename="/">
+              <Routes>
           <Route path="/" element={<Navigate to="/landing" replace />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/landing/conversion" element={<Landing />} />
@@ -545,11 +547,12 @@ function App() {
                 </React.Fragment>
               );
             })}
-        </Routes>
-      </Router>
-      </AuthProvider>
-    </LanguageProvider>
-    </ThemeProvider>
+              </Routes>
+            </Router>
+          </AuthProvider>
+        </LanguageProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 }
 
