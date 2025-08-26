@@ -1,7 +1,18 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
-import { MapPin, Users, Coins, Calendar, Sofa, House, PawPrint, AlertTriangle, ArrowRight, Edit } from 'lucide-react';
+import {
+  MapPin,
+  Users,
+  Coins,
+  Calendar,
+  Sofa,
+  House,
+  PawPrint,
+  AlertTriangle,
+  ArrowRight,
+  Edit,
+} from 'lucide-react';
 import DynamicHeader from '../../../components/DynamicHeader';
 import Typography from '../../../components/ui/Typography';
 import Button from '../../../components/ui/Button';
@@ -17,7 +28,7 @@ export default function TenantProfilePage() {
   const isPublicView = searchParams.get('view') === 'public';
 
   const [activeModal, setActiveModal] = useState(null);
-  
+
   // Mock profile data based on the provided HTML structure
   const profile = {
     name: 'Liza',
@@ -26,7 +37,8 @@ export default function TenantProfilePage() {
     bio: 'I am looking for an apartment close to the Umeå University to rent between now and January 2028. I am a tidy person, non-smoker, no pets.',
     verified: true,
     hasReference: true,
-    avatar: 'https://img.qasa.se/unsafe/fit-in/320x320/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/69be410989d5bf43480353f89bd08b21f99f3170824a2f2a5e93ab1e6c5f345d.jpg',
+    avatar:
+      'https://img.qasa.se/unsafe/fit-in/320x320/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/69be410989d5bf43480353f89bd08b21f99f3170824a2f2a5e93ab1e6c5f345d.jpg',
     lastActive: 'fem minuter',
     searchCriteria: {
       location: 'Umeå',
@@ -37,7 +49,7 @@ export default function TenantProfilePage() {
       propertyTypes: ['apartment', 'townhouse', 'villa', 'semi_detached'],
       moveInDate: 'asap',
       moveOutDate: 'indefinite',
-      maxRent: '7000'
+      maxRent: '7000',
     },
     preferences: [],
     requirements: [],
@@ -47,26 +59,27 @@ export default function TenantProfilePage() {
       type: 'full_time',
       startMonth: 'Oktober',
       startYear: '2023',
-      ongoing: true
+      ongoing: true,
     },
     housingSituation: {
       currentType: 'student_housing',
       currentLocation: 'Studentboende i Umeå',
-      movingReason: 'I moved to Umeå in October 2023, and I am a Phd student at Umeå University. Looking for a long term apartment.',
-      hasReference: true
+      movingReason:
+        'I moved to Umeå in October 2023, and I am a Phd student at Umeå University. Looking for a long term apartment.',
+      hasReference: true,
     },
     contactHistory: {
       locations: 'Umeå',
       priceRange: { min: 5800, max: 5927 },
-      rooms: 3
-    }
+      rooms: 3,
+    },
   };
 
-  const formatLastActive = (time) => {
+  const formatLastActive = time => {
     return t('tenantProfile.lastActive', { time });
   };
 
-  const openModal = (modalType) => {
+  const openModal = modalType => {
     setActiveModal(modalType);
   };
 
@@ -81,9 +94,9 @@ export default function TenantProfilePage() {
         {title}
       </Typography>
       {showEdit && (
-        <Button 
-          variant="ghost" 
-          size="sm" 
+        <Button
+          variant="ghost"
+          size="sm"
           onClick={onEdit}
           className="text-gray-500 hover:text-gray-700"
         >
@@ -102,7 +115,7 @@ export default function TenantProfilePage() {
   return (
     <div className="min-h-screen bg-white">
       <DynamicHeader isFluid={true} />
-      
+
       {/* Profile Header - Full Width Background */}
       <div className="bg-[var(--color-background-inset)]">
         <div className="max-w-7xl mx-auto px-4 py-16">
@@ -116,27 +129,27 @@ export default function TenantProfilePage() {
               />
             </div>
             <div className="flex-1">
-                                <div className="flex items-start justify-between">
-                    <div>
+              <div className="flex items-start justify-between">
+                <div>
                   <Typography variant="title-lg" className="text-gray-900 mb-2">
                     {profile.name} ({profile.age})
-                      </Typography>
+                  </Typography>
                   <Typography variant="title-sm" className="text-gray-700 mb-4">
                     {profile.title}
-                      </Typography>
-                    </div>
-                    {!isPublicView && (
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
-                        onClick={() => openModal('basicInfo')}
-                        className="text-gray-500 hover:text-gray-700"
-                      >
-                        <Edit className="w-4 h-4" />
-                      </Button>
-                    )}
-                  </div>
-              
+                  </Typography>
+                </div>
+                {!isPublicView && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => openModal('basicInfo')}
+                    className="text-gray-500 hover:text-gray-700"
+                  >
+                    <Edit className="w-4 h-4" />
+                  </Button>
+                )}
+              </div>
+
               <div className="flex flex-wrap gap-2">
                 {profile.verified && (
                   <Button variant="outline" size="sm">
@@ -160,7 +173,6 @@ export default function TenantProfilePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Profile Content */}
           <div className="lg:col-span-2">
-
             {/* Profile Content */}
             <div className="space-y-8">
               {/* Introduction Section */}
@@ -168,7 +180,7 @@ export default function TenantProfilePage() {
                 <Typography variant="body-md" className="text-gray-800">
                   {profile.bio}
                 </Typography>
-                
+
                 <div className="flex items-center gap-3">
                   <PawPrint className="w-5 h-5 text-gray-600" />
                   <Typography variant="body-md" className="text-gray-700">
@@ -179,11 +191,11 @@ export default function TenantProfilePage() {
 
               {/* Looking For Section */}
               <div className="space-y-4">
-                <SectionHeader 
+                <SectionHeader
                   title={t('tenantProfile.sections.lookingFor.title')}
                   onEdit={() => openModal('lookingFor')}
                 />
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-gray-600" />
@@ -194,13 +206,16 @@ export default function TenantProfilePage() {
                   <div className="flex items-center gap-3">
                     <House className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
-                      {profile.searchCriteria.rooms} rum, {profile.searchCriteria.size} m²
+                      {profile.searchCriteria.rooms} rum,{' '}
+                      {profile.searchCriteria.size} m²
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
-                      {t('tenantProfile.sections.lookingFor.people', { count: profile.searchCriteria.people })}
+                      {t('tenantProfile.sections.lookingFor.people', {
+                        count: profile.searchCriteria.people,
+                      })}
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3">
@@ -219,16 +234,24 @@ export default function TenantProfilePage() {
                     <Calendar className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
                       <span className="flex items-center gap-1">
-                        <span>{t('tenantProfile.sections.lookingFor.asap')}</span>
+                        <span>
+                          {t('tenantProfile.sections.lookingFor.asap')}
+                        </span>
                         <ArrowRight className="w-4 h-4" />
-                        <span>{t('tenantProfile.sections.lookingFor.indefinite')}</span>
+                        <span>
+                          {t('tenantProfile.sections.lookingFor.indefinite')}
+                        </span>
                       </span>
                     </Typography>
                   </div>
                   <div className="flex items-center gap-3 md:col-span-2">
                     <Coins className="w-5 h-5 text-gray-600" />
                     <Typography variant="body-md" className="text-gray-700">
-                      {t('tenantProfile.sections.lookingFor.maxRentAmount', { amount: Number(profile.searchCriteria.maxRent).toLocaleString() })}
+                      {t('tenantProfile.sections.lookingFor.maxRentAmount', {
+                        amount: Number(
+                          profile.searchCriteria.maxRent
+                        ).toLocaleString(),
+                      })}
                     </Typography>
                   </div>
                 </div>
@@ -236,38 +259,54 @@ export default function TenantProfilePage() {
 
               {/* Preferences Section */}
               <div className="space-y-4">
-                <SectionHeader 
+                <SectionHeader
                   title={t('tenantProfile.sections.preferences.title')}
                   onEdit={() => openModal('preferences')}
                 />
                 <Typography variant="body-md" className="text-gray-700">
-                  {profile.preferences.length === 0 ? t('tenantProfile.sections.preferences.noPreferences') : profile.preferences.join(', ')}
+                  {profile.preferences.length === 0
+                    ? t('tenantProfile.sections.preferences.noPreferences')
+                    : profile.preferences.join(', ')}
                 </Typography>
               </div>
 
               {/* Employment Section */}
               <div className="space-y-4">
-                <SectionHeader 
+                <SectionHeader
                   title={t('tenantProfile.sections.employment.title')}
                   onEdit={() => openModal('employment')}
                 />
-                
+
                 <div className="bg-[var(--color-background-inset)] rounded-lg p-4">
                   <div className="flex justify-between items-start">
                     <div>
-                      <Typography variant="title-xs" className="text-gray-900 mb-1">
+                      <Typography
+                        variant="title-xs"
+                        className="text-gray-900 mb-1"
+                      >
                         {profile.occupation.title}
                       </Typography>
-                      <Typography variant="body-md" className="text-gray-600 mb-1">
+                      <Typography
+                        variant="body-md"
+                        className="text-gray-600 mb-1"
+                      >
                         {profile.occupation.company}
                       </Typography>
-                      <Typography variant="body-md" className="text-gray-600 mb-2">
+                      <Typography
+                        variant="body-md"
+                        className="text-gray-600 mb-2"
+                      >
                         {t('tenantProfile.sections.employment.fullTime')}
                       </Typography>
                       <div className="flex items-center gap-2 text-sm text-gray-600">
-                        <span>{profile.occupation.startMonth} {profile.occupation.startYear}</span>
+                        <span>
+                          {profile.occupation.startMonth}{' '}
+                          {profile.occupation.startYear}
+                        </span>
                         <ArrowRight className="w-4 h-4" />
-                        <span>{t('tenantProfile.sections.employment.ongoing')}</span>
+                        <span>
+                          {t('tenantProfile.sections.employment.ongoing')}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -276,15 +315,20 @@ export default function TenantProfilePage() {
 
               {/* Housing Situation Section */}
               <div className="space-y-4">
-                <SectionHeader 
+                <SectionHeader
                   title={t('tenantProfile.sections.housingSituation.title')}
                   onEdit={() => openModal('housingSituation')}
                 />
-                
+
                 <div className="space-y-4">
                   <div>
-                    <Typography variant="title-xs" className="text-gray-900 mb-1">
-                      {t('tenantProfile.sections.housingSituation.currentSituation')}
+                    <Typography
+                      variant="title-xs"
+                      className="text-gray-900 mb-1"
+                    >
+                      {t(
+                        'tenantProfile.sections.housingSituation.currentSituation'
+                      )}
                     </Typography>
                     <Typography variant="body-md" className="text-gray-700">
                       {profile.housingSituation.currentLocation}
@@ -294,15 +338,25 @@ export default function TenantProfilePage() {
                         <div className="flex items-center justify-center w-4 h-4 bg-gray-100 rounded">
                           <Icon name="HousePlus" size="xs" />
                         </div>
-                        <Typography variant="body-sm" className="text-gray-700 font-medium">
-                          {t('tenantProfile.sections.housingSituation.reference')}
+                        <Typography
+                          variant="body-sm"
+                          className="text-gray-700 font-medium"
+                        >
+                          {t(
+                            'tenantProfile.sections.housingSituation.reference'
+                          )}
                         </Typography>
                       </div>
                     )}
                   </div>
                   <div>
-                    <Typography variant="title-xs" className="text-gray-900 mb-1">
-                      {t('tenantProfile.sections.housingSituation.movingReason')}
+                    <Typography
+                      variant="title-xs"
+                      className="text-gray-900 mb-1"
+                    >
+                      {t(
+                        'tenantProfile.sections.housingSituation.movingReason'
+                      )}
                     </Typography>
                     <Typography variant="body-md" className="text-gray-700">
                       {profile.housingSituation.movingReason}
@@ -320,20 +374,36 @@ export default function TenantProfilePage() {
                 </Typography>
                 <div className="bg-[var(--color-background-inset)] rounded-lg p-4 space-y-2">
                   <Typography variant="body-md" className="text-gray-600">
-                    <span className="font-medium">{t('tenantProfile.sections.contactHistory.locations', { locations: profile.contactHistory.locations })}</span>
+                    <span className="font-medium">
+                      {t('tenantProfile.sections.contactHistory.locations', {
+                        locations: profile.contactHistory.locations,
+                      })}
+                    </span>
                   </Typography>
                   <Typography variant="body-md" className="text-gray-600">
-                    <span className="font-medium">{t('tenantProfile.sections.contactHistory.priceRange', { min: profile.contactHistory.priceRange.min, max: profile.contactHistory.priceRange.max })}</span>
+                    <span className="font-medium">
+                      {t('tenantProfile.sections.contactHistory.priceRange', {
+                        min: profile.contactHistory.priceRange.min,
+                        max: profile.contactHistory.priceRange.max,
+                      })}
+                    </span>
                   </Typography>
                   <Typography variant="body-md" className="text-gray-600">
-                    <span className="font-medium">{t('tenantProfile.sections.contactHistory.rooms', { count: profile.contactHistory.rooms })}</span>
+                    <span className="font-medium">
+                      {t('tenantProfile.sections.contactHistory.rooms', {
+                        count: profile.contactHistory.rooms,
+                      })}
+                    </span>
                   </Typography>
                 </div>
               </div>
 
               {/* Report Profile */}
               <div className="flex justify-center">
-                <Button variant="outline" className="text-red-600 border-red-200 hover:bg-red-50">
+                <Button
+                  variant="outline"
+                  className="text-red-600 border-red-200 hover:bg-red-50"
+                >
                   <AlertTriangle className="w-4 h-4 mr-2" />
                   {t('tenantProfile.reportProfile')}
                 </Button>
@@ -354,9 +424,9 @@ export default function TenantProfilePage() {
                     {formatLastActive(profile.lastActive)}
                   </Typography>
                 </div>
-                
+
                 <hr className="border-gray-200" />
-                
+
                 <Button variant="primary" fullWidth>
                   {t('tenantProfile.contact')}
                 </Button>
@@ -380,7 +450,7 @@ export default function TenantProfilePage() {
           </div>
         </div>
       </div>
-      
+
       {/* Edit Modals */}
       {activeModal === 'basicInfo' && (
         <Modal
@@ -491,8 +561,8 @@ export default function TenantProfilePage() {
           </div>
         </Modal>
       )}
-      
+
       <DevExperimentsButton />
     </div>
   );
-} 
+}
