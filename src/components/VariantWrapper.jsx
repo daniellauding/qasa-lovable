@@ -1,8 +1,8 @@
 import React, { Suspense, lazy, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getVariant, parseVariantFromUrl } from '../utils/variants';
-import VariantSelector from './ui/VariantSelector';
 import LoadingDots from './ui/LoadingDots';
+import VariantSelector from './ui/VariantSelector';
 
 const VariantWrapper = ({ 
   prototypeId, 
@@ -34,7 +34,7 @@ const VariantWrapper = ({
   return (
     <div>
       {showVariantSelector && (
-        <div className="fixed top-4 right-4 z-50">
+        <div className="fixed top-4 right-4 z-50 hidden">
           <VariantSelector 
             prototypeId={prototypeId}
             currentVariant={variantId}
