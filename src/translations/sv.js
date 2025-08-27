@@ -208,6 +208,15 @@ export const sv = {
     4: 'Doktorand som letar efter tyst studieplats',
     5: 'Familj med ett barn som söker större lägenhet',
     6: 'Yrkesverksam inom tech, ren och pålitlig',
+    7: 'Kreativ designer som söker inspirerande miljö',
+    8: 'Musikstudent som behöver lugn och ro för övning',
+    9: 'Ung läkare som söker närhet till sjukhus',
+    10: 'Konstnär som letar efter ljus ateljélägenhet',
+    11: 'Ingenjör som föredrar moderna faciliteter',
+    12: 'Journalist som söker central lägenhet',
+    13: 'Lärare som vill bo nära skola och kollektivtrafik',
+    14: 'Arkitekt som uppskattar designdetaljer',
+    15: 'Ekonom som söker praktisk och funktionell bostad',
   },
 
   // Landing Page

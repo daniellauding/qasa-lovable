@@ -1,20 +1,19 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import DevExperimentsButton from '../../components/DevExperimentsButton';
 import DynamicHeader from '../../components/DynamicHeader';
 import Footer from '../../components/Footer';
-import Typography from '../../components/ui/Typography';
-import Button from '../../components/ui/Button';
-import DevExperimentsButton from '../../components/DevExperimentsButton';
-import { useTranslation } from '../../utils/translations/LanguageContext';
-import HeroSection from '../../components/ui/HeroSection';
 import Carousel from '../../components/ui/Carousel';
 import CityCard from '../../components/ui/CityCard';
+import FAQLinkList from '../../components/ui/FAQLinkList';
 import FeatureCard from '../../components/ui/FeatureCard';
+import HeroSection from '../../components/ui/HeroSection';
 import RichPromoCard from '../../components/ui/RichPromoCard';
+import SectionContainer from '../../components/ui/SectionContainer';
 import StatsStrip from '../../components/ui/StatsStrip';
 import TestimonialCarousel from '../../components/ui/TestimonialCarousel';
-import FAQLinkList from '../../components/ui/FAQLinkList';
-import SectionContainer from '../../components/ui/SectionContainer';
+import Typography from '../../components/ui/Typography';
+import { useTranslation } from '../../utils/translations/LanguageContext';
 
 const Feature = ({ title, description, icon }) => (
   <div className="bg-white rounded-2xl border border-gray-200 p-5">
@@ -135,7 +134,7 @@ export default function Landing() {
           imageSrc="https://qasa.se/_next/static/media/1920x1080.50a9a32d.jpg"
           label={t('landing.husfrid.label')}
           title={t('landing.husfrid.title')}
-          titleSize="title-6xl"
+          titleSize="title-xl"
           buttonText={t('landing.husfrid.button')}
           buttonVariant="primary"
           buttonSize="xl"

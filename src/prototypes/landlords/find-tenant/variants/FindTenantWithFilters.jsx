@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { ArrowLeft, ArrowRight, Bookmark, Calendar, ChevronDown, ChevronUp, Home, MapPin, Settings, Users, X } from 'lucide-react';
 import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card, { CreateTenantProfileCard, TenantCard, LandlordCTACard } from '../../../../components/ui/Card';
-import Typography from '../../../../components/ui/Typography';
 import Button from '../../../../components/ui/Button';
+import { CreateTenantProfileCard, TenantCard } from '../../../../components/ui/Card';
+import Checkbox from '../../../../components/ui/Checkbox';
+import Input from '../../../../components/ui/Input';
 import Modal from '../../../../components/ui/Modal';
 import RangeSlider from '../../../../components/ui/RangeSlider';
-import Input from '../../../../components/ui/Input';
-import Checkbox from '../../../../components/ui/Checkbox';
-import { ArrowLeft, ArrowRight, X, MapPin, Home, Users, ChevronDown, ChevronUp } from 'lucide-react';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 // Property listings for preview
@@ -438,7 +438,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                 >
                   <MapPin className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.location}</Typography>
-                  <CalendarIcon className="w-4 h-4 text-gray-60" />
+                  <Calendar className="w-4 h-4 text-gray-60" />
                   <Typography variant="body-sm">{filters.dateFrom}</Typography>
                   {activeDropdown === 'location-date' ? (
                     <ChevronUp className="w-4 h-4 text-gray-60" />
@@ -458,7 +458,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                           <X className="w-4 h-4 text-gray-60" />
                         </button>
                         <button className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-30">
-                          <CalendarIcon className="w-4 h-4 text-gray-60" />
+                          <Calendar className="w-4 h-4 text-gray-60" />
                           <Typography variant="body-sm">August, 2025</Typography>
                           <X className="w-4 h-4 text-gray-60" />
                         </button>
@@ -627,7 +627,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                   variant={isAdvancedFilterActive ? "primary" : "tertiary"}
                   size="lg"
                   iconOnly
-                  icon={<AdjustmentsHorizontalIcon className={isAdvancedFilterActive ? "w-4 h-4 text-white" : "w-4 h-4 text-[var(--color-text-primary,#372d27)]"} />}
+                  icon={<Settings className={isAdvancedFilterActive ? "w-4 h-4 text-white" : "w-4 h-4 text-[var(--color-text-primary,#372d27)]"} />}
                   onClick={() => toggleDropdown('advanced')}
                   className={isAdvancedFilterActive ? "bg-gray-90 text-white" : ""}
                 />
@@ -778,7 +778,7 @@ const FindTenantWithFilters = ({ isFluid = false }) => {
                 variant="tertiary"
                 size="lg"
                 iconOnly
-                icon={<BookmarkIcon className="w-4 h-4" />}
+                icon={<Bookmark className="w-4 h-4" />}
                 onClick={() => setShowSaveSearchModal(true)}
               />
             </div>
