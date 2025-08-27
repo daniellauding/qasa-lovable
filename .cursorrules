@@ -1,0 +1,491 @@
+# Qasa Design System (QDS) Cursor Rules
+
+## 📚 MANDATORY DOCUMENTATION READING
+**Before generating any Qasa content, you MUST read ALL these documentation files:**
+
+1. **`QASA_KNOWLEDGE_BASE.md`** - Product knowledge, business model, user journeys
+2. **`QDS_DESIGN_SYSTEM.md`** - Design system rules, components, color tokens
+3. **`QDS_COMPONENT_RULES.md`** - Component usage rules, import patterns
+4. **`QASA_LANGUAGE_GUIDE.md`** - Voice, tone, Swedish terminology
+5. **`QDS_AI_COMPONENT_GUIDE.md`** - AI-specific guidelines
+
+**Failure to read all documentation will result in design violations and incorrect implementations.**
+
+## 🏢 About Qasa
+
+### Company Mission
+Qasa is a safe and secure rental service for both long-term homes for tenants who want a place to rent, and for landlords who have homes to rent out. The goal is to transform the sublet market experience and provide protection and peace of mind for both tenants and landlords.
+
+### Business Model
+- Norway: Landlord and tenant split a 4,95% service fee of the monthly rent
+- Sweden: Tenant pays the 4,95% service fee
+- Finland: Landlord pays the 4% service fee
+
+## 🎯 Core QDS Principles
+
+1. **Always use QDS components** - Never create custom components when QDS components exist
+2. **Consistency First** - Every UI element must come from QDS
+3. **Accessibility Built-in** - All components meet WCAG 2.1 AA
+4. **Theme Agnostic** - Works with Qasa and Blocket themes
+5. **Swedish Market Focused** - Designed for Nordic users
+
+## 🚨 CRITICAL RULES - NEVER VIOLATE
+
+### ❌ NEVER DO:
+- Create custom components when QDS components exist
+- Use direct Radix UI imports
+- Use Tailwind colors instead of CSS variables
+- Skip header or footer components
+- Use variant parameters in URLs (e.g., `/landing?variant=conversion`)
+- Use position absolute, fixed, or sticky
+- Use gray Tailwind backgrounds (`bg-gray-50`, `bg-gray-100`, etc.)
+- Use wrong icon names (`CalendarIcon` instead of `Calendar`)
+- Create new colors or icon backgrounds
+- Use illustrated/cartoon avatars
+- Show people in property images
+- Add "- Free" to button text
+- Use grayish backgrounds for TenantCard components
+
+### ✅ ALWAYS DO:
+- Import from QDS: `import Button from '@/components/ui/Button';`
+- Use Typography component: `<Typography variant="title-lg">Text</Typography>`
+- Use CSS variables: `className="bg-[var(--color-primary)]"`
+- Include header and footer: `<DynamicHeader />` and `<Footer />`
+- Route directly: `/landing` not `/landing?variant=conversion`
+- Use flexbox/grid for layout
+- Use white or QDS background colors only
+- Use correct Lucide icon names
+- Use only QDS colors and tokens
+- Use realistic person photos for avatars
+- Show actual properties in property images
+- Keep button text clean and action-oriented
+- Use white backgrounds for TenantCard and PropertyCard
+
+## 🎨 QDS Components
+
+### Core Components
+```jsx
+// Layout & Navigation
+import DynamicHeader from '@/components/DynamicHeader';
+import Footer from '@/components/Footer';
+import Card from '@/components/ui/Card';
+import Modal from '@/components/ui/Modal';
+
+// Typography & Content
+import Typography from '@/components/ui/Typography';
+import Button from '@/components/ui/Button';
+import Icon from '@/components/ui/Icon';
+
+// Forms
+import Input from '@/components/ui/Input';
+import TextArea from '@/components/ui/TextArea';
+import Select from '@/components/ui/Select';
+import Checkbox from '@/components/ui/Checkbox';
+import RadioGroup from '@/components/ui/RadioGroup';
+import Switch from '@/components/ui/Switch';
+import DatePicker from '@/components/ui/DatePicker';
+import RangeSlider from '@/components/ui/RangeSlider';
+
+// Data Display
+import Avatar from '@/components/ui/Avatar';
+import Chip from '@/components/ui/Chip';
+import FeatureBadge from '@/components/ui/FeatureBadge';
+import TrustIndicator from '@/components/ui/TrustIndicator';
+import PremiumBadge from '@/components/ui/PremiumBadge';
+
+// Specialized Cards
+import { PropertyCard, TenantCard, LandlordCard } from '@/components/ui/Card';
+import CityCard from '@/components/ui/CityCard';
+import FeatureCard from '@/components/ui/FeatureCard';
+import RichPromoCard from '@/components/ui/RichPromoCard';
+
+// Navigation & Search
+import Search from '@/components/ui/Search';
+import FilterButton from '@/components/ui/FilterButton';
+import Pagination from '@/components/ui/Pagination';
+import Tabs from '@/components/ui/Tabs';
+import Accordion from '@/components/ui/Accordion';
+
+// Layout Components
+import ContentBlock from '@/components/ui/ContentBlock';
+import HeroSection from '@/components/ui/HeroSection';
+import StatsStrip from '@/components/ui/StatsStrip';
+import TestimonialCarousel from '@/components/ui/TestimonialCarousel';
+import FAQLinkList from '@/components/ui/FAQLinkList';
+import Carousel from '@/components/ui/Carousel';
+import Map from '@/components/ui/Map';
+
+// Feedback
+import Toast from '@/components/ui/Toast';
+import HintBox from '@/components/ui/HintBox';
+import LoadingDots from '@/components/ui/LoadingDots';
+import Skeleton from '@/components/ui/Skeleton';
+```
+
+### Button Variants & Sizes
+```jsx
+// Variants: primary, secondary, tertiary, outline, ghost, transparent, bordered, premium
+// Sizes: xs, sm, md, lg, xl
+<Button variant="primary" size="lg">Primary Action</Button>
+<Button variant="secondary" size="md">Secondary Action</Button>
+<Button variant="tertiary" size="sm">Back</Button>
+```
+
+### Typography Variants
+```jsx
+// Display: display-lg, display-md, display-sm
+// Title: title-xl, title-lg, title-md, title-sm, title-xs
+// Body: body-lg, body-md, body-sm
+// Label: label-lg, label-md, label-sm
+// Mono: mono-md, mono-sm
+
+<Typography variant="display-lg">Page Title</Typography>
+<Typography variant="title-lg">Section Title</Typography>
+<Typography variant="body-md">Body text</Typography>
+```
+
+### Card Background Rules
+```jsx
+// White Background Cards (MANDATORY)
+<PropertyCard property={data} /> // Always bg-white
+<TenantCard user={data} />       // Always bg-white
+<LandlordCard landlord={data} /> // Always bg-white
+
+// Tertiary Background Cards
+<CityCard city="Stockholm" />     // bg-[var(--color-button-tertiary-bg)]
+<FeatureCard title="Feature" />   // bg-[var(--color-button-tertiary-bg)]
+```
+
+## 🎨 Color System
+
+### CSS Variables (MANDATORY)
+```jsx
+// Primary Colors
+className="text-[var(--color-primary)]"        // Qasa pink (#f19ec1)
+className="text-[var(--color-secondary)]"      // Dark brown (#322721)
+className="bg-[var(--color-primary)]"
+className="bg-[var(--color-secondary)]"
+
+// Text Colors
+className="text-[var(--color-text-primary)]"   // Main text
+className="text-[var(--color-text-secondary)]" // Gray text
+className="text-[var(--color-text-on-primary)]" // Text on primary buttons
+
+// Background Colors
+className="bg-white"                            // Card backgrounds
+className="bg-[var(--color-background-inset)]" // Gray 10 background
+className="bg-[var(--color-button-tertiary-bg)]" // Tertiary background
+
+// Border Colors
+className="border-[var(--color-border)]"       // Default borders
+className="border-gray-100"                    // Subtle borders
+```
+
+### ❌ NEVER Use These Colors:
+```jsx
+// FORBIDDEN - Will be rejected
+className="bg-gray-50"      // Use bg-white or bg-[var(--color-background-inset)]
+className="bg-gray-100"     // Use bg-[var(--color-background-inset)]
+className="text-gray-600"   // Use text-[var(--color-text-secondary)]
+className="bg-blue-500"     // Use only QDS colors
+className="bg-green-500"    // Use only QDS colors
+className="from-blue-600 to-purple-600" // No custom gradients
+```
+
+## 🔤 Icons (Lucide React)
+
+### Correct Usage
+```jsx
+// ✅ CORRECT - Use QDS Icon component
+import Icon from '@/components/ui/Icon';
+<Icon name="Calendar" size="sm" />
+<Icon name="User" size="md" />
+<Icon name="Home" size="lg" />
+
+// ✅ CORRECT - Direct import for specific usage
+import { Calendar, User, Home, Search, Mail, Phone, MapPin, Star, Heart, 
+         Eye, Edit, Trash, Plus, Minus, Check, X, ArrowRight, ArrowLeft,
+         ChevronRight, ChevronLeft, AlertCircle, AlertTriangle } from 'lucide-react';
+```
+
+### ❌ NEVER Use These:
+```jsx
+// FORBIDDEN - Wrong icon names (causes ReferenceError)
+import { CalendarIcon, UserIcon, HomeIcon, SearchIcon } from 'lucide-react';
+<CalendarIcon /> // WRONG - Use Calendar
+<UserIcon />     // WRONG - Use User
+```
+
+## 🗣️ Language & Tone
+
+### Voice Principles
+- **Friendly & Approachable** - Like a helpful neighbor, not a corporation
+- **Trustworthy & Transparent** - Clear about terms, fees, and processes
+- **Supportive & Encouraging** - Guiding users through their housing journey
+- **Swedish & Inclusive** - Understanding local market while welcoming all
+
+### Swedish Terminology
+```javascript
+// Housing Terms
+"Hyresgäst" // Tenant
+"Hyresvärd" // Landlord
+"Profilannons" // Profile listing
+"Bostadsannons" // Property listing
+"Förstahandskontrakt" // First-hand contract
+"Andrahandskontrakt" // Second-hand contract
+"Hyresavtal" // Rental agreement
+"Schysst hyresavtal" // Fair rental agreement
+
+// Trust Indicators
+"ID-verifierad" // ID-verified
+"Trygg" // Safe/Secure
+"Schysst" // Fair/Decent
+"Pålitlig" // Reliable
+"Verifierad" // Verified
+
+// Common CTAs
+"Nästa" // Next
+"Skapa profil" // Create profile
+"Ansök nu" // Apply now
+"Visa mer" // Show more
+"Tillbaka" // Back
+"Bli Premium" // Go Premium
+```
+
+### Content Templates
+```javascript
+// Property Description
+"[Room count] rum och kök, [Size] m²"
+"[Area], [City]"
+"[Rent] kr/mån"
+
+// Tenant Introduction
+"Hej! Jag heter [Name] och söker [housing type]."
+"Budget: upp till [amount] kr/mån"
+"Inflyttning: [timeframe]"
+```
+
+## 🏗️ Component Usage Patterns
+
+### Complete Page Structure
+```jsx
+// ✅ CORRECT - Always include header and footer
+<div className="min-h-screen flex flex-col">
+  <DynamicHeader isFluid={true} />
+  <main className="flex-grow">
+    {/* Your page content here */}
+  </main>
+  <Footer isFluid={true} />
+</div>
+```
+
+### Property Listing Pattern
+```jsx
+<div className="container mx-auto px-4">
+  <Search placeholder="Sök i Stockholm" variant="filled" />
+  <div className="flex gap-4">
+    <FilterButton count={5} />
+    <Select options={sortOptions} />
+  </div>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {properties?.map(property => (
+      <PropertyCard key={property.id} property={property} />
+    )) || []}
+  </div>
+</div>
+```
+
+### Form Pattern
+```jsx
+<Card className="max-w-2xl mx-auto p-8">
+  <Typography variant="title-xl" className="mb-6">
+    Skapa din profil
+  </Typography>
+  
+  <div className="space-y-6">
+    <Input label="Förnamn" required />
+    <Input label="Efternamn" required />
+    <TextArea 
+      label="Berätta om dig själv" 
+      placeholder="Jag är en 25-årig student som..."
+    />
+    
+    <div className="flex gap-4">
+      <Button variant="secondary">Tillbaka</Button>
+      <Button variant="primary">Nästa</Button>
+    </div>
+  </div>
+</Card>
+```
+
+## 🚫 Code Rejection Rules
+
+### Reject Code That Contains:
+- **Wrong prop names**: `tenant` instead of `user`, `testimonials` instead of `items`
+- **Missing navigation**: No header or footer components
+- **Invalid color classes**: `bg-background`, `text-muted-foreground`, `bg-gray-50`
+- **Invalid typography variants**: `title-4xl`, `body-lg` (non-existent)
+- **Invalid button variants**: `size="xl"` (should be `size="lg"`)
+- **Direct color usage**: Tailwind colors instead of CSS variables
+- **Missing QDS imports**: Raw HTML instead of QDS components
+- **Undefined array .map()**: Calling `.map()` on undefined arrays without fallbacks
+- **Missing default arrays**: Not providing `|| []` fallbacks for array props
+- **Undefined object properties**: Accessing properties on undefined objects without checks
+- **NEW COLORS VIOLATION**: Using `bg-blue-500`, `bg-green-500`, custom gradients
+- **CUSTOM ICON BACKGROUNDS**: Creating colored icon containers
+- **GRAY BACKGROUND VIOLATION**: Using any `bg-gray-*` classes
+- **UNDEFINED COMPONENT ERROR**: Using non-existent components
+- **VARIANT PARAMETERS**: Using variant URLs like `/landing?variant=conversion`
+- **POSITION ABSOLUTE**: Using `absolute`, `fixed`, or `sticky` positioning
+- **WRONG ICON NAMES**: Using `CalendarIcon` instead of `Calendar`
+
+### Response Template for Violations:
+```
+❌ REJECTED: Code violates QDS rules
+🔧 Issues found:
+- [List specific violations]
+✅ Please fix these issues and resubmit following QDS guidelines.
+```
+
+## 🔍 Verification Checklists
+
+### Before Using Components:
+- ✅ Component exists in the import path
+- ✅ Component name is spelled correctly
+- ✅ Component is properly exported from its module
+- ✅ Component props match the expected interface
+- ✅ No typos in component names
+
+### Before Creating Routes:
+- ✅ Route path is direct (e.g., `/landing`, not `/landing?variant=conversion`)
+- ✅ No variant parameters in URLs
+- ✅ No A/B testing URL patterns
+- ✅ Single landing page at `/landing`
+
+### Before Creating Layouts:
+- ✅ No `absolute`, `fixed`, or `sticky` positioning
+- ✅ Use `flex` or `grid` for layout
+- ✅ No overlapping elements
+- ✅ Proper responsive behavior
+
+### Before Using Icons:
+- ✅ Use QDS Icon component: `<Icon name="Calendar" />`
+- ✅ No direct lucide-react imports in components
+- ✅ Correct icon names: `Calendar`, `User`, `Home`, etc.
+- ✅ No wrong names: `CalendarIcon`, `UserIcon`, etc.
+
+## 🎯 Swedish Market Context
+
+### Make It Feel Swedish
+- Use Swedish city names: Stockholm, Göteborg, Malmö
+- Include Swedish areas: Östermalm, Vasastan, Södermalm
+- Add "kr" after prices (15,000 kr)
+- Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
+
+### Property Examples
+```javascript
+{
+  title: "Ljus 2:a i Vasastan",
+  description: "Perfekt läge nära Odenplan, 65m² med härlig balkong.",
+  rent: "15,500 kr/mån",
+  size: "65m²",
+  rooms: "2 rum och kök",
+  location: "Vasastan, Stockholm",
+  features: ["Balkong", "Diskmaskin", "Hiss", "Förråd"],
+  moveIn: "1 september 2024"
+}
+```
+
+### Tenant Examples
+```javascript
+{
+  name: "Emma Andersson",
+  age: 28,
+  occupation: "Systemutvecklare på Spotify",
+  lookingFor: "1-2 rum i Stockholm",
+  maxRent: "12,000 kr/mån",
+  about: "Hej! Jag arbetar som systemutvecklare på Spotify och trivs med ett lugnt boende.",
+  verified: true
+}
+```
+
+## 🚀 Development Guidelines
+
+### When Creating New Components:
+1. **Check existing components first** - Don't duplicate functionality
+2. **Follow QDS architecture** - Component folder structure
+3. **Create Storybook story** - Document all variants
+4. **Use design tokens** - CSS variables only
+5. **Support both themes** - Qasa and Blocket
+6. **Include accessibility** - ARIA attributes, keyboard navigation
+7. **Add PropTypes** - Type validation
+
+### When Generating Content:
+1. **Always specify URL** where the page will be accessible
+2. **Include file path** where the component was created
+3. **Provide access instructions** for testing
+4. **Follow QDS component rules** for consistency
+5. **Use conversion best practices** (bento grids, carousels, CTAs)
+6. **Never skip header or footer** - Always include navigation
+7. **Use white backgrounds for cards** - TenantCard and PropertyCard must be white
+
+## 📋 Quick Reference
+
+### Essential Imports
+```jsx
+import React from 'react';
+import DynamicHeader from '@/components/DynamicHeader';
+import Footer from '@/components/Footer';
+import Button from '@/components/ui/Button';
+import Typography from '@/components/ui/Typography';
+import Card from '@/components/ui/Card';
+import { PropertyCard, TenantCard } from '@/components/ui/Card';
+import { Calendar, User, Home, Search } from 'lucide-react';
+```
+
+### Color Variables
+```css
+--color-primary: #f19ec1;           /* Qasa pink */
+--color-secondary: #322721;         /* Dark brown */
+--color-text-primary: #1f2937;      /* Main text */
+--color-text-secondary: #6b7280;    /* Gray text */
+--color-background-inset: #f3f4f6;  /* Gray 10 */
+--color-button-tertiary-bg: #fef7f0; /* Tertiary background */
+```
+
+### Swedish Phrases
+```javascript
+"Hitta ditt nästa hem"     // Find your next home
+"Ansök nu"                 // Apply now
+"Verifierad hyresvärd"     // Verified landlord
+"Trygg bostadssökning"     // Safe housing search
+"Schyssta villkor"         // Fair conditions
+"rum och kök"              // rooms and kitchen
+"kr/mån"                   // SEK/month
+```
+
+## 🎉 Success Criteria
+
+### Your code will be accepted if it:
+- ✅ Uses only QDS components
+- ✅ Follows proper import patterns
+- ✅ Uses CSS variables for colors
+- ✅ Includes proper error handling
+- ✅ Has complete page structure (header + content + footer)
+- ✅ Uses Swedish terminology correctly
+- ✅ Follows accessibility guidelines
+- ✅ Works responsively on all devices
+
+### Example Response Format:
+```
+✅ Generated: NewLandingPage component
+📍 URL: /landing 
+📁 File: src/prototypes/landing/NewLandingPage.jsx
+🚀 Access: Navigate to /landing to view the new conversion-optimized landing page
+📋 Structure: Includes DynamicHeader, main content, and Footer components
+🎨 Cards: All TenantCard and PropertyCard components use white backgrounds
+🔧 Props: Verified correct prop names (user, items) and data structures
+```
+
+Remember: The goal is to create consistent, accessible, and authentically Swedish rental platform experiences that help users find their perfect home! 🏡💗
