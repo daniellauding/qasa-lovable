@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
-import Footer from '../../../components/Footer';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
 import CreateListingStep1 from './components/CreateListingStep1';
-import CreateListingStep2 from './components/CreateListingStep2';
-import CreateListingStep3 from './components/CreateListingStep3';
-import CreateListingStep4 from './components/CreateListingStep4';
-import CreateListingStep5 from './components/CreateListingStep5';
-import CreateListingStep6 from './components/CreateListingStep6';
-import CreateListingStep7 from './components/CreateListingStep7';
-import CreateListingStep8 from './components/CreateListingStep8';
-import CreateListingStep9 from './components/CreateListingStep9';
 import CreateListingStep10 from './components/CreateListingStep10';
 import CreateListingStep11 from './components/CreateListingStep11';
 import CreateListingStep12 from './components/CreateListingStep12';
@@ -23,6 +13,16 @@ import CreateListingStep16 from './components/CreateListingStep16';
 import CreateListingStep17 from './components/CreateListingStep17';
 import CreateListingStep18 from './components/CreateListingStep18';
 import CreateListingStep19 from './components/CreateListingStep19';
+import CreateListingStep2 from './components/CreateListingStep2';
+import CreateListingStep20 from './components/CreateListingStep20';
+import CreateListingStep3 from './components/CreateListingStep3';
+import CreateListingStep4 from './components/CreateListingStep4';
+import CreateListingStep5 from './components/CreateListingStep5';
+import CreateListingStep6 from './components/CreateListingStep6';
+import CreateListingStep7 from './components/CreateListingStep7';
+import CreateListingStep8 from './components/CreateListingStep8';
+import CreateListingStep9 from './components/CreateListingStep9';
+
 import ListingPreview from './components/ListingPreview';
 
 const CreateListingFlow = () => {
@@ -56,12 +56,12 @@ const CreateListingFlow = () => {
   }, [step]);
 
   const handleNext = () => {
-    if (currentStep < 19) {
+    if (currentStep < 20) {
       const nextStep = currentStep + 1;
       navigate(`/landlords/create-listing/step/${nextStep}`);
       setCurrentStep(nextStep);
-    } else if (currentStep === 19) {
-      // Go to preview after step 19
+    } else if (currentStep === 20) {
+      // Go to preview after step 20
       navigate('/landlords/create-listing/step/preview');
     }
   };
@@ -80,9 +80,9 @@ const CreateListingFlow = () => {
   };
 
   const handleEditFromPreview = () => {
-    // Go back to the last step (19)
-    navigate('/landlords/create-listing/step/19');
-    setCurrentStep(19);
+    // Go back to the last step (20)
+    navigate('/landlords/create-listing/step/20');
+    setCurrentStep(20);
   };
 
   const handlePublishFromPreview = () => {
@@ -269,6 +269,15 @@ const CreateListingFlow = () => {
       case 19:
         return (
           <CreateListingStep19 
+            onNext={handleNext}
+            onPrev={handlePrev}
+            formData={formData}
+            updateFormData={updateFormData}
+          />
+        );
+      case 20:
+        return (
+          <CreateListingStep20 
             onNext={handleNext}
             onPrev={handlePrev}
             formData={formData}

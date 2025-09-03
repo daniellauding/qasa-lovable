@@ -1,11 +1,15 @@
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import DynamicHeader from '../../../components/DynamicHeader';
+import Footer from '../../../components/Footer';
 import Button from '../../../components/ui/Button';
 import Typography from '../../../components/ui/Typography';
-import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import { useTranslation } from '../../../utils/translations/LanguageContext';
 
 const EditListingOverview = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -33,43 +37,46 @@ const EditListingOverview = () => {
       number: 3,
       title: 'Uthyrningsperiod',
       description: 'Snarast möjligt - Tillsvidare',
-      path: '/landlords/create-listing/step/9'
+      path: '/landlords/create-listing/step/8'
     },
     {
       number: 4,
       title: 'Bekvämligheter',
       description: 'Frys, kokvrå, egen toalett, torktumlare + 10 till',
-      path: '/landlords/create-listing/step/11'
+      path: '/landlords/create-listing/step/10'
     },
     {
       number: 5,
       title: 'Beskrivning',
       description: 'asdasd',
-      path: '/landlords/create-listing/step/13'
+      path: '/landlords/create-listing/step/12'
     },
     {
       number: 6,
       title: 'Bilder',
       description: '4 bilder',
-      path: '/landlords/create-listing/step/14'
+      path: '/landlords/create-listing/step/13'
     },
     {
       number: 7,
       title: 'Hyra',
       description: '1 000 kr',
-      path: '/landlords/edit-rent'
+      path: '/landlords/create-listing/step/16'
     },
     {
       number: 8,
       title: 'Visningstider',
       description: '1 visning tillagd',
-      path: '/landlords/create-listing/step/18'
+      path: '/landlords/create-listing/step/19'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen flex flex-col">
+      <DynamicHeader isFluid={true} />
+      
+      <main className="flex-grow">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
           <button 
@@ -123,10 +130,13 @@ const EditListingOverview = () => {
             onClick={handlePreviewAndPublish}
             className="w-full sm:w-auto"
           >
-            Granska och publicera
+            {t('editListing.previewAndPublish') || 'Granska och publicera'}
           </Button>
         </div>
-      </div>
+        </div>
+      </main>
+      
+      <Footer isFluid={true} />
       <DevExperimentsButton />
     </div>
   );
