@@ -1,6 +1,6 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { ArrowLeft, Edit, Share } from 'lucide-react';
+import { ArrowLeft, Pen, Share } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
@@ -122,9 +122,16 @@ function ListingPreview({ formData, onEdit, onPublish }) {
             </button>
 
             {/* Edit images button */}
-            <button onClick={handleEditImages} className="absolute bottom-4 right-4 bg-white/90 p-2 rounded-full">
-              <Edit className="h-5 w-5" />
-            </button>
+            <div className="absolute bottom-4 right-4">
+              <Button 
+                variant="tertiary" 
+                size="md" 
+                iconOnly 
+                icon={<Pen className="h-4 w-4" />} 
+                onClick={handleEditImages}
+                className="bg-white/90"
+              />
+            </div>
           </div>
 
           {/* Desktop Grid */}
@@ -136,9 +143,16 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                 className="w-full h-full object-cover hover:opacity-90 transition-opacity"
               />
               {/* Edit images button */}
-              <button onClick={handleEditImages} className="absolute bottom-4 right-4 bg-white/90 p-2 rounded-full">
-                <Edit className="h-5 w-5" />
-              </button>
+              <div className="absolute bottom-4 right-4">
+                <Button 
+                  variant="tertiary" 
+                  size="md" 
+                  iconOnly 
+                  icon={<Pen className="h-4 w-4" />} 
+                  onClick={handleEditImages}
+                  className="bg-white/90"
+                />
+              </div>
             </div>
             {propertyImages.slice(1).map((img, idx) => (
               <div key={idx} className="aspect-[4/3] cursor-pointer" onClick={() => setSelectedImage(img)}>
@@ -159,9 +173,13 @@ function ListingPreview({ formData, onEdit, onPublish }) {
               <Typography variant="title-lg" className="mb-4">
                 {address}
               </Typography>
-              <button onClick={handleEditListing} className="p-2 rounded-full hover:bg-gray-100">
-                <Edit className="h-5 w-5" />
-              </button>
+              <Button 
+                variant="tertiary" 
+                size="md" 
+                iconOnly 
+                icon={<Pen className="h-4 w-4" />} 
+                onClick={handleEditListing}
+              />
             </div>
             <div className="flex items-center gap-1 mb-8">
               <Typography variant="body-md">{formData.propertyType || 'Övrigt'}</Typography>
@@ -389,9 +407,13 @@ function ListingPreview({ formData, onEdit, onPublish }) {
                       <Typography variant="body-sm">{formData.moveOutType === 'indefinite' ? t('propertyDetails.duration') || 'Tillsvidare' : formData.moveOutDate || 'Välj datum'}</Typography>
                     </div>
                   </div>
-                  <button onClick={handleEditRent} className="p-2 rounded-full hover:bg-gray-100">
-                    <Edit className="h-5 w-5" />
-                  </button>
+                  <Button 
+                    variant="tertiary" 
+                    size="md" 
+                    iconOnly 
+                    icon={<Pen className="h-4 w-4" />} 
+                    onClick={handleEditRent}
+                  />
                 </div>
                 <div className="mb-6 flex items-center gap-2">
                   <Typography variant="title-xs" className="font-bold">SEK {parseInt(rent) + Math.round(parseInt(rent) * 0.0595)}</Typography>
