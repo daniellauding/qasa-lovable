@@ -101,18 +101,18 @@ const EditListingOverview = () => {
             <div key={step.number}>
               <button
                 onClick={() => navigate(step.path)}
-                className="w-full p-6 text-left hover:bg-[var(--color-background-inset)] transition-colors group"
+                className="w-full py-4 text-left group"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <Typography variant="h3" className="mb-1 group-hover:text-blue-600">
+                    <Typography variant="h4" className="mb-1">
                       {step.number}. {step.title}
                     </Typography>
                     <Typography variant="body-sm" className="text-gray-600 break-all">
                       {step.description}
                     </Typography>
                   </div>
-                  <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-blue-600 ml-4 flex-shrink-0" />
+                  <ArrowRight className="h-5 w-5 flex-shrink-0" />
                 </div>
               </button>
               {index < steps.length - 1 && (
@@ -123,7 +123,7 @@ const EditListingOverview = () => {
         </div>
 
         {/* Footer */}
-        <div className="pt-6">
+        <div className="pt-6 flex justify-end">
           <Button
             variant="primary"
             size="lg"
