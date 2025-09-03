@@ -1,18 +1,30 @@
 import { Camera, User, X } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
+import DatePicker from '../../../../components/ui/DatePicker';
 import HintBox from '../../../../components/ui/HintBox';
 import Input from '../../../../components/ui/Input';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import Select from '../../../../components/ui/Select';
+import TextArea from '../../../../components/ui/TextArea';
 import Typography from '../../../../components/ui/Typography';
+import { useAuth } from '../../../../contexts/AuthContext';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { login } = useAuth();
   const [firstName, setFirstName] = useState(formData.firstName || '');
   const [lastName, setLastName] = useState(formData.lastName || '');
   const [phone, setPhone] = useState(formData.phone || '');
   const [profileImage, setProfileImage] = useState(formData.profileImage || null);
+  const [bio, setBio] = useState(formData.bio || '');
+  const [tenantCount, setTenantCount] = useState(formData.tenantCount || '1');
+  const [moveInType, setMoveInType] = useState(formData.moveInType || 'asap');
+  const [moveInDate, setMoveInDate] = useState(formData.moveInDate || '');
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -43,16 +55,52 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
     updateFormData({ profileImage: null });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // No validation - always allow continue
-    console.log('Profile completed:', { firstName, lastName, phone, profileImage });
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
+    updateFormData({ bio: e.target.value });
   };
 
+  const handleTenantCountChange = (value) => {
+    setTenantCount(value);
+    updateFormData({ tenantCount: value });
+  };
+
+  const handleMoveInTypeChange = (value) => {
+    setMoveInType(value);
+    updateFormData({ moveInType: value });
+  };
+
+  const handleMoveInDateChange = (value) => {
+    setMoveInDate(value);
+    updateFormData({ moveInDate: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Complete registration, log user in and navigate to landing page
+    console.log('Profile completed:', { firstName, lastName, phone, profileImage, bio, tenantCount, moveInType, moveInDate });
+    login(); // Set authentication state
+    navigate('/landing'); // Navigate to landing page
+  };
+
+  const tenantCountOptions = [
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+    { value: '3', label: '3' },
+    { value: '4', label: '4' },
+    { value: '5', label: '5' },
+    { value: '6', label: '6' },
+    { value: '7', label: '7' }
+  ];
+
+  const moveInOptions = [
+    { value: 'asap', label: t('auth.register.step3.moveInAsap') },
+  ];
+
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
+    <div className="min-h-[calc(100vh-64px)] bg-transparent flex items-center flex-col justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-3xl p-8 cursor-pointer">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('auth.register.step3.title')}
           </Typography>
@@ -77,7 +125,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                 )}
               </div>
               
-              <label className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 cursor-pointer">
+              <label className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 cursor-pointer w-[120px]">
                 <div className="bg-gray-900 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1">
                   <Camera className="w-4 h-4" />
                   {profileImage ? t('auth.register.step3.changePhoto') : t('auth.register.step3.addPhoto')}
@@ -102,6 +150,13 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
               )}
             </div>
           </div>
+
+          {/* Profile Picture Hint */}
+          <HintBox>
+            <Typography variant="body-sm" className="text-gray-600">
+              {t('auth.register.step3.profilePicHint')}
+            </Typography>
+          </HintBox>
 
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
@@ -158,6 +213,58 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
               </Typography>
             </div>
           </HintBox>
+
+          {/* Bio TextArea */}
+          <div>
+            <label htmlFor="bio" className="block text-sm font-medium text-gray-700 mb-2">
+              {t('auth.register.step3.bioLabel')} <span className="text-gray-500">{t('auth.register.step3.bioOptional')}</span>
+            </label>
+            <TextArea
+              id="bio"
+              value={bio}
+              onChange={handleBioChange}
+              placeholder={t('auth.register.step3.bioPlaceholder')}
+              rows={7}
+              maxLength={240}
+              className="w-full"
+            />
+            <div className="text-left mt-1">
+              <Typography variant="body-sm" className="text-gray-500">
+                {bio.length} / 240
+              </Typography>
+            </div>
+          </div>
+
+          {/* Tenant Count Select */}
+          <div>
+            <label htmlFor="tenantCount" className="block text-sm font-medium text-gray-700 mb-2">
+              {t('auth.register.step3.tenantCountLabel')} <span className="text-gray-500">{t('auth.register.step3.tenantCountOptional')}</span>
+            </label>
+            <Select
+              value={tenantCount}
+              onValueChange={handleTenantCountChange}
+              options={tenantCountOptions}
+            />
+          </div>
+
+          {/* Move In RadioGroup */}
+          <div className="space-y-4">
+            <Typography variant="body-md" className="text-gray-700 mb-4">
+              {t('auth.register.step3.moveInLabel')}
+            </Typography>
+            <RadioGroup
+              options={moveInOptions}
+              variant="card"
+              value={moveInType}
+              onValueChange={handleMoveInTypeChange}
+            />
+            
+            <DatePicker
+              value={moveInDate}
+              onChange={handleMoveInDateChange}
+              placeholder={t('auth.register.step3.moveInChooseDate')}
+            />
+          </div>
 
           <Button
             type="submit"
