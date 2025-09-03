@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { MapContainer, TileLayer, Marker, Polygon } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Search from '../../../../components/ui/Search';
 import { ArrowLeft, X } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, Marker, Polygon, TileLayer } from 'react-leaflet';
+import Button from '../../../../components/ui/Button';
+import Search from '../../../../components/ui/Search';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 // Fix for default markers in react-leaflet
@@ -87,6 +87,53 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
     [55.7058, 13.1910]
   ];
 
+  const createCustomMarkerIcon = () => {
+    return L.divIcon({
+      className: 'custom-marker',
+      html: `
+        <div style="
+          position: relative;
+          width: 30px;
+          height: 40px;
+          transform: translate(-50%, -100%);
+          cursor: grab;
+        ">
+          <div style="
+            width: 30px;
+            height: 30px;
+            background-color: #322721;
+            border: 3px solid white;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+          "></div>
+          <div style="
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            transform: rotate(45deg);
+          "></div>
+        </div>
+        <style>
+          .custom-marker {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+          }
+        </style>
+      `,
+      iconSize: [30, 40],
+      iconAnchor: [15, 40],
+    });
+  };
+  
+
   const hasSelectedLocation = selectedLocations.length > 0;
   const showError = hasSubmitted && selectedLocations.length === 0;
 
@@ -94,7 +141,7 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-4xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step2.title', 'Var söker du bostad?')}
           </Typography>
@@ -185,12 +232,13 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
         </div>
 
         {/* Map */}
-        <div className="h-96 md:h-[32rem] rounded-lg overflow-hidden border border-gray-200 mb-8 relative z-10">
+        <div className="h-[900px] md:h-[32rem] rounded-lg overflow-hidden border border-gray-200 mb-8 relative z-10">
           <MapContainer
             center={[55.7047, 13.1910]}
             zoom={hasSelectedLocation ? 12 : 10}
             style={{ height: '100%', width: '100%' }}
             zoomControl={true}
+            className="w-full h-full"
           >
             <TileLayer
               attribution='MapLibre | © LocationIQ © OpenStreetMap contributors'
@@ -198,9 +246,9 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
             />
             
             {/* Price markers */}
-            <Marker position={[55.7200, 13.1800]}>
+            <Marker position={[55.7200, 13.1800]} icon={createCustomMarkerIcon()}>
             </Marker>
-            <Marker position={[55.6900, 13.2100]}>
+            <Marker position={[55.6900, 13.2100]} icon={createCustomMarkerIcon()}>
             </Marker>
             
             {/* Selected area polygon */}

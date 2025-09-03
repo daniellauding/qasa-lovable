@@ -1,13 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import { Check } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Typography from '../Typography';
 import { getCheckboxItemStyles, getCheckboxStyles } from './styles';
 
 const CheckboxItem = ({ option, checked, onCheckedChange, variant }) => {
+  const handleItemClick = () => {
+    onCheckedChange(!checked);
+  };
+
   return (
-    <div className={getCheckboxItemStyles(variant)}>
+    <div 
+      className={getCheckboxItemStyles(variant)}
+      data-state={checked ? 'checked' : 'unchecked'}
+      onClick={handleItemClick}
+    >
       {variant === 'card' && (
         <div className="flex-1">
           <Typography variant="body1" weight="medium">
@@ -27,7 +35,7 @@ const CheckboxItem = ({ option, checked, onCheckedChange, variant }) => {
         className={getCheckboxStyles(variant)}
       >
         <CheckboxPrimitive.Indicator className="flex items-center justify-center w-full h-full">
-          <Check className="h-3 w-3 text-[var(--color-text-primary)] flex-shrink-0" />
+          <Check className="h-3 w-3 text-white flex-shrink-0" />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 

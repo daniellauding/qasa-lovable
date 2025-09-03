@@ -2,7 +2,7 @@ export const getCheckboxItemStyles = (variant) => {
   const baseStyles = 'flex items-center gap-3 cursor-pointer';
   
   if (variant === 'card') {
-    return `${baseStyles} p-4 border border-gray-200 rounded-lg hover:bg-gray-50 data-[state=checked]:border-gray-900 data-[state=checked]:bg-gray-50 transition-colors`;
+    return `${baseStyles} p-4 border border-gray-200 rounded-xl hover:bg-gray-20 data-[state=checked]:border-gray-800 data-[state=checked]:bg-gray-10 transition-colors border-2`;
   }
   
   return baseStyles;
@@ -20,8 +20,9 @@ export const getCheckboxStyles = (variant) => {
     focus:ring-black/10
     disabled:cursor-not-allowed
     disabled:opacity-50
-    data-[state=checked]:bg-gray-300
-    data-[state=checked]:border-gray-300
+    data-[state=checked]:bg-gray-800
+    data-[state=checked]:color-white
+    data-[state=checked]:border-gray-800
     transition-colors
   `;
   

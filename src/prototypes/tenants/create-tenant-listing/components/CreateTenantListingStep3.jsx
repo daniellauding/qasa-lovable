@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import { ArrowLeft } from 'lucide-react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import RadioGroup from '../../../../components/ui/RadioGroup';
 import CheckboxGroup from '../../../../components/ui/CheckboxGroup';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeft } from 'lucide-react';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -84,7 +84,7 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
         <div className="space-y-8">
           {/* Shared vs Private */}
           <div>
-            <Typography variant="h3" className="text-gray-900 mb-4">
+            <Typography variant="h5" className="text-gray-900 mb-4">
               {t('tenant.listing.step3.sharedQuestion', 'Vill du hyra ett eget eller delat boende?')}
             </Typography>
             <RadioGroup
@@ -100,7 +100,7 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
 
           {/* Furnished */}
           <div>
-            <Typography variant="h3" className="text-gray-900 mb-4">
+            <Typography variant="h5" className="text-gray-900 mb-4">
               {t('tenant.listing.step3.furnishedQuestion', 'Vill du hyra möblerat eller omöblerat?')}
             </Typography>
             <RadioGroup
@@ -123,8 +123,8 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
           </div>
 
           {/* Tenant Type */}
-          <div>
-            <Typography variant="h3" className="text-gray-900 mb-4">
+          {/* <div>
+            <Typography variant="h5" className="text-gray-900 mb-4">
               {t('tenant.listing.step3.tenantTypeQuestion', 'Är du pensionär eller student?')}
             </Typography>
             <RadioGroup
@@ -136,7 +136,7 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
             <HintBox className="mt-3">
               {t('tenant.listing.step3.tenantTypeInfo', 'Om du är student eller pensionär kan du ha rätt till ett särskilt hyresavtal')}
             </HintBox>
-          </div>
+          </div> */}
         </div>
 
         {/* Footer */}
