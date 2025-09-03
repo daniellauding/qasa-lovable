@@ -44,6 +44,41 @@ export const en = {
     premiumBrand: 'Qasa Premium',
   },
 
+  // Authentication
+  auth: {
+    login: {
+      title: 'Welcome back',
+      subtitle: 'Log in to manage your rental or find your next home.',
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      forgotPassword: 'Forgot password?',
+      loginButton: 'Log in',
+      noAccount: 'Don\'t have an account?',
+      signupButton: 'Sign up',
+    },
+    forgotPassword: {
+      title: 'Forgot password',
+      subtitle: 'Enter your email address below and we\'ll send you an email to reset your password.',
+      emailLabel: 'Email',
+      resetButton: 'Reset password',
+      backButton: 'Back',
+    },
+    register: {
+      title: 'Welcome home',
+      subtitle: 'Create a free account to find or rent out a home.',
+      userTypeLabel: 'I want to:',
+      userTypes: {
+        tenant: 'Rent a home',
+        landlord: 'Rent out a home',
+      },
+      emailLabel: 'Email',
+      passwordLabel: 'Password',
+      createAccountButton: 'Create account',
+      hasAccount: 'Already have an account?',
+      loginButton: 'Log in',
+    },
+  },
+
   // Language Modal
   languageModal: {
     title: 'Language',

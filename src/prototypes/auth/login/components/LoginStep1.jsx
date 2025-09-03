@@ -5,10 +5,12 @@ import Button from '../../../../components/ui/Button';
 import Input from '../../../../components/ui/Input';
 import Typography from '../../../../components/ui/Typography';
 import { useAuth } from '../../../../contexts/AuthContext';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const LoginStep1 = ({ onNext, formData, updateFormData }) => {
   const navigate = useNavigate();
   const { login } = useAuth();
+  const { t } = useTranslation();
   const [email, setEmail] = useState(formData.email || '');
   const [password, setPassword] = useState(formData.password || '');
 
@@ -43,17 +45,17 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
       <div className="w-full max-w-md bg-white rounded-3xl p-8">
         <div className="text-left mb-8">
           <Typography variant="display-sm" className="text-gray-900 mb-2">
-            Välkommen tillbaka
+            {t('auth.login.title')}
           </Typography>
           <Typography variant="body-md" className="text-gray-600">
-            Logga in för att hantera din uthyrning eller hitta ditt nästa hem.
+            {t('auth.login.subtitle')}
           </Typography>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              E-post
+              {t('auth.login.emailLabel')}
             </label>
             <Input
               id="email"
@@ -67,7 +69,7 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
 
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-              Lösenord
+              {t('auth.login.passwordLabel')}
             </label>
             <Input
               id="password"
@@ -84,7 +86,7 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
             onClick={handleForgotPassword}
             className="text-sm underline"
           >
-            Glömt lösenord?
+            {t('auth.login.forgotPassword')}
           </button>
 
           <Button
@@ -93,13 +95,13 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
             size="lg"
             className="w-full"
           >
-            Logga in
+            {t('auth.login.loginButton')}
           </Button>
         </form>
 
-        <div className="mt-8 text-center gap-2 flex flex-col">
-          <Typography variant="body-md" color="secondary">
-            Har du inget konto?
+        <div className="mt-8 text-center gap-4 flex flex-col">
+          <Typography variant="title-xxs" color="text-primary">
+            {t('auth.login.noAccount')}
           </Typography>
           <Button
             variant="tertiary"
@@ -107,7 +109,7 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
             onClick={handleRegister}
             className="w-fit mx-auto"
           >
-            Registrera dig
+            {t('auth.login.signupButton')}
           </Button>
         </div>
       </div>

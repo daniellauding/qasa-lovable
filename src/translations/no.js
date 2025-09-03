@@ -321,6 +321,41 @@ export const no = {
     premiumBrand: 'Qasa Premium',
   },
 
+  // Authentication
+  auth: {
+    login: {
+      title: 'Velkommen tilbake',
+      subtitle: 'Logg inn for å administrere utleien din eller finne ditt neste hjem.',
+      emailLabel: 'E-post',
+      passwordLabel: 'Passord',
+      forgotPassword: 'Glemt passord?',
+      loginButton: 'Logg inn',
+      noAccount: 'Har du ikke en konto?',
+      signupButton: 'Registrer deg',
+    },
+    forgotPassword: {
+      title: 'Glemt passord',
+      subtitle: 'Skriv inn e-postadressen din nedenfor, så sender vi deg en e-post for å tilbakestille passordet ditt.',
+      emailLabel: 'E-post',
+      resetButton: 'Tilbakestill passord',
+      backButton: 'Tilbake',
+    },
+    register: {
+      title: 'Velkommen hjem',
+      subtitle: 'Opprett en gratis konto for å finne eller leie ut et hjem.',
+      userTypeLabel: 'Jeg vil:',
+      userTypes: {
+        tenant: 'Leie et hjem',
+        landlord: 'Leie ut et hjem',
+      },
+      emailLabel: 'E-post',
+      passwordLabel: 'Passord',
+      createAccountButton: 'Opprett konto',
+      hasAccount: 'Har du allerede en konto?',
+      loginButton: 'Logg inn',
+    },
+  },
+
   // Language Modal
   languageModal: {
     title: 'Språk',

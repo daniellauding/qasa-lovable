@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
 import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const RegisterStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [verificationCode, setVerificationCode] = useState(formData.verificationCode || '');
 
   const handleCodeChange = (e) => {
@@ -27,10 +29,10 @@ const RegisterStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Typography variant="h2" className="text-gray-900 mb-4">
-            Verifiera din mejl
+            {t('auth.register.step2.title')}
           </Typography>
           <Typography variant="body-md" className="text-gray-600">
-            Fyll i koden vi skickade till <strong>{formData.email || 'daniel@lauding.se'}</strong>
+            {t('auth.register.step2.subtitle')} <strong>{formData.email || 'daniel@lauding.se'}</strong>
           </Typography>
         </div>
 
@@ -71,16 +73,16 @@ const RegisterStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
 
           <div className="text-center">
             <Typography variant="h4" className="text-gray-900 mb-2">
-              Fick du inte koden?
+              {t('auth.register.step2.didntGetCode')}
             </Typography>
             <Typography variant="body-md" className="text-gray-600">
-              Kontrollera din skräppost eller{' '}
+              {t('auth.register.step2.checkSpam')}{' '}
               <button
                 type="button"
                 onClick={handleResendCode}
                 className="underline text-blue-600 hover:text-blue-800"
               >
-                skicka en ny kod
+                {t('auth.register.step2.resendCode')}
               </button>
             </Typography>
           </div>
@@ -91,7 +93,7 @@ const RegisterStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
             size="lg"
             className="w-full"
           >
-            Verifiera
+{t('auth.register.step2.verifyButton')}
           </Button>
         </form>
       </div>

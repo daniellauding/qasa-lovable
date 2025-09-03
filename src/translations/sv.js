@@ -44,6 +44,62 @@ export const sv = {
     premiumBrand: 'Qasa Premium',
   },
 
+  // Authentication
+  auth: {
+    login: {
+      title: 'Välkommen tillbaka',
+      subtitle: 'Logga in för att hantera din uthyrning eller hitta ditt nästa hem.',
+      emailLabel: 'E-post',
+      passwordLabel: 'Lösenord',
+      forgotPassword: 'Glömt lösenord?',
+      loginButton: 'Logga in',
+      noAccount: 'Har du inget konto?',
+      signupButton: 'Registrera dig',
+    },
+    forgotPassword: {
+      title: 'Glömt lösenord',
+      subtitle: 'Ange din e-postadress nedan så skickar vi ett mejl för att återställa ditt lösenord.',
+      emailLabel: 'E-post',
+      resetButton: 'Återställ lösenord',
+      backButton: 'Tillbaka',
+    },
+    register: {
+      title: 'Välkommen hem',
+      subtitle: 'Skapa ett gratis konto för att hitta eller hyra ut ett hem.',
+      userTypeLabel: 'Jag vill:',
+      userTypes: {
+        tenant: 'Hyra en bostad',
+        landlord: 'Hyra ut en bostad',
+      },
+      emailLabel: 'E-post',
+      passwordLabel: 'Lösenord',
+      createAccountButton: 'Skapa konto',
+      hasAccount: 'Har du redan ett konto?',
+      loginButton: 'Logga in',
+      step2: {
+        title: 'Verifiera din mejl',
+        subtitle: 'Fyll i koden vi skickade till',
+        resendCode: 'skicka en ny kod',
+        didntGetCode: 'Fick du inte koden?',
+        checkSpam: 'Kontrollera din skräppost eller',
+        verifyButton: 'Verifiera',
+      },
+      step3: {
+        title: 'Välkommen in!',
+        subtitle: 'Berätta gärna lite mer om dig själv.',
+        firstNameLabel: 'Förnamn',
+        lastNameLabel: 'Efternamn',
+        phoneLabel: 'Telefonnummer',
+        phonePlaceholder: 'Ex: +4673 xxx xx xx',
+        addPhoto: 'Lägg till bild',
+        changePhoto: 'Ändra bild',
+        removePhotoLabel: 'Ta bort profilbild',
+        privacyNote: 'Ditt efternamn och telefonnummer är endast synliga för dig.',
+        nextButton: 'Nästa',
+      },
+    },
+  },
+
   // Language Modal
   languageModal: {
     title: 'Språk',

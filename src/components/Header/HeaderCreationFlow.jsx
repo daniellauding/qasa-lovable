@@ -1,11 +1,17 @@
 import { Globe } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from '../../utils/translations/LanguageContext';
 import Button from '../ui/Button';
 
 const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    navigate('/landing');
+  };
   return (
     <header className="bg-transparent sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +37,7 @@ const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
             />
             {showDismiss && (
               <Button 
-                onClick={onDismiss}
+                onClick={handleClose}
                 aria-label={t('header.close')}
                 variant="tertiary"
                 size="md"

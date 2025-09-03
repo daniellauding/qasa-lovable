@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
 import Input from '../../../../components/ui/Input';
 import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState(formData.email || '');
 
   const handleEmailChange = (e) => {
@@ -24,17 +26,17 @@ const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-md bg-white rounded-3xl p-8">
         <div className="text-left mb-8">
           <Typography variant="display-sm" className="text-gray-900 mb-2">
-            Glömt lösenord
+            {t('auth.forgotPassword.title')}
           </Typography>
           <Typography variant="body-md">
-            Ange din e-postadress nedan så skickar vi ett mejl för att återställa ditt lösenord.
+            {t('auth.forgotPassword.subtitle')}
           </Typography>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              E-post
+              {t('auth.forgotPassword.emailLabel')}
             </label>
             <Input
               id="email"
@@ -53,14 +55,14 @@ const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
               onClick={onPrev}
               iconOnly
               icon={<ArrowLeft className="h-5 w-5" />}
-              aria-label="Tillbaka"
+              aria-label={t('auth.forgotPassword.backButton')}
             />
             <Button
               type="submit"
               variant="primary"
               size="lg"
             >
-              Återställ lösenord
+              {t('auth.forgotPassword.resetButton')}
             </Button>
           </div>
         </form>

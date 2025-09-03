@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
-import HintBox from '../../../../components/ui/HintBox';
 import { Camera, User, X } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Button from '../../../../components/ui/Button';
+import HintBox from '../../../../components/ui/HintBox';
+import Input from '../../../../components/ui/Input';
+import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [firstName, setFirstName] = useState(formData.firstName || '');
   const [lastName, setLastName] = useState(formData.lastName || '');
   const [phone, setPhone] = useState(formData.phone || '');
@@ -52,10 +54,10 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
-            Välkommen in!
+            {t('auth.register.step3.title')}
           </Typography>
           <Typography variant="body-md" className="text-gray-600">
-            Berätta gärna lite mer om dig själv.
+            {t('auth.register.step3.subtitle')}
           </Typography>
         </div>
 
@@ -78,7 +80,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
               <label className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2 cursor-pointer">
                 <div className="bg-gray-900 text-white px-3 py-1 rounded-full text-sm flex items-center gap-1">
                   <Camera className="w-4 h-4" />
-                  {profileImage ? 'Ändra bild' : 'Lägg till bild'}
+                  {profileImage ? t('auth.register.step3.changePhoto') : t('auth.register.step3.addPhoto')}
                 </div>
                 <input
                   type="file"
@@ -93,7 +95,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                   type="button"
                   onClick={handleRemoveImage}
                   className="absolute -top-1 -right-1 bg-gray-900 text-white rounded-full p-1"
-                  aria-label="Ta bort profilbild"
+                  aria-label={t('auth.register.step3.removePhotoLabel')}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -103,7 +105,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
 
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-              Förnamn
+              {t('auth.register.step3.firstNameLabel')}
             </label>
             <Input
               id="firstName"
@@ -116,7 +118,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
 
           <div>
             <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-              Efternamn
+              {t('auth.register.step3.lastNameLabel')}
             </label>
             <Input
               id="lastName"
@@ -130,14 +132,14 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
 
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-              Telefonnummer
+              {t('auth.register.step3.phoneLabel')}
             </label>
             <Input
               id="phone"
               type="tel"
               value={phone}
               onChange={handlePhoneChange}
-              placeholder="Ex: +4673 xxx xx xx"
+              placeholder={t('auth.register.step3.phonePlaceholder')}
               maxLength={240}
               className="w-full"
             />
@@ -152,7 +154,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
                 <path d="m2 2 20 20"></path>
               </svg>
               <Typography variant="body-sm" className="text-gray-600">
-                Ditt efternamn och telefonnummer är endast synliga för dig.
+                {t('auth.register.step3.privacyNote')}
               </Typography>
             </div>
           </HintBox>
@@ -163,7 +165,7 @@ const RegisterStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
             size="lg"
             className="w-full"
           >
-            Nästa
+{t('auth.register.step3.nextButton')}
           </Button>
         </form>
       </div>

@@ -44,6 +44,41 @@ export const fi = {
     premiumBrand: 'Qasa Premium',
   },
 
+  // Authentication
+  auth: {
+    login: {
+      title: 'Tervetuloa takaisin',
+      subtitle: 'Kirjaudu sisään hallitaksesi vuokrausta tai löytääksesi seuraavan kotisi.',
+      emailLabel: 'Sähköposti',
+      passwordLabel: 'Salasana',
+      forgotPassword: 'Unohditko salasanan?',
+      loginButton: 'Kirjaudu sisään',
+      noAccount: 'Eikö sinulla ole tiliä?',
+      signupButton: 'Rekisteröidy',
+    },
+    forgotPassword: {
+      title: 'Unohditko salasanan',
+      subtitle: 'Anna sähköpostiosoitteesi alle, niin lähetämme sinulle sähköpostin salasanan vaihtamiseksi.',
+      emailLabel: 'Sähköposti',
+      resetButton: 'Vaihda salasana',
+      backButton: 'Takaisin',
+    },
+    register: {
+      title: 'Tervetuloa kotiin',
+      subtitle: 'Luo ilmainen tili löytääksesi tai vuokrataksesi kodin.',
+      userTypeLabel: 'Haluan:',
+      userTypes: {
+        tenant: 'Vuokrata kodin',
+        landlord: 'Vuokrata kodin',
+      },
+      emailLabel: 'Sähköposti',
+      passwordLabel: 'Salasana',
+      createAccountButton: 'Luo tili',
+      hasAccount: 'Onko sinulla jo tili?',
+      loginButton: 'Kirjaudu sisään',
+    },
+  },
+
   // Language Modal
   languageModal: {
     title: 'Kieli',
