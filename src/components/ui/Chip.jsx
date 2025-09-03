@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const sizeClasses = {
   xs: 'h-8 px-4 text-sm rounded-full', // 32px height, 16px padding
@@ -24,6 +24,7 @@ const Chip = ({
     'transition-all duration-150 ease-in-out',
     'focus:outline-none focus:ring-0',
     'border',
+    'w-fit',
     'select-none'
   ].join(' ');
 

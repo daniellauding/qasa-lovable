@@ -69,6 +69,10 @@ export const sv = {
     readMore: 'Läs mer',
     showMore: 'Visa mer',
     applyTo: 'Ansök till',
+    datesTitle: 'Hyresperiod',
+    rentTitle: 'Hyra',
+    amenitiesTitle: 'Bekvämligheter',
+    houseRulesTitle: 'Husregler och tillgänglighet',
     published: 'Publicerad',
     today: 'Idag',
     viewings: 'Visningar',
@@ -81,9 +85,19 @@ export const sv = {
       balcony: 'Balkong',
       internet: 'Internet',
       ownShower: 'Egen dusch',
+      bathtub: 'Badkar',
+      parking: 'Parkering',
       dishwasher: 'Diskmaskin',
       oven: 'Ugn',
       storage: 'Förråd'
+    },
+    rentDetails: {
+      monthlyCost: 'Månadskostnad',
+      rent: 'Hyra',
+      serviceFee: 'Serviceavgift',
+      additionalCosts: 'Övriga kostnader',
+      electricityFee: 'Elkostnad',
+      included: 'Detta ingår'
     },
     landlord: {
       meetYourLandlord: 'Möt din hyresvärd',
@@ -292,7 +306,267 @@ export const sv = {
         description: 'Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen.',
         fillManually: 'Fyll i adressen manuellt'
       },
+      step3: {
+        title: 'Är markören på rätt ställe?',
+        description: 'Justera markörens position så den visar var din bostad ligger.'
+      },
+      step6: {
+        title: 'Vilken typ av bostad är det?',
+        propertyTypes: {
+          apartment: 'Lägenhet',
+          house: 'Villa',
+          terrace: 'Radhus',
+          cottage: 'Stuga',
+          duplex: 'Parhus',
+          corridor: 'Korridorsrum',
+          loft: 'Loftgångshus',
+          other: 'Övrigt'
+        },
+        ownershipLabel: 'Bostadsform',
+        ownershipPlaceholder: 'Ange bostadsform',
+        ownership: {
+          condominium: 'Bostadsrätt',
+          proprietary: 'Villa eller äganderätt',
+          tenancy: 'Hyresrätt'
+        },
+        propertyTypeHint: 'Välj "Övrigt" om ingen av alternativen ovan matchar din typ av bostad',
+        ownershipHint: 'Informationen kommer inte att visas i annonsen, men finns här så att vi kan hjälpa dig skriva ett korrekt hyresavtal när du är redo.'
+      },
+      step7: {
+        title: 'Hur stor är bostaden?',
+        sizeLabel: 'Storlek',
+        roomsLabel: 'Antal rum',
+        bedroomsLabel: 'Antal sovrum',
+        bedroomsOptional: '(Valfritt)',
+        bedroomsHint: 'Sovrum är inkluderade i totalt antal rum'
+      },
+      step8: {
+        title: 'När vill du hyra ut bostaden?',
+        moveInLabel: 'Inflytt',
+        moveOutLabel: 'Utflytt',
+        moveInASAP: 'Snarast möjligt',
+        moveOutIndefinite: 'Tillsvidare',
+        selectDate: 'Välj datum',
+        onlyRentalQuestion: 'Är detta den enda bostad du hyr ut?',
+        onlyRentalYes: 'Ja, det är min enda uthyrning',
+        onlyRentalNo: 'Nej, det är inte min enda uthyrning'
+      },
+      step9: {
+        partIndicator: 'Del 2 av 3',
+        title: 'Vad får ditt hem att sticka ut?',
+        description: 'Lägg till bilder och beskrivning för att få din annons att stå ut ur mängden.'
+      },
+      step10: {
+        title: 'Vilka bekvämligheter finns i bostaden?',
+        description: 'Markera allt som ingår i uthyrningen.',
+        categories: {
+          kitchen: 'Kök',
+          bathroom: 'Badrum',
+          laundry: 'Tvätt',
+          popular: 'Populära',
+          technology: 'Teknik',
+          parkingAndStorage: 'Parkering och hjälpmedel'
+        },
+        amenities: {
+          fridge: 'Kylskåp',
+          freezer: 'Frys',
+          oven: 'Ugn',
+          stove: 'Spis',
+          dishwasher: 'Diskmaskin',
+          microwave: 'Mikrovågsugn',
+          kitchenette: 'Kokvrå',
+          shower: 'Egen dusch',
+          toilet: 'Egen toalett',
+          bathtub: 'Badkar',
+          washing_machine: 'Tvättmaskin',
+          dryer: 'Torktumlare',
+          laundry_room: 'Tvättstuga',
+          drying_room: 'Torkrum',
+          balcony: 'Balkong',
+          french_balcony: 'Fransk balkong',
+          patio: 'Uteplats',
+          sauna: 'Egen bastu',
+          shared_sauna: 'Delad bastu',
+          jacuzzi: 'Bubbelpool',
+          fireplace: 'Eldstad inomhus',
+          pool: 'Pool',
+          ac: 'Luftkonditionering',
+          internet: 'Internet',
+          tv: 'TV',
+          bike_room: 'Cykelrum',
+          storage: 'Förråd',
+          elevator: 'Hiss',
+          car_charger: 'Laddbox till elbil',
+          parking_included: 'Parkering ingår',
+          parking_available: 'Parkering tillgänglig',
+          recycling: 'Återvinningsrum',
+          security_door: 'Säkerhetsdörr',
+          alarm: 'Inbrottslarm',
+          stroller_room: 'Barnvagnsrum'
+        },
+        insuranceTitle: 'Försäkrad genom Qasa',
+        insuranceDescription: 'Vi står för skador på din fastighet under hela hyresperioden.'
+      },
+      step11: {
+        title: 'Mer om bostaden och dess skick',
+        description: 'Sökande är ofta intresserade av renoveringar och när huset byggdes.',
+        conditionLabel: 'Bostadens skick',
+        buildYearLabel: 'Bostadens byggnadsår',
+        bathroomRenoLabel: 'Badrum - år sedan renovering',
+        kitchenRenoLabel: 'Kök - år sedan renovering',
+        energyClassLabel: 'Energiklass',
+        optional: '(Valfritt)',
+        conditionOptions: {
+          unknown: 'Vet inte',
+          new: 'Nyskick',
+          good: 'Bra',
+          satisfactory: 'Tillfredsställande',
+          poor: 'Dålig'
+        },
+        renovationOptions: {
+          unknown: 'Vet inte',
+          '0-4': '0-4',
+          '5-9': '5-9',
+          '10-19': '10-19',
+          '20+': '20+'
+        }
+      },
+      step12: {
+        title: 'Beskriv din bostad',
+        description: 'Beskriv din bostad, området och det du vill förmedla i annonstexten. Du kan enkelt ändra din beskrivning senare.',
+        aboutHomeLabel: 'Om bostaden',
+        placeholder: 'Beskrivning',
+        hintTitle: 'Saker hyresgäster ofta undrar över:',
+        hintItems: [
+          'Planlösning',
+          'Vad som ingår i hyran',
+          'Kommunikation',
+          'Varför du hyr ut din bostad'
+        ]
+      },
+      step13: {
+        title: 'Bilder på ditt hem',
+        description: 'Ladda upp ljusa och tydliga bilder – ju fler desto bättre. Några bra foton gör att annonsen sticker ut och sparar dig från onödiga frågor.',
+        uploadButton: 'Ladda upp bilder',
+        uploading: 'Laddar upp bilder...',
+        fileInfo: 'Du kan ladda upp PNG och JPG. Maximal storlek per foto är 30MB.',
+        mainImageTitle: 'Visningsbild',
+        otherImagesTitle: 'Övriga bilder',
+        guidelinesTitle: 'Riktlinjer för bilder',
+        guidelinesButton: 'Se alla riktlinjer',
+        modalTitle: 'Riktlinjer för bilder',
+        modalDescription: 'Några fantastiska bilder kan vara skillnaden mellan en snabb matchning och veckors väntan.',
+        guidelines: [
+          'Ta bilder i liggande format av alla rum i hemmet',
+          'Undvik text, stående bilder, skärmdumpar och suddiga bilder'
+        ]
+      },
+      step14: {
+        partIndicator: 'Del 3 av 3',
+        title: 'Bra jobbat! Bara några få frågor kvar.',
+        description: 'Gör klart din annons och förhandsgranska den innan publicering.'
+      },
+      step15: {
+        title: 'Regler och tillgänglighet',
+        description: 'Ange regler och tillgänglighet för ditt boende',
+        maxOccupantsLabel: 'Hur många kan bo här?',
+        petsAllowedLabel: 'Husdjur tillåtet',
+        smokingAllowedLabel: 'Rökning tillåten',
+        wheelchairAccessibleLabel: 'Tillgänglig med rullstol',
+        yes: 'Ja',
+        no: 'Nej'
+      },
+      step16: {
+        title: 'Vilken hyra hade du tänkt dig?',
+        description: 'Fyll i hyran utan övriga kostnader.',
+        recommendedRentLabel: 'Rekommenderad hyra',
+        recommendedRentAmount: '7 730 kr',
+        rentLabel: 'Hyra',
+        rentHelperText: 'Hyresgästens månadskostnad är hyran + 5.95% serviceavgift. Den hyra du anger är vad du får utbetalt varje månad - inga kostnader tillkommer för dig som hyresvärd.',
+        overRecommendedChip: 'Över rekommenderad hyra',
+        modalTitle: 'Vad innebär rekommenderad hyra?',
+        modalDescription: 'Enligt vår statistik på tusentals uthyrda bostäder som liknar din, är hyresrekommendationen på en nivå som vi tror kommer ge en snabb och framgångsrik uthyrning.',
+        modalPriceRange: 'Baserat på den information vi har om ditt hem och vår statistik på tidigare signerade kontrakt tror vi att en bra hyra ligger någonstans mellan 7 189 kr och 8 271 kr.',
+        modalFactorsTitle: 'Den rekommenderade hyran baseras på information om ditt hem, till exempel:',
+        modalFactors: {
+          size: 'Storlek (m²) och antal rum',
+          address: 'Adress',
+          amenities: 'Bekvämligheter'
+        },
+        paymentGuaranteeTitle: 'Alltid hyran betald',
+        paymentGuaranteeDescription: 'Få betalt i tid varje gång, även om hyresgästen missar eller är sen med betalningen.'
+      },
+      step17: {
+        title: 'Övriga kostnader',
+        electricityCostLabel: 'Elkostnad',
+        electricityAmountLabel: 'Elkostnad',
+        electricityAmountPlaceholder: 'Ange elkostnad',
+        electricityOptions: {
+          included_in_rent: 'El ingår i hyran',
+          not_included_in_rent: 'El ingår inte i hyran',
+          tenant_managed: 'Hyresgästen upprättar eget elavtal',
+          fixed_fee: 'Elkostnad tillkommer utöver hyran'
+        }
+      },
+      step18: {
+        title: 'Visningar',
+        description: 'Låt hyresgäster boka en visning när de kontaktar dig. Skapa tidsluckor när du har möjlighet att hålla visningar för intresserade hyresgäster. Bokade visningar kan avbokas när som helst via din annons-dashboard.',
+        addViewingButton: 'Lägg till tider för visningar',
+        deleteAllButton: 'Ta bort alla',
+        modalTitle: 'Lägg till tider för visningar',
+        modalDescription: 'Välj datum och tid när du är tillgänglig för att träffa hyresgäster. Visningstider har en varaktighet på 20 minuter.',
+        dateLabel: 'Datum',
+        timeFromLabel: 'Från',
+        timeToLabel: 'Till',
+        timeHint: 'Sätt en starttid från när du är tillgänglig så skapar vi visningstiderna åt dig.',
+        createButton: 'Skapa',
+        closeButton: 'Stäng',
+        selectDate: 'Välj datum',
+        selectTime: 'Välj en tid',
+        viewingTypes: {
+          multiple: 'Flera visningar',
+          single: 'Enskild visning'
+        },
+        infoTitle: 'Bra att veta',
+        infoDescription: 'Du kan alltid lägga till och ta bort visningar under tiden din annons är publicerad. Endast ID-verifierade hyresgäster kan boka visningar.'
+      },
+      step19: {
+        title: 'Information inför visningar',
+        description: 'Lägg till lite extra information för att göra visningarna så smidiga som möjligt. Informationen delas med hyresgästen innan visning.',
+        phoneLabel: 'Telefonnummer',
+        phoneHint: 'Telefonnumret är kopplat till ditt Qasa-konto och till visningen.',
+        practicalInfoLabel: 'Praktisk information',
+        practicalInfoOptional: '(Valfritt)',
+        practicalInfoPlaceholder: 'Fyll i portkod eller annan information för intresserade hyresgäster',
+        saveButton: 'Spara',
+        reviewButton: 'Nästa',
+        infoTitle: 'Bra att veta',
+        infoDescription: 'Telefonnummer delas 8 timmar innan den bokade visningen. Du kan alltid avboka visningar under tiden din annons är publicerad.'
+      },
+      step20: {
+        title: 'Information inför visningar',
+        description: 'Lägg till lite extra information för att göra visningarna så smidiga som möjligt. Informationen delas med hyresgästen innan visning.',
+        phoneLabel: 'Telefonnummer',
+        phoneHint: 'Telefonnumret är kopplat till ditt Qasa-konto och till visningen.',
+        practicalInfoLabel: 'Praktisk information',
+        practicalInfoOptional: '(Valfritt)',
+        practicalInfoPlaceholder: 'Fyll i portkod eller annan information för intresserade hyresgäster',
+        saveButton: 'Spara',
+        reviewButton: 'Granska',
+        infoTitle: 'Bra att veta',
+        infoDescription: 'Telefonnummer delas 8 timmar innan den bokade visningen. Du kan alltid avboka visningar under tiden din annons är publicerad.'
+      },
     }
+  },
+
+  // Edit Listing
+  editListing: {
+    previewAndPublish: 'Granska och publicera'
+  },
+
+  // Listing Preview
+  listingPreview: {
+    headerText: 'Förhandsvisning på hur din annons kommer ses av hyresgäster'
   },
 
   // Add these to the tenant section

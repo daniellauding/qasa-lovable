@@ -28,7 +28,7 @@ import CreateTenantListingFlow from './prototypes/tenants/create-tenant-listing/
 import FindTenant from './prototypes/landlords/find-tenant/FindTenant';
 import CreateListingFlow from './prototypes/landlords/create-listing/CreateListingFlow';
 import Dashboard from './prototypes/landlords/dashboard/Dashboard';
-import EditRent from './prototypes/landlords/edit-rent/EditRent';
+
 import EditListingOverview from './prototypes/landlords/edit-listing/EditListingOverview';
 import LandlordProfilePage from './prototypes/landlords/profile/LandlordProfilePage';
 
@@ -442,7 +442,7 @@ function App() {
             />
           } />
           <Route path="/landlords/dashboard" element={<Dashboard />} />
-          <Route path="/landlords/edit-rent" element={<EditRent />} />
+
           <Route path="/landlords/edit-listing" element={<EditListingOverview />} />
           <Route path="/landlords/profile" element={<LandlordProfilePage />} />
           

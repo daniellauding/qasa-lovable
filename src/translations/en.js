@@ -69,6 +69,10 @@ export const en = {
     readMore: 'Read more',
     showMore: 'Show more',
     applyTo: 'Apply to',
+    datesTitle: 'Rental period',
+    rentTitle: 'Rent',
+    amenitiesTitle: 'Amenities',
+    houseRulesTitle: 'House rules and accessibility',
     published: 'Published',
     today: 'Today',
     viewings: 'Viewings',
@@ -81,9 +85,19 @@ export const en = {
       balcony: 'Balcony',
       internet: 'Internet',
       ownShower: 'Own shower',
+      bathtub: 'Bathtub',
+      parking: 'Parking',
       dishwasher: 'Dishwasher',
       oven: 'Oven',
       storage: 'Storage'
+    },
+    rentDetails: {
+      monthlyCost: 'Monthly cost',
+      rent: 'Rent',
+      serviceFee: 'Service fee',
+      additionalCosts: 'Additional costs',
+      electricityFee: 'Electricity fee',
+      included: 'This is included'
     },
     landlord: {
       meetYourLandlord: 'Meet your landlord',
@@ -283,7 +297,267 @@ export const en = {
         description: 'We need your full address to show your home on a map. Only the street name is shown in the listing.',
         fillManually: 'Fill in address manually'
       },
+      step3: {
+        title: 'Is the marker in the right place?',
+        description: 'Adjust the marker position to show where your home is located.'
+      },
+      step6: {
+        title: 'What type of home is it?',
+        propertyTypes: {
+          apartment: 'Apartment',
+          house: 'House',
+          terrace: 'Townhouse',
+          cottage: 'Cottage',
+          duplex: 'Duplex',
+          corridor: 'Corridor room',
+          loft: 'Loft apartment',
+          other: 'Other'
+        },
+        ownershipLabel: 'Ownership type',
+        ownershipPlaceholder: 'Select ownership type',
+        ownership: {
+          condominium: 'Condominium',
+          proprietary: 'House or freehold',
+          tenancy: 'Rental apartment'
+        },
+        propertyTypeHint: 'Select "Other" if none of the options above match your type of home',
+        ownershipHint: 'This information will not be shown in the listing, but helps us write a correct rental agreement when you are ready.'
+      },
+      step7: {
+        title: 'How big is the home?',
+        sizeLabel: 'Size',
+        roomsLabel: 'Number of rooms',
+        bedroomsLabel: 'Number of bedrooms',
+        bedroomsOptional: '(Optional)',
+        bedroomsHint: 'Bedrooms are included in total number of rooms'
+      },
+      step8: {
+        title: 'When do you want to rent out the home?',
+        moveInLabel: 'Move in',
+        moveOutLabel: 'Move out',
+        moveInASAP: 'As soon as possible',
+        moveOutIndefinite: 'Indefinitely',
+        selectDate: 'Select date',
+        onlyRentalQuestion: 'Is this the only home you rent out?',
+        onlyRentalYes: 'Yes, it is my only rental',
+        onlyRentalNo: 'No, it is not my only rental'
+      },
+      step9: {
+        partIndicator: 'Part 2 of 3',
+        title: 'What makes your home stand out?',
+        description: 'Add photos and description to make your listing stand out from the crowd.'
+      },
+      step10: {
+        title: 'What amenities are available in the home?',
+        description: 'Mark everything that is included in the rental.',
+        categories: {
+          kitchen: 'Kitchen',
+          bathroom: 'Bathroom',
+          laundry: 'Laundry',
+          popular: 'Popular',
+          technology: 'Technology',
+          parkingAndStorage: 'Parking and storage'
+        },
+        amenities: {
+          fridge: 'Refrigerator',
+          freezer: 'Freezer',
+          oven: 'Oven',
+          stove: 'Stove',
+          dishwasher: 'Dishwasher',
+          microwave: 'Microwave',
+          kitchenette: 'Kitchenette',
+          shower: 'Private shower',
+          toilet: 'Private toilet',
+          bathtub: 'Bathtub',
+          washing_machine: 'Washing machine',
+          dryer: 'Dryer',
+          laundry_room: 'Laundry room',
+          drying_room: 'Drying room',
+          balcony: 'Balcony',
+          french_balcony: 'French balcony',
+          patio: 'Patio',
+          sauna: 'Private sauna',
+          shared_sauna: 'Shared sauna',
+          jacuzzi: 'Hot tub',
+          fireplace: 'Indoor fireplace',
+          pool: 'Pool',
+          ac: 'Air conditioning',
+          internet: 'Internet',
+          tv: 'TV',
+          bike_room: 'Bike room',
+          storage: 'Storage',
+          elevator: 'Elevator',
+          car_charger: 'EV charger',
+          parking_included: 'Parking included',
+          parking_available: 'Parking available',
+          recycling: 'Recycling room',
+          security_door: 'Security door',
+          alarm: 'Burglar alarm',
+          stroller_room: 'Stroller room'
+        },
+        insuranceTitle: 'Insured through Qasa',
+        insuranceDescription: 'We cover damages to your property during the entire rental period.'
+      },
+      step11: {
+        title: 'More about the home and its condition',
+        description: 'Applicants are often interested in renovations and when the house was built.',
+        conditionLabel: 'Home condition',
+        buildYearLabel: 'Year the home was built',
+        bathroomRenoLabel: 'Bathroom - years since renovation',
+        kitchenRenoLabel: 'Kitchen - years since renovation',
+        energyClassLabel: 'Energy class',
+        optional: '(Optional)',
+        conditionOptions: {
+          unknown: 'Don\'t know',
+          new: 'Like new',
+          good: 'Good',
+          satisfactory: 'Satisfactory',
+          poor: 'Poor'
+        },
+        renovationOptions: {
+          unknown: 'Don\'t know',
+          '0-4': '0-4',
+          '5-9': '5-9',
+          '10-19': '10-19',
+          '20+': '20+'
+        }
+      },
+      step12: {
+        title: 'Describe your home',
+        description: 'Describe your home, the area and what you want to convey in the listing text. You can easily change your description later.',
+        aboutHomeLabel: 'About the home',
+        placeholder: 'Description',
+        hintTitle: 'Things tenants often wonder about:',
+        hintItems: [
+          'Floor plan',
+          'What is included in the rent',
+          'Transportation',
+          'Why you are renting out your home'
+        ]
+      },
+      step13: {
+        title: 'Photos of your home',
+        description: 'Upload bright and clear photos – the more the better. Some good photos make the listing stand out and save you from unnecessary questions.',
+        uploadButton: 'Upload photos',
+        uploading: 'Uploading photos...',
+        fileInfo: 'You can upload PNG and JPG. Maximum size per photo is 30MB.',
+        mainImageTitle: 'Main image',
+        otherImagesTitle: 'Other images',
+        guidelinesTitle: 'Photo guidelines',
+        guidelinesButton: 'See all guidelines',
+        modalTitle: 'Photo guidelines',
+        modalDescription: 'Some fantastic photos can be the difference between a quick match and weeks of waiting.',
+        guidelines: [
+          'Take landscape photos of all rooms in the home',
+          'Avoid text, portrait photos, screenshots and blurry photos'
+        ]
+      },
+      step14: {
+        partIndicator: 'Part 3 of 3',
+        title: 'Well done! Just a few more questions left.',
+        description: 'Finish your listing and preview it before publishing.'
+      },
+      step15: {
+        title: 'Rules and accessibility',
+        description: 'Specify rules and accessibility for your accommodation',
+        maxOccupantsLabel: 'How many can live here?',
+        petsAllowedLabel: 'Pets allowed',
+        smokingAllowedLabel: 'Smoking allowed',
+        wheelchairAccessibleLabel: 'Wheelchair accessible',
+        yes: 'Yes',
+        no: 'No'
+      },
+      step16: {
+        title: 'What rent did you have in mind?',
+        description: 'Enter the rent without additional costs.',
+        recommendedRentLabel: 'Recommended rent',
+        recommendedRentAmount: '7,730 kr',
+        rentLabel: 'Rent',
+        rentHelperText: 'The tenant\'s monthly cost is rent + 5.95% service fee. The rent you enter is what you get paid each month - no costs are added for you as landlord.',
+        overRecommendedChip: 'Above recommended rent',
+        modalTitle: 'What does recommended rent mean?',
+        modalDescription: 'According to our statistics on thousands of rented homes similar to yours, the rent recommendation is at a level that we believe will provide a quick and successful rental.',
+        modalPriceRange: 'Based on the information we have about your home and our statistics on previously signed contracts, we believe that a good rent is somewhere between 7,189 kr and 8,271 kr.',
+        modalFactorsTitle: 'The recommended rent is based on information about your home, for example:',
+        modalFactors: {
+          size: 'Size (m²) and number of rooms',
+          address: 'Address',
+          amenities: 'Amenities'
+        },
+        paymentGuaranteeTitle: 'Always rent paid',
+        paymentGuaranteeDescription: 'Get paid on time every time, even if the tenant misses or is late with payment.'
+      },
+      step17: {
+        title: 'Additional costs',
+        electricityCostLabel: 'Electricity cost',
+        electricityAmountLabel: 'Electricity cost',
+        electricityAmountPlaceholder: 'Enter electricity cost',
+        electricityOptions: {
+          included_in_rent: 'Electricity included in rent',
+          not_included_in_rent: 'Electricity not included in rent',
+          tenant_managed: 'Tenant arranges own electricity contract',
+          fixed_fee: 'Electricity cost added to rent'
+        }
+      },
+      step18: {
+        title: 'Viewings',
+        description: 'Let tenants book a viewing when they contact you. Create time slots when you have the opportunity to hold viewings for interested tenants. Booked viewings can be cancelled at any time via your listing dashboard.',
+        addViewingButton: 'Add viewing times',
+        deleteAllButton: 'Remove all',
+        modalTitle: 'Add viewing times',
+        modalDescription: 'Choose date and time when you are available to meet tenants. Viewing times have a duration of 20 minutes.',
+        dateLabel: 'Date',
+        timeFromLabel: 'From',
+        timeToLabel: 'To',
+        timeHint: 'Set a start time from when you are available and we will create the viewing times for you.',
+        createButton: 'Create',
+        closeButton: 'Close',
+        selectDate: 'Select date',
+        selectTime: 'Select a time',
+        viewingTypes: {
+          multiple: 'Multiple viewings',
+          single: 'Individual viewing'
+        },
+        infoTitle: 'Good to know',
+        infoDescription: 'You can always add and remove viewings while your listing is published. Only ID-verified tenants can book viewings.'
+      },
+      step19: {
+        title: 'Information for viewings',
+        description: 'Add some extra information to make viewings as smooth as possible. The information is shared with the tenant before viewing.',
+        phoneLabel: 'Phone number',
+        phoneHint: 'The phone number is linked to your Qasa account and to the viewing.',
+        practicalInfoLabel: 'Practical information',
+        practicalInfoOptional: '(Optional)',
+        practicalInfoPlaceholder: 'Fill in door code or other information for interested tenants',
+        saveButton: 'Save',
+        reviewButton: 'Next',
+        infoTitle: 'Good to know',
+        infoDescription: 'Phone number is shared 8 hours before the booked viewing. You can always cancel viewings while your listing is published.'
+      },
+      step20: {
+        title: 'Information for viewings',
+        description: 'Add some extra information to make viewings as smooth as possible. The information is shared with the tenant before viewing.',
+        phoneLabel: 'Phone number',
+        phoneHint: 'The phone number is linked to your Qasa account and to the viewing.',
+        practicalInfoLabel: 'Practical information',
+        practicalInfoOptional: '(Optional)',
+        practicalInfoPlaceholder: 'Fill in door code or other information for interested tenants',
+        saveButton: 'Save',
+        reviewButton: 'Review',
+        infoTitle: 'Good to know',
+        infoDescription: 'Phone number is shared 8 hours before the booked viewing. You can always cancel viewings while your listing is published.'
+      },
     }
+  },
+
+  // Edit Listing
+  editListing: {
+    previewAndPublish: 'Review and publish'
+  },
+
+  // Listing Preview
+  listingPreview: {
+    headerText: 'Preview of how your listing will be seen by tenants'
   },
 
   // Tenant Listing Creation

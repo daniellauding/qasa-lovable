@@ -81,6 +81,8 @@ export const fi = {
       balcony: 'Parveke',
       internet: 'Internet',
       ownShower: 'Oma suihku',
+      bathtub: 'Kylpyamme',
+      parking: 'Pysäköinti',
       dishwasher: 'Astianpesukone',
       oven: 'Uuni',
       storage: 'Varasto'
@@ -289,7 +291,159 @@ export const fi = {
         description: 'Tarvitsemme koko osoitteen näyttääksesi kodin kartalla. Vain kadunnimi näkyy ilmoituksessa.',
         fillManually: 'Täytä osoite manuaalisesti'
       },
+      step3: {
+        title: 'Onko merkki oikeassa paikassa?',
+        description: 'Säädä merkin sijaintia näyttääksesi missä kotisi sijaitsee.'
+      },
+      step6: {
+        title: 'Minkä tyyppinen asunto se on?',
+        propertyTypes: {
+          apartment: 'Kerrostaloasunto',
+          house: 'Omakotitalo',
+          terrace: 'Rivitalo',
+          cottage: 'Mökki',
+          duplex: 'Paritalo',
+          corridor: 'Käytävähuone',
+          loft: 'Ullakkoasunto',
+          other: 'Muu'
+        },
+        ownershipLabel: 'Hallintamuoto',
+        ownershipPlaceholder: 'Valitse hallintamuoto',
+        ownership: {
+          condominium: 'Osakehuoneisto',
+          proprietary: 'Omakotitalo tai omistusasunto',
+          tenancy: 'Vuokra-asunto'
+        },
+        propertyTypeHint: 'Valitse "Muu" jos mikään yllä olevista vaihtoehdoista ei sovi asuntosi tyyppiin',
+        ownershipHint: 'Tämä tieto ei näy ilmoituksessa, mutta auttaa meitä kirjoittamaan oikean vuokrasopimuksen kun olet valmis.'
+      },
+      step7: {
+        title: 'Kuinka suuri koti on?',
+        sizeLabel: 'Koko',
+        roomsLabel: 'Huoneiden määrä',
+        bedroomsLabel: 'Makuuhuoneiden määrä',
+        bedroomsOptional: '(Valinnainen)',
+        bedroomsHint: 'Makuuhuoneet sisältyvät huoneiden kokonaismäärään'
+      },
+      step8: {
+        title: 'Milloin haluat vuokrata asunnon?',
+        moveInLabel: 'Sisäänmuutto',
+        moveOutLabel: 'Ulosmuutto',
+        moveInASAP: 'Mahdollisimman pian',
+        moveOutIndefinite: 'Toistaiseksi',
+        selectDate: 'Valitse päivämäärä',
+        onlyRentalQuestion: 'Onko tämä ainoa asunto jonka vuokraat?',
+        onlyRentalYes: 'Kyllä, se on ainoa vuokraukseni',
+        onlyRentalNo: 'Ei, se ei ole ainoa vuokraukseni'
+      },
+      step9: {
+        partIndicator: 'Osa 2/3',
+        title: 'Mikä saa kotisi erottumaan?',
+        description: 'Lisää kuvia ja kuvaus saadaksesi ilmoituksesi erottumaan joukosta.'
+      },
+      step10: {
+        title: 'Mitä mukavuuksia asunnossa on?',
+        description: 'Merkitse kaikki vuokraan sisältyvät asiat.',
+        categories: {
+          kitchen: 'Keittiö',
+          bathroom: 'Kylpyhuone',
+          laundry: 'Pesula',
+          popular: 'Suositut',
+          technology: 'Teknologia',
+          parkingAndStorage: 'Pysäköinti ja säilytys'
+        },
+        insuranceTitle: 'Vakuutettu Qasan kautta',
+        insuranceDescription: 'Korvaamme kiinteistösi vahingot koko vuokra-ajan.'
+      },
+      step11: {
+        title: 'Lisää asunnosta ja sen kunnosta',
+        description: 'Hakijat ovat usein kiinnostuneita remonteista ja siitä milloin talo on rakennettu.',
+        conditionLabel: 'Asunnon kunto',
+        buildYearLabel: 'Asunnon rakennusvuosi',
+        bathroomRenoLabel: 'Kylpyhuone - vuosia remontista',
+        kitchenRenoLabel: 'Keittiö - vuosia remontista',
+        energyClassLabel: 'Energialuokka',
+        optional: '(Valinnainen)'
+      },
+      step12: {
+        title: 'Kuvaile kotisi',
+        description: 'Kuvaile kotisi, alue ja mitä haluat välittää ilmoitustekstissä.',
+        aboutHomeLabel: 'Kodista',
+        placeholder: 'Kuvaus'
+      },
+      step13: {
+        title: 'Kuvia kodistasi',
+        description: 'Lataa kirkkaita ja selkeitä kuvia – mitä enemmän sen parempi.',
+        uploadButton: 'Lataa kuvia'
+      },
+      step14: {
+        partIndicator: 'Osa 3/3',
+        title: 'Hyvää työtä! Vain muutama kysymys jäljellä.',
+        description: 'Viimeistele ilmoituksesi ja esikatsele se ennen julkaisua.'
+      },
+      step15: {
+        title: 'Säännöt ja esteettömyys',
+        description: 'Määritä säännöt ja esteettömyys asunnolle'
+      },
+      step16: {
+        title: 'Lisäkustannukset',
+        electricityCostLabel: 'Sähkökustannus'
+      },
+      step17: {
+        title: 'Esittelyt',
+        description: 'Anna vuokralaisten varata esittely kun he ottavat yhteyttä.'
+      },
+      step18: {
+        title: 'Tiedot esittelyä varten',
+        description: 'Lisää hieman lisätietoja tehdäksesi esittelyistä mahdollisimman sujuvia.'
+      },
+      step19: {
+        title: 'Esittelyt',
+        description: 'Anna vuokralaisten varata esittely kun he ottavat yhteyttä.',
+        addViewingButton: 'Lisää esittelyaikoja',
+        deleteAllButton: 'Poista kaikki',
+        reviewButton: 'Seuraava',
+        modalTitle: 'Lisää esittelyaikoja',
+        modalDescription: 'Valitse päivämäärä ja aika kun olet käytettävissä tapaamaan vuokralaisia.',
+        dateLabel: 'Päivämäärä',
+        timeFromLabel: 'Alkaen',
+        timeToLabel: 'Päättyen',
+        timeHint: 'Aseta aloitusaika jolloin olet käytettävissä, niin luomme esittelyajat puolestasi.',
+        createButton: 'Luo',
+        closeButton: 'Sulje',
+        selectDate: 'Valitse päivämäärä',
+        selectTime: 'Valitse aika',
+        viewingTypes: {
+          multiple: 'Useita esittelyjä',
+          single: 'Yksittäinen esittely'
+        },
+        infoTitle: 'Hyvä tietää',
+        infoDescription: 'Voit aina lisätä ja poistaa esittelyjä kun ilmoituksesi on julkaistu.'
+      },
+      step20: {
+        title: 'Tiedot esittelyä varten',
+        description: 'Lisää hieman lisätietoja tehdäksesi esittelyistä mahdollisimman sujuvia.',
+        phoneLabel: 'Puhelinnumero',
+        phoneHint: 'Puhelinnumero on yhdistetty Qasa-tiliisi ja esittelyyn.',
+        practicalInfoLabel: 'Käytännön tiedot',
+        practicalInfoOptional: '(Valinnainen)',
+        practicalInfoPlaceholder: 'Täytä ovikoodi tai muut tiedot kiinnostuneille vuokralaisille',
+        saveButton: 'Tallenna',
+        reviewButton: 'Tarkista',
+        infoTitle: 'Hyvä tietää',
+        infoDescription: 'Puhelinnumero jaetaan 8 tuntia ennen varattua esittelyä.'
+      },
     }
+  },
+
+  // Edit Listing
+  editListing: {
+    previewAndPublish: 'Tarkista ja julkaise'
+  },
+
+  // Listing Preview
+  listingPreview: {
+    headerText: 'Esikatselu siitä, miten vuokralaiset näkevät ilmoituksesi'
   },
 
   // Add these to the tenant section

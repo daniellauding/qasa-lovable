@@ -23,7 +23,7 @@ const Search = forwardRef(({
   };
 
   const variantClasses = {
-    default: 'bg-white border border-gray-200 focus:border-gray-700 border-2',
+    default: 'bg-white border border-gray-200 focus:border-gray-700 border-1',
     filled: 'bg-[var(--color-button-tertiary-bg)] border-2 border-transparent focus:bg-white focus:border-gray-900',
   };
 

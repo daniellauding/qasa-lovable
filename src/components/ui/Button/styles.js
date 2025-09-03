@@ -58,8 +58,8 @@ export const buttonVariants = {
   ].join(' '),
   outline: [
     'bg-transparent text-[var(--color-button-outline-text)] border border-[var(--color-button-outline-border)]',
-    'hover:bg-gray-50',
-    'focus:bg-gray-50',
+    'hover:bg-gray-0',
+    'focus:bg-gray-0',
     'disabled:bg-transparent disabled:text-gray-400 disabled:border-gray-300'
   ].join(' '),
   ghost: [

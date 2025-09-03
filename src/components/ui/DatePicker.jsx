@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const DatePicker = ({
   label,
@@ -103,12 +103,14 @@ const DatePicker = ({
           value={selectedDate ? formatDate(selectedDate) : ''}
           placeholder={placeholder}
           className={`
-            w-full px-4 py-2.5 pr-12 rounded-xl border
+            w-full px-4 py-4 pr-12 rounded-2xl border-2
             ${error ? 'border-red-500' : 'border-gray-30'}
             focus:outline-none focus:ring-0
-            ${error ? 'focus:border-red-500' : 'focus:border-gray-50'}
+            ${error ? 'focus:border-red-500' : 'focus:border-gray-90'}
             disabled:bg-gray-10 disabled:text-gray-50 disabled:cursor-not-allowed
             placeholder:text-gray-50 text-gray-90 cursor-pointer
+            focus:bg-gray-10
+            focus:text-gray-90
           `}
           onClick={() => setIsOpen(!isOpen)}
           readOnly
@@ -118,9 +120,38 @@ const DatePicker = ({
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-60 hover:text-gray-90 transition-colors"
+          className={`absolute right-3 top-1/2 transform -translate-y-1/2 transition-colors ${
+            isOpen 
+              ? 'text-[var(--color-text-primary,#322721)] bg-gray-10 rounded-lg p-2' 
+              : 'text-gray-60 hover:text-gray-90 hover:bg-gray-10 rounded-lg p-2'
+          }`}
         >
-          <Calendar className="w-5 h-5" />
+          <div 
+            className={`
+              relative
+              rounded-full
+              h-4
+              w-4
+              border-2
+              border-[var(--color-gray-20,#d6d6ce)]
+              bg-white
+              hover:bg-gray-10
+              focus:outline-none
+              focus:ring-2
+              focus:ring-black/10
+              disabled:cursor-not-allowed
+              disabled:opacity-50
+              transition-colors
+              data-[state=checked]:border-[var(--color-text-primary,#322721)]
+              data-[state=checked]:border-4
+              absolute right-4 top-0 ${
+              isOpen ? 'bg-gray-10' : 'bg-red'}`}>
+            <div className={`w-2 h-2 ml-0.5 mt-0.5 ${
+              isOpen 
+                ? 'w-2 h-2 bg-[var(--color-text-primary,#322721)] rounded-full' 
+                : 'bg-[#fff]'
+            }`} />
+          </div>
         </button>
       </div>
 

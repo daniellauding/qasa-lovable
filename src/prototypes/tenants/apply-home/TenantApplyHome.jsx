@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useTranslation } from '../../../utils/translations/LanguageContext';
+import React, { useState } from 'react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import ContactModal from '../../../components/ContactModal';
 import Button from '../../../components/ui/Button';
-import Typography from '../../../components/ui/Typography';
+import Card from '../../../components/ui/Card';
+import ContentBlock from '../../../components/ui/ContentBlock';
 import HintBox from '../../../components/ui/HintBox';
 import Icon from '../../../components/ui/Icon';
 import Modal from '../../../components/ui/Modal';
-import Card from '../../../components/ui/Card';
 import PremiumBadge from '../../../components/ui/PremiumBadge';
-import ContentBlock from '../../../components/ui/ContentBlock';
+import Typography from '../../../components/ui/Typography';
+import { useTranslation } from '../../../utils/translations/LanguageContext';
 
 // Fix for default markers in react-leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -44,12 +44,8 @@ function TenantApplyHome() {
   ];
 
   const amenities = [
-    { icon: 'Home', label: t('propertyDetails.amenities.balcony') },
-    { icon: 'Globe', label: t('propertyDetails.amenities.internet') },
-    { icon: 'Settings', label: t('propertyDetails.amenities.ownShower') },
-    { icon: 'Settings', label: t('propertyDetails.amenities.dishwasher') },
-    { icon: 'Settings', label: t('propertyDetails.amenities.oven') },
-    { icon: 'Settings', label: t('propertyDetails.amenities.storage') },
+    { icon: 'Bath', label: t('propertyDetails.amenities.bathtub') },
+    { icon: 'CarFront', label: t('propertyDetails.amenities.parking') },
   ];
 
   const houseRules = [

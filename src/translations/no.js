@@ -91,7 +91,189 @@ export const no = {
         description: 'Vi trenger hele adressen for å vise hjemmet ditt på kartet. Bare gatenavn vises i annonsen.',
         fillManually: 'Fyll inn adressen manuelt'
       },
+      step3: {
+        title: 'Er markøren på rett sted?',
+        description: 'Juster markørens posisjon for å vise hvor boligen din ligger.'
+      },
+      step6: {
+        title: 'Hvilken type bolig er det?',
+        propertyTypes: {
+          apartment: 'Leilighet',
+          house: 'Hus',
+          terrace: 'Rekkehus',
+          cottage: 'Hytte',
+          duplex: 'Tomannsbolig',
+          corridor: 'Korridorrom',
+          loft: 'Loftsleilighet',
+          other: 'Annet'
+        },
+        ownershipLabel: 'Eierform',
+        ownershipPlaceholder: 'Velg eierform',
+        ownership: {
+          condominium: 'Eierleilighet',
+          proprietary: 'Hus eller eiendom',
+          tenancy: 'Leiebolig'
+        },
+        propertyTypeHint: 'Velg "Annet" hvis ingen av alternativene over passer din type bolig',
+        ownershipHint: 'Denne informasjonen vil ikke vises i annonsen, men hjelper oss å skrive en korrekt leieavtale når du er klar.'
+      },
+      step7: {
+        title: 'Hvor stort er hjemmet?',
+        sizeLabel: 'Størrelse',
+        roomsLabel: 'Antall rom',
+        bedroomsLabel: 'Antall soverom',
+        bedroomsOptional: '(Valgfritt)',
+        bedroomsHint: 'Soverom er inkludert i totalt antall rom'
+      },
+      step8: {
+        title: 'Når vil du leie ut boligen?',
+        moveInLabel: 'Innflytting',
+        moveOutLabel: 'Utflytting',
+        moveInASAP: 'Så snart som mulig',
+        moveOutIndefinite: 'Inntil videre',
+        selectDate: 'Velg dato',
+        onlyRentalQuestion: 'Er dette den eneste boligen du leier ut?',
+        onlyRentalYes: 'Ja, det er min eneste utleie',
+        onlyRentalNo: 'Nei, det er ikke min eneste utleie'
+      },
+      step9: {
+        partIndicator: 'Del 2 av 3',
+        title: 'Hva får hjemmet ditt til å skille seg ut?',
+        description: 'Legg til bilder og beskrivelse for å få annonsen din til å skille seg ut fra mengden.'
+      },
+      step10: {
+        title: 'Hvilke fasiliteter finnes i boligen?',
+        description: 'Merk alt som er inkludert i utleien.',
+        categories: {
+          kitchen: 'Kjøkken',
+          bathroom: 'Baderom',
+          laundry: 'Vaskerom',
+          popular: 'Populære',
+          technology: 'Teknologi',
+          parkingAndStorage: 'Parkering og oppbevaring'
+        },
+        insuranceTitle: 'Forsikret gjennom Qasa',
+        insuranceDescription: 'Vi dekker skader på eiendommen din under hele leieperioden.'
+      },
+      step11: {
+        title: 'Mer om boligen og dens tilstand',
+        description: 'Søkere er ofte interessert i renoveringer og når huset ble bygget.',
+        conditionLabel: 'Boligens tilstand',
+        buildYearLabel: 'År boligen ble bygget',
+        bathroomRenoLabel: 'Baderom - år siden renovering',
+        kitchenRenoLabel: 'Kjøkken - år siden renovering',
+        energyClassLabel: 'Energiklasse',
+        optional: '(Valgfritt)',
+        conditionOptions: {
+          unknown: 'Vet ikke',
+          new: 'Som ny',
+          good: 'Bra',
+          satisfactory: 'Tilfredsstillende',
+          poor: 'Dårlig'
+        }
+      },
+      step12: {
+        title: 'Beskriv boligen din',
+        description: 'Beskriv boligen din, området og det du vil formidle i annonseteksten. Du kan enkelt endre beskrivelsen senere.',
+        aboutHomeLabel: 'Om boligen',
+        placeholder: 'Beskrivelse',
+        hintTitle: 'Ting leietakere ofte lurer på:',
+        hintItems: [
+          'Planløsning',
+          'Hva som er inkludert i leien',
+          'Kommunikasjon',
+          'Hvorfor du leier ut boligen din'
+        ]
+      },
+      step13: {
+        title: 'Bilder av hjemmet ditt',
+        description: 'Last opp lyse og klare bilder – jo flere jo bedre. Noen gode bilder gjør at annonsen skiller seg ut og sparer deg for unødvendige spørsmål.',
+        uploadButton: 'Last opp bilder',
+        uploading: 'Laster opp bilder...',
+        fileInfo: 'Du kan laste opp PNG og JPG. Maksimal størrelse per bilde er 30MB.',
+        mainImageTitle: 'Hovedbilde',
+        otherImagesTitle: 'Andre bilder'
+      },
+      step14: {
+        partIndicator: 'Del 3 av 3',
+        title: 'Bra jobbet! Bare noen få spørsmål igjen.',
+        description: 'Fullfør annonsen din og forhåndsvis den før publisering.'
+      },
+      step15: {
+        title: 'Regler og tilgjengelighet',
+        description: 'Angi regler og tilgjengelighet for boligen din',
+        maxOccupantsLabel: 'Hvor mange kan bo her?',
+        petsAllowedLabel: 'Kjæledyr tillatt',
+        smokingAllowedLabel: 'Røyking tillatt',
+        wheelchairAccessibleLabel: 'Rullestoltilgjengelig',
+        yes: 'Ja',
+        no: 'Nei'
+      },
+      step16: {
+        title: 'Tilleggskostnader',
+        electricityCostLabel: 'Strømkostnad',
+        electricityAmountLabel: 'Strømkostnad',
+        electricityAmountPlaceholder: 'Angi strømkostnad'
+      },
+      step17: {
+        title: 'Visninger',
+        description: 'La leietakere bestille en visning når de kontakter deg.',
+        addViewingButton: 'Legg til visningstider'
+      },
+      step18: {
+        title: 'Informasjon før visninger',
+        description: 'Legg til litt ekstra informasjon for å gjøre visningene så smidig som mulig.',
+        phoneLabel: 'Telefonnummer',
+        practicalInfoLabel: 'Praktisk informasjon',
+        reviewButton: 'Gjennomgå'
+      },
+      step19: {
+        title: 'Visninger',
+        description: 'La leietakere bestille en visning når de kontakter deg.',
+        addViewingButton: 'Legg til visningstider',
+        deleteAllButton: 'Fjern alle',
+        reviewButton: 'Neste',
+        modalTitle: 'Legg til visningstider',
+        modalDescription: 'Velg dato og tid når du er tilgjengelig for å møte leietakere.',
+        dateLabel: 'Dato',
+        timeFromLabel: 'Fra',
+        timeToLabel: 'Til',
+        timeHint: 'Sett en starttid fra når du er tilgjengelig så lager vi visningstidene for deg.',
+        createButton: 'Opprett',
+        closeButton: 'Lukk',
+        selectDate: 'Velg dato',
+        selectTime: 'Velg en tid',
+        viewingTypes: {
+          multiple: 'Flere visninger',
+          single: 'Enkelt visning'
+        },
+        infoTitle: 'Bra å vite',
+        infoDescription: 'Du kan alltid legge til og fjerne visninger mens annonsen din er publisert.'
+      },
+      step20: {
+        title: 'Informasjon før visninger',
+        description: 'Legg til litt ekstra informasjon for å gjøre visningene så smidig som mulig.',
+        phoneLabel: 'Telefonnummer',
+        phoneHint: 'Telefonnummeret er koblet til din Qasa-konto og til visningen.',
+        practicalInfoLabel: 'Praktisk informasjon',
+        practicalInfoOptional: '(Valgfritt)',
+        practicalInfoPlaceholder: 'Fyll inn portkode eller annen informasjon for interesserte leietakere',
+        saveButton: 'Lagre',
+        reviewButton: 'Gjennomgå',
+        infoTitle: 'Bra å vite',
+        infoDescription: 'Telefonnummer deles 8 timer før den bestilte visningen.'
+      },
     }
+  },
+
+  // Edit Listing
+  editListing: {
+    previewAndPublish: 'Gjennomgå og publiser'
+  },
+
+  // Listing Preview
+  listingPreview: {
+    headerText: 'Forhåndsvisning av hvordan annonsen din vil bli sett av leietakere'
   },
 
   // Homes Page
@@ -176,6 +358,8 @@ export const no = {
       balcony: 'Balkong',
       internet: 'Internett',
       ownShower: 'Egen dusj',
+      bathtub: 'Badekar',
+      parking: 'Parkering',
       dishwasher: 'Oppvaskmaskin',
       oven: 'Ovn',
       storage: 'Lager'

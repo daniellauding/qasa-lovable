@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
 import { ArrowLeft } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Button from '../../../../components/ui/Button';
+import Input from '../../../../components/ui/Input';
+import Typography from '../../../../components/ui/Typography';
 
 const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [email, setEmail] = useState(formData.email || '');
@@ -20,13 +20,13 @@ const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-4">
+    <div className="min-h-[calc(100vh-64px)] bg-transparent flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-3xl p-8">
+        <div className="text-left mb-8">
+          <Typography variant="h1" className="text-gray-900 mb-2">
             Glömt lösenord
           </Typography>
-          <Typography variant="body-md" className="text-gray-600">
+          <Typography variant="body-md">
             Ange din e-postadress nedan så skickar vi ett mejl för att återställa ditt lösenord.
           </Typography>
         </div>

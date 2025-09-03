@@ -1,13 +1,13 @@
-import React from 'react';
+import { Globe } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { X, Globe } from 'lucide-react';
-import Button from '../ui/Button';
+import React from 'react';
 import { useTranslation } from '../../utils/translations/LanguageContext';
+import Button from '../ui/Button';
 
 const HeaderCreationFlow = ({ onDismiss, showDismiss = true }) => {
   const { t } = useTranslation();
   return (
-    <header className="bg-white sticky top-0 z-50">
+    <header className="bg-transparent sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

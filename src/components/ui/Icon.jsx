@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import * as LucideIcons from 'lucide-react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const sizeClasses = {
   xs: 'w-4 h-4',
@@ -57,7 +57,12 @@ export const QDS_ICONS = [
   'Trash',
   'User',
   'XCircle',
-  'X'
+  'X',
+  'Globe',
+  'Shower',
+  'Dishwasher',
+  'Oven',
+  'Storage',
 ];
 
 const Icon = ({ name, size = 'md', className = '', ...props }) => {

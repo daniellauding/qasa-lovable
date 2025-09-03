@@ -9,7 +9,7 @@ const SectionHeader = ({
   titleVariant = 'title-lg',
   titleColor = 'text-[var(--color-text-primary)]',
   descriptionVariant = 'body-lg',
-  descriptionColor = 'text-[var(--color-text-secondary)]'
+  descriptionColor = 'text-[var(--color-text-primary)]'
 }) => {
   return (
     <div className={`space-y-4 ${className}`}>

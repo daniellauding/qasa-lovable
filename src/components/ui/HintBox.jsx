@@ -1,7 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from './Typography';
+import React from 'react';
 import Button from './Button';
+import Typography from './Typography';
 
 const HintBox = ({
   title,
@@ -17,7 +17,7 @@ const HintBox = ({
         {icon ? <div className="flex-shrink-0">{icon}</div> : null}
         <div className="flex-1">
           {title && (
-            <Typography variant="title-sm" className="mb-1">
+            <Typography variant="title-xs" className="mb-1">
               {title}
             </Typography>
           )}

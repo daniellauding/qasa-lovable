@@ -7,7 +7,7 @@ export const getRadioStyles = (variant) => {
     h-4
     w-4
     border-2
-    border-[var(--color-gray-40,#d6d6ce)]
+    border-[var(--color-gray-20,#d6d6ce)]
     bg-white
     hover:bg-gray-10
     focus:outline-none
@@ -38,9 +38,10 @@ export const getItemStyles = (variant) => {
       w-full
       p-4
       border-2
-      rounded-lg
+      rounded-2xl
       data-[state=checked]:border-[var(--color-text-primary,#322721)]
-      data-[state=unchecked]:border-[var(--color-gray-40,#d6d6ce)]
+      data-[state=checked]:bg-gray-10
+      data-[state=unchecked]:border-[var(--color-gray-20,#d6d6ce)]
       hover:bg-gray-10
       transition-colors
     `,
