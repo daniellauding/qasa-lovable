@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { Check, ChevronDown, ChevronUp, Image, Trash2, X } from 'lucide-react';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Button from '../../../../components/ui/Button';
+import HintBox from '../../../../components/ui/HintBox';
 import LoadingDots from '../../../../components/ui/LoadingDots';
-import { Image, ChevronUp, ChevronDown, Trash2 } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
+import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [images, setImages] = useState(formData.images || []);
   const [showModal, setShowModal] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -71,7 +75,10 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="space-y-8">
           {/* Header */}
           <div className="space-y-4">
-            <SectionHeader title="Bilder på ditt hem" description="Ladda upp ljusa och tydliga bilder – ju fler desto bättre. Några bra foton gör att annonsen sticker ut och sparar dig från onödiga frågor." />
+            <SectionHeader 
+              title={t('landlords.createListing.step13.title')} 
+              description={t('landlords.createListing.step13.description')} 
+            />
           </div>
 
           <div className="space-y-6">
@@ -91,7 +98,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                   <div className="space-y-4">
                     <LoadingDots size="lg" className="text-[var(--color-text-secondary)]" />
                     <Typography variant="body-md" color="secondary">
-                      Laddar upp bilder...
+                      {t('landlords.createListing.step13.uploading')}
                     </Typography>
                   </div>
                 ) : (
@@ -99,7 +106,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                     <Image className="mx-auto h-12 w-12 text-[var(--color-text-secondary)]" />
                     <div className="mt-0">
                       <Typography variant="title-xxs" className="text-[var(--color-text-primary)]">
-                        Ladda upp bilder
+                        {t('landlords.createListing.step13.uploadButton')}
                       </Typography>
                     </div>
                   </div>
@@ -108,7 +115,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
             </div>
 
             <Typography variant="body-sm" className="text-gray-500">
-              Du kan ladda upp PNG och JPG. Maximal storlek per foto är 30MB.
+              {t('landlords.createListing.step13.fileInfo')}
             </Typography>
 
             {/* Uploaded Images */}
@@ -116,7 +123,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
               <div className="space-y-6">
                 <div className="space-y-4">
                   <Typography variant="title-sm" className="text-gray-900">
-                    Visningsbild
+                    {t('landlords.createListing.step13.mainImageTitle')}
                   </Typography>
                   {images[0] && (
                     <div className="flex items-center gap-4 p-4 border rounded-lg">
@@ -156,7 +163,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                 {images.length > 1 && (
                   <div className="space-y-4">
                     <Typography variant="title-sm" className="text-gray-900">
-                      Övriga bilder
+                      {t('landlords.createListing.step13.otherImagesTitle')}
                     </Typography>
                     {images.slice(1).map((image, index) => (
                       <div key={index + 1} className="flex items-center gap-4 p-4 border rounded-lg">
@@ -197,44 +204,32 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
             )}
 
             {/* Guidelines */}
-            <div className="bg-gray-10 rounded-lg p-4">
-              <Typography variant="body-sm" className="text-gray-700 font-medium mb-2">
-                Riktlinjer för bilder
-              </Typography>
+            <HintBox 
+              title={t('landlords.createListing.step13.guidelinesTitle')}
+              actions={[{
+                label: t('landlords.createListing.step13.guidelinesButton'),
+                onClick: () => {
+                  setShowModal(true);
+                  navigate(`${location.pathname}?modal`, { replace: true });
+                },
+                variant: 'tertiary',
+              }]}
+            >
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 flex items-center justify-center">
-                    <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <Typography variant="body-sm" className="text-gray-600">
-                    Ta bilder i liggande format av alla rum i hemmet
+                  <Check className="w-4 h-4" />
+                  <Typography variant="body-sm" className="text-[var(--color-text-primary)]">
+                    {t('landlords.createListing.step13.guidelines.0') || 'Ta bilder i liggande format av alla rum i hemmet'}
                   </Typography>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 flex items-center justify-center">
-                    <svg className="w-3 h-3 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <Typography variant="body-sm" className="text-gray-600">
-                    Undvik text, stående bilder, skärmdumpar och suddiga bilder
+                  <X className="w-4 h-4" />
+                  <Typography variant="body-sm" className="text-[var(--color-text-primary)]">
+                    {t('landlords.createListing.step13.guidelines.1') || 'Undvik text, stående bilder, skärmdumpar och suddiga bilder'}
                   </Typography>
                 </div>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setShowModal(true);
-                  navigate(`${location.pathname}?modal`, { replace: true });
-                }}
-                className="mt-2"
-              >
-                Se alla riktlinjer
-              </Button>
-            </div>
+            </HintBox>
           </div>
         </div>
 
@@ -253,7 +248,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
                 <Typography variant="title-md" className="text-gray-900">
-                  Riktlinjer för bilder
+                  {t('landlords.createListing.step13.modalTitle')}
                 </Typography>
                 <Button
                   variant="ghost"
@@ -267,7 +262,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                 />
               </div>
               <Typography variant="body-md" className="text-gray-600 mb-6">
-                Några fantastiska bilder kan vara skillnaden mellan en snabb matchning och veckors väntan.
+                {t('landlords.createListing.step13.modalDescription')}
               </Typography>
               
               {/* Guidelines content */}
@@ -302,7 +297,7 @@ const CreateListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
                 setShowModal(false);
                 navigate(location.pathname, { replace: true });
               }} className="w-full">
-                Stäng
+                {t('landlords.createListing.step13.closeButton') || 'Stäng'}
               </Button>
             </div>
           </div>

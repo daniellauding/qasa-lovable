@@ -1,15 +1,18 @@
-import { Trash2, X } from 'lucide-react';
+import { Calendar, Trash2, X } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Button from '../../../../components/ui/Button';
 import DatePicker from '../../../../components/ui/DatePicker';
 import HintBox from '../../../../components/ui/HintBox';
 import RadioGroup from '../../../../components/ui/RadioGroup';
 import SectionFooter from '../../../../components/ui/SectionFooter';
 import Select from '../../../../components/ui/Select';
 import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [showModal, setShowModal] = useState(false);
   const [viewingType, setViewingType] = useState('single');
   const [selectedDate, setSelectedDate] = useState('');
@@ -90,10 +93,10 @@ const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="p-8 space-y-8">
           <div className="space-y-4">
             <Typography variant="title-lg" className="text-gray-900">
-              Visningar
+              {t('landlords.createListing.step17.title')}
             </Typography>
             <Typography variant="body-md" className="text-gray-600">
-              Låt hyresgäster boka en visning när de kontaktar dig. Skapa tidsluckor när du har möjlighet att hålla visningar för intresserade hyresgäster. Bokade visningar kan avbokas när som helst via din annons-dashboard.
+              {t('landlords.createListing.step17.description')}
             </Typography>
           </div>
 
@@ -104,10 +107,10 @@ const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
                 variant="outline"
                 size="lg"
                 onClick={handleAddViewing}
-                icon={<CalendarIcon className="h-4 w-4" />}
+                icon={<Calendar className="h-4 w-4" />}
                 className="w-full justify-center"
               >
-                Lägg till tider för visningar
+                {t('landlords.createListing.step17.addViewingButton')}
               </Button>
             </div>
 
@@ -141,7 +144,7 @@ const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
                   onClick={handleDeleteAllViewings}
                   className="text-gray-600"
                 >
-                  Ta bort alla
+                  {t('landlords.createListing.step17.deleteAllButton')}
                 </Button>
               </div>
             )}

@@ -5,8 +5,10 @@ import RadioGroup from '../../../../components/ui/RadioGroup';
 import SectionFooter from '../../../../components/ui/SectionFooter';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [moveInType, setMoveInType] = useState(formData.moveInType || 'asap');
   const [moveInDate, setMoveInDate] = useState(formData.moveInDate || '');
   const [moveOutType, setMoveOutType] = useState(formData.moveOutType || 'indefinite');
@@ -14,16 +16,16 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [isOnlyRental, setIsOnlyRental] = useState(formData.isOnlyRental || '');
 
   const moveInOptions = [
-    { value: 'asap', label: 'Snarast möjligt' }
+    { value: 'asap', label: t('landlords.createListing.step8.moveInASAP') }
   ];
 
   const moveOutOptions = [
-    { value: 'indefinite', label: 'Tillsvidare' }
+    { value: 'indefinite', label: t('landlords.createListing.step8.moveOutIndefinite') }
   ];
 
   const onlyRentalOptions = [
-    { value: 'yes', label: 'Ja, det är min enda uthyrning' },
-    { value: 'no', label: 'Nej, det är inte min enda uthyrning' },
+    { value: 'yes', label: t('landlords.createListing.step8.onlyRentalYes') },
+    { value: 'no', label: t('landlords.createListing.step8.onlyRentalNo') },
   ];
 
   const handleMoveInTypeChange = (value) => {
@@ -63,12 +65,12 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg">
         <div className="p-8 space-y-8">
-          <SectionHeader title="När vill du hyra ut bostaden?" />
+          <SectionHeader title={t('landlords.createListing.step8.title')} />
 
           <div className="space-y-8">
             <div>
               <Typography variant="body-md" color="secondary" className="mb-4">
-                Inflytt
+                {t('landlords.createListing.step8.moveInLabel')}
               </Typography>
               <div className="space-y-4">
                 <RadioGroup
@@ -81,7 +83,7 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
                 <DatePicker
                   value={moveInDate}
                   onChange={handleMoveInDateChange}
-                  placeholder="Välj datum"
+                  placeholder={t('landlords.createListing.step8.selectDate')}
                   variant="radio" 
                 />
               </div>
@@ -89,7 +91,7 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
 
             <div>
               <Typography variant="body-md" color="secondary" className="mb-4">
-                Utflytt
+                {t('landlords.createListing.step8.moveOutLabel')}
               </Typography>
               <div className="space-y-4">
                 <RadioGroup
@@ -102,14 +104,14 @@ const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
                 <DatePicker
                   value={moveOutDate}
                   onChange={handleMoveOutDateChange}
-                  placeholder="Välj datum"
+                  placeholder={t('landlords.createListing.step8.selectDate')}
                 />
               </div>
             </div>
 
             <div>
               <Typography variant="body-md" color="secondary" className="mb-4">
-                Är detta den enda bostad du hyr ut?
+                {t('landlords.createListing.step8.onlyRentalQuestion')}
               </Typography>
               <RadioGroup
                 label=""

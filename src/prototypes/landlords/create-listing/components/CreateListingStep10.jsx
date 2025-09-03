@@ -1,78 +1,80 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
-import Checkbox from '../../../../components/ui/Checkbox';
+import React, { useState } from 'react';
+import Chip from '../../../../components/ui/Chip';
 import HintBox from '../../../../components/ui/HintBox';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
+import Typography from '../../../../components/ui/Typography';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep10 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [amenities, setAmenities] = useState(formData.amenities || []);
 
   const amenityGroups = [
     {
-      title: 'Kök',
+      title: t('landlords.createListing.step10.categories.kitchen'),
       items: [
-        { id: 'fridge', label: 'Kylskåp' },
-        { id: 'freezer', label: 'Frys' },
-        { id: 'oven', label: 'Ugn' },
-        { id: 'stove', label: 'Spis' },
-        { id: 'dishwasher', label: 'Diskmaskin' },
-        { id: 'microwave', label: 'Mikrovågsugn' },
-        { id: 'kitchenette', label: 'Kokvrå' },
+        { id: 'fridge', label: t('landlords.createListing.step10.amenities.fridge') },
+        { id: 'freezer', label: t('landlords.createListing.step10.amenities.freezer') },
+        { id: 'oven', label: t('landlords.createListing.step10.amenities.oven') },
+        { id: 'stove', label: t('landlords.createListing.step10.amenities.stove') },
+        { id: 'dishwasher', label: t('landlords.createListing.step10.amenities.dishwasher') },
+        { id: 'microwave', label: t('landlords.createListing.step10.amenities.microwave') },
+        { id: 'kitchenette', label: t('landlords.createListing.step10.amenities.kitchenette') },
       ]
     },
     {
-      title: 'Badrum',
+      title: t('landlords.createListing.step10.categories.bathroom'),
       items: [
-        { id: 'shower', label: 'Egen dusch' },
-        { id: 'toilet', label: 'Egen toalett' },
-        { id: 'bathtub', label: 'Badkar' },
+        { id: 'shower', label: t('landlords.createListing.step10.amenities.shower') },
+        { id: 'toilet', label: t('landlords.createListing.step10.amenities.toilet') },
+        { id: 'bathtub', label: t('landlords.createListing.step10.amenities.bathtub') },
       ]
     },
     {
-      title: 'Tvätt',
+      title: t('landlords.createListing.step10.categories.laundry'),
       items: [
-        { id: 'washing_machine', label: 'Tvättmaskin' },
-        { id: 'dryer', label: 'Torktumlare' },
-        { id: 'laundry_room', label: 'Tvättstuga' },
-        { id: 'drying_room', label: 'Torkrum' },
+        { id: 'washing_machine', label: t('landlords.createListing.step10.amenities.washing_machine') },
+        { id: 'dryer', label: t('landlords.createListing.step10.amenities.dryer') },
+        { id: 'laundry_room', label: t('landlords.createListing.step10.amenities.laundry_room') },
+        { id: 'drying_room', label: t('landlords.createListing.step10.amenities.drying_room') },
       ]
     },
     {
-      title: 'Populära',
+      title: t('landlords.createListing.step10.categories.popular'),
       items: [
-        { id: 'balcony', label: 'Balkong' },
-        { id: 'french_balcony', label: 'Fransk balkong' },
-        { id: 'patio', label: 'Uteplats' },
-        { id: 'sauna', label: 'Egen bastu' },
-        { id: 'shared_sauna', label: 'Delad bastu' },
-        { id: 'jacuzzi', label: 'Bubbelpool' },
-        { id: 'fireplace', label: 'Eldstad inomhus' },
-        { id: 'pool', label: 'Pool' },
-        { id: 'ac', label: 'Luftkonditionering' },
+        { id: 'balcony', label: t('landlords.createListing.step10.amenities.balcony') },
+        { id: 'french_balcony', label: t('landlords.createListing.step10.amenities.french_balcony') },
+        { id: 'patio', label: t('landlords.createListing.step10.amenities.patio') },
+        { id: 'sauna', label: t('landlords.createListing.step10.amenities.sauna') },
+        { id: 'shared_sauna', label: t('landlords.createListing.step10.amenities.shared_sauna') },
+        { id: 'jacuzzi', label: t('landlords.createListing.step10.amenities.jacuzzi') },
+        { id: 'fireplace', label: t('landlords.createListing.step10.amenities.fireplace') },
+        { id: 'pool', label: t('landlords.createListing.step10.amenities.pool') },
+        { id: 'ac', label: t('landlords.createListing.step10.amenities.ac') },
       ]
     },
     {
-      title: 'Teknik',
+      title: t('landlords.createListing.step10.categories.technology'),
       items: [
-        { id: 'internet', label: 'Internet' },
-        { id: 'tv', label: 'TV' },
+        { id: 'internet', label: t('landlords.createListing.step10.amenities.internet') },
+        { id: 'tv', label: t('landlords.createListing.step10.amenities.tv') },
       ]
     },
     {
-      title: 'Parkering och hjälpmedel',
+      title: t('landlords.createListing.step10.categories.parkingAndStorage'),
       items: [
-        { id: 'bike_room', label: 'Cykelrum' },
-        { id: 'storage', label: 'Förråd' },
-        { id: 'elevator', label: 'Hiss' },
-        { id: 'car_charger', label: 'Laddbox till elbil' },
-        { id: 'parking_included', label: 'Parkering ingår' },
-        { id: 'parking_available', label: 'Parkering tillgänglig' },
-        { id: 'recycling', label: 'Återvinningsrum' },
-        { id: 'security_door', label: 'Säkerhetsdörr' },
-        { id: 'alarm', label: 'Inbrottslarm' },
-        { id: 'stroller_room', label: 'Barnvagnsrum' },
+        { id: 'bike_room', label: t('landlords.createListing.step10.amenities.bike_room') },
+        { id: 'storage', label: t('landlords.createListing.step10.amenities.storage') },
+        { id: 'elevator', label: t('landlords.createListing.step10.amenities.elevator') },
+        { id: 'car_charger', label: t('landlords.createListing.step10.amenities.car_charger') },
+        { id: 'parking_included', label: t('landlords.createListing.step10.amenities.parking_included') },
+        { id: 'parking_available', label: t('landlords.createListing.step10.amenities.parking_available') },
+        { id: 'recycling', label: t('landlords.createListing.step10.amenities.recycling') },
+        { id: 'security_door', label: t('landlords.createListing.step10.amenities.security_door') },
+        { id: 'alarm', label: t('landlords.createListing.step10.amenities.alarm') },
+        { id: 'stroller_room', label: t('landlords.createListing.step10.amenities.stroller_room') },
       ]
     }
   ];
@@ -92,7 +94,10 @@ const CreateListingStep10 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="w-full max-w-4xl mx-auto p-8">
         <div className="space-y-8">
-          <SectionHeader title="Vilka bekvämligheter finns i bostaden?" description="Markera allt som ingår i uthyrningen." />
+          <SectionHeader 
+            title={t('landlords.createListing.step10.title')} 
+            description={t('landlords.createListing.step10.description')} 
+          />
 
           <div className="space-y-8">
             {amenityGroups.map((group) => (
@@ -100,15 +105,16 @@ const CreateListingStep10 = ({ onNext, onPrev, formData, updateFormData }) => {
                 <Typography variant="title-sm" className="text-[var(--color-text-primary)]">
                   {group.title}
                 </Typography>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div className="flex gap-2 flex-wrap">
                   {group.items.map((item) => (
-                    <Checkbox
+                    <Chip
                       key={item.id}
-                      id={item.id}
-                      label={item.label}
-                      checked={amenities.includes(item.id)}
-                      onCheckedChange={(checked) => handleAmenityChange(item.id, checked)}
-                    />
+                      size="sm"
+                      active={amenities.includes(item.id)}
+                      onClick={() => handleAmenityChange(item.id, !amenities.includes(item.id))}
+                    >
+                      {item.label}
+                    </Chip>
                   ))}
                 </div>
               </div>
@@ -116,19 +122,20 @@ const CreateListingStep10 = ({ onNext, onPrev, formData, updateFormData }) => {
 
             {/* Insurance info */}
             <HintBox className="flex items-start gap-4">
-              <div className="w-12 h-12 flex-shrink-0">
-                <svg viewBox="0 0 48 48" className="w-full h-full">
-                  <circle cx="24" cy="24" r="20" fill="var(--color-info-bg,#E5F3FF)" stroke="var(--color-info,#3B82F6)" strokeWidth="2"/>
-                  <path d="M24 16v8m0 4h.01" stroke="var(--color-info,#3B82F6)" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </div>
-              <div className="space-y-2">
-                <Typography variant="title-sm" className="text-[var(--color-text-primary,#362b25)]">
-                  Försäkrad genom Qasa
-                </Typography>
-                <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
-                  Vi står för skador på din fastighet under hela hyresperioden.
-                </Typography>
+              <div className="flex gap-2">
+                <img
+                  src="https://qasa.se/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fumbrella.1d60b205.png&amp;w=96&amp;q=75&amp;dpl=dpl_66JpsRs53BHF6VqhrkzSFP3c1duK"
+                  alt="Create listing illustration"
+                  className="w-10 h-10"
+                />
+                <div className="space-y-2">
+                  <Typography variant="title-xs" className="text-[var(--color-text-primary,#362b25)]">
+                    {t('landlords.createListing.step10.insuranceTitle')}
+                  </Typography>
+                  <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
+                    {t('landlords.createListing.step10.insuranceDescription')}
+                  </Typography>
+                </div>
               </div>
             </HintBox>
           </div>
