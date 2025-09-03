@@ -1,26 +1,36 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Button from '../../../../components/ui/Button';
-import HintBox from '../../../../components/ui/HintBox';
 import Input from '../../../../components/ui/Input';
+import RadioGroup from '../../../../components/ui/RadioGroup';
 import SectionFooter from '../../../../components/ui/SectionFooter';
-import TextArea from '../../../../components/ui/TextArea';
 import Typography from '../../../../components/ui/Typography';
-import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
-  const { t } = useTranslation();
-  const [phoneNumber, setPhoneNumber] = useState(formData.phoneNumber || '+46739184410');
-  const [practicalInfo, setPracticalInfo] = useState(formData.practicalInfo || '');
+  const [electricityCost, setElectricityCost] = useState(formData.electricityCost || 'included_in_rent');
+  const [electricityAmount, setElectricityAmount] = useState(formData.electricityAmount || '');
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-    updateFormData({ phoneNumber: e.target.value });
+  const electricityOptions = [
+    { value: 'included_in_rent', label: 'El ingår i hyran' },
+    { value: 'not_included_in_rent', label: 'El ingår inte i hyran' },
+    { value: 'tenant_managed', label: 'Hyresgästen upprättar eget elavtal' },
+    { value: 'fixed_fee', label: 'Elkostnad tillkommer utöver hyran' },
+  ];
+
+  const handleElectricityCostChange = (value) => {
+    setElectricityCost(value);
+    updateFormData({ electricityCost: value });
+    
+    // Clear amount if not fixed fee
+    if (value !== 'fixed_fee') {
+      setElectricityAmount('');
+      updateFormData({ electricityAmount: '' });
+    }
   };
 
-  const handlePracticalInfoChange = (e) => {
-    setPracticalInfo(e.target.value);
-    updateFormData({ practicalInfo: e.target.value });
+  const handleElectricityAmountChange = (e) => {
+    const value = e.target.value;
+    setElectricityAmount(value);
+    updateFormData({ electricityAmount: value });
   };
 
   return (
@@ -29,83 +39,53 @@ const CreateListingStep18 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="p-8 space-y-8">
           <div className="space-y-4">
             <Typography variant="title-lg" className="text-gray-900">
-              {t('landlords.createListing.step18.title')}
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              {t('landlords.createListing.step18.description')}
+              Övriga kostnader
             </Typography>
           </div>
 
           <div className="space-y-8">
-            {/* Phone Number Form */}
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('landlords.createListing.step18.phoneLabel')}
-                </label>
-                <Input
-                  id="phoneNumber"
-                  type="tel"
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  placeholder="+46739184410"
-                  className="w-full"
-                />
-                <Typography variant="body-sm" className="text-gray-500 mt-2">
-                  {t('landlords.createListing.step18.phoneHint')}
-                </Typography>
-              </div>
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                disabled
-              >
-                {t('landlords.createListing.step18.saveButton')}
-              </Button>
-            </form>
-
-            {/* Practical Information Form */}
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="practicalInfo" className="block text-sm font-medium text-gray-700 mb-2">
-                  {t('landlords.createListing.step18.practicalInfoLabel')}<span className="text-gray-400"> {t('landlords.createListing.step18.practicalInfoOptional')}</span>
-                </label>
-                <TextArea
-                  id="practicalInfo"
-                  value={practicalInfo}
-                  onChange={handlePracticalInfoChange}
-                  placeholder={t('landlords.createListing.step18.practicalInfoPlaceholder')}
-                  rows={4}
-                  className="w-full"
-                />
-              </div>
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                disabled
-              >
-                {t('landlords.createListing.step18.saveButton')}
-              </Button>
-            </form>
-
-            {/* Info Box */}
-            <HintBox>
-              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)] font-medium mb-2">
-                {t('landlords.createListing.step18.infoTitle')}
+            {/* Electricity Cost */}
+            <div>
+              <Typography variant="body-md" className="text-gray-700 mb-4">
+                Elkostnad
               </Typography>
-              <Typography variant="body-sm" className="text-[var(--color-text-primary,#362b25)]">
-                {t('landlords.createListing.step18.infoDescription')}
-              </Typography>
-            </HintBox>
+              <RadioGroup
+                label=""
+                options={electricityOptions}
+                variant="card"
+                value={electricityCost}
+                onValueChange={handleElectricityCostChange}
+              />
+            </div>
+
+            {/* Electricity Amount - Only show if fixed fee is selected */}
+            {electricityCost === 'fixed_fee' && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Elkostnad
+                </label>
+                <div className="relative">
+                  <Input
+                    type="number"
+                    min="0"
+                    placeholder="Ange elkostnad"
+                    value={electricityAmount}
+                    onChange={handleElectricityAmountChange}
+                    className="pr-12"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <span className="text-gray-500 text-sm">kr</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 
         <SectionFooter
           onNext={onNext}
           onPrev={onPrev}
-          nextText={t('landlords.createListing.step18.reviewButton')}
+          nextText="Nästa"
           prevText="Tillbaka"
         />
       </div>
