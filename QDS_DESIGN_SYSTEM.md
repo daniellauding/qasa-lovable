@@ -199,7 +199,7 @@ QDS/
 ### Color System
 ```css
 /* QDS Color Variables */
---qds-color-primary     /* Qasa: #f19ec1, Blocket: #e3372a */
+--qds-color-primary     /* Qasa: #ff99c2, Blocket: #e3372a */
 --qds-color-secondary   /* #322721 */
 --qds-color-success     /* #10b981 */
 --qds-color-warning     /* #f59e0b */
@@ -354,7 +354,7 @@ mono-sm     /* 12px/16px */
 - **Use brand colors only**: Icons should use `text-[var(--color-text-primary)]`, `text-[var(--color-text-secondary)]`, or `text-[var(--color-primary)]`
 - **Never use**: Green, blue, yellow, or other non-brand colors for icons
 - **Consistent styling**: All icons in the same context should use the same color scheme
-- **Brand compliance**: Icons should follow Qasa's color palette (#f19ec1, #322721, etc.)
+- **Brand compliance**: Icons should follow Qasa's color palette (#ff99c2, #322721, etc.)
 
 ### 🚫 **NEVER Create New Colors or Icon Backgrounds**
 - **No new color classes**: Never use `bg-blue-500`, `bg-green-500`, `text-blue-600`, etc.

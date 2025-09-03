@@ -12,9 +12,9 @@ module.exports = {
         'qasa-gray': '#F5F5F5',
         
         // Brand colors
-        'ui-pink': '#f19ec1',
+        'ui-pink': '#ff99c2',
         'ui-pink-dark': '#ef8ab5',
-        'ui-pink-light': '#f2a7c7',
+        'ui-pink-light': '#ffa3c8',
         'brown': '#322721',
         'brown-light': '#3a2f2a',
         'brown-dark': '#281e1b',
@@ -57,8 +57,8 @@ module.exports = {
         
         // Background colors (semantic)
         'bg': {
-          'brand-primary': '#f19ec1',
-          'brand-primary-hover': '#f2a7c7',
+          'brand-primary': '#ff99c2',
+          'brand-primary-hover': '#ffa3c8',
           'brand-primary-focus': '#ef8bb5',
           'brand-secondary': '#322721',
           'brand-secondary-hover': '#3a2f2a',

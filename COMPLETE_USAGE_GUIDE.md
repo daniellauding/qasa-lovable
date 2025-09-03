@@ -88,7 +88,7 @@ npm run storybook
 - Hero section: 'Hitta ditt nästa hem' 
 - 3 property cards with realistic Swedish apartments
 - Filter sidebar with Stockholm areas
-- Apply buttons in Qasa pink (#f19ec1)
+- Apply buttons in Qasa pink (#ff99c2)
 - Mobile-responsive design"
 ```
 
@@ -452,7 +452,7 @@ npm run dev
 - **Iterate quickly** - Don't perfect too early
 
 ### For Designers
-- **Use Qasa pink** (#f19ec1) for main actions
+- **Use Qasa pink** (#ff99c2) for main actions
 - **Include trust indicators** (verified badges)
 - **Keep it friendly** - Not corporate
 - **Test with real users** early

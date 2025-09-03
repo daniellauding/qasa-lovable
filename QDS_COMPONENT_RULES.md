@@ -527,7 +527,7 @@ When generating new components or pages, **always include**:
 
 ### Theme Colors
 ```css
---color-primary: /* Qasa: #f19ec1, Blocket: #e3372a */
+--color-primary: /* Qasa: #ff99c2, Blocket: #e3372a */
 --color-secondary: #322721
 --color-background: #ffffff
 --color-surface: #f9fafb
@@ -687,7 +687,7 @@ plane: <Send className="w-4 h-4 text-yellow-500" />              // More applica
 ### 🎯 Icon Color Rules
 - **❌ Never use green, blue, yellow** or other non-brand colors for icons
 - **✅ Use brand colors only** - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
-- **✅ Follow Qasa palette** - pink (#f19ec1), brown (#322721)
+- **✅ Follow Qasa palette** - pink (#ff99c2), brown (#322721)
 
 ### 🎴 TenantCard Background Rules
 - **❌ Never use grayish backgrounds** for TenantCard components
@@ -729,7 +729,7 @@ plane: <Send className="w-4 h-4 text-yellow-500" />              // More applica
 ## 🎨 Qasa Style Guide (AI Reference)
 
 ### Colors to Use
-- **Qasa Pink:** #f19ec1 (main brand color)
+- **Qasa Pink:** #ff99c2 (main brand color)
 - **Dark Brown:** #322721 (text and accents)
 - **Light Gray:** #f9fafb (backgrounds)
 
@@ -755,7 +755,7 @@ plane: <Send className="w-4 h-4 text-yellow-500" />              // More applica
 - Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
 
 ### Make It Feel Like Qasa
-- Always use pink (#f19ec1) for main actions
+- Always use pink (#ff99c2) for main actions
 - Include "verified" badges on landlords
 - Add trust messages about safety
 - Use friendly, encouraging language

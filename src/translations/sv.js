@@ -287,7 +287,11 @@ export const sv = {
   landlords: {
     createListing: {
       step1: { title: 'Berätta lite om ditt hem.', description: 'Låt oss börja med att lägga grunden för din annons, såsom storlek och plats.' },
-      step2: { title: 'Vilken adress har bostaden?', description: 'Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen.' },
+      step2: { 
+        title: 'Vilken adress har bostaden?', 
+        description: 'Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen.',
+        fillManually: 'Fyll i adressen manuellt'
+      },
     }
   },
 

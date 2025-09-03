@@ -914,7 +914,7 @@ import {
 
 ### Automatic Theme Support
 All QDS components automatically work with both themes:
-- **Qasa Theme**: Pink primary (#f19ec1)
+- **Qasa Theme**: Pink primary (#ff99c2)
 - **Blocket Theme**: Red primary (#e3372a)
 
 ### Theme-Aware Development
@@ -1056,7 +1056,7 @@ When working on conversion-focused pages:
 ### 🎯 Icon Color Rules
 - **❌ Never use green, blue, yellow** or other non-brand colors for icons
 - **✅ Use brand colors only** - `text-[var(--color-text-primary)]`, `text-[var(--color-primary)]`
-- **✅ Follow Qasa palette** - pink (#f19ec1), brown (#322721)
+- **✅ Follow Qasa palette** - pink (#ff99c2), brown (#322721)
 
 ### 🎴 TenantCard Background Rules
 - **❌ Never use grayish backgrounds** for TenantCard components
@@ -1086,7 +1086,7 @@ When working on conversion-focused pages:
 ## 🎨 Qasa Style Guide (AI Reference)
 
 ### Colors to Use
-- **Qasa Pink:** #f19ec1 (main brand color)
+- **Qasa Pink:** #ff99c2 (main brand color)
 - **Dark Brown:** #322721 (text and accents)
 - **Light Gray:** #f9fafb (backgrounds)
 
@@ -1112,7 +1112,7 @@ When working on conversion-focused pages:
 - Use Swedish apartment terms: "2 rok" (2 rooms + kitchen)
 
 ### Make It Feel Like Qasa
-- Always use pink (#f19ec1) for main actions
+- Always use pink (#ff99c2) for main actions
 - Include "verified" badges on landlords
 - Add trust messages about safety
 - Use friendly, encouraging language

@@ -161,7 +161,7 @@ import Skeleton from '@/components/ui/Skeleton';
 ### CSS Variables (MANDATORY)
 ```jsx
 // Primary Colors
-className="text-[var(--color-primary)]"        // Qasa pink (#f19ec1)
+className="text-[var(--color-primary)]"        // Qasa pink (#ff99c2)
 className="text-[var(--color-secondary)]"      // Dark brown (#322721)
 className="bg-[var(--color-primary)]"
 className="bg-[var(--color-secondary)]"
@@ -446,7 +446,7 @@ import { Calendar, User, Home, Search } from 'lucide-react';
 
 ### Color Variables
 ```css
---color-primary: #f19ec1;           /* Qasa pink */
+--color-primary: #ff99c2;           /* Qasa pink */
 --color-secondary: #322721;         /* Dark brown */
 --color-text-primary: #1f2937;      /* Main text */
 --color-text-secondary: #6b7280;    /* Gray text */

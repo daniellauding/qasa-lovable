@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const themes = {
   qasa: {
     name: 'Qasa',
     colors: {
-      primary: '#f19ec1', // Qasa Pink
-      primaryHover: '#e785b4', // Darker pink
+      primary: '#ff99c2', // Qasa Pink
+      primaryHover: '#ffa3c8', // Darker pink
       secondary: '#9C27B0', // Purple  
       tertiary: '#6B7280', // Gray
       success: '#10B981', // Green
@@ -20,7 +20,7 @@ const themes = {
       }
     },
     badge: {
-      bg: '#f19ec1',
+      bg: '#ff99c2',
       text: '#000000',
     },
     logo: (

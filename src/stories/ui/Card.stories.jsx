@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
-import Typography from '../../components/ui/Typography';
+import Card from '../../components/ui/Card';
 import Icon from '../../components/ui/Icon';
+import Typography from '../../components/ui/Typography';
 
 // Cat icon for create profile card
 const CatIcon = () => (
@@ -10,9 +10,9 @@ const CatIcon = () => (
     <path d="M20 24C20 16 24 12 32 12C40 12 44 16 44 24C44 32 40 36 32 36C24 36 20 32 20 24Z" fill="#322721"/>
     <path d="M16 8L20 16L12 16L16 8Z" fill="#322721"/>
     <path d="M48 8L52 16L44 16L48 8Z" fill="#322721"/>
-    <circle cx="28" cy="22" r="2" fill="#f19ec1"/>
-    <circle cx="36" cy="22" r="2" fill="#f19ec1"/>
-    <path d="M32 26L30 28L34 28L32 26Z" fill="#f19ec1"/>
+    <circle cx="28" cy="22" r="2" fill="#ff99c2"/>
+    <circle cx="36" cy="22" r="2" fill="#ff99c2"/>
+    <path d="M32 26L30 28L34 28L32 26Z" fill="#ff99c2"/>
   </svg>
 );
 

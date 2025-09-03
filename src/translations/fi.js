@@ -284,7 +284,11 @@ export const fi = {
   landlords: {
     createListing: {
       step1: { title: 'Kerro vähän kodistasi.', description: 'Aloitetaan ilmoituksen perustiedoista, kuten koosta ja sijainnista.' },
-      step2: { title: 'Mikä on asunnon osoite?', description: 'Tarvitsemme koko osoitteen näyttääksesi kodin kartalla. Vain kadunnimi näkyy ilmoituksessa.' },
+      step2: { 
+        title: 'Mikä on asunnon osoite?', 
+        description: 'Tarvitsemme koko osoitteen näyttääksesi kodin kartalla. Vain kadunnimi näkyy ilmoituksessa.',
+        fillManually: 'Täytä osoite manuaalisesti'
+      },
     }
   },
 

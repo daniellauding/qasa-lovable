@@ -86,7 +86,11 @@ export const no = {
   landlords: {
     createListing: {
       step1: { title: 'Fortell litt om hjemmet ditt.', description: 'La oss starte med grunnleggende informasjon som størrelse og beliggenhet.' },
-      step2: { title: 'Hva er adressen til boligen?', description: 'Vi trenger hele adressen for å vise hjemmet ditt på kartet. Bare gatenavn vises i annonsen.' },
+      step2: { 
+        title: 'Hva er adressen til boligen?', 
+        description: 'Vi trenger hele adressen for å vise hjemmet ditt på kartet. Bare gatenavn vises i annonsen.',
+        fillManually: 'Fyll inn adressen manuelt'
+      },
     }
   },
 

@@ -1,6 +1,6 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { Search as SearchIcon } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
 
 const Search = forwardRef(({ 
   placeholder = 'Search cities or districts',
@@ -23,7 +23,7 @@ const Search = forwardRef(({
   };
 
   const variantClasses = {
-    default: 'bg-white border border-gray-900 focus:border-gray-400',
+    default: 'bg-white border border-gray-200 focus:border-gray-700 border-2',
     filled: 'bg-[var(--color-button-tertiary-bg)] border-2 border-transparent focus:bg-white focus:border-gray-900',
   };
 
