@@ -108,6 +108,7 @@ export const sv = {
         moveInAsap: 'Snarast möjligt',
         moveInChooseDate: 'Välj datum',
       },
+
     },
   },
 
@@ -770,10 +771,21 @@ export const sv = {
         reasonPlaceholder: 'Exempel: Jag har fått jobb i Stockholm',
       },
       step13: {
+        title: 'Lägg till boendereferens',
+        subtitle: 'Studentboende',
+        landlordNameLabel: 'Hyresvärdens företagsnamn',
+        landlordNamePlaceholder: 'Exempel: Sverigebostäder AB',
+        phoneLabel: 'Telefonnummer',
+        phonePlaceholder: 'Exempel: 073-133 70 22',
+        referenceTitle: 'Referens',
+        referenceHint: 'Ett märke (boendereferens) kommer läggas till din profil.',
+        privacyHint: 'Detta är privat information. Vi delar den enbart med hyresvärdar du ansöker till.',
+      },
+      step14: {
         title: 'Var har du tidigare bott?',
         bioLivedPlaceholder: 'Exempel: Jag har bott i Barcelona och ...',
       },
-      step14: {
+      step15: {
         title: 'Sysselsättning',
         addOccupation: 'Lägg till sysselsättning',
         occupationTypes: {

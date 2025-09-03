@@ -1,27 +1,40 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, EyeOff, HousePlus } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
-import TextArea from '../../../../components/ui/TextArea';
+import HintBox from '../../../../components/ui/HintBox';
+import Input from '../../../../components/ui/Input';
 import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
   const { t } = useTranslation();
-  const [bioLived, setBioLived] = useState(formData.bioLived || 'aa');
+  const [landlordName, setLandlordName] = useState(formData.landlordName || '');
+  const [landlordPhone, setLandlordPhone] = useState(formData.landlordPhone || '');
 
-  const handleBioLivedChange = (e) => {
+  const handleLandlordNameChange = (e) => {
     const value = e.target.value;
-    setBioLived(value);
-    updateFormData({ bioLived: value });
+    setLandlordName(value);
+    updateFormData({ landlordName: value });
+  };
+
+  const handleLandlordPhoneChange = (e) => {
+    const value = e.target.value;
+    setLandlordPhone(value);
+    updateFormData({ landlordPhone: value });
   };
 
   const handleNext = () => {
     onNext();
   };
 
-  const characterCount = bioLived.length;
-  const maxLength = 160;
+  const handleSkip = () => {
+    // Clear the reference data and proceed
+    setLandlordName('');
+    setLandlordPhone('');
+    updateFormData({ landlordName: '', landlordPhone: '' });
+    onNext();
+  };
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white">
@@ -29,24 +42,68 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
         {/* Header */}
         <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
-            {t('tenant.listing.step13.title', 'Var har du tidigare bott?')}
+            {t('tenant.listing.step13.title')}
+          </Typography>
+          <Typography variant="body-lg" className="text-gray-600">
+            {t('tenant.listing.step13.subtitle')}
           </Typography>
         </div>
 
-        <div className="space-y-6">
+        <form className="space-y-6">
+          {/* Landlord Company Name */}
           <div>
-            <TextArea
-              placeholder={t('tenant.listing.step13.bioLivedPlaceholder', 'Exempel: Jag har bott i Barcelona och ...')}
-              value={bioLived}
-              onChange={handleBioLivedChange}
-              maxLength={maxLength}
-              rows={4}
+            <label htmlFor="landlordName" className="block text-sm font-medium text-gray-700 mb-2">
+              {t('tenant.listing.step13.landlordNameLabel')}
+            </label>
+            <Input
+              id="landlordName"
+              type="text"
+              value={landlordName}
+              onChange={handleLandlordNameChange}
+              placeholder={t('tenant.listing.step13.landlordNamePlaceholder')}
+              className="w-full"
             />
-            <div className="text-sm text-gray-500 mt-2">
-              {characterCount} / {maxLength}
-            </div>
           </div>
-        </div>
+
+          {/* Phone Number */}
+          <div>
+            <label htmlFor="landlordPhone" className="block text-sm font-medium text-gray-700 mb-2">
+              {t('tenant.listing.step13.phoneLabel')}
+            </label>
+            <Input
+              id="landlordPhone"
+              type="tel"
+              value={landlordPhone}
+              onChange={handleLandlordPhoneChange}
+              placeholder={t('tenant.listing.step13.phonePlaceholder')}
+              className="w-full"
+            />
+          </div>
+
+          {/* Reference Hint */}
+          <HintBox>
+            <div className="flex items-start gap-2">
+              <div className="flex gap-2 items-center">
+                <Button variant="tertiary"icon={<HousePlus />} size="sm" className="pointer-events-none">
+                  {t('tenant.listing.step13.referenceTitle')}
+                </Button>
+                <Typography variant="body-sm" className="text-gray-600">
+                  {t('tenant.listing.step13.referenceHint')}
+                </Typography>
+              </div>
+            </div>
+          </HintBox>
+
+          {/* Privacy Hint */}
+          <HintBox>
+            <div className="flex items-start gap-2">
+              <EyeOff className="w-4 h-4 flex-shrink-0 mt-0.5" />
+              <Typography variant="body-sm">
+                {t('tenant.listing.step13.privacyHint')}
+              </Typography>
+            </div>
+          </HintBox>
+        </form>
 
         {/* Footer */}
         <div className="flex items-center justify-between mt-8">
@@ -60,11 +117,11 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
           />
           
           <Button
-            variant="primary"
+            variant="secondary"
             size="lg"
-            onClick={handleNext}
+            onClick={handleSkip}
           >
-            {t('common.next', 'Nästa')}
+            {t('common.skip', 'Hoppa över')}
           </Button>
         </div>
       </div>
@@ -79,4 +136,4 @@ CreateTenantListingStep13.propTypes = {
   updateFormData: PropTypes.func.isRequired,
 };
 
-export default CreateTenantListingStep13; 
+export default CreateTenantListingStep13;

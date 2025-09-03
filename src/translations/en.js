@@ -108,6 +108,7 @@ export const en = {
         moveInAsap: 'As soon as possible',
         moveInChooseDate: 'Choose date',
       },
+
     },
   },
 
@@ -761,10 +762,21 @@ export const en = {
         reasonPlaceholder: 'Example: I got a job in Stockholm',
       },
       step13: {
+        title: 'Add housing reference',
+        subtitle: 'Student housing',
+        landlordNameLabel: 'Landlord\'s company name',
+        landlordNamePlaceholder: 'Example: Sweden Housing AB',
+        phoneLabel: 'Phone number',
+        phonePlaceholder: 'Example: 073-133 70 22',
+        referenceTitle: 'Reference',
+        referenceHint: 'A badge (housing reference) will be added to your profile.',
+        privacyHint: 'This is private information. We only share it with landlords you apply to.',
+      },
+      step14: {
         title: 'Where have you lived before?',
         bioLivedPlaceholder: 'Example: I have lived in Barcelona and ...',
       },
-      step14: {
+      step15: {
         title: 'Employment',
         addEmployment: 'Add employment',
         occupationTypes: {

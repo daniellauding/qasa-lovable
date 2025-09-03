@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
 import CreateTenantListingStep1 from './components/CreateTenantListingStep1';
-import CreateTenantListingStep2 from './components/CreateTenantListingStep2';
-import CreateTenantListingStep3 from './components/CreateTenantListingStep3';
-import CreateTenantListingStep4 from './components/CreateTenantListingStep4';
-import CreateTenantListingStep5 from './components/CreateTenantListingStep5';
-import CreateTenantListingStep6 from './components/CreateTenantListingStep6';
-import CreateTenantListingStep7 from './components/CreateTenantListingStep7';
-import CreateTenantListingStep8 from './components/CreateTenantListingStep8';
-import CreateTenantListingStep9 from './components/CreateTenantListingStep9';
 import CreateTenantListingStep10 from './components/CreateTenantListingStep10';
 import CreateTenantListingStep11 from './components/CreateTenantListingStep11';
 import CreateTenantListingStep12 from './components/CreateTenantListingStep12';
@@ -20,6 +11,14 @@ import CreateTenantListingStep14 from './components/CreateTenantListingStep14';
 import CreateTenantListingStep15 from './components/CreateTenantListingStep15';
 import CreateTenantListingStep16 from './components/CreateTenantListingStep16';
 import CreateTenantListingStep17 from './components/CreateTenantListingStep17';
+import CreateTenantListingStep2 from './components/CreateTenantListingStep2';
+import CreateTenantListingStep3 from './components/CreateTenantListingStep3';
+import CreateTenantListingStep4 from './components/CreateTenantListingStep4';
+import CreateTenantListingStep5 from './components/CreateTenantListingStep5';
+import CreateTenantListingStep6 from './components/CreateTenantListingStep6';
+import CreateTenantListingStep7 from './components/CreateTenantListingStep7';
+import CreateTenantListingStep8 from './components/CreateTenantListingStep8';
+import CreateTenantListingStep9 from './components/CreateTenantListingStep9';
 
 const CreateTenantListingFlow = () => {
   const navigate = useNavigate();
