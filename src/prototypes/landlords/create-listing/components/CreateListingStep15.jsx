@@ -57,7 +57,7 @@ const CreateListingStep15 = ({ onNext, onPrev, formData, updateFormData }) => {
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg">
-        <div className="p-8 space-y-8">
+        <div className="py-8 space-y-8">
           <div className="space-y-4">
             <Typography variant="title-lg" className="text-gray-900">
               Regler och tillgänglighet

@@ -19,7 +19,7 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg">
-        <div className="p-8 space-y-8">
+        <div className="py-8 space-y-8">
           <SectionHeader title="Beskriv din bostad" description="Beskriv din bostad, området och det du vill förmedla i annonstexten. Du kan enkelt ändra din beskrivning senare." />
 
           <div className="space-y-6">

@@ -245,7 +245,7 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
     return (
       <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-lg">
-          <div className="p-8 space-y-8">
+          <div className="py-8 space-y-8">
             <SectionHeader 
               title="Vad gör du?"
               titleVariant="title-lg"
@@ -282,7 +282,7 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
     return (
       <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-lg">
-          <div className="p-8 space-y-8">
+          <div className="py-8 space-y-8">
             <SectionHeader 
               title="Är du säker?"
               description="Om det finns något alternativ som bättre beskriver din nuvarande sysselsättning än 'Annan inkomst', välj det. Det ökar dina chanser att få en bostad."
@@ -309,7 +309,7 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
     return (
       <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-lg">
-          <div className="p-8 space-y-8">
+          <div className="py-8 space-y-8">
             <SectionHeader 
               title={getFormTitle()}
               titleVariant="title-lg"
@@ -451,7 +451,7 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg">
-        <div className="p-8 space-y-8">
+        <div className="py-8 space-y-8">
           <SectionHeader 
             title="Sysselsättning"
             titleVariant="title-lg"

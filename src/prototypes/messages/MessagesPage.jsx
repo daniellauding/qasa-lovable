@@ -1,11 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Heart, Users, Home, CheckCircle, XCircle, ArrowRight, AlertTriangle, Camera, Settings, MoreVertical, IdCard, DollarSign, Building, Calendar, Send } from 'lucide-react';
-import DynamicHeader from '../../components/DynamicHeader';
-import Typography from '../../components/ui/Typography';
-import Button from '../../components/ui/Button';
-import Input from '../../components/ui/Input';
 import DevExperimentsButton from '../../components/DevExperimentsButton';
+import DynamicHeader from '../../components/DynamicHeader';
+import Footer from '../../components/Footer';
+import Avatar from '../../components/ui/Avatar';
+import Button from '../../components/ui/Button';
+import Icon from '../../components/ui/Icon';
+import Search from '../../components/ui/Search';
+import TextArea from '../../components/ui/TextArea';
+import Typography from '../../components/ui/Typography';
 
 export default function MessagesPage() {
   const navigate = useNavigate();
@@ -215,28 +218,28 @@ export default function MessagesPage() {
       return (
         <div className="mb-6">
           <div className="flex justify-center mb-2">
-            <Typography variant="small" className="text-gray-500">
+            <Typography variant="label-sm" className="text-[var(--color-text-secondary)]">
               {message.timestamp}
             </Typography>
           </div>
-          <div className="bg-blue-50 rounded-lg p-4 max-w-md">
-            <Typography variant="body" className="text-gray-800">
+          <div className="bg-[var(--color-background-inset)] rounded-lg p-4 max-w-md">
+            <Typography variant="body-md" className="text-[var(--color-text-primary)]">
               {message.text}
             </Typography>
           </div>
-          <div className="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+          <div className="mt-4 bg-[var(--color-background-inset)] border border-[var(--color-border)] rounded-lg p-4">
             <div className="flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
+              <Icon name="AlertTriangle" className="w-5 h-5 text-[var(--color-warning)] mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <Typography variant="subtitle2" className="font-semibold text-gray-900 mb-1">
+                <Typography variant="title-sm" className="font-semibold text-[var(--color-text-primary)] mb-1">
                   {message.warning.title}
                 </Typography>
-                <Typography variant="small" className="text-gray-700 mb-3">
+                <Typography variant="body-sm" className="text-[var(--color-text-secondary)] mb-3">
                   {message.warning.text}
                 </Typography>
                 <div className="flex gap-2">
-                  <Button variant="ghost" size="small">Why are you warning me about this?</Button>
-                  <Button variant="ghost" size="small" className="text-red-600">Report Oscar</Button>
+                  <Button variant="ghost" size="sm">Why are you warning me about this?</Button>
+                  <Button variant="ghost" size="sm" className="text-[var(--color-danger)]">Report Oscar</Button>
                 </div>
               </div>
             </div>
@@ -249,7 +252,7 @@ export default function MessagesPage() {
       return (
         <div className="mb-6">
           <div className="flex justify-center mb-2">
-            <Typography variant="small" className="text-gray-500">
+            <Typography variant="label-sm" className="text-[var(--color-text-secondary)]">
               {message.timestamp}
             </Typography>
           </div>
@@ -257,10 +260,10 @@ export default function MessagesPage() {
             <div className="flex items-center gap-3 mb-4">
               <img src="/_next/static/media/qasa-logotype-brown.9d4d7f96.png" alt="Qasa" className="h-6" />
             </div>
-            <Typography variant="subtitle1" className="font-semibold text-gray-900 mb-2">
+            <Typography variant="title-lg" className="font-semibold text-[var(--color-text-primary)] mb-2">
               {message.title}
             </Typography>
-            <Typography variant="body" className="text-gray-700 mb-4">
+            <Typography variant="body-md" className="text-[var(--color-text-secondary)] mb-4">
               {message.text}
             </Typography>
             {message.buttons && (
@@ -289,17 +292,17 @@ export default function MessagesPage() {
     return (
       <div className="mb-6">
         <div className="flex justify-center mb-2">
-          <Typography variant="small" className="text-gray-500">
+          <Typography variant="label-sm" className="text-[var(--color-text-secondary)]">
             {message.timestamp}
           </Typography>
         </div>
         <div className={`max-w-md ${isLandlord ? 'ml-auto' : 'mr-auto'}`}>
           <div className={`rounded-lg p-4 ${
             isLandlord 
-              ? 'bg-gray-100 text-gray-900' 
-              : 'bg-blue-100 text-gray-900'
+              ? 'bg-[var(--color-background-inset)] text-[var(--color-text-primary)]' 
+              : 'bg-[var(--color-primary)] text-white'
           }`}>
-            <Typography variant="body" className="whitespace-pre-wrap">
+            <Typography variant="body-md" className="whitespace-pre-wrap">
               {message.text}
             </Typography>
           </div>
@@ -309,7 +312,7 @@ export default function MessagesPage() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <DynamicHeader isFluid={true} />
       
       <div className="flex-1 flex overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
@@ -317,58 +320,60 @@ export default function MessagesPage() {
         <div className="w-80 border-r border-gray-200 flex flex-col bg-white">
           <div className="p-4 border-b border-gray-200">
             <div className="flex items-center justify-between mb-4">
-              <Typography variant="h2" className="text-gray-900">Inkorg</Typography>
+              <Typography variant="title-xl" className="text-[var(--color-text-primary)]">Inkorg</Typography>
               <div className="relative" ref={filterDropdownRef}>
-                <button 
+                <Button 
+                  variant="ghost"
+                  size="sm"
+                  iconOnly
                   onClick={() => setShowFilterDropdown(!showFilterDropdown)}
-                  className="p-2 text-gray-600 hover:text-gray-900"
                 >
-                  <Settings className="w-6 h-6" />
-                </button>
+                  <Icon name="Settings" className="w-6 h-6" />
+                </Button>
                 
                 {showFilterDropdown && (
                   <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
                     <div className="p-2">
                       <button 
                         onClick={() => { setActiveFilter('all'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'all' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'all' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body" className="text-gray-900">All conversations</Typography>
+                        <Typography variant="body-md" className="text-[var(--color-text-primary)]">All conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('active'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'active' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'active' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body" className="text-gray-700">Active conversations</Typography>
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Active conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('archived'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'archived' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'archived' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body" className="text-gray-700">Archived conversations</Typography>
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Archived conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('favorited'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'favorited' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'favorited' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body" className="text-gray-700">Favorited conversations</Typography>
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Favorited conversations</Typography>
                       </button>
                       <button 
                         onClick={() => { setActiveFilter('home'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'home' ? 'bg-gray-100' : ''}`}
+                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'home' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body" className="text-gray-700">Filter by home</Typography>
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Filter by home</Typography>
                       </button>
                     </div>
                   </div>
                 )}
               </div>
             </div>
-            <Input
+            <Search
               placeholder="Sök"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full"
+              variant="filled"
             />
           </div>
           
@@ -377,48 +382,51 @@ export default function MessagesPage() {
               <button
                 key={conversation.id}
                 onClick={() => setSelectedConversation(conversation.id)}
-                className={`w-full p-4 text-left border-b border-gray-100 hover:bg-[var(--color-background-inset)] ${
-                  selectedConversation === conversation.id ? 'bg-blue-50' : ''
+                className={`w-full p-4 text-left border-b border-[var(--color-border)] hover:bg-[var(--color-background-inset)] ${
+                  selectedConversation === conversation.id ? 'bg-[var(--color-background-inset)]' : ''
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div className="relative">
-                    <img
+                    <Avatar
                       src={conversation.user.avatar}
                       alt={conversation.user.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      size="md"
                     />
-                    <button
+                    <Button
+                      variant="ghost"
+                      size="xs"
+                      iconOnly
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleFavorite(conversation.id);
                       }}
-                      className="absolute -top-1 -right-1 p-1"
+                      className="absolute -top-1 -right-1"
                     >
                       {favoriteConversations.has(conversation.id) ? (
-                        <Heart className="w-4 h-4 text-red-500 fill-current" />
+                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-primary)] fill-current" />
                       ) : (
-                        <Heart className="w-4 h-4 text-gray-400" />
+                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-text-secondary)]" />
                       )}
-                    </button>
+                    </Button>
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-1 text-sm text-gray-600 mb-1">
+                    <div className="flex items-center gap-1 text-sm text-[var(--color-text-secondary)] mb-1">
                       <span>{conversation.property.address}</span>
                       <span>/</span>
                       <span>{conversation.property.rooms}</span>
                       <span>/</span>
                       <span>{conversation.property.size}</span>
                     </div>
-                    <Typography variant="subtitle2" className="text-gray-900 mb-1">
+                    <Typography variant="title-sm" className="text-[var(--color-text-primary)] mb-1">
                       {conversation.user.name}
                     </Typography>
                     <div className="flex items-center justify-between">
-                      <Typography variant="small" className="text-gray-600 truncate">
+                      <Typography variant="body-sm" className="text-[var(--color-text-secondary)] truncate">
                         {conversation.lastMessage}
                       </Typography>
-                      <Typography variant="small" className="text-gray-500 ml-2">
+                      <Typography variant="label-sm" className="text-[var(--color-text-secondary)] ml-2">
                         {conversation.lastMessageTime}
                       </Typography>
                     </div>
@@ -434,36 +442,38 @@ export default function MessagesPage() {
           <div className="flex-1 flex">
             <div className="flex-1 flex flex-col">
               {/* Conversation Header - Sticky */}
-              <div className="sticky top-0 z-10 p-4 border-b border-gray-200 bg-white">
+              <div className="p-4 border-b border-[var(--color-border)] bg-white">
                 <div className="flex items-center justify-between">
                   <button 
                     onClick={() => navigate('/tenants/profile?view=public')}
                     className="flex items-center gap-3 hover:opacity-80 transition-opacity"
                   >
-                    <img
+                    <Avatar
                       src={selectedConv.user.avatar}
                       alt={selectedConv.user.name}
-                      className="w-12 h-12 rounded-full object-cover"
+                      size="md"
                     />
                     <div>
-                      <Typography variant="h3" className="text-gray-900">
+                      <Typography variant="title-lg" className="text-[var(--color-text-primary)]">
                         {selectedConv.user.name}
                       </Typography>
-                      <Typography variant="body" className="text-gray-600">
+                      <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
                         {selectedConv.property.address}
                       </Typography>
                     </div>
                   </button>
                   <div className="relative" ref={conversationDropdownRef}>
-                    <button 
+                    <Button 
+                      variant="ghost"
+                      size="sm"
+                      iconOnly
                       onClick={() => setShowConversationDropdown(!showConversationDropdown)}
-                      className="p-2 text-gray-600 hover:text-gray-900"
                     >
-                      <MoreVertical className="w-6 h-6" />
-                    </button>
+                      <Icon name="MoreVertical" className="w-6 h-6" />
+                    </Button>
                     
                     {showConversationDropdown && (
-                      <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                      <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-[var(--color-border)] rounded-lg shadow-lg z-50">
                         <div className="p-2">
                           <button 
                             onClick={() => {
@@ -472,26 +482,26 @@ export default function MessagesPage() {
                             }}
                             className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
-                            <Typography variant="body" className="text-gray-900">View profile</Typography>
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">View profile</Typography>
                           </button>
                           <a 
                             href="#" 
                             onClick={() => setShowConversationDropdown(false)}
                             className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
-                            <Typography variant="body" className="text-gray-900">View home</Typography>
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">View home</Typography>
                           </a>
                           <button 
                             onClick={() => setShowConversationDropdown(false)}
                             className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
-                            <Typography variant="body" className="text-gray-900">Report user</Typography>
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">Report user</Typography>
                           </button>
                           <button 
                             onClick={() => setShowConversationDropdown(false)}
                             className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
                           >
-                            <Typography variant="body" className="text-gray-900">Archive conversation</Typography>
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">Archive conversation</Typography>
                           </button>
                         </div>
                       </div>
@@ -503,18 +513,18 @@ export default function MessagesPage() {
               {/* Scrollable Content Area: Property + User Profile + Messages */}
               <div className="flex-1 overflow-y-auto">
                 {/* Property Section */}
-                <div className="p-4 border-b border-gray-200 bg-white">
-                  <a href="#" className="flex items-center gap-4 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-gray-100 transition-colors">
+                <div className="p-4 border-b border-[var(--color-border)] bg-white">
+                  <a href="#" className="flex items-center gap-4 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-[var(--color-background-inset)] transition-colors">
                     <img
                       src={selectedConv.property.image}
                       alt="Property"
                       className="w-16 h-16 rounded-lg object-cover"
                     />
                     <div>
-                      <Typography variant="subtitle1" className="text-gray-900 mb-1">
+                      <Typography variant="title-md" className="text-[var(--color-text-primary)] mb-1">
                         {selectedConv.property.address}
                       </Typography>
-                      <div className="flex items-center gap-1 text-sm text-gray-600">
+                      <div className="flex items-center gap-1 text-sm text-[var(--color-text-secondary)]">
                         <span>{selectedConv.property.type}</span>
                         <span>/</span>
                         <span>{selectedConv.property.rooms}</span>
@@ -527,37 +537,37 @@ export default function MessagesPage() {
 
                 {/* User Profile Section */}
                 {selectedConv.user.age && (
-                  <div className="p-4 border-b border-gray-200 bg-white">
+                  <div className="p-4 border-b border-[var(--color-border)] bg-white">
                     <button 
                       onClick={() => navigate('/tenants/profile?view=public')}
-                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-gray-100 transition-colors text-left"
+                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-[var(--color-background-inset)] transition-colors text-left"
                     >
                       <div className="flex items-start gap-4 mb-4">
                         <div className="relative">
-                          <img
+                          <Avatar
                             src={selectedConv.user.avatar}
                             alt={selectedConv.user.name}
-                            className="w-16 h-16 rounded-full object-cover"
+                            size="lg"
                           />
-                          <div className="absolute -bottom-1 -right-1 bg-pink-500 text-white text-xs px-2 py-1 rounded-full">
+                          <div className="absolute -bottom-1 -right-1 bg-[var(--color-primary)] text-white text-xs px-2 py-1 rounded-full">
                             {selectedConv.user.matchPercentage}% matching
                           </div>
                         </div>
                         <div className="flex-1">
-                          <Typography variant="subtitle1" className="text-gray-900 mb-1">
+                          <Typography variant="title-md" className="text-[var(--color-text-primary)] mb-1">
                             {selectedConv.user.name} ({selectedConv.user.age})
                           </Typography>
-                          <Typography variant="body" className="text-gray-700 mb-3">
+                          <Typography variant="body-md" className="text-[var(--color-text-secondary)] mb-3">
                             {selectedConv.user.bio}
                           </Typography>
                           <div className="flex gap-4 mb-4">
                             <div className="flex items-center gap-2">
-                              <IdCard className="w-4 h-4 text-gray-600" />
-                              <Typography variant="small" className="font-semibold">ID Verified</Typography>
+                              <Icon name="IdCard" className="w-4 h-4 text-[var(--color-text-secondary)]" />
+                              <Typography variant="label-md" className="font-semibold">ID Verified</Typography>
                             </div>
                             <div className="flex items-center gap-2">
-                              <Home className="w-4 h-4 text-gray-600" />
-                              <Typography variant="small" className="font-semibold">Reference</Typography>
+                              <Icon name="Home" className="w-4 h-4 text-[var(--color-text-secondary)]" />
+                              <Typography variant="label-md" className="font-semibold">Reference</Typography>
                             </div>
                           </div>
                         </div>
@@ -568,23 +578,23 @@ export default function MessagesPage() {
                         {Object.entries(selectedConv.user.criteria).map(([key, criterion]) => (
                           <div key={key} className="flex items-center gap-3">
                             <div className="w-5 h-5 flex-shrink-0">
-                              {key === 'people' && <Users className="w-5 h-5 text-gray-600" />}
-                              {key === 'space' && <Home className="w-5 h-5 text-gray-600" />}
-                              {key === 'budget' && <DollarSign className="w-5 h-5 text-gray-600" />}
-                              {key === 'furnished' && <Building className="w-5 h-5 text-gray-600" />}
-                              {key === 'dates' && <Calendar className="w-5 h-5 text-gray-600" />}
+                              {key === 'people' && <Icon name="Users" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
+                              {key === 'space' && <Icon name="Home" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
+                              {key === 'budget' && <Icon name="DollarSign" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
+                              {key === 'furnished' && <Icon name="Building" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
+                              {key === 'dates' && <Icon name="Calendar" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
                             </div>
                             <div className="flex-1">
-                              <Typography variant="body" className="text-gray-800">
+                              <Typography variant="body-md" className="text-[var(--color-text-primary)]">
                                 {criterion.requested}
                               </Typography>
                               <div className="flex items-center gap-2 mt-1">
                                 {criterion.matches ? (
-                                  <CheckCircle className="w-4 h-4 text-green-600" />
+                                  <Icon name="CheckCircle" className="w-4 h-4 text-[var(--color-success)]" />
                                 ) : (
-                                  <XCircle className="w-4 h-4 text-red-600" />
+                                  <Icon name="XCircle" className="w-4 h-4 text-[var(--color-danger)]" />
                                 )}
-                                <Typography variant="small" className="text-gray-600">
+                                <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
                                   {criterion.matches ? 'Match' : (criterion.note || 'No match')}
                                 </Typography>
                               </div>
@@ -600,8 +610,8 @@ export default function MessagesPage() {
                 <div className="p-4 space-y-4">
                   {selectedConv.isClosed && (
                     <div className="flex justify-center p-4">
-                      <div className="bg-gray-100 rounded-lg px-4 py-2">
-                        <Typography variant="body" className="text-gray-600">
+                      <div className="bg-[var(--color-background-inset)] rounded-lg px-4 py-2">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
                           This conversation is closed.
                         </Typography>
                       </div>
@@ -615,61 +625,53 @@ export default function MessagesPage() {
                 </div>
               </div>
 
-              {/* Message Input - Sticky */}
-              <div className="sticky bottom-0 z-10 p-4 border-t border-gray-200 bg-white">
+              {/* Message Input */}
+              <div className="p-4 border-t border-[var(--color-border)] bg-white">
                 <div className="flex items-end gap-2">
                   <div className="flex-1 relative">
-                    <textarea
+                    <TextArea
                       value={messageText}
                       onChange={(e) => setMessageText(e.target.value)}
                       placeholder={selectedConv.isClosed ? "This conversation is closed" : "Skriv meddelande"}
                       disabled={selectedConv.isClosed}
-                      className={`w-full p-3 border rounded-lg resize-none ${
-                        selectedConv.isClosed 
-                          ? 'border-gray-200 bg-[var(--color-background-inset)] text-gray-400 cursor-not-allowed' 
-                          : 'border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-transparent'
-                      }`}
                       rows={2}
+                      className="w-full"
                     />
                   </div>
                   <div className="flex gap-2">
-                    <button
-                      className={`p-3 rounded-lg ${
-                        messageText.trim() && !selectedConv.isClosed
-                          ? 'bg-pink-500 text-white hover:bg-pink-600' 
-                          : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                      }`}
+                    <Button
+                      variant={messageText.trim() && !selectedConv.isClosed ? "primary" : "ghost"}
+                      size="md"
+                      iconOnly
                       disabled={!messageText.trim() || selectedConv.isClosed}
                     >
-                      <Send className="w-5 h-5" />
-                    </button>
-                    <button 
-                      className={`p-3 ${
-                        selectedConv.isClosed 
-                          ? 'text-gray-400 cursor-not-allowed' 
-                          : 'text-gray-600 hover:text-gray-800'
-                      }`}
+                      <Icon name="Send" className="w-5 h-5" />
+                    </Button>
+                    <Button 
+                      variant="ghost"
+                      size="md"
+                      iconOnly
                       disabled={selectedConv.isClosed}
                     >
-                      <Camera className="w-6 h-6" />
-                    </button>
+                      <Icon name="Camera" className="w-6 h-6" />
+                    </Button>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Property Sidebar */}
-            <div className="w-80 border-l border-gray-200 bg-white p-4">
-              <a href="#" className="block mb-6 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-gray-100 transition-colors">
+            <div className="w-80 border-l border-[var(--color-border)] bg-white p-4">
+              <a href="#" className="block mb-6 p-4 bg-[var(--color-background-inset)] rounded-lg hover:bg-[var(--color-background-inset)] transition-colors">
                 <img
                   src={selectedConv.property.image}
                   alt="Property"
                   className="w-full h-32 rounded-lg object-cover mb-4"
                 />
-                <Typography variant="subtitle1" className="text-gray-900 mb-2">
+                <Typography variant="title-md" className="text-[var(--color-text-primary)] mb-2">
                   {selectedConv.property.address}
                 </Typography>
-                <div className="flex items-center gap-1 text-sm text-gray-600">
+                <div className="flex items-center gap-1 text-sm text-[var(--color-text-secondary)]">
                   <span>{selectedConv.property.type}</span>
                   <span>/</span>
                   <span>{selectedConv.property.rooms}</span>
@@ -680,7 +682,7 @@ export default function MessagesPage() {
 
               <div className="space-y-6">
                 <div>
-                  <Typography variant="h3" className="text-gray-900 mb-4">Vid signering</Typography>
+                  <Typography variant="title-lg" className="text-[var(--color-text-primary)] mb-4">Vid signering</Typography>
                   <div className="space-y-3">
                     {[
                       { icon: '🤝', text: 'Enklare för hyresgäster' },
@@ -690,7 +692,7 @@ export default function MessagesPage() {
                     ].map((benefit, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <span className="text-lg">{benefit.icon}</span>
-                        <Typography variant="body" className="text-gray-700">
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
                           {benefit.text}
                         </Typography>
                       </div>
@@ -698,19 +700,19 @@ export default function MessagesPage() {
                   </div>
                   
                   <div className="mt-4">
-                    <Typography variant="subtitle2" className="text-gray-900 mb-2">
+                    <Typography variant="title-sm" className="text-[var(--color-text-primary)] mb-2">
                       Hur kan detta vara gratis?
                     </Typography>
-                    <Typography variant="small" className="text-gray-600">
+                    <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
                       Hyresgästen betalar en serviceavgift på 4,95% när de hyr bostaden.
                     </Typography>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 pt-4">
+                <div className="border-t border-[var(--color-border)] pt-4">
                   <div className="flex justify-between items-center mb-4">
-                    <Typography variant="subtitle1" className="text-gray-900">Månadsutbetalning</Typography>
-                    <Typography variant="subtitle1" className="font-semibold">SEK {selectedConv.property.price.toLocaleString()}</Typography>
+                    <Typography variant="title-md" className="text-[var(--color-text-primary)]">Månadsutbetalning</Typography>
+                    <Typography variant="title-md" className="font-semibold">SEK {selectedConv.property.price.toLocaleString()}</Typography>
                   </div>
                   
                   <div className="space-y-2">
@@ -723,6 +725,7 @@ export default function MessagesPage() {
           </div>
         )}
       </div>
+      <Footer isFluid={true} />
     </div>
   );
 } 
