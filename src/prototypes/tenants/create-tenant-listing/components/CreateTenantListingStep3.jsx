@@ -1,10 +1,11 @@
-import { ArrowLeft } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import Button from '../../../../components/ui/Button';
+
 import CheckboxGroup from '../../../../components/ui/CheckboxGroup';
 import HintBox from '../../../../components/ui/HintBox';
 import RadioGroup from '../../../../components/ui/RadioGroup';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -67,15 +68,14 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
-        {/* Header */}
-        <div className="text-left mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-4">
-            {t('tenant.listing.step3.title', 'Vad vill du hyra?')}
-          </Typography>
-          <Typography variant="body-lg" className="text-gray-600">
-            {t('tenant.listing.step3.subtitle', 'Berätta för hyresvärden vad du är ute efter. Dina krav kommer att visas i din annons.')}
-          </Typography>
-        </div>
+        <SectionHeader 
+          title={t('tenant.listing.step3.title', 'Vad vill du hyra?')}
+          description={t('tenant.listing.step3.subtitle', 'Berätta för hyresvärden vad du är ute efter. Dina krav kommer att visas i din annons.')}
+          titleVariant="h1"
+          titleColor="text-gray-900"
+          descriptionColor="text-gray-600"
+          className="mb-8"
+        />
 
         <div className="space-y-8">
           {/* Shared vs Private */}
@@ -138,25 +138,13 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
           </div> */}
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between mt-8">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label={t('common.back', 'Tillbaka')}
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleNext}
-          >
-            {t('common.next', 'Nästa')}
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={handleNext}
+          onPrev={onPrev}
+          nextText={t('common.next', 'Nästa')}
+          prevText={t('common.back', 'Tillbaka')}
+          className="mt-8"
+        />
       </div>
     </div>
   );

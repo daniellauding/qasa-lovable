@@ -1,8 +1,9 @@
-import React from 'react';
+import { Calendar, Check, Home, IdCard, MapPin, PawPrint, Pen, Sofa, Users } from 'lucide-react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Button from '../../../../components/ui/Button';
+import SectionFooter from '../../../../components/ui/SectionFooter';
 import Typography from '../../../../components/ui/Typography';
-import { ArrowLeft, Pen, Check, MapPin, Home, Users, Sofa, Calendar, PawPrint, IdCard } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -317,25 +318,14 @@ const CreateTenantListingStep17 = ({ onNext, onPrev, formData, updateFormData })
         </div>
 
         {/* Navigation */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex items-center justify-between">
-            <Button
-              variant="tertiary"
-              size="lg"
-              onClick={onPrev}
-              iconOnly
-              icon={<ArrowLeft className="h-5 w-5" />}
-              aria-label="Tillbaka"
-            />
-            
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={onNext}
-            >
-              Slutför
-            </Button>
-          </div>
+        <div className="bg-white rounded-lg shadow-sm">
+          <SectionFooter 
+            onNext={onNext}
+            onPrev={onPrev}
+            nextText="Slutför"
+            prevText="Tillbaka"
+            className="p-6"
+          />
         </div>
       </div>
     </div>

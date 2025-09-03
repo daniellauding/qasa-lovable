@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { ArrowLeft, Pen, Plus, Trash2 } from 'lucide-react';
 import PropTypes from 'prop-types';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
-import Select from '../../../../components/ui/Select';
-import RadioGroup from '../../../../components/ui/RadioGroup';
 import Checkbox from '../../../../components/ui/Checkbox';
-import { ArrowLeft, Plus, Trash2, Pen } from 'lucide-react';
+import Input from '../../../../components/ui/Input';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
+import Select from '../../../../components/ui/Select';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -241,14 +243,14 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
   // Render based on current action
   if (action === 'select-type') {
     return (
-      <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+      <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
+        <div className="w-full max-w-2xl bg-white rounded-lg">
           <div className="p-8 space-y-8">
-            <div className="space-y-4">
-              <Typography variant="title-lg" className="text-gray-900">
-                Vad gör du?
-              </Typography>
-            </div>
+            <SectionHeader 
+              title="Vad gör du?"
+              titleVariant="title-lg"
+              titleColor="text-gray-900"
+            />
 
             <div className="space-y-6">
               <RadioGroup
@@ -261,25 +263,16 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
             </div>
           </div>
 
-          <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-            <Button
-              variant="tertiary"
-              size="lg"
-              onClick={handleBackToMain}
-              iconOnly
-              icon={<ArrowLeft className="h-5 w-5" />}
-              aria-label="Tillbaka"
-            />
-            
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={() => selectedOccupationType && handleOccupationTypeSelect(selectedOccupationType)}
-              disabled={!selectedOccupationType}
-            >
-              Nästa
-            </Button>
-          </div>
+          <SectionFooter 
+            onNext={() => selectedOccupationType && handleOccupationTypeSelect(selectedOccupationType)}
+            onPrev={handleBackToMain}
+            nextText="Nästa"
+            prevText="Tillbaka"
+            nextDisabled={!selectedOccupationType}
+            variant="left-tertiary-right-primary"
+            background="white"
+            className="py-6"
+          />
         </div>
       </div>
     );
@@ -287,37 +280,26 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
 
   if (action === 'confirm-other') {
     return (
-      <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+      <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
+        <div className="w-full max-w-2xl bg-white rounded-lg">
           <div className="p-8 space-y-8">
-            <div className="space-y-4">
-              <Typography variant="title-lg" className="text-gray-900">
-                Är du säker?
-              </Typography>
-              <Typography variant="body-md" className="text-gray-600">
-                Om det finns något alternativ som bättre beskriver din nuvarande sysselsättning än "Annan inkomst", välj det. Det ökar dina chanser att få en bostad.
-              </Typography>
-            </div>
+            <SectionHeader 
+              title="Är du säker?"
+              description="Om det finns något alternativ som bättre beskriver din nuvarande sysselsättning än 'Annan inkomst', välj det. Det ökar dina chanser att få en bostad."
+              titleVariant="title-lg"
+              titleColor="text-gray-900"
+              descriptionColor="text-gray-600"
+            />
           </div>
 
-          <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-            <Button
-              variant="tertiary"
-              size="lg"
-              onClick={() => navigate(`/tenants/create-tenant-listing/step/14?action=select-type`)}
-              iconOnly
-              icon={<ArrowLeft className="h-5 w-5" />}
-              aria-label="Tillbaka"
-            />
-            
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={handleConfirmOther}
-            >
-              Nästa
-            </Button>
-          </div>
+          <SectionFooter 
+            onNext={handleConfirmOther}
+            onPrev={() => navigate(`/tenants/create-tenant-listing/step/14?action=select-type`)}
+            nextText="Nästa"
+            prevText="Tillbaka"
+            variant="left-tertiary-right-primary"
+            background="white"
+          />
         </div>
       </div>
     );
@@ -325,14 +307,14 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
 
   if (action === 'form') {
     return (
-      <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-        <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+      <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
+        <div className="w-full max-w-2xl bg-white rounded-lg">
           <div className="p-8 space-y-8">
-            <div className="space-y-4">
-              <Typography variant="title-lg" className="text-gray-900">
-                {getFormTitle()}
-              </Typography>
-            </div>
+            <SectionHeader 
+              title={getFormTitle()}
+              titleVariant="title-lg"
+              titleColor="text-gray-900"
+            />
             
             <div className="space-y-6">
               {/* Title field (except for retired) */}
@@ -451,24 +433,15 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
             </div>
           </div>
 
-          <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-            <Button
-              variant="tertiary"
-              size="lg"
-              onClick={handleBackToMain}
-              iconOnly
-              icon={<ArrowLeft className="h-5 w-5" />}
-              aria-label="Tillbaka"
-            />
-            
-            <Button
-              variant="primary"
-              size="lg"
-              onClick={handleSaveOccupation}
-            >
-              Nästa
-            </Button>
-          </div>
+          <SectionFooter 
+            onNext={handleSaveOccupation}
+            onPrev={handleBackToMain}
+            nextText="Nästa"
+            prevText="Tillbaka"
+            variant="left-tertiary-right-primary"
+            background="white"
+            className="py-6"
+          />
         </div>
       </div>
     );
@@ -476,36 +449,36 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
 
   // Main view - Employment list
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+    <div className="min-h-[calc(100vh-64px)] bg-white flex items-start justify-center p-4">
+      <div className="w-full max-w-2xl bg-white rounded-lg">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Sysselsättning
-            </Typography>
-          </div>
+          <SectionHeader 
+            title="Sysselsättning"
+            titleVariant="title-lg"
+            titleColor="text-gray-900"
+          />
 
           <div className="space-y-6">
             {occupations.map((occupation, index) => (
               <div key={occupation.id} className="space-y-4">
-                <div className="border rounded-lg p-4 flex items-center justify-between">
+                <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <Typography variant="title-sm" className="text-gray-900 mb-1">
+                    <Typography variant="title-sm" className="mb-1">
                       {occupation.title}
                     </Typography>
                     {occupation.subtitle && (
-                      <Typography variant="body-sm" className="text-gray-600 mb-1">
+                      <Typography variant="body-sm" className="mb-1">
                         {occupation.subtitle}
                       </Typography>
                     )}
-                    <Typography variant="body-sm" className="text-gray-600 mb-2">
+                    <Typography variant="body-sm" className="mb-2">
                       {getScheduleTypeLabel(occupation.scheduleType)}
                     </Typography>
-                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                    <div className="flex items-center gap-2 text-sm">
                       <span>{getMonthName(occupation.startMonth)} {occupation.startYear}</span>
                       <ArrowLeft className="h-4 w-4 rotate-180" />
                       {occupation.isOngoing ? (
-                        <span className="text-green-600 font-medium">Pågående</span>
+                        <span className="font-medium">Pågående</span>
                       ) : (
                         <span>{getMonthName(occupation.endMonth)} {occupation.endYear}</span>
                       )}
@@ -537,35 +510,26 @@ const CreateTenantListingStep14 = ({ onNext, onPrev, formData, updateFormData })
             ))}
 
             <Button
-              variant="outline"
-              size="lg"
+              variant="tertiary"
+              size="md"
               onClick={handleAddEmployment}
               icon={<Plus className="h-4 w-4" />}
-              className="w-full justify-center"
+              className="w-fit"
             >
               Lägg till sysselsättning
             </Button>
           </div>
         </div>
 
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label="Tillbaka"
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleNext}
-          >
-            Nästa
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={handleNext}
+          onPrev={onPrev}
+          nextText="Nästa"
+          prevText="Tillbaka"
+          nextVariant="secondary"
+          variant="left-tertiary-right-primary"
+          background="white"
+        />
       </div>
     </div>
   );

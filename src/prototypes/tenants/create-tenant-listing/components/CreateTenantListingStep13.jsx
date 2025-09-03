@@ -1,9 +1,11 @@
-import { ArrowLeft, EyeOff, HousePlus } from 'lucide-react';
+import { EyeOff, HousePlus } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
 import HintBox from '../../../../components/ui/HintBox';
 import Input from '../../../../components/ui/Input';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
@@ -39,15 +41,14 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
-        {/* Header */}
-        <div className="text-left mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-4">
-            {t('tenant.listing.step13.title')}
-          </Typography>
-          <Typography variant="body-lg" className="text-gray-600">
-            {t('tenant.listing.step13.subtitle')}
-          </Typography>
-        </div>
+        <SectionHeader 
+          title={t('tenant.listing.step13.title')}
+          description={t('tenant.listing.step13.subtitle')}
+          titleVariant="h1"
+          titleColor="text-gray-900"
+          descriptionColor="text-gray-600"
+          className="mb-8"
+        />
 
         <form className="space-y-6">
           {/* Landlord Company Name */}
@@ -105,25 +106,14 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
           </HintBox>
         </form>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between mt-8">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label={t('common.back', 'Tillbaka')}
-          />
-          
-          <Button
-            variant="secondary"
-            size="lg"
-            onClick={handleSkip}
-          >
-            {t('common.skip', 'Hoppa över')}
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={handleSkip}
+          onPrev={onPrev}
+          nextText={t('common.skip', 'Hoppa över')}
+          prevText={t('common.back', 'Tillbaka')}
+          nextVariant="secondary"
+          className="mt-8"
+        />
       </div>
     </div>
   );

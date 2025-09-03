@@ -1,8 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Button from '../../../../components/ui/Button';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
-import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep16 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -14,22 +15,20 @@ const CreateTenantListingStep16 = ({ onNext, onPrev, formData, updateFormData })
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
-        <div className="p-8 space-y-8">
-          {/* Header */}
-          <div className="space-y-4">
-            <Typography variant="title-lg" className="text-gray-900">
-              Intyg och verifieringar
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Ange referenser och verifiera din identitet för att få en ännu mer attraktiv profil
-            </Typography>
-          </div>
+    <div className="min-h-[calc(100vh-64px)] bg-white">
+      <div className="max-w-2xl mx-auto px-6 py-8">
+        <SectionHeader 
+          title="Intyg och verifieringar"
+          description="Ange referenser och verifiera din identitet för att få en ännu mer attraktiv profil"
+          titleVariant="h1"
+          titleColor="text-gray-900"
+          descriptionColor="text-gray-600"
+          className="mb-8"
+        />
 
           {/* Verification Section */}
           <div className="space-y-6">
-            <div className="border rounded-lg p-6 space-y-4">
+            <div className="space-y-4">
               <Typography variant="title-sm" className="text-gray-900">
                 Ej verifierad
               </Typography>
@@ -47,27 +46,14 @@ const CreateTenantListingStep16 = ({ onNext, onPrev, formData, updateFormData })
               </Button>
             </div>
           </div>
-        </div>
 
-        {/* Footer */}
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label="Tillbaka"
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={onNext}
-          >
-            Nästa
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={onNext}
+          onPrev={onPrev}
+          nextText={t('common.next', 'Nästa')}
+          prevText={t('common.back', 'Tillbaka')}
+          className="mt-8"
+        />
       </div>
     </div>
   );

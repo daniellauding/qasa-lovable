@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
+import React, { useState } from 'react';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import TextArea from '../../../../components/ui/TextArea';
-import { ArrowLeft } from 'lucide-react';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep15 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -39,19 +38,18 @@ const CreateTenantListingStep15 = ({ onNext, onPrev, formData, updateFormData })
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
-        <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <Typography variant="title-xl" className="text-gray-900">
-              Introduktion
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Berätta mer om dig själv
-            </Typography>
-          </div>
+    <div className="min-h-[calc(100vh-64px)] bg-white">
+      <div className="max-w-2xl mx-auto px-6 py-8">
+        <SectionHeader 
+          title="Introduktion"
+          description="Berätta mer om dig själv"
+          titleVariant="h1"
+          titleColor="text-gray-900"
+          descriptionColor="text-gray-600"
+          className="mb-8"
+        />
 
-          <div className="space-y-6">
+        <div className="space-y-6">
             {/* Bio Title */}
             <div>
               <label htmlFor="bioTitle" className="block text-sm font-medium text-gray-700 mb-2">
@@ -91,7 +89,7 @@ const CreateTenantListingStep15 = ({ onNext, onPrev, formData, updateFormData })
             </div>
 
             {/* Pets */}
-            <div>
+            {/* <div>
               <label htmlFor="bioPets" className="block text-sm font-medium text-gray-700 mb-2">
                 Vilka husdjur har du, om något? 
                 <span className="text-gray-400 font-normal"> (Valfritt)</span>
@@ -107,28 +105,16 @@ const CreateTenantListingStep15 = ({ onNext, onPrev, formData, updateFormData })
               <Typography variant="body-sm" className="text-gray-500 mt-2">
                 Vilken sorts husdjur har du - en tax, en innekatt, en vandrande pinne?
               </Typography>
-            </div>
-          </div>
+            </div> */}
         </div>
 
-        <div className="px-8 py-6 bg-white border-t border-gray-200 flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label="Tillbaka"
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleNext}
-          >
-            Nästa
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={handleNext}
+          onPrev={onPrev}
+          nextText={t('common.next', 'Nästa')}
+          prevText={t('common.back', 'Tillbaka')}
+          className="mt-8"
+        />
       </div>
     </div>
   );

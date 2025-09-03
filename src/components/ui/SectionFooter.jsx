@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Button from './Button';
 import { ArrowLeft } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React from 'react';
+import Button from './Button';
 
 const SectionFooter = ({ 
   onNext, 
@@ -23,15 +23,15 @@ const SectionFooter = ({
     
     switch (variant) {
       case 'centered':
-        return `px-8 py-6 ${bgClass} flex items-center justify-center`;
+        return `py-6 ${bgClass} flex items-center justify-center`;
       case 'centered-wide':
-        return `px-8 py-6 ${bgClass} flex items-center justify-center w-full`;
+        return `py-6 ${bgClass} flex items-center justify-center w-full`;
       case 'left-tertiary-right-primary':
-        return `px-8 py-6 ${bgClass} flex items-center justify-between`;
+        return `py-6 ${bgClass} flex items-center justify-between`;
       case 'centered-tertiary-and-primary':
-        return `px-8 py-6 ${bgClass} flex items-center justify-center gap-4`;
+        return `py-6 ${bgClass} flex items-center justify-center gap-4`;
       default:
-        return `px-8 py-6 ${bgClass} flex items-center justify-between`;
+        return `py-6 ${bgClass} flex items-center justify-between`;
     }
   };
 

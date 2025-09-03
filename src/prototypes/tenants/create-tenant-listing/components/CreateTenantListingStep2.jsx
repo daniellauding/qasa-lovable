@@ -1,12 +1,12 @@
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { ArrowLeft, X } from 'lucide-react';
+import { X } from 'lucide-react';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, Marker, Polygon, TileLayer } from 'react-leaflet';
-import Button from '../../../../components/ui/Button';
 import Search from '../../../../components/ui/Search';
-import Typography from '../../../../components/ui/Typography';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 // Fix for default markers in react-leaflet
@@ -140,15 +140,14 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-4xl mx-auto px-6 py-8">
-        {/* Header */}
-        <div className="text-left mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-4">
-            {t('tenant.listing.step2.title', 'Var söker du bostad?')}
-          </Typography>
-          <Typography variant="body-lg" className="text-gray-600">
-            {t('tenant.listing.step2.subtitle', 'Ange de områden du är intresserad av att bo i')}
-          </Typography>
-        </div>
+        <SectionHeader 
+          title={t('tenant.listing.step2.title', 'Var söker du bostad?')}
+          description={t('tenant.listing.step2.subtitle', 'Ange de områden du är intresserad av att bo i')}
+          titleVariant="h1"
+          titleColor="text-gray-900"
+          descriptionColor="text-gray-600"
+          className="mb-8"
+        />
 
         {/* Search Input */}
         <div className="mb-8">
@@ -266,25 +265,13 @@ const CreateTenantListingStep2 = ({ onNext, onPrev, formData, updateFormData }) 
           </MapContainer>
         </div>
 
-        {/* Footer */}
-        <div className="flex items-center justify-between">
-          <Button
-            variant="tertiary"
-            size="lg"
-            onClick={onPrev}
-            iconOnly
-            icon={<ArrowLeft className="h-5 w-5" />}
-            aria-label={t('common.back', 'Tillbaka')}
-          />
-          
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleNext}
-          >
-            {t('common.next', 'Nästa')}
-          </Button>
-        </div>
+        <SectionFooter 
+          onNext={handleNext}
+          onPrev={onPrev}
+          nextText={t('common.next', 'Nästa')}
+          prevText={t('common.back', 'Tillbaka')}
+          className="mt-8"
+        />
       </div>
     </div>
   );
