@@ -8,20 +8,40 @@ import SectionFooter from '../../../../components/ui/SectionFooter';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
-// Create custom flat brown marker with no shadow
+// Create custom brown pin marker
 const createCustomMarkerIcon = () => {
   return L.divIcon({
     className: 'custom-marker',
     html: `
       <div style="
-        width: 24px;
-        height: 24px;
-        background-color: #322721;
-        border: 2px solid white;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
+        width: 30px;
+        height: 40px;
+        transform: translate(-50%, -100%);
         cursor: grab;
-      "></div>
+      ">
+        <div style="
+          width: 30px;
+          height: 30px;
+          background-color: #322721;
+          border: 3px solid white;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          position: absolute;
+          top: 0;
+          left: 0;
+        "></div>
+        <div style="
+          width: 12px;
+          height: 12px;
+          background-color: white;
+          border-radius: 50%;
+          position: absolute;
+          top: 6px;
+          left: 6px;
+          transform: rotate(45deg);
+        "></div>
+      </div>
       <style>
         .custom-marker {
           background: none !important;
@@ -30,8 +50,8 @@ const createCustomMarkerIcon = () => {
         }
       </style>
     `,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
+    iconSize: [30, 40],
+    iconAnchor: [15, 40],
   });
 };
 

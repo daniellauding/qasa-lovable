@@ -7,8 +7,8 @@ import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
 
 const CreateListingStep4 = ({ onNext, onPrev, formData, updateFormData }) => {
-  const [userType, setUserType] = useState(formData.userType || 'individual');
-  const [isProfessional, setIsProfessional] = useState(formData.isProfessional || 'no');
+  const [userType, setUserType] = useState(formData.userType || '');
+  const [isProfessional, setIsProfessional] = useState(formData.isProfessional || '');
   const [companyName, setCompanyName] = useState(formData.companyName || '');
   const [orgNumber, setOrgNumber] = useState(formData.orgNumber || '');
 

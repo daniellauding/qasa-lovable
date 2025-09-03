@@ -1,32 +1,33 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
-import RadioGroup from '../../../../components/ui/RadioGroup';
-import Select from '../../../../components/ui/Select';
+import React, { useState } from 'react';
 import HintBox from '../../../../components/ui/HintBox';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
+import Select from '../../../../components/ui/Select';
+import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
+  const { t } = useTranslation();
   const [propertyType, setPropertyType] = useState(formData.propertyType || '');
   const [ownership, setOwnership] = useState(formData.ownership || '');
 
   const propertyTypeOptions = [
-    { value: 'apartment', label: 'Lägenhet' },
-    { value: 'house', label: 'Villa' },
-    { value: 'terrace', label: 'Radhus' },
-    { value: 'cottage', label: 'Stuga' },
-    { value: 'duplex', label: 'Parhus' },
-    { value: 'corridor', label: 'Korridorsrum' },
-    { value: 'loft', label: 'Loftgångshus' },
-    { value: 'other', label: 'Övrigt' },
+    { value: 'apartment', label: t('landlords.createListing.step6.propertyTypes.apartment') },
+    { value: 'house', label: t('landlords.createListing.step6.propertyTypes.house') },
+    { value: 'terrace', label: t('landlords.createListing.step6.propertyTypes.terrace') },
+    { value: 'cottage', label: t('landlords.createListing.step6.propertyTypes.cottage') },
+    { value: 'duplex', label: t('landlords.createListing.step6.propertyTypes.duplex') },
+    { value: 'corridor', label: t('landlords.createListing.step6.propertyTypes.corridor') },
+    { value: 'loft', label: t('landlords.createListing.step6.propertyTypes.loft') },
+    { value: 'other', label: t('landlords.createListing.step6.propertyTypes.other') },
   ];
 
   const ownershipOptions = [
-    { value: '', label: 'Ange bostadsform' },
-    { value: 'condominium', label: 'Bostadsrätt' },
-    { value: 'proprietary', label: 'Villa eller äganderätt' },
-    { value: 'tenancy', label: 'Hyresrätt' },
+    { value: '', label: t('landlords.createListing.step6.ownershipPlaceholder') },
+    { value: 'condominium', label: t('landlords.createListing.step6.ownership.condominium') },
+    { value: 'proprietary', label: t('landlords.createListing.step6.ownership.proprietary') },
+    { value: 'tenancy', label: t('landlords.createListing.step6.ownership.tenancy') },
   ];
 
   const handlePropertyTypeChange = (value) => {
@@ -43,26 +44,26 @@ const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <SectionHeader title="Vilken typ av bostad är det?" />
+          <SectionHeader title={t('landlords.createListing.step6.title')} />
 
-          <div className="space-y-8">
-            <RadioGroup
-              label=""
-              options={propertyTypeOptions}
-              variant="card"
-              value={propertyType}
-              onValueChange={handlePropertyTypeChange}
-            />
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <RadioGroup
+                label=""
+                options={propertyTypeOptions}
+                variant="card"
+                value={propertyType}
+                onValueChange={handlePropertyTypeChange}
+              />
 
-            {propertyType === 'other' && (
               <HintBox>
-                Välj ''Övrigt'' om ingen av alternativen ovan matchar din typ av bostad
+                {t('landlords.createListing.step6.propertyTypeHint')}
               </HintBox>
-            )}
+            </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Bostadsform
+                {t('landlords.createListing.step6.ownershipLabel')}
               </label>
               <Select
                 value={ownership}
@@ -70,7 +71,7 @@ const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
                 options={ownershipOptions}
               />
               <HintBox className="mt-2">
-                Informationen kommer inte att visas i annonsen, men finns här så att vi kan hjälpa dig skriva ett korrekt hyresavtal när du är redo.
+                {t('landlords.createListing.step6.ownershipHint')}
               </HintBox>
             </div>
           </div>
