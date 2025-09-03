@@ -5,6 +5,7 @@ import DynamicHeader from '../../components/DynamicHeader';
 import Footer from '../../components/Footer';
 import Avatar from '../../components/ui/Avatar';
 import Button from '../../components/ui/Button';
+import { TenantCard } from '../../components/ui/Card';
 import Icon from '../../components/ui/Icon';
 import Search from '../../components/ui/Search';
 import TextArea from '../../components/ui/TextArea';
@@ -373,7 +374,7 @@ export default function MessagesPage() {
           <div className={`rounded-lg p-4 ${
             isLandlord 
               ? 'bg-[#DBEAFF] text-[var(--color-text-primary)]' 
-              : 'bg-gray-20 text-[var(--color-text-primary)]'
+              : 'bg-gray-200 text-[var(--color-text-primary)]'
           }`}>
             <Typography variant="body-md" className="whitespace-pre-wrap">
               {message.text}
@@ -390,7 +391,7 @@ export default function MessagesPage() {
       
       <div className="flex-1 flex overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
         {/* Conversations List */}
-        <div className="w-80 border-r border-[var(--color-border)] flex flex-col bg-white">
+        <div className="w-80 border-r border-[var(--color-border)] flex flex-col bg-white h-screen">
           <div className="p-4 border-b border-[var(--color-border)]">
             <div className="flex items-center justify-between mb-4">
               <Typography variant="title-xl" className="text-[var(--color-text-primary)]">{t('messages.inbox')}</Typography>
@@ -462,14 +463,14 @@ export default function MessagesPage() {
             />
           </div>
           
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-scroll">
             {filteredConversations.map((conversation) => (
               <Button
                 key={conversation.id}
                 variant="ghost"
                 onClick={() => setSelectedConversation(conversation.id)}
                 className={`w-full p-4 text-left justify-start h-auto bg-gray-50 hover:bg-[var(--color-background-inset)] ${
-                  selectedConversation === conversation.id ? 'bg-gray-20' : ''
+                  selectedConversation === conversation.id ? 'bg-gray-200' : ''
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -630,72 +631,21 @@ export default function MessagesPage() {
                 {/* User Profile Section */}
                 {selectedConv.user.age && (
                   <div className="p-4 border-b border-[var(--color-border)] bg-white">
-                    <Button 
-                      variant="ghost"
-                      onClick={() => navigate('/tenants/profile?view=public')}
-                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-[var(--color-background-inset)] transition-colors text-left justify-start h-auto"
-                    >
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="relative">
-                          <Avatar
-                            src={selectedConv.user.avatar}
-                            alt={selectedConv.user.name}
-                            size="lg"
-                          />
-                          <div className="absolute -bottom-1 -right-1 bg-[var(--color-primary)] text-white text-xs px-2 py-1 rounded-full">
-                            {selectedConv.user.matchPercentage}% matching
-                          </div>
-                        </div>
-                        <div className="flex-1">
-                          <Typography variant="title-md" className="text-[var(--color-text-primary)] mb-1">
-                            {selectedConv.user.name} ({selectedConv.user.age})
-                          </Typography>
-                          <Typography variant="body-md" className="text-[var(--color-text-secondary)] mb-3">
-                            {selectedConv.user.bio}
-                          </Typography>
-                          <div className="flex gap-4 mb-4">
-                            <div className="flex items-center gap-2">
-                              <Icon name="IdCard" className="w-4 h-4 text-[var(--color-text-secondary)]" />
-                              <Typography variant="label-md" className="font-semibold">{t('messages.idVerified')}</Typography>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <Icon name="Home" className="w-4 h-4 text-[var(--color-text-secondary)]" />
-                              <Typography variant="label-md" className="font-semibold">{t('messages.reference')}</Typography>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Match Criteria */}
-                      <div className="space-y-3">
-                        {Object.entries(selectedConv.user.criteria).map(([key, criterion]) => (
-                          <div key={key} className="flex items-center gap-3">
-                            <div className="w-5 h-5 flex-shrink-0">
-                              {key === 'people' && <Icon name="Users" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
-                              {key === 'space' && <Icon name="Home" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
-                              {key === 'budget' && <Icon name="DollarSign" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
-                              {key === 'furnished' && <Icon name="Building" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
-                              {key === 'dates' && <Icon name="Calendar" className="w-5 h-5 text-[var(--color-text-secondary)]" />}
-                            </div>
-                            <div className="flex-1">
-                              <Typography variant="body-md" className="text-[var(--color-text-primary)]">
-                                {criterion.requested}
-                              </Typography>
-                              <div className="flex items-center gap-2 mt-1">
-                                {criterion.matches ? (
-                                  <Icon name="CheckCircle" className="w-4 h-4 text-[var(--color-success)]" />
-                                ) : (
-                                  <Icon name="XCircle" className="w-4 h-4 text-[var(--color-danger)]" />
-                                )}
-                                <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
-                                  {criterion.matches ? t('messages.match') : (criterion.note || t('messages.noMatch'))}
-                                </Typography>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </Button>
+                    <TenantCard
+                      user={{
+                        name: selectedConv.user.name,
+                        avatar: selectedConv.user.avatar,
+                        description: selectedConv.user.bio,
+                        people: selectedConv.user.criteria.people.requested,
+                        rooms: selectedConv.user.criteria.space.requested,
+                        maxRent: selectedConv.user.criteria.budget.requested,
+                        furnished: selectedConv.user.criteria.furnished.requested,
+                        moveDate: selectedConv.user.criteria.dates.requested
+                      }}
+                      verified={selectedConv.user.verified}
+                      matchPercentage={selectedConv.user.matchPercentage}
+                      onCardClick={() => navigate('/tenants/profile?view=public')}
+                    />
                   </div>
                 )}
 
