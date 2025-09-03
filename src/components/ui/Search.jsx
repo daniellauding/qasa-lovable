@@ -8,6 +8,7 @@ const Search = forwardRef(({
   variant = 'default',
   className = '',
   iconColorClass = 'text-gray-800',
+  icon = true,
   ...props
 }, ref) => {
   const sizeClasses = {
@@ -29,9 +30,11 @@ const Search = forwardRef(({
 
   return (
     <div className="relative w-full">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-4">
-        <SearchIcon className={`${iconSizeClasses[size]} ${iconColorClass}`} />
-      </div>
+      {icon && (
+        <div className="absolute inset-y-0 left-0 flex items-center pl-4">
+          <SearchIcon className={`${iconSizeClasses[size]} ${iconColorClass}`} />
+        </div>
+      )}
       <input
         ref={ref}
         type="text"
@@ -39,7 +42,7 @@ const Search = forwardRef(({
         className={`
           w-full
           ${sizeClasses[size]}
-          pl-12
+          ${icon ? 'pl-12' : ''}
           rounded-full
           ${variantClasses[variant]}
           focus:outline-none
@@ -63,6 +66,8 @@ Search.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   variant: PropTypes.oneOf(['default', 'filled']),
   className: PropTypes.string,
+  iconColorClass: PropTypes.string,
+  icon: PropTypes.bool,
 };
 
 export default Search; 

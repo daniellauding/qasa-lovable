@@ -9,37 +9,12 @@ import Icon from '../../components/ui/Icon';
 import Search from '../../components/ui/Search';
 import TextArea from '../../components/ui/TextArea';
 import Typography from '../../components/ui/Typography';
+import { useTranslation } from '../../utils/translations/LanguageContext';
 
 export default function MessagesPage() {
   const navigate = useNavigate();
-  const [selectedConversation, setSelectedConversation] = useState('oscar');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [messageText, setMessageText] = useState('');
-  const [favoriteConversations, setFavoriteConversations] = useState(new Set(['martina']));
-  const [showFilterDropdown, setShowFilterDropdown] = useState(false);
-  const [showConversationDropdown, setShowConversationDropdown] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const { t } = useTranslation();
   
-  const filterDropdownRef = useRef(null);
-  const conversationDropdownRef = useRef(null);
-
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (filterDropdownRef.current && !filterDropdownRef.current.contains(event.target)) {
-        setShowFilterDropdown(false);
-      }
-      if (conversationDropdownRef.current && !conversationDropdownRef.current.contains(event.target)) {
-        setShowConversationDropdown(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   const conversations = [
     {
       id: 'oscar',
@@ -181,21 +156,119 @@ export default function MessagesPage() {
       id: 'martina',
       user: {
         name: 'Martina',
-        avatar: 'https://img.qasa.se/unsafe/fit-in/300x300/https://qasa-static-prod.s3-eu-west-1.amazonaws.com/img/another-user.jpg'
+        age: 29,
+        avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b05a?w=150&h=150&fit=crop&crop=face',
+        bio: 'Lärare söker familjevänligt boende i Stockholm',
+        matchPercentage: 78,
+        verified: true,
+        criteria: {
+          people: { requested: '1 person', matches: true },
+          space: { requested: '2 rum, 50 m²', matches: true },
+          budget: { requested: 'Max SEK 18,000', matches: false },
+          furnished: { requested: 'Omöblerad', matches: true },
+          dates: { requested: '2025-06-01 → Tillsvidare', matches: true }
+        }
       },
       property: {
         address: 'Sveavägen, Stockholm',
         type: 'Villa',
         rooms: '2 rum',
         size: '200 m²',
+        image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=200&h=200&fit=crop',
         price: 36732
       },
       lastMessage: 'Du: Hi there! I\'m reaching o...',
       lastMessageTime: '16 juni',
       messages: [],
       isClosed: true
+    },
+    {
+      id: 'emma',
+      user: {
+        name: 'Emma',
+        age: 25,
+        avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+        bio: 'Student på KTH söker bostad nära campus',
+        matchPercentage: 92,
+        verified: true,
+        criteria: {
+          people: { requested: '1 person', matches: true },
+          space: { requested: '1 rum, 25 m²', matches: true },
+          budget: { requested: 'Max SEK 12,000', matches: true },
+          furnished: { requested: 'Möblerad', matches: true },
+          dates: { requested: '2025-08-15 → 2026-06-15', matches: true }
+        }
+      },
+      property: {
+        address: 'Östermalm, Stockholm',
+        type: 'Lägenhet',
+        rooms: '1 rum',
+        size: '28 m²',
+        image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=200&h=200&fit=crop',
+        price: 11500
+      },
+      lastMessage: 'Hej! Kan jag få veta mer om...',
+      lastMessageTime: '2 tim',
+      messages: []
+    },
+    {
+      id: 'lars',
+      user: {
+        name: 'Lars',
+        age: 34,
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+        bio: 'Ingenjör med familj söker större bostad',
+        matchPercentage: 65,
+        verified: true,
+        criteria: {
+          people: { requested: '3 personer', matches: false },
+          space: { requested: '3 rum, 80 m²', matches: false },
+          budget: { requested: 'Max SEK 25,000', matches: true },
+          furnished: { requested: 'Omöblerad', matches: true },
+          dates: { requested: '2025-09-01 → Tillsvidare', matches: true }
+        }
+      },
+      property: {
+        address: 'Södermalm, Stockholm',
+        type: 'Lägenhet',
+        rooms: '2 rum',
+        size: '55 m²',
+        image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=200&h=200&fit=crop',
+        price: 19800
+      },
+      lastMessage: 'Tack för snabbt svar!',
+      lastMessageTime: '1 dag',
+      messages: []
     }
   ];
+
+  const [selectedConversation, setSelectedConversation] = useState(conversations[0]?.id || 'oscar');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [messageText, setMessageText] = useState('');
+  const [favoriteConversations, setFavoriteConversations] = useState(new Set(['martina']));
+  const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+  const [showConversationDropdown, setShowConversationDropdown] = useState(false);
+  const [activeFilter, setActiveFilter] = useState('all');
+  
+  const filterDropdownRef = useRef(null);
+  const conversationDropdownRef = useRef(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (filterDropdownRef.current && !filterDropdownRef.current.contains(event.target)) {
+        setShowFilterDropdown(false);
+      }
+      if (conversationDropdownRef.current && !conversationDropdownRef.current.contains(event.target)) {
+        setShowConversationDropdown(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const selectedConv = conversations.find(c => c.id === selectedConversation);
   const filteredConversations = conversations.filter(conv =>
@@ -232,14 +305,14 @@ export default function MessagesPage() {
               <Icon name="AlertTriangle" className="w-5 h-5 text-[var(--color-warning)] mt-0.5 flex-shrink-0" />
               <div className="flex-1">
                 <Typography variant="title-sm" className="font-semibold text-[var(--color-text-primary)] mb-1">
-                  {message.warning.title}
+                  {t('messages.suspiciousBehavior')}
                 </Typography>
                 <Typography variant="body-sm" className="text-[var(--color-text-secondary)] mb-3">
-                  {message.warning.text}
+                  {t('messages.suspiciousText')}
                 </Typography>
                 <div className="flex gap-2">
-                  <Button variant="ghost" size="sm">Why are you warning me about this?</Button>
-                  <Button variant="ghost" size="sm" className="text-[var(--color-danger)]">Report Oscar</Button>
+                  <Button variant="ghost" size="sm">{t('messages.whyWarning')}</Button>
+                  <Button variant="ghost" size="sm" className="text-[var(--color-danger)]">{t('messages.reportPerson', { name: 'Oscar' })}</Button>
                 </div>
               </div>
             </div>
@@ -299,8 +372,8 @@ export default function MessagesPage() {
         <div className={`max-w-md ${isLandlord ? 'ml-auto' : 'mr-auto'}`}>
           <div className={`rounded-lg p-4 ${
             isLandlord 
-              ? 'bg-[var(--color-background-inset)] text-[var(--color-text-primary)]' 
-              : 'bg-[var(--color-primary)] text-white'
+              ? 'bg-[#DBEAFF] text-[var(--color-text-primary)]' 
+              : 'bg-gray-20 text-[var(--color-text-primary)]'
           }`}>
             <Typography variant="body-md" className="whitespace-pre-wrap">
               {message.text}
@@ -317,73 +390,86 @@ export default function MessagesPage() {
       
       <div className="flex-1 flex overflow-hidden" style={{ height: 'calc(100vh - 80px)' }}>
         {/* Conversations List */}
-        <div className="w-80 border-r border-gray-200 flex flex-col bg-white">
-          <div className="p-4 border-b border-gray-200">
+        <div className="w-80 border-r border-[var(--color-border)] flex flex-col bg-white">
+          <div className="p-4 border-b border-[var(--color-border)]">
             <div className="flex items-center justify-between mb-4">
-              <Typography variant="title-xl" className="text-[var(--color-text-primary)]">Inkorg</Typography>
+              <Typography variant="title-xl" className="text-[var(--color-text-primary)]">{t('messages.inbox')}</Typography>
               <div className="relative" ref={filterDropdownRef}>
                 <Button 
                   variant="ghost"
+                  className="bg-white"
                   size="sm"
                   iconOnly
+                  icon={<Icon name="Settings" className="w-6 h-6 text-[var(--color-text-secondary)]" />}
                   onClick={() => setShowFilterDropdown(!showFilterDropdown)}
-                >
-                  <Icon name="Settings" className="w-6 h-6" />
-                </Button>
+                />
                 
                 {showFilterDropdown && (
-                  <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-[var(--color-border)] rounded-lg shadow-lg z-50">
                     <div className="p-2">
-                      <button 
+                      <Button 
+                        variant="ghost"
+                        size="sm"
                         onClick={() => { setActiveFilter('all'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'all' ? 'bg-[var(--color-background-inset)]' : ''}`}
+                        className={`w-full justify-start ${activeFilter === 'all' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body-md" className="text-[var(--color-text-primary)]">All conversations</Typography>
-                      </button>
-                      <button 
+                        <Typography variant="body-md" className="text-[var(--color-text-primary)]">{t('messages.allConversations')}</Typography>
+                      </Button>
+                      <Button 
+                        variant="ghost"
+                        size="sm"
                         onClick={() => { setActiveFilter('active'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'active' ? 'bg-[var(--color-background-inset)]' : ''}`}
+                        className={`w-full justify-start ${activeFilter === 'active' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Active conversations</Typography>
-                      </button>
-                      <button 
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">{t('messages.activeConversations')}</Typography>
+                      </Button>
+                      <Button 
+                        variant="ghost"
+                        size="sm"
                         onClick={() => { setActiveFilter('archived'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'archived' ? 'bg-[var(--color-background-inset)]' : ''}`}
+                        className={`w-full justify-start ${activeFilter === 'archived' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Archived conversations</Typography>
-                      </button>
-                      <button 
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">{t('messages.archivedConversations')}</Typography>
+                      </Button>
+                      <Button 
+                        variant="ghost"
+                        size="sm"
                         onClick={() => { setActiveFilter('favorited'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'favorited' ? 'bg-[var(--color-background-inset)]' : ''}`}
+                        className={`w-full justify-start ${activeFilter === 'favorited' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
                         <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Favorited conversations</Typography>
-                      </button>
-                      <button 
+                      </Button>
+                      <Button 
+                        variant="ghost"
+                        size="sm"
                         onClick={() => { setActiveFilter('home'); setShowFilterDropdown(false); }}
-                        className={`w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)] ${activeFilter === 'home' ? 'bg-[var(--color-background-inset)]' : ''}`}
+                        className={`w-full justify-start ${activeFilter === 'home' ? 'bg-[var(--color-background-inset)]' : ''}`}
                       >
-                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">Filter by home</Typography>
-                      </button>
+                        <Typography variant="body-md" className="text-[var(--color-text-secondary)]">{t('messages.filterByHome')}</Typography>
+                      </Button>
                     </div>
                   </div>
                 )}
               </div>
             </div>
             <Search
-              placeholder="Sök"
+              placeholder={t('messages.search')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              variant="filled"
+              variant="default"
+              className="rounded-lg"
+              icon={false}
             />
           </div>
           
           <div className="flex-1 overflow-y-auto">
             {filteredConversations.map((conversation) => (
-              <button
+              <Button
                 key={conversation.id}
+                variant="ghost"
                 onClick={() => setSelectedConversation(conversation.id)}
-                className={`w-full p-4 text-left border-b border-[var(--color-border)] hover:bg-[var(--color-background-inset)] ${
-                  selectedConversation === conversation.id ? 'bg-[var(--color-background-inset)]' : ''
+                className={`w-full p-4 text-left justify-start h-auto bg-gray-50 hover:bg-[var(--color-background-inset)] ${
+                  selectedConversation === conversation.id ? 'bg-gray-20' : ''
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -397,18 +483,17 @@ export default function MessagesPage() {
                       variant="ghost"
                       size="xs"
                       iconOnly
+                      icon={favoriteConversations.has(conversation.id) ? (
+                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-primary)] fill-current" />
+                      ) : (
+                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-text-secondary)]" />
+                      )}
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleFavorite(conversation.id);
                       }}
                       className="absolute -top-1 -right-1"
-                    >
-                      {favoriteConversations.has(conversation.id) ? (
-                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-primary)] fill-current" />
-                      ) : (
-                        <Icon name="Heart" className="w-4 h-4 text-[var(--color-text-secondary)]" />
-                      )}
-                    </Button>
+                    />
                   </div>
                   
                   <div className="flex-1 min-w-0">
@@ -432,7 +517,7 @@ export default function MessagesPage() {
                     </div>
                   </div>
                 </div>
-              </button>
+              </Button>
             ))}
           </div>
         </div>
@@ -444,9 +529,10 @@ export default function MessagesPage() {
               {/* Conversation Header - Sticky */}
               <div className="p-4 border-b border-[var(--color-border)] bg-white">
                 <div className="flex items-center justify-between">
-                  <button 
+                  <Button 
+                    variant="ghost"
                     onClick={() => navigate('/tenants/profile?view=public')}
-                    className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                    className="flex items-center gap-3 hover:opacity-80 transition-opacity justify-start h-auto p-0"
                   >
                     <Avatar
                       src={selectedConv.user.avatar}
@@ -461,48 +547,54 @@ export default function MessagesPage() {
                         {selectedConv.property.address}
                       </Typography>
                     </div>
-                  </button>
+                  </Button>
                   <div className="relative" ref={conversationDropdownRef}>
                     <Button 
                       variant="ghost"
                       size="sm"
                       iconOnly
+                      icon={<Icon name="MoreVertical" className="w-6 h-6 text-[var(--color-text-secondary)]" />}
                       onClick={() => setShowConversationDropdown(!showConversationDropdown)}
-                    >
-                      <Icon name="MoreVertical" className="w-6 h-6" />
-                    </Button>
+                    />
                     
                     {showConversationDropdown && (
                       <div className="absolute right-0 top-full mt-2 w-48 bg-white border border-[var(--color-border)] rounded-lg shadow-lg z-50">
                         <div className="p-2">
-                          <button 
+                          <Button 
+                            variant="ghost"
+                            size="sm"
                             onClick={() => {
                               navigate('/tenants/profile?view=public');
                               setShowConversationDropdown(false);
                             }}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
+                            className="w-full justify-start"
                           >
-                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">View profile</Typography>
-                          </button>
-                          <a 
-                            href="#" 
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">{t('messages.viewProfile')}</Typography>
+                          </Button>
+                          <Button 
+                            variant="ghost"
+                            size="sm"
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
+                            className="w-full justify-start"
                           >
-                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">View home</Typography>
-                          </a>
-                          <button 
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">{t('messages.viewHome')}</Typography>
+                          </Button>
+                          <Button 
+                            variant="ghost"
+                            size="sm"
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
+                            className="w-full justify-start"
                           >
-                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">Report user</Typography>
-                          </button>
-                          <button 
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">{t('messages.reportUser')}</Typography>
+                          </Button>
+                          <Button 
+                            variant="ghost"
+                            size="sm"
                             onClick={() => setShowConversationDropdown(false)}
-                            className="flex items-center w-full text-left px-3 py-2 rounded hover:bg-[var(--color-background-inset)]"
+                            className="w-full justify-start"
                           >
-                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">Archive conversation</Typography>
-                          </button>
+                            <Typography variant="body-md" className="text-[var(--color-text-primary)]">{t('messages.archiveConversation')}</Typography>
+                          </Button>
                         </div>
                       </div>
                     )}
@@ -538,9 +630,10 @@ export default function MessagesPage() {
                 {/* User Profile Section */}
                 {selectedConv.user.age && (
                   <div className="p-4 border-b border-[var(--color-border)] bg-white">
-                    <button 
+                    <Button 
+                      variant="ghost"
                       onClick={() => navigate('/tenants/profile?view=public')}
-                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-[var(--color-background-inset)] transition-colors text-left"
+                      className="w-full bg-[var(--color-background-inset)] rounded-lg p-4 hover:bg-[var(--color-background-inset)] transition-colors text-left justify-start h-auto"
                     >
                       <div className="flex items-start gap-4 mb-4">
                         <div className="relative">
@@ -563,11 +656,11 @@ export default function MessagesPage() {
                           <div className="flex gap-4 mb-4">
                             <div className="flex items-center gap-2">
                               <Icon name="IdCard" className="w-4 h-4 text-[var(--color-text-secondary)]" />
-                              <Typography variant="label-md" className="font-semibold">ID Verified</Typography>
+                              <Typography variant="label-md" className="font-semibold">{t('messages.idVerified')}</Typography>
                             </div>
                             <div className="flex items-center gap-2">
                               <Icon name="Home" className="w-4 h-4 text-[var(--color-text-secondary)]" />
-                              <Typography variant="label-md" className="font-semibold">Reference</Typography>
+                              <Typography variant="label-md" className="font-semibold">{t('messages.reference')}</Typography>
                             </div>
                           </div>
                         </div>
@@ -595,14 +688,14 @@ export default function MessagesPage() {
                                   <Icon name="XCircle" className="w-4 h-4 text-[var(--color-danger)]" />
                                 )}
                                 <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
-                                  {criterion.matches ? 'Match' : (criterion.note || 'No match')}
+                                  {criterion.matches ? t('messages.match') : (criterion.note || t('messages.noMatch'))}
                                 </Typography>
                               </div>
                             </div>
                           </div>
                         ))}
                       </div>
-                    </button>
+                    </Button>
                   </div>
                 )}
 
@@ -612,7 +705,7 @@ export default function MessagesPage() {
                     <div className="flex justify-center p-4">
                       <div className="bg-[var(--color-background-inset)] rounded-lg px-4 py-2">
                         <Typography variant="body-md" className="text-[var(--color-text-secondary)]">
-                          This conversation is closed.
+                          {t('messages.conversationClosed')}
                         </Typography>
                       </div>
                     </div>
@@ -632,7 +725,7 @@ export default function MessagesPage() {
                     <TextArea
                       value={messageText}
                       onChange={(e) => setMessageText(e.target.value)}
-                      placeholder={selectedConv.isClosed ? "This conversation is closed" : "Skriv meddelande"}
+                      placeholder={selectedConv.isClosed ? t('messages.conversationClosed') : t('messages.writeMessage')}
                       disabled={selectedConv.isClosed}
                       rows={2}
                       className="w-full"
@@ -643,18 +736,16 @@ export default function MessagesPage() {
                       variant={messageText.trim() && !selectedConv.isClosed ? "primary" : "ghost"}
                       size="md"
                       iconOnly
+                      icon={<Icon name="Send" className="w-5 h-5" />}
                       disabled={!messageText.trim() || selectedConv.isClosed}
-                    >
-                      <Icon name="Send" className="w-5 h-5" />
-                    </Button>
+                    />
                     <Button 
                       variant="ghost"
                       size="md"
                       iconOnly
+                      icon={<Icon name="Camera" className="w-6 h-6" />}
                       disabled={selectedConv.isClosed}
-                    >
-                      <Icon name="Camera" className="w-6 h-6" />
-                    </Button>
+                    />
                   </div>
                 </div>
               </div>
@@ -682,13 +773,13 @@ export default function MessagesPage() {
 
               <div className="space-y-6">
                 <div>
-                  <Typography variant="title-lg" className="text-[var(--color-text-primary)] mb-4">Vid signering</Typography>
+                  <Typography variant="title-lg" className="text-[var(--color-text-primary)] mb-4">{t('messages.signingBenefits')}</Typography>
                   <div className="space-y-3">
                     {[
-                      { icon: '🤝', text: 'Enklare för hyresgäster' },
-                      { icon: '⏰', text: 'Hyra i tid' },
-                      { icon: '☂️', text: 'Försäkrat via Qasa' },
-                      { icon: '✍️', text: 'Skydd och experthjälp' }
+                      { icon: '🤝', text: t('messages.benefits.easier') },
+                      { icon: '⏰', text: t('messages.benefits.onTime') },
+                      { icon: '☂️', text: t('messages.benefits.insured') },
+                      { icon: '✍️', text: t('messages.benefits.protection') }
                     ].map((benefit, idx) => (
                       <div key={idx} className="flex items-center gap-3">
                         <span className="text-lg">{benefit.icon}</span>
@@ -701,23 +792,23 @@ export default function MessagesPage() {
                   
                   <div className="mt-4">
                     <Typography variant="title-sm" className="text-[var(--color-text-primary)] mb-2">
-                      Hur kan detta vara gratis?
+                      {t('messages.howIsFree')}
                     </Typography>
                     <Typography variant="body-sm" className="text-[var(--color-text-secondary)]">
-                      Hyresgästen betalar en serviceavgift på 4,95% när de hyr bostaden.
+                      {t('messages.serviceFee')}
                     </Typography>
                   </div>
                 </div>
 
                 <div className="border-t border-[var(--color-border)] pt-4">
                   <div className="flex justify-between items-center mb-4">
-                    <Typography variant="title-md" className="text-[var(--color-text-primary)]">Månadsutbetalning</Typography>
+                    <Typography variant="title-md" className="text-[var(--color-text-primary)]">{t('messages.monthlyPayout')}</Typography>
                     <Typography variant="title-md" className="font-semibold">SEK {selectedConv.property.price.toLocaleString()}</Typography>
                   </div>
                   
                   <div className="space-y-2">
-                    <Button variant="primary" className="w-full">Till kontrakt</Button>
-                    <Button variant="outline" className="w-full">Visa hyresbetalningar</Button>
+                    <Button variant="primary" className="w-full">{t('messages.toContract')}</Button>
+                    <Button variant="outline" className="w-full">{t('messages.viewRentalPayments')}</Button>
                   </div>
                 </div>
               </div>

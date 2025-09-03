@@ -1224,5 +1224,42 @@ export const sv = {
       back: 'Tillbaka',
       next: 'Nästa'
     }
+  },
+
+  // Messages
+  messages: {
+    inbox: 'Inkorg',
+    search: 'Sök',
+    writeMessage: 'Skriv meddelande',
+    conversationClosed: 'Denna konversation är stängd',
+    allConversations: 'Alla konversationer',
+    activeConversations: 'Aktiva konversationer',
+    archivedConversations: 'Arkiverade konversationer',
+    favoritedConversations: 'Favoritmarkerade konversationer',
+    filterByHome: 'Filtrera efter bostad',
+    viewProfile: 'Visa profil',
+    viewHome: 'Visa bostad',
+    reportUser: 'Rapportera användare',
+    archiveConversation: 'Arkivera konversation',
+    whyWarning: 'Varför varnar ni mig för detta?',
+    reportPerson: 'Rapportera {name}',
+    suspiciousBehavior: 'Misstänkt beteende',
+    suspiciousText: 'Var försiktig med telefonnummer, e-postadresser och URL:er i chatten. Vi rekommenderar att hålla all kontakt i chatten om möjligt.',
+    monthlyPayout: 'Månadsutbetalning',
+    toContract: 'Till kontrakt',
+    viewRentalPayments: 'Visa hyresbetalningar',
+    signingBenefits: 'Vid signering',
+    benefits: {
+      easier: 'Enklare för hyresgäster',
+      onTime: 'Hyra i tid', 
+      insured: 'Försäkrat via Qasa',
+      protection: 'Skydd och experthjälp'
+    },
+    howIsFree: 'Hur kan detta vara gratis?',
+    serviceFee: 'Hyresgästen betalar en serviceavgift på 4,95% när de hyr bostaden.',
+    idVerified: 'ID-verifierad',
+    reference: 'Referens',
+    match: 'Matchar',
+    noMatch: 'Matchar inte'
   }
 }; 
