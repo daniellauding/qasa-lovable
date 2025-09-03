@@ -5,6 +5,7 @@ import Button from '../../../../components/ui/Button';
 import Chip from '../../../../components/ui/Chip';
 import HintBox from '../../../../components/ui/HintBox';
 import Input from '../../../../components/ui/Input';
+import Modal from '../../../../components/ui/Modal';
 import SectionFooter from '../../../../components/ui/SectionFooter';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import Typography from '../../../../components/ui/Typography';
@@ -85,14 +86,11 @@ const CreateListingStep16 = ({ onNext, onPrev, formData, updateFormData }) => {
                 {t('landlords.createListing.step16.rentHelperText')}
               </Typography>
               
-              {/* Warning Chip */}
-              {isOverRecommended && (
-                <div className="mt-2">
+              <div className="mt-4">
                   <Chip size="sm" className="bg-orange-100 text-orange-800 border-orange-200">
                     {t('landlords.createListing.step16.overRecommendedChip')}
                   </Chip>
                 </div>
-              )}
             </div>
 
             {/* Payment Guarantee */}
@@ -119,71 +117,57 @@ const CreateListingStep16 = ({ onNext, onPrev, formData, updateFormData }) => {
       </div>
 
       {/* Recommended Rent Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
-            <div className="p-6">
-              <div className="flex justify-between items-center mb-4">
-                <Typography variant="title-md" className="text-gray-900">
-                  {t('landlords.createListing.step16.modalTitle')}
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        title={t('landlords.createListing.step16.modalTitle')}
+        className="max-w-md"
+        showFooter={true}
+        footerProps={{
+          onNext: () => setShowModal(false),
+          nextText: 'Stäng',
+          nextVariant: 'tertiary',
+          showPrev: false,
+          className: 'flex justify-center'
+        }}
+      >
+        <div className="space-y-4">
+          <Typography variant="body-md" className="text-gray-600">
+            {t('landlords.createListing.step16.modalDescription')}
+          </Typography>
+          
+          <Typography variant="body-md" className="text-gray-600">
+            {t('landlords.createListing.step16.modalPriceRange')}
+          </Typography>
+          
+          <div className="space-y-3">
+            <Typography variant="body-md" className="text-gray-900 font-medium">
+              {t('landlords.createListing.step16.modalFactorsTitle')}
+            </Typography>
+            
+            <div className="space-y-2">
+              <div className="flex items-center gap-3">
+                <Home className="w-5 h-5 text-[var(--color-text-secondary)]" />
+                <Typography variant="body-sm" className="text-gray-600">
+                  {t('landlords.createListing.step16.modalFactors.size')}
                 </Typography>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setShowModal(false)}
-                  iconOnly
-                  icon={<span className="text-xl">×</span>}
-                />
               </div>
-              
-              <div className="space-y-4">
-                <Typography variant="body-md" className="text-gray-600">
-                  {t('landlords.createListing.step16.modalDescription')}
+              <div className="flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-[var(--color-text-secondary)]" />
+                <Typography variant="body-sm" className="text-gray-600">
+                  {t('landlords.createListing.step16.modalFactors.address')}
                 </Typography>
-                
-                <Typography variant="body-md" className="text-gray-600">
-                  {t('landlords.createListing.step16.modalPriceRange')}
-                </Typography>
-                
-                <div className="space-y-3">
-                  <Typography variant="body-md" className="text-gray-900 font-medium">
-                    {t('landlords.createListing.step16.modalFactorsTitle')}
-                  </Typography>
-                  
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-3">
-                      <Home className="w-5 h-5 text-[var(--color-text-secondary)]" />
-                      <Typography variant="body-sm" className="text-gray-600">
-                        {t('landlords.createListing.step16.modalFactors.size')}
-                      </Typography>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MapPin className="w-5 h-5 text-[var(--color-text-secondary)]" />
-                      <Typography variant="body-sm" className="text-gray-600">
-                        {t('landlords.createListing.step16.modalFactors.address')}
-                      </Typography>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <Wifi className="w-5 h-5 text-[var(--color-text-secondary)]" />
-                      <Typography variant="body-sm" className="text-gray-600">
-                        {t('landlords.createListing.step16.modalFactors.amenities')}
-                      </Typography>
-                    </div>
-                  </div>
-                </div>
               </div>
-              
-              <Button 
-                variant="primary" 
-                onClick={() => setShowModal(false)} 
-                className="w-full mt-6"
-              >
-                Stäng
-              </Button>
+              <div className="flex items-center gap-3">
+                <Wifi className="w-5 h-5 text-[var(--color-text-secondary)]" />
+                <Typography variant="body-sm" className="text-gray-600">
+                  {t('landlords.createListing.step16.modalFactors.amenities')}
+                </Typography>
+              </div>
             </div>
           </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 };
