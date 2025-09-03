@@ -23,7 +23,7 @@ const LoginStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
     <div className="min-h-[calc(100vh-64px)] bg-transparent flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-3xl p-8">
         <div className="text-left mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-2">
+          <Typography variant="display-sm" className="text-gray-900 mb-2">
             Glömt lösenord
           </Typography>
           <Typography variant="body-md">

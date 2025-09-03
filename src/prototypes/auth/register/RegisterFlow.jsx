@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
 import DevExperimentsButton from '../../../components/DevExperimentsButton';
+import HeaderCreationFlow from '../../../components/Header/HeaderCreationFlow';
 import RegisterStep1 from './components/RegisterStep1';
 import RegisterStep2 from './components/RegisterStep2';
 import RegisterStep3 from './components/RegisterStep3';
@@ -87,9 +87,9 @@ const RegisterFlow = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-[var(--color-background-inset)]">
       <HeaderCreationFlow onDismiss={handleDismiss} />
-      <main className="flex-grow">
+      <main className="flex-grow bg-transparent">
         {renderStep()}
       </main>
       <DevExperimentsButton />

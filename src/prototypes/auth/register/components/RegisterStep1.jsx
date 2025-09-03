@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
 import Input from '../../../../components/ui/Input';
 import RadioGroup from '../../../../components/ui/RadioGroup';
-import { useNavigate } from 'react-router-dom';
+import Typography from '../../../../components/ui/Typography';
 
 const RegisterStep1 = ({ onNext, formData, updateFormData }) => {
   const navigate = useNavigate();
@@ -43,10 +43,10 @@ const RegisterStep1 = ({ onNext, formData, updateFormData }) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-[calc(100vh-64px)] bg-transparent flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-8">
         <div className="text-center mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-4">
+          <Typography variant="display-sm" className="text-gray-900 mb-4">
             Välkommen hem
           </Typography>
           <Typography variant="body-md" className="text-gray-600">

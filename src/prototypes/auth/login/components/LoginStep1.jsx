@@ -4,9 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../../../components/ui/Button';
 import Input from '../../../../components/ui/Input';
 import Typography from '../../../../components/ui/Typography';
+import { useAuth } from '../../../../contexts/AuthContext';
 
 const LoginStep1 = ({ onNext, formData, updateFormData }) => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [email, setEmail] = useState(formData.email || '');
   const [password, setPassword] = useState(formData.password || '');
 
@@ -30,15 +32,17 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // No validation - always allow continue
+    // Log user in and navigate to landing page
     console.log('Login attempted with:', { email, password });
+    login(); // Set authentication state
+    navigate('/landing'); // Navigate to landing page
   };
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-transparent flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-3xl p-8">
         <div className="text-left mb-8">
-          <Typography variant="h1" className="text-gray-900 mb-2">
+          <Typography variant="display-sm" className="text-gray-900 mb-2">
             Välkommen tillbaka
           </Typography>
           <Typography variant="body-md" className="text-gray-600">
@@ -94,7 +98,7 @@ const LoginStep1 = ({ onNext, formData, updateFormData }) => {
         </form>
 
         <div className="mt-8 text-center gap-2 flex flex-col">
-          <Typography variant="title-xxs">
+          <Typography variant="body-md" color="secondary">
             Har du inget konto?
           </Typography>
           <Button
