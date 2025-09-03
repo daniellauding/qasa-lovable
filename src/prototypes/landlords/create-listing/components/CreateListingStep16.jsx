@@ -4,55 +4,34 @@ import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import SectionFooter from '../../../../components/ui/SectionFooter';
 import RadioGroup from '../../../../components/ui/RadioGroup';
-import Select from '../../../../components/ui/Select';
+import Input from '../../../../components/ui/Input';
 
 const CreateListingStep16 = ({ onNext, onPrev, formData, updateFormData }) => {
-  const [maxOccupants, setMaxOccupants] = useState(formData.maxOccupants || '3');
-  const [petsAllowed, setPetsAllowed] = useState(formData.petsAllowed || 'no');
-  const [smokingAllowed, setSmokingAllowed] = useState(formData.smokingAllowed || 'no');
-  const [wheelchairAccessible, setWheelchairAccessible] = useState(formData.wheelchairAccessible || 'no');
+  const [electricityCost, setElectricityCost] = useState(formData.electricityCost || 'included_in_rent');
+  const [electricityAmount, setElectricityAmount] = useState(formData.electricityAmount || '');
 
-  const petsOptions = [
-    { value: 'yes', label: 'Ja' },
-    { value: 'no', label: 'Nej' },
+  const electricityOptions = [
+    { value: 'included_in_rent', label: 'El ingår i hyran' },
+    { value: 'not_included_in_rent', label: 'El ingår inte i hyran' },
+    { value: 'tenant_managed', label: 'Hyresgästen upprättar eget elavtal' },
+    { value: 'fixed_fee', label: 'Elkostnad tillkommer utöver hyran' },
   ];
 
-  const smokingOptions = [
-    { value: 'yes', label: 'Ja' },
-    { value: 'no', label: 'Nej' },
-  ];
-
-  const wheelchairOptions = [
-    { value: 'yes', label: 'Ja' },
-    { value: 'no', label: 'Nej' },
-  ];
-
-  const occupantOptions = [
-    { value: '', label: '-' },
-    ...Array.from({ length: 30 }, (_, i) => ({
-      value: String(i + 1),
-      label: i === 29 ? '30 +' : String(i + 1)
-    }))
-  ];
-
-  const handleMaxOccupantsChange = (value) => {
-    setMaxOccupants(value);
-    updateFormData({ maxOccupants: value });
+  const handleElectricityCostChange = (value) => {
+    setElectricityCost(value);
+    updateFormData({ electricityCost: value });
+    
+    // Clear amount if not fixed fee
+    if (value !== 'fixed_fee') {
+      setElectricityAmount('');
+      updateFormData({ electricityAmount: '' });
+    }
   };
 
-  const handlePetsAllowedChange = (value) => {
-    setPetsAllowed(value);
-    updateFormData({ petsAllowed: value });
-  };
-
-  const handleSmokingAllowedChange = (value) => {
-    setSmokingAllowed(value);
-    updateFormData({ smokingAllowed: value });
-  };
-
-  const handleWheelchairAccessibleChange = (value) => {
-    setWheelchairAccessible(value);
-    updateFormData({ wheelchairAccessible: value });
+  const handleElectricityAmountChange = (e) => {
+    const value = e.target.value;
+    setElectricityAmount(value);
+    updateFormData({ electricityAmount: value });
   };
 
   return (
@@ -61,67 +40,46 @@ const CreateListingStep16 = ({ onNext, onPrev, formData, updateFormData }) => {
         <div className="p-8 space-y-8">
           <div className="space-y-4">
             <Typography variant="title-lg" className="text-gray-900">
-              Regler och tillgänglighet
-            </Typography>
-            <Typography variant="body-md" className="text-gray-600">
-              Ange regler och tillgänglighet för ditt boende
+              Övriga kostnader
             </Typography>
           </div>
 
           <div className="space-y-8">
-            {/* Max Occupants */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Hur många kan bo här?
-              </label>
-              <Select
-                value={maxOccupants}
-                onChange={handleMaxOccupantsChange}
-                options={occupantOptions}
-              />
-            </div>
-
-            {/* Pets Allowed */}
+            {/* Electricity Cost */}
             <div>
               <Typography variant="body-md" className="text-gray-700 mb-4">
-                Husdjur tillåtet
+                Elkostnad
               </Typography>
               <RadioGroup
                 label=""
-                options={petsOptions}
+                options={electricityOptions}
                 variant="card"
-                value={petsAllowed}
-                onValueChange={handlePetsAllowedChange}
+                value={electricityCost}
+                onValueChange={handleElectricityCostChange}
               />
             </div>
 
-            {/* Smoking Allowed */}
-            <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
-                Rökning tillåten
-              </Typography>
-              <RadioGroup
-                label=""
-                options={smokingOptions}
-                variant="card"
-                value={smokingAllowed}
-                onValueChange={handleSmokingAllowedChange}
-              />
-            </div>
-
-            {/* Wheelchair Accessible */}
-            <div>
-              <Typography variant="body-md" className="text-gray-700 mb-4">
-                Tillgänglig med rullstol
-              </Typography>
-              <RadioGroup
-                label=""
-                options={wheelchairOptions}
-                variant="card"
-                value={wheelchairAccessible}
-                onValueChange={handleWheelchairAccessibleChange}
-              />
-            </div>
+            {/* Electricity Amount - Only show if fixed fee is selected */}
+            {electricityCost === 'fixed_fee' && (
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Elkostnad
+                </label>
+                <div className="relative">
+                  <Input
+                    type="number"
+                    min="0"
+                    placeholder="Ange elkostnad"
+                    value={electricityAmount}
+                    onChange={handleElectricityAmountChange}
+                    className="pr-12"
+                  />
+                  <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                    <span className="text-gray-500 text-sm">kr</span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

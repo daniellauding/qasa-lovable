@@ -3,109 +3,120 @@ import PropTypes from 'prop-types';
 import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import SectionFooter from '../../../../components/ui/SectionFooter';
-import Input from '../../../../components/ui/Input';
-import Select from '../../../../components/ui/Select';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import DatePicker from '../../../../components/ui/DatePicker';
 
 const CreateListingStep8 = ({ onNext, onPrev, formData, updateFormData }) => {
-  const [size, setSize] = useState(formData.size || '');
-  const [rooms, setRooms] = useState(formData.rooms || '');
-  const [bedrooms, setBedrooms] = useState(formData.bedrooms || '');
+  const [moveInType, setMoveInType] = useState(formData.moveInType || 'asap');
+  const [moveInDate, setMoveInDate] = useState(formData.moveInDate || '');
+  const [moveOutType, setMoveOutType] = useState(formData.moveOutType || 'indefinite');
+  const [moveOutDate, setMoveOutDate] = useState(formData.moveOutDate || '');
+  const [isOnlyRental, setIsOnlyRental] = useState(formData.isOnlyRental || '');
 
-  const roomOptions = [
-    { value: '', label: '-' },
-    { value: '1', label: '1 rum' },
-    { value: '1.5', label: '1,5 rum' },
-    { value: '2', label: '2 rum' },
-    { value: '2.5', label: '2,5 rum' },
-    { value: '3', label: '3 rum' },
-    { value: '3.5', label: '3,5 rum' },
-    { value: '4', label: '4 rum' },
-    { value: '4.5', label: '4,5 rum' },
-    { value: '5', label: '5 rum' },
-    { value: '6', label: '6 rum' },
-    { value: '7', label: '7 rum' },
-    { value: '8', label: '8 rum' },
-    { value: '9', label: '9 rum' },
-    { value: '10', label: '10 rum' },
+  const moveInOptions = [
+    { value: 'asap', label: 'Snarast möjligt' }
   ];
 
-  const bedroomOptions = [
-    { value: '', label: '-' },
-    { value: '1', label: '1 sovrum' },
-    { value: '2', label: '2 sovrum' },
-    { value: '3', label: '3 sovrum' },
-    { value: '4', label: '4 sovrum' },
-    { value: '5', label: '5 sovrum' },
-    { value: '6', label: '6 sovrum' },
-    { value: '7', label: '7 sovrum' },
-    { value: '8', label: '8 sovrum' },
+  const moveOutOptions = [
+    { value: 'indefinite', label: 'Tillsvidare' }
   ];
 
-  const handleSizeChange = (e) => {
-    setSize(e.target.value);
-    updateFormData({ size: e.target.value });
+  const onlyRentalOptions = [
+    { value: 'yes', label: 'Ja, det är min enda uthyrning' },
+    { value: 'no', label: 'Nej, det är inte min enda uthyrning' },
+  ];
+
+  const handleMoveInTypeChange = (value) => {
+    setMoveInType(value);
+    if (value === 'date') {
+      setMoveInDate('');
+    }
+    updateFormData({ moveInType: value, moveInDate: value === 'asap' ? '' : moveInDate });
   };
 
-  const handleRoomsChange = (value) => {
-    setRooms(value);
-    updateFormData({ rooms: value });
+  const handleMoveOutTypeChange = (value) => {
+    setMoveOutType(value);
+    if (value === 'date') {
+      setMoveOutDate('');
+    }
+    updateFormData({ moveOutType: value, moveOutDate: value === 'indefinite' ? '' : moveOutDate });
   };
 
-  const handleBedroomsChange = (value) => {
-    setBedrooms(value);
-    updateFormData({ bedrooms: value });
+  const handleOnlyRentalChange = (value) => {
+    setIsOnlyRental(value);
+    updateFormData({ isOnlyRental: value });
+  };
+
+  const handleMoveInDateChange = (date) => {
+    setMoveInDate(date);
+    setMoveInType('date');
+    updateFormData({ moveInDate: date, moveInType: 'date' });
+  };
+
+  const handleMoveOutDateChange = (date) => {
+    setMoveOutDate(date);
+    setMoveOutType('date');
+    updateFormData({ moveOutDate: date, moveOutType: 'date' });
   };
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <div className="space-y-4">
-            <SectionHeader title="Hur stor är bostaden?" />
-          </div>
+          <SectionHeader title="När vill du hyra ut bostaden?" />
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div>
-              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-                Storlek
-              </label>
-              <div className="relative">
-                <Input
-                  type="number"
-                  step="1"
-                  value={size}
-                  onChange={handleSizeChange}
-                  className="pr-12"
+              <Typography variant="body-md" color="secondary" className="mb-4">
+                Inflytt
+              </Typography>
+              <div className="space-y-4">
+                <RadioGroup
+                  label=""
+                  options={moveInOptions}
+                  variant="card"
+                  value={moveInType === 'asap' ? 'asap' : ''}
+                  onValueChange={handleMoveInTypeChange}
                 />
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--color-text-secondary)]">
-                  m²
-                </div>
+                <DatePicker
+                  value={moveInDate}
+                  onChange={handleMoveInDateChange}
+                  placeholder="Välj datum"
+                />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-                Antal rum
-              </label>
-              <Select
-                value={rooms}
-                onValueChange={handleRoomsChange}
-                options={roomOptions}
-              />
+              <Typography variant="body-md" color="secondary" className="mb-4">
+                Utflytt
+              </Typography>
+              <div className="space-y-4">
+                <RadioGroup
+                  label=""
+                  options={moveOutOptions}
+                  variant="card"
+                  value={moveOutType === 'indefinite' ? 'indefinite' : ''}
+                  onValueChange={handleMoveOutTypeChange}
+                />
+                <DatePicker
+                  value={moveOutDate}
+                  onChange={handleMoveOutDateChange}
+                  placeholder="Välj datum"
+                />
+              </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-[var(--color-text-secondary)] mb-2">
-                Antal sovrum <span className="text-gray-400">(Valfritt)</span>
-              </label>
-              <Select
-                value={bedrooms}
-                onValueChange={handleBedroomsChange}
-                options={bedroomOptions}
-              />
-              <Typography variant="body-sm" color="secondary" className="mt-2">
-                Sovrum är inkluderade i totalt antal rum
+              <Typography variant="body-md" color="secondary" className="mb-4">
+                Är detta den enda bostad du hyr ut?
               </Typography>
+              <RadioGroup
+                label=""
+                options={onlyRentalOptions}
+                variant="card"
+                value={isOnlyRental}
+                onValueChange={handleOnlyRentalChange}
+              />
             </div>
           </div>
         </div>

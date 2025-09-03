@@ -4,63 +4,74 @@ import Typography from '../../../../components/ui/Typography';
 import SectionHeader from '../../../../components/ui/SectionHeader';
 import SectionFooter from '../../../../components/ui/SectionFooter';
 import RadioGroup from '../../../../components/ui/RadioGroup';
+import Select from '../../../../components/ui/Select';
+import HintBox from '../../../../components/ui/HintBox';
 
 const CreateListingStep6 = ({ onNext, onPrev, formData, updateFormData }) => {
-  const [rentalType, setRentalType] = useState(formData.rentalType || 'whole');
-  const [furnished, setFurnished] = useState(formData.furnished || '');
+  const [propertyType, setPropertyType] = useState(formData.propertyType || '');
+  const [ownership, setOwnership] = useState(formData.ownership || '');
 
-  const rentalTypeOptions = [
-    { value: 'whole', label: 'Hela bostaden' },
-    { value: 'room', label: 'Ett rum' },
+  const propertyTypeOptions = [
+    { value: 'apartment', label: 'Lägenhet' },
+    { value: 'house', label: 'Villa' },
+    { value: 'terrace', label: 'Radhus' },
+    { value: 'cottage', label: 'Stuga' },
+    { value: 'duplex', label: 'Parhus' },
+    { value: 'corridor', label: 'Korridorsrum' },
+    { value: 'loft', label: 'Loftgångshus' },
+    { value: 'other', label: 'Övrigt' },
   ];
 
-  const furnishedOptions = [
-    { value: 'furnished', label: 'Möblerat' },
-    { value: 'partially', label: 'Delvis möblerat' },
-    { value: 'unfurnished', label: 'Omöblerat' },
+  const ownershipOptions = [
+    { value: '', label: 'Ange bostadsform' },
+    { value: 'condominium', label: 'Bostadsrätt' },
+    { value: 'proprietary', label: 'Villa eller äganderätt' },
+    { value: 'tenancy', label: 'Hyresrätt' },
   ];
 
-  const handleRentalTypeChange = (value) => {
-    setRentalType(value);
-    updateFormData({ rentalType: value });
+  const handlePropertyTypeChange = (value) => {
+    setPropertyType(value);
+    updateFormData({ propertyType: value });
   };
 
-  const handleFurnishedChange = (value) => {
-    setFurnished(value);
-    updateFormData({ furnished: value });
+  const handleOwnershipChange = (value) => {
+    setOwnership(value);
+    updateFormData({ ownership: value });
   };
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
-          <SectionHeader title="Vad vill du hyra ut?" />
+          <SectionHeader title="Vilken typ av bostad är det?" />
 
           <div className="space-y-8">
-            <div>
-              <Typography variant="body-md" color="secondary" className="mb-4">
-                Hel bostad eller rum?
-              </Typography>
-              <RadioGroup
-                label=""
-                options={rentalTypeOptions}
-                variant="card"
-                value={rentalType}
-                onValueChange={handleRentalTypeChange}
-              />
-            </div>
+            <RadioGroup
+              label=""
+              options={propertyTypeOptions}
+              variant="card"
+              value={propertyType}
+              onValueChange={handlePropertyTypeChange}
+            />
+
+            {propertyType === 'other' && (
+              <HintBox>
+                Välj ''Övrigt'' om ingen av alternativen ovan matchar din typ av bostad
+              </HintBox>
+            )}
 
             <div>
-              <Typography variant="body-md" color="secondary" className="mb-4">
-                Hyr du ut möblerat?
-              </Typography>
-              <RadioGroup
-                label=""
-                options={furnishedOptions}
-                variant="card"
-                value={furnished}
-                onValueChange={handleFurnishedChange}
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Bostadsform
+              </label>
+              <Select
+                value={ownership}
+                onValueChange={handleOwnershipChange}
+                options={ownershipOptions}
               />
+              <HintBox className="mt-2">
+                Informationen kommer inte att visas i annonsen, men finns här så att vi kan hjälpa dig skriva ett korrekt hyresavtal när du är redo.
+              </HintBox>
             </div>
           </div>
         </div>

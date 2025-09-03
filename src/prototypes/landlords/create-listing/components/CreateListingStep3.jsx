@@ -1,195 +1,101 @@
-import React, { useState } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
-import Input from '../../../../components/ui/Input';
+import React, { useState } from 'react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import HintBox from '../../../../components/ui/HintBox';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
+// Create custom flat brown marker with no shadow
+const createCustomMarkerIcon = () => {
+  return L.divIcon({
+    className: 'custom-marker',
+    html: `
+      <div style="
+        width: 24px;
+        height: 24px;
+        background-color: #322721;
+        border: 2px solid white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        cursor: grab;
+      "></div>
+      <style>
+        .custom-marker {
+          background: none !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+      </style>
+    `,
+    iconSize: [24, 24],
+    iconAnchor: [12, 12],
+  });
+};
+
+// eslint-disable-next-line no-unused-vars
 const CreateListingStep3 = ({ onNext, onPrev, formData, updateFormData }) => {
   const { t } = useTranslation();
-  const [localFormData, setLocalFormData] = useState({
-    address: formData.address || 'Åsdammsvägen, 439 65 Stråvalla, Sverige',
-    street: formData.street || 'Åsdammsvägen',
-    streetNumber: formData.streetNumber || '',
-    postalCode: formData.postalCode || '439 65',
-    city: formData.city || 'Stråvalla',
-    municipality: formData.municipality || '',
-    apartmentNumber: formData.apartmentNumber || '',
-    floor: formData.floor || '',
-    buildingFloors: formData.buildingFloors || '',
-  });
-
-  const [errors, setErrors] = useState({
-    streetNumber: !formData.streetNumber ? 'Det här fältet är obligatoriskt' : '',
-  });
-
-  const handleInputChange = (field, value) => {
-    setLocalFormData(prev => ({ ...prev, [field]: value }));
-    updateFormData({ [field]: value });
-    
-    // Clear error when user starts typing
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }));
-    }
-  };
-
-  const handleNext = () => {
-    // Validate required fields
-    const newErrors = {};
-    if (!localFormData.streetNumber.trim()) {
-      newErrors.streetNumber = 'Det här fältet är obligatoriskt';
-    }
-    
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
-    
-    onNext();
-  };
-
-  const isNextDisabled = Object.values(errors).some(error => error !== '') || !localFormData.streetNumber.trim();
+  const [markerPosition, setMarkerPosition] = useState([59.3293, 18.0686]); // Default to Stockholm center
 
   return (
     <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+      <div className="w-full max-w-4xl bg-white rounded-lg shadow-sm">
         <div className="p-8 space-y-8">
           {/* Header */}
           <SectionHeader
-            title="Vilken adress har bostaden?"
-            description="Vi behöver din fullständiga adress för att kunna visa ditt hem på en karta. Endast gatunamnet syns i annonsen."
+            title={t('landlords.createListing.step3.title')}
+            description={t('landlords.createListing.step3.description')}
           />
 
-          {/* Address display (read-only) */}
-          <div className="space-y-4">
-            <HintBox
-              title="Sökta adressen"
-              description={localFormData.address}
-              className="!bg-[var(--color-background-inset,#f9f9f6)]"
-            />
-
-            {/* Separator */}
-            <div className="my-6"></div>
-
-            {/* Address Details Form */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Street */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Gata
-                </label>
-                <Input
-                  value={localFormData.street}
-                  onChange={(e) => handleInputChange('street', e.target.value)}
+          {/* Map Container */}
+          <div className="relative">
+            <div className="h-[800px] rounded-2xl overflow-hidden">
+              <MapContainer
+                center={markerPosition}
+                zoom={15}
+                className="w-full h-full"
+                zoomControl={true}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-              </div>
-
-              {/* Street Number */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Gatunummer
-                </label>
-                <Input
-                  value={localFormData.streetNumber}
-                  onChange={(e) => handleInputChange('streetNumber', e.target.value)}
-                  error={!!errors.streetNumber}
+                
+                {/* Draggable marker for property location */}
+                <Marker
+                  position={markerPosition}
+                  draggable={true}
+                  icon={createCustomMarkerIcon()}
+                  eventHandlers={{
+                    dragend: (e) => {
+                      const marker = e.target;
+                      const position = marker.getLatLng();
+                      setMarkerPosition([position.lat, position.lng]);
+                      updateFormData({ 
+                        latitude: position.lat, 
+                        longitude: position.lng 
+                      });
+                    }
+                  }}
                 />
-                {errors.streetNumber && (
-                  <Typography variant="body-sm" className="text-[var(--color-danger)] mt-1">
-                    {errors.streetNumber}
-                  </Typography>
-                )}
-              </div>
-
-              {/* Postal Code */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Postnummer
-                </label>
-                <Input
-                  value={localFormData.postalCode}
-                  onChange={(e) => handleInputChange('postalCode', e.target.value)}
-                />
-              </div>
-
-              {/* City */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Stad
-                </label>
-                <Input
-                  value={localFormData.city}
-                  onChange={(e) => handleInputChange('city', e.target.value)}
-                />
-              </div>
-
-              {/* Municipality */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Kommun <span className="text-gray-400">(Valfritt)</span>
-                </label>
-                <Input
-                  value={localFormData.municipality}
-                  onChange={(e) => handleInputChange('municipality', e.target.value)}
-                />
-              </div>
-
-              {/* Apartment Number */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Lägenhetsnummer <span className="text-gray-400">(Valfritt)</span>
-                </label>
-                <Input
-                  value={localFormData.apartmentNumber}
-                  onChange={(e) => handleInputChange('apartmentNumber', e.target.value)}
-                />
-              </div>
-
-              {/* Floor */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Våning <span className="text-gray-400">(Valfritt)</span>
-                </label>
-                <Input
-                  type="number"
-                  step="1"
-                  value={localFormData.floor}
-                  onChange={(e) => handleInputChange('floor', e.target.value)}
-                />
-              </div>
-
-              {/* Building Floors */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Våningar i byggnaden <span className="text-gray-400">(Valfritt)</span>
-                </label>
-                <Input
-                  type="number"
-                  step="1"
-                  value={localFormData.buildingFloors}
-                  onChange={(e) => handleInputChange('buildingFloors', e.target.value)}
-                />
-              </div>
+              </MapContainer>
             </div>
 
             {/* Info box */}
-            <HintBox className="mt-6">
-              <ul className="space-y-2">
-                <li>• Din fullständiga adress kommer inte att synas i annonsen.</li>
-                <li>• Du kommer inte kunna ändra adress när du har publicerat annonsen.</li>
-              </ul>
+            <HintBox className="mt-4">
+              Dra markören till rätt position för att visa var din bostad ligger. Du kan zooma och panorera kartan för att hitta rätt plats.
             </HintBox>
           </div>
         </div>
 
         <SectionFooter
-          onNext={handleNext}
+          onNext={onNext}
           onPrev={onPrev}
           nextText="Nästa"
           prevText="Tillbaka"
-          nextDisabled={isNextDisabled}
         />
       </div>
     </div>
