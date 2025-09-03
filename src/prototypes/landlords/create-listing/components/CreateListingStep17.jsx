@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
-import RadioGroup from '../../../../components/ui/RadioGroup';
-import DatePicker from '../../../../components/ui/DatePicker';
-import Select from '../../../../components/ui/Select';
-import HintBox from '../../../../components/ui/HintBox';
 import { Trash2, X } from 'lucide-react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import DatePicker from '../../../../components/ui/DatePicker';
+import HintBox from '../../../../components/ui/HintBox';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import Select from '../../../../components/ui/Select';
+import Typography from '../../../../components/ui/Typography';
 
 const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [showModal, setShowModal] = useState(false);
@@ -86,8 +85,8 @@ const CreateListingStep17 = ({ onNext, onPrev, formData, updateFormData }) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+    <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
+      <div className="w-full max-w-2xl bg-white rounded-lg">
         <div className="p-8 space-y-8">
           <div className="space-y-4">
             <Typography variant="title-lg" className="text-gray-900">

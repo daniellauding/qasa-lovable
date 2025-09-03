@@ -91,8 +91,8 @@ const CreateListingStep2 = ({ onNext, onPrev, formData, updateFormData }) => {
   };
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+    <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
+      <div className="w-full max-w-2xl bg-white rounded-lg">
         <div className="p-8 space-y-8">
           {/* Header */}
           <SectionHeader

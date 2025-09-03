@@ -1,11 +1,11 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
+import React from 'react';
 import SectionFooter from '../../../../components/ui/SectionFooter';
+import Typography from '../../../../components/ui/Typography';
 
 const CreateListingStep14 = ({ onNext, onPrev }) => {
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
+    <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
       <div className="w-full max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Image Section */}

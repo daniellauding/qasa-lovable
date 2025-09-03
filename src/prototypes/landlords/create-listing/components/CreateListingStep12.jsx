@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import Typography from '../../../../components/ui/Typography';
-import SectionHeader from '../../../../components/ui/SectionHeader';
-import SectionFooter from '../../../../components/ui/SectionFooter';
-import TextArea from '../../../../components/ui/TextArea';
+import React, { useState } from 'react';
 import HintBox from '../../../../components/ui/HintBox';
+import SectionFooter from '../../../../components/ui/SectionFooter';
+import SectionHeader from '../../../../components/ui/SectionHeader';
+import TextArea from '../../../../components/ui/TextArea';
+import Typography from '../../../../components/ui/Typography';
 
 const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
   const [description, setDescription] = useState(formData.description || '');
@@ -17,8 +17,8 @@ const CreateListingStep12 = ({ onNext, onPrev, formData, updateFormData }) => {
   const remainingChars = 3000 - description.length;
 
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-white flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-lg shadow-sm">
+    <div className="min-h-[calc(100vh-64px)] bg-white flex justify-center p-4">
+      <div className="w-full max-w-2xl bg-white rounded-lg">
         <div className="p-8 space-y-8">
           <SectionHeader title="Beskriv din bostad" description="Beskriv din bostad, området och det du vill förmedla i annonstexten. Du kan enkelt ändra din beskrivning senare." />
 
