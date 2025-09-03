@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import RadioGroup from '../../../../components/ui/RadioGroup';
 import { ArrowLeft } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Button from '../../../../components/ui/Button';
+import RadioGroup from '../../../../components/ui/RadioGroup';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep10 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -34,7 +34,7 @@ const CreateTenantListingStep10 = ({ onNext, onPrev, formData, updateFormData })
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step10.title', 'Hur bor du idag?')}
           </Typography>
@@ -61,7 +61,7 @@ const CreateTenantListingStep10 = ({ onNext, onPrev, formData, updateFormData })
           />
           
           <Button
-            variant="primary"
+            variant="secondary"
             size="lg"
             onClick={handleNext}
           >

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
 import { ArrowLeft } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Button from '../../../../components/ui/Button';
+import Input from '../../../../components/ui/Input';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep11 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -24,7 +24,7 @@ const CreateTenantListingStep11 = ({ onNext, onPrev, formData, updateFormData })
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step11.title', 'Var bor du?')}
           </Typography>
@@ -55,11 +55,11 @@ const CreateTenantListingStep11 = ({ onNext, onPrev, formData, updateFormData })
           />
           
           <Button
-            variant="primary"
+            variant="secondary"
             size="lg"
             onClick={handleNext}
           >
-            {t('common.next', 'Nästa')}
+            {t('common.skip', 'Hoppa över')}
           </Button>
         </div>
       </div>

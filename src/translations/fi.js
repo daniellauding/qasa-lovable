@@ -13,6 +13,7 @@ export const fi = {
     language: 'Kieli',
     clear: 'Tyhjennä',
     helpCenter: 'Tukikeskus',
+    skip: 'Ohita',
   },
 
   // Header

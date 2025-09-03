@@ -16,6 +16,7 @@ export const no = {
     language: 'Språk',
     clear: 'Tøm',
     helpCenter: 'Hjelpesenter',
+    skip: 'Hopp over',
   },
 
   // Landing Page

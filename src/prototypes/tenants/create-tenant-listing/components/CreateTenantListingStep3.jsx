@@ -31,11 +31,7 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
     { value: 'house', label: t('tenant.listing.step3.house', 'Hus') },
     { value: 'terrace_house', label: t('tenant.listing.step3.terraceHouse', 'Radhus') },
     { value: 'duplex', label: t('tenant.listing.step3.duplex', 'Parhus') },
-    { 
-      value: 'other', 
-      label: t('tenant.listing.step3.other', 'Övrigt'),
-      description: t('tenant.listing.step3.propertyTypesInfo', 'Övrigt kan vara andra typer av bostäder som inte visas här, exempelvis husbåt.')
-    },
+    { value: 'other', label: t('tenant.listing.step3.other', 'Övrigt') },
   ];
 
   const tenantTypeOptions = [
@@ -72,7 +68,7 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step3.title', 'Vad vill du hyra?')}
           </Typography>
@@ -120,6 +116,9 @@ const CreateTenantListingStep3 = ({ onNext, onPrev, formData, updateFormData }) 
               onValueChange={handlePropertyTypeChange}
               variant="card"
             />
+            <HintBox className="mt-3">
+              {t('tenant.listing.step3.propertyTypesInfo', 'Övrigt kan vara andra typer av bostäder som inte visas här, exempelvis husbåt.')}
+            </HintBox>
           </div>
 
           {/* Tenant Type */}

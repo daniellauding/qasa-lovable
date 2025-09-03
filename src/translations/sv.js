@@ -13,6 +13,7 @@ export const sv = {
     language: 'Språk',
     clear: 'Rensa',
     helpCenter: 'Hjälpcenter',
+    skip: 'Hoppa över',
   },
 
   // Header

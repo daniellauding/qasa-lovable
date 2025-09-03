@@ -13,6 +13,7 @@ export const en = {
     language: 'Language',
     clear: 'Clear',
     helpCenter: 'Help center',
+    skip: 'Skip',
   },
 
   // Header

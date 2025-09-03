@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import { ArrowLeft, Camera } from 'lucide-react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import Input from '../../../../components/ui/Input';
 import HintBox from '../../../../components/ui/HintBox';
-import { ArrowLeft } from 'lucide-react';
-import { Camera } from 'lucide-react';
+import Input from '../../../../components/ui/Input';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -32,7 +31,7 @@ const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) 
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step9.title', 'Vem är du?')}
           </Typography>
@@ -44,7 +43,7 @@ const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) 
             <label className="block text-sm font-medium text-gray-700 mb-4">
               {t('tenant.listing.step9.profilePictureLabel', 'Profilbild')}
             </label>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-start">
               <div className="relative inline-block">
                 <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                   {profileData.profilePicture ? (
@@ -63,7 +62,7 @@ const CreateTenantListingStep9 = ({ onNext, onPrev, formData, updateFormData }) 
                 </div>
                 <button
                   type="button"
-                  className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white rounded-full px-3 py-1 text-xs flex items-center gap-1 hover:bg-gray-800 transition-colors"
+                  className="w-[100px] absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white rounded-full px-3 py-1 text-xs flex items-center gap-1 hover:bg-gray-800 transition-colors"
                   aria-label={t('tenant.listing.step9.changeImage', 'Ändra bild')}
                 >
                   <Camera className="w-4 h-4" />

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../../../../components/ui/Button';
-import Typography from '../../../../components/ui/Typography';
-import TextArea from '../../../../components/ui/TextArea';
 import { ArrowLeft } from 'lucide-react';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import Button from '../../../../components/ui/Button';
+import TextArea from '../../../../components/ui/TextArea';
+import Typography from '../../../../components/ui/Typography';
 import { useTranslation } from '../../../../utils/translations/LanguageContext';
 
 const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData }) => {
@@ -27,7 +27,7 @@ const CreateTenantListingStep13 = ({ onNext, onPrev, formData, updateFormData })
     <div className="min-h-[calc(100vh-64px)] bg-white">
       <div className="max-w-2xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-left mb-8">
           <Typography variant="h1" className="text-gray-900 mb-4">
             {t('tenant.listing.step13.title', 'Var har du tidigare bott?')}
           </Typography>
